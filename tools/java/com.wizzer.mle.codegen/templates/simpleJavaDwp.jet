@@ -1,0 +1,23 @@
+<%@ jet package="com.wizzer.mle.codegen" imports="com.wizzer.mle.codegen.*" class="SimpleJavaDwpTemplate" %>
+<%IDwpConfiguration config = (IDwpConfiguration)argument;%>
+<%String projectName = (String)config.getPropertyValue(IDwpConfiguration.PROJECT_NAME);%>
+<%Boolean includeRehearsal = (Boolean)config.getPropertyValue(IDwpConfiguration.INCLUDE_REHEARSAL_PLAYER);%>
+#DWP 1.0 ascii
+( Include  $MLE_WORKPRINTS/parts/sets/java/workprints/MleJ2dSet.wpf )
+<%if ((includeRehearsal != null) && (includeRehearsal.booleanValue() == true)) {%>
+( Stage +rehearsal +inventor inventor MleIvStage
+   ( Set 2dSet Mle2dSet )
+)
+<%}%>
+( Stage +java2d MyStage Mle2dStage 
+  ( Set 2dSet Mle2dSet
+    ( Property position MlVector2 0 0 ) 
+    ( Property size MlVector2 640 480 ) 
+  ) 
+) 
+( Scene  scene1 MleScene
+  ( Package  com.wizzer.mle.runtime.core )
+  ( Group  group1 MleGroup
+    ( Package com.wizzer.mle.runtime.core )
+  )
+)

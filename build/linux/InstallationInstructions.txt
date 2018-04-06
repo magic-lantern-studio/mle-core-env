@@ -1,0 +1,21 @@
+This file contains instructions for installing Magic Lantern Java2D Studio:
+
+1. Download InstallBuilder <package>.
+2. chmod +x <package>
+3. ./<package>
+
+May have to install JDK 1.8 if isn't already installed.
+
+Execute the following commands to reference the new JDK environment:
+$ sudo mkdir /opt/java
+$ sudo tar zxvf jdk-7u79-linux-i586.tar.gz -C /opt/java
+$ sudo update-alternatives --install /usr/bin/java java /opt/java/jdk1.7.0_79/bin/java 0
+$ sudo update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.7.0_79/bin/javac 0
+$ sudo update-alternatives --config javac
+$ sudo update-alternatives --config java
+
+Update the environment by appending the following to "~/.bashrc":
+export JAVA_HOME=/opt/java/jdk1.7.0_79
+export PATH=$JAVA_HOME/bin:$PATH
+
+4. Follow instructions using dialog provided by InstallBuilder installation wizard.

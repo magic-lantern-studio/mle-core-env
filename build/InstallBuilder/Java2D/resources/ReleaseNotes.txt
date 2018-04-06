@@ -1,0 +1,76 @@
+Magic Lantern Java2D Studio 1.0 Release Notes
+Date: January 3, 2018
+
+
+This documentation provices information concerning the Beta release of the Magic Lantern Java2D Studio authoring tool.
+
+
+1.1 Introduction
+
+Magic Lantern is a interactive, title development platform for authoring highly interactive titles, such as interactive TV applications, games, educational programs, and point-of-information/sales kiosks. It is being created specifically for the real-world needs of professional title development teams as they break new ground in the development of real-time interactive titles.
+
+The Magic Lantern authoring system is being developed with an understanding of how the top professional development teams are currently creating titles. It is designed to streamline development and collaborative processes so that title developers can focus on enhancing content, performance and interactivity. The Magic Lantern development environment will run on Windows and UNIX workstations; for title playback, the Magic Lantern architecture facilitates efficient deployment of a title to one or more platforms, such as an interactive TV set-top box, a Pentium-based PC, or game console.
+
+This release targets applications being developed for the Java 2D platform. It is compliant with the Oracle Java SE Version 1.8.
+
+
+1.2 Open Source
+
+Magic Lantern is an Open Source project that can be found on SourceForge. The project can be found at http://sourceforge.net/projects/wz-mle/. Downloads can be obtained for the Windows platform.
+
+
+1.3 Platform Requirements
+
+Magic Lantern has the following system requirements:
+
+  * Microsoft Windows 7/8/10
+  * 2.4 GHz Intel Core Duo or higher is recommended
+  * 4GB RAM (8GB recommended)
+  * a video card with OpenGL 3D acceleration
+  * 300 MB Free hard disk space
+
+
+1.4 Installation Notes
+
+Magic Lantern is currently distributed as a complete Eclipse development environment, as opposed to separable Eclipse features and plugins. Unlike other Eclipse-based authoring solutions, the installation does not require the user to use the "Update Site" manager to import the required functionality. Please refer to the installation document, "Magic Lantern Java2D Installation", for instructions on installing Magic Lantern.
+
+
+1.5 Known Issues
+
+This section identifies known issues with Magic Lantern.
+
+  1. This early release has broken versioning and product tagging as reported in the Eclipse Help dialog.
+  2. The Rehearsal Player has not been included with this release.
+
+
+1.6 New Features
+
+Features provided in this release include
+
+  * New Magic Lantern Java2D Project Wizard
+  * Magic Lantern Java2D Project Import Wizard
+  * New Digital Workprint Wizard
+  * Digital Workprint Editor
+  * Title launching and testing
+  * Title Templates for Simple, Hello World, and Image Viewer applications
+  * Property configurations for Mastering Process tools
+  * Magic Lantern Perspective
+  * Online Help and Getting Started documentation
+  * Full Magic Lantern SDK API documentation
+
+
+2.0 Documentation
+
+Documentation for Magic Lantern Java2D Studio is available as Online Help in the Eclipse Help extension.
+
+
+3.0 Support Contact
+
+For more information concerning this release, please contact:
+
+Wizzer Works
+4144 Prairie Fire Circle
+Longmont, Colorado 80503
+p: 303-772-9008
+
+msm@wizzerworks.com

@@ -1,0 +1,309 @@
+Assumptions
+
+1) Version xxx of Active Perl is installed.
+2) Version xxx of Active TCL is installed.
+3) Microsoft Visual Studio C++ v6.0 is installed with Service Pack 6 applied.
+4) Version 2.4.4 of Coin 3D is built and installed. To build, use
+   Coin3D\Coin-2.4.4\build\msvc6\coin2.dsw
+5) Version 1.3.0 of SoWin is built and installed. To build, use
+   Coin3D\SoWin-1.3.0\build\msvc6\sowin1.dsw
+6) Cygwin with GNU make is installed.
+7) Make sure that M:\projects\MagicLantern\bin, M:\projects\MagicLantern\bin\rehearsal, and
+   M:\Coin3d\bin are part of the PATH environment variable.
+
+To build the Magic Lantern components using GNU make, do the following:
+
+1. cd build directory at the top of the Magic Lantern development environment
+2. make
+3. make install
+
+To clean the Magic Lantern development environment, use "make clean".
+
+To clobber all artifacts that are built in the Magic Lantern development environment, use
+"make clobber".
+
+To build the libraries and executables independently, do the following:
+
+
+I. Build the Core "util" library for tools.
+    1. cd Core/util/win32
+    2. make - This builds the util.lib (Release) and utild.lib (Debug) libraries
+    3. make install - This places them in the "lib\tools" directory.
+
+
+II. Build the Core "math" libraries.
+    1. cd Core\math\win32
+    2. make - This builds the following libraries:
+
+       mlmath.lib (Floating-point Release)
+       mlmathd.lib (Floating-point Debug)
+       mlfmath.lib (Fixed-point Release)
+       mlfmathd.lib (Fixed-point Debug)
+
+       Floating-point versions of the libraries are also built for the tools:
+
+       mlmath.lib (Tools Float Debug)
+       mlmathd.lib (Tools Float Release)
+
+       Floating-point versions of these libraries are also built for the Rehearsal Player:
+
+       mlmath.dll/mlmath.lib (Release)
+       mlmathd.dll/mlmathd.lib (Debug).
+
+    3. make install - The results are placed in the "lib/runtime/stdcall" directory.
+
+       The tools versions of these builds are placed in the "lib/tools" and "lib/runtime/cdecl" directories.
+
+       The Rehearsal Player builds are placed in the "bin/rehearsal" (DLL) and "lib/rehearsal" (lib) directories.
+
+III. Build the Digital Workprint SDK libraries.
+    1. cd DigitalWorkprint\lib\win32
+    2. make - This builds the following libraries:
+
+       DWPBase.lib   - The DWP Base library (Release)
+       DWPBased.lib  - The DWP Base library (Debug)
+       DWPType.lib   - The DWP Type library (Release)
+       DWPTyped.lib  - The DWP Type library (Debug)
+       DWPModel.lib  - The DWP Model library (Release)
+       DWPModeld.lib - The DWP Model library (Debug)
+       DWP.lib       - The entire DWP SDK (contains DWPBase.lib, DWPType.lib, DWPModel.lib Release)
+       DWPd.lib      - The entire DWP SDK (contains DWPBased.lib, DWPTyped.lib, DWPModeld.lib Debug)
+
+       Two DLL versions of DWP are built for use with the Rehearsal Player:
+
+       DWP.dll/DWP.lib (Release)
+       DWPd.dll/DWPd.lib (Debug)
+
+       This workspase will also build the DWpChecker.exe utility.
+
+    3. make install - These libraries are placed in the "lib/tools" directory.
+       
+       The DwpChecker.exe program is placed in the "bin" directory.
+
+       The Rehearsal Player builds are placed in the "bin/rehearsal" (DLL) and "lib/rehearsal" (lib) directories.
+
+IV. Build the Digital Playprint SDK libraries.
+    1. cd DigitalPlayprint\lib\win32
+    2. make - This builds the following libraries:
+
+       DPPBase.lib   - The DPP Base library (Release)
+       DPPBased.lib  - The DPP Base library (Debug)
+       DPPType.lib   - The DWP Type library (Release)
+       DPPTyped.lib  - The DPP Type library (Debug)
+       DPPModel.lib  - The DPP Model library (Release)
+       DPPModeld.lib - The DPP Model library (Debug)
+       DPP.lib       - The entire DPP SDK (contains DPPBase.lib, DPPType.lib, DPPModel.lib Release)
+       DPPd.lib      - The entire DPP SDK (contains DPPBased.lib, DPPTyped.lib, DPPModeld.lib Debug)
+
+    3. make install - These libraries are placed in the "libs/tools" directory.
+
+V. Build the Digital Playprint Runtime library for tools and titles.
+    1. cd DigitalPlayprint\runtime\win32
+    2. make - This builds the playprint.lib (Release) and playprintd.lib (Debug) libraries.
+    3. make install - These libraries are placed in the "libs/tools", "libs/runtime/stdcall" and
+       "libs/runtime/cdecl" directories.
+
+VI. Build the Mastering library and tools.
+    1. cd DigitalPlayprint\master\win32
+    2. make - This builds the following:
+
+       DPPGen.lib  - The DPP support mastering library (Release)
+       DPPGend.lib - The DPP support mastering library (Debug)
+
+       gentables.exe   - Generates the tables (source code) for the title.
+       gengroup.exe    - Generates the Group chunks for the DPP.
+       genscene.exe    - Generates the Scene chunks for the DPP.
+       genmedia.exe    - Generates the MediaRef chunks for the DPP.
+       genppscript.exe - Generates a TCL script for laying out the DPP.
+       gendpp.exe      - Generates a DPP using the TCL script.
+       dumpgroup.exe   - Dump the contents of a Group chunk.
+       dumpmedia.exe   - Dump the contents of a MediaRef chunk.
+       genmakefile.exe - Generates a Makefile for the title. Not used yet.
+
+    3. make install - These libraries are placed in the "libs/tools" directory.
+
+       These tools are placed in the "bin" directory.
+
+VII. Build the MLE Runtime Engine libraries.
+    1. cd Core\mlert\win32
+    2. make - This builds the Magic Lantern Runtime libraries for the Win32 platform.
+       The following libraries are built:
+
+       mlert.lib        - The runtime engine library. (Release)
+       mlertd.lib       - The runtime engine library. (Debug)
+
+    3. make install -   These libraries are placed in the "lib/runtime/stdcall" and
+       "lib/runtime/cdecl" directories.
+
+    4. cd Core\mlert\rehearsal
+    5. make - This builds the Magic Lantern Runtime libraries for the Rehearsal Player.
+       The following libraries are built:
+
+       mlert.lib        - The runtime engine export library for rehearsal. (Release)
+       mlert.dll        - The runtime engine DLL for rehearsal. (Release)
+       mlertd.lib       - The runtime engine export library for rehearsal. (Debug)
+       mlertd.dll       - The runtime engine DLL for rehearsal. (Debug)
+
+    6. make install - The rehearsal player version are placed in the "bin/rehearsal" (DLL) and
+       "lib/rehearsal" (lib) directories.
+
+VIII. Build the Magic Lantern Authoring Toolkit (ATK)
+    1. cd ATK\win32
+    2. make - This builds the Authoring Toolkit for the Inventor platform. The following libraries are built:
+
+       mleatk.lib  - Messaging and basic player support. (Release)
+       mleatkd.lib - Messaging and basic player support. (Debug)
+       mlewin.lib  - Magic Lantern hooks for SoWin Inventor GUI. (Release) - OBSOLETE
+       mlewind.lib - Magic Lantern hooks for SoWin Inventor GUI. (Debug)   - OBSOLETE
+
+    3. make install - These libraries are placed in the "lib/rehearsal" directory.
+
+IX. Build the Parts Properties distribution.
+    1. Open a shell that is compatible with the Wizzer Works development environment (bash).
+    2. cd Parts/props/win32
+    3. make install
+
+    This distributes the props header files to "include/mle" and the props workprint files to "include/workprints".
+
+NOTE: There are some dependency issues with building the Roles, Sets and Stages for the Rehearsal Player platform
+This affects steps X, XI and XIV below. Essentially, there is a circular dependency chain:
+
+    Mle2dRole[d].dll "depends on" Mle2dSet[d].lib
+    Mle2dSet[d].dll "depends on" MleIvStage[d].lib and Mle2dRole[d].lib
+    Mle3dSet[d].dll "depends on" MleIvStage[d].lib
+    MleIvStage[d].dll "depends on" Mle2dRole[d].lib and Mle2dSet[d].lib and Mle3dSet[d].lib
+
+To break this dependency chain, we need to generate the .lib files independently of when the .dll files are built.
+    1. Build the MleIvStage object files first. This will generate the .obj files but fail to create the
+       MleIvStage[d].dll and MleIvStage[d].lib files. See step XIV below for the Microsoft workspace location.
+    2. In a shell window, cd "$MLE_HOME\Parts\stages\rehearsal\src\Debug.
+    3. Run "lib.exe /out:MleIvStaged.lib /def *.obj". This will generate the MleIvStaged.lib file.
+       Copy the library to $MLE_HOME\lib\rehearsal.
+    4. cd "$MLE_HOME\Parts\stages\rehearsal\src\Release.
+    5. Run "lib.exe /out:MleIvStage.lib /def *.obj". This will generate the MleIvStage.lib file.
+       Copy the library to $MLE_HOME\lib\rehearsal.
+    6. Build the Mle2dRole object files. This will generate the .obj files but fail to create the
+       Mle2dRole[d].dll and Mle2dRole[d].lib files. See step X below for the Microsoft workspace location.
+    7. In a shell window, cd "$MLE_HOME\Parts\roles\win32\Mle2dRole\Debug.
+    8. Run "lib.exe /out:Mle2dRoled.lib /def *.obj". This will generate the Mle2dRoled.lib file.
+       Copy the library to $MLE_HOME\lib\rehearsal.
+    9. cd "$MLE_HOME\Parts\roles\win32\Mle2dRole\Release.
+    10. Run "lib.exe /out:Mle2dRole.lib /def *.obj". This will generate the Mle2dRole.lib file.
+        Copy the library to $MLE_HOME\lib\rehearsal.
+
+X. Build the Parts Roles.
+    1. cd Parts\roles\brender
+    2. make - This builds the Magic Lantern Roles for the BRENDER platform,
+       the brroles.lib (Release) and brrolesd.lib (Debug) libraries are built for the BRender platform.
+    3. make install - The results are placed in the "lib/brender" directory.
+
+    4. cd Parts\roles\win32
+    5. make - This builds the Magic Lantern Roles for the Rehearsal platform,
+
+       Mle2dRole.dll/Mle2dRole.lib - Role for 2-dimensional rendering (Release)
+       Mle2dRoled.dll/Mle2dRoled.lib - Role for 2-dimensional rendering (Debug)
+       Mle3dRole.dll/Mle3dRole.lib - Role for 3-dimensional rendering (Release)
+       Mle3dRoled.dll/Mle3dRoled.lib - Role for 3-dimensional rendering (Debug)
+
+    6. make install - This places the DLLs in the "bin/rehearsal" directory and the .libs in the "lib/rehearsal"
+       directory.
+
+    7. cd Parts\roles\inventor
+    8. make - The ivroles.lib (Release) and ivrolesd.lib (Debug) libraries are built for the Rehearsal platform.
+    9. make install - The results are placed in the "lib/rehearsal" directory.
+
+XI. Build the Parts Sets.
+    1. cd Parts\sets\brender
+    2. make - This builds the Magic Lantern Sets for the BRender platform,
+       the brsets.lib (Release) and brsetsd.lib (Debug) libraries are built.
+    3. make install - The results are placed in the "lib/brender" directory.
+
+    4. cd Parts\sets\win32
+    5. make - for the Rehearsal platform, the following libraries are built:
+
+       Mle2dSet.dll/Mle2dSet.lib - Set for 2-dimensional rendering (Release)
+       Mle2dSetd.dll/Mle2dSetd.lib - Set for 2-dimensional rendering (Debug)
+       Mle3dSet.dll/Mle3dSet.lib - Set for 3-dimensional rendering (Release)
+       Mle3dSetd.dll/Mle3dSetd.lib - Set for 3-dimensional rendering (Debug)
+
+    6. make install - the results are placed in the "bin/rehearsal" (DLL) and "lib/rehearsal" (lib) directories.
+
+XII. Build the Parts Actors.
+    1. cd Parts\actors\win32
+    2. make - This builds the actors.lib (Release) and actorsd.lib (Debug) libraries.
+    3. make install - The results are placed in the "lib/runtime/stdcall" and "lib/runtime/cdecl" directories.
+
+       The following DLL's are also built for the Rehearsal Player:
+
+       MleEscapeActor.dll/MleEscapeActor.lib - Escape Key Actor (Release)
+       MleEscapeActord.dll/MleEscapeActord.lib - Escape Key Actor (Debug)
+       Mle3dCameraActor.dll/Mle3dCameraActor.lib - 3D Camera Actor (Release)
+       Mle3dCameraActord.dll/Mle3dCameraActord.lib - 3D Camera Actor (Debug)
+
+       The Rehearsal Player libraries are placed in the "bin/rehearsal" (DLL) and "lib/rehearsal" (lib) directories.
+
+XIII. Build the Parts MediaRefs.
+    1. cd Parts\mediaref\brender
+    2. make - This builds the Magic Lantern Media References. The brmrefs.lib (Release) and brmrefsd.lib (Debug)
+       libraries are built for the BRender platform.
+    3. make install -The results are placed in the "lib/brender" directory.
+
+    4. cd Parts\mediaref\win32
+    5. make - The following DLL's are also built for the Rehearsal Player:
+
+       Mle3dColorMapMediaRef.dll/Mle3dColorMapMediaRef.lib - 3D Color Map MediaRef (Release)
+       Mle3dColorMapMediaRefd.dll/Mle3dColorMapMediaRefd.lib - 3D Color Map MediaRef (Debug)
+       Mle3dModelMediaRef.dll/Mle3dModelMediaRef.lib - 3D Model MediaRef (Release)
+       Mle3dModelMediaRefd.dll/Mle3dModelMediaRefd.lib - 3D Model MediaRef (Debug)
+       Mle3dTextureMapMediaRef.dll/Mle3dTextureMapMediaRef.lib - 3D Texture Map MediaRef (Release)
+       Mle3dTextureMapMediaRefd.dll/Mle3dTextureMapMediaRefd.lib - 3D Texture Map MediaRef (Debug)
+
+    6. make install -The Rehearsal Player libraries are placed in the "bin/rehearsal" (DLL) and
+       "lib/rehearsal" (lib) directories.
+
+XIV. Build the Parts Stages.
+    1. cd Parts\stages\brender
+    2. make - For the BRender platform, this builds the following libraries:
+
+       brstage.lib  - The stage library for the BRender platform. (Release)
+       brstaged.lib - The stage library for the BRender platform. (Debug)
+
+    3. make install - These libraries are placed in the "lib/brender" directory.
+
+    4. cd Parts\stages\win32
+    5. make - For a PC-based stage, this builds the followind libraries:
+
+       pcstage.lib  - A common stage library for the Win32 platform. (Release)
+       pcstaged.lib - A common stage library for the Win32 platform. (Debug)
+
+    6. make install - These libraries are placed in the "lib/runtime" directory.
+
+    7. cd Parts\stages\rehearsal
+    8. make - For the Inventor platform for the Rehearsal Player, the following libraries are built:
+
+       MleIvStage.dll/MleIvStage.lib  - The stage library for the Inventor platform. (Release)
+       MleIvStaged.dll/MleIvStaged.lib - The stage library for the Inventor platform. (Debug)
+
+    9. make install - These libraries are placed in the "lib/rehearsal" directory.
+
+XV. Build the Parts packages.
+    1. cd Parts\packages\win32
+    2. make - The behavior packages are built:
+
+       pkgs.lib   - A floating-point behavioral library (Release)
+       pkgsd.lib  - A floating-point behavioral library. (Debug)
+       fpkgs.lib  - A fixed-point behavioral library. (Release)
+       fpkgsd.lib - A fixed-point behavioral library. (Debug)
+
+    3. make install - These libraries are placed in the "lib/runtime/stdcall" and "lib/runtime/cdecl"
+       libraries.
+
+XVI. Build the MLE Rehearsal Player.
+    1. cd Players\rehearsal
+    2. make - The Rehearsal Player, player.exe, is built
+    3. make install - This executable is placed in the "bin/rehearsal" directory.
+
+XVII. Build the Java DWP support DLL.
+    1. cd Auteur\plugins\com.wizzer.auteur.mle.dwp\src\win32\JavaDwp
+    2. make - This builds the DwpReader.dll
+    3. make install - places it in Auteur\com.wizzer.auteur.mle.dwp\os\win32\x86 directory.

@@ -1,0 +1,182 @@
+# -*- Makefile -*-
+#
+#  Copyright (C) 2000-2007  Wizzer Works
+#
+#  Wizzer Works makes available all content in this file ("Content").
+#  Unless otherwise indicated below, the Content is provided to you
+#  under the terms and conditions of the Common Public License Version 1.0
+#  ("CPL"). A copy of the CPL is available at
+#
+#      http://opensource.org/licenses/cpl1.0.php
+#
+#  For purposes of the CPL, "Program" will mean the Content.
+#
+#  For information concerning this Makefile, contact Mark S. Millard,
+#  of Wizzer Works at msm@wizzerworks.com.
+#
+#*************************************************************************
+#
+# configurations - Common build configurations
+#
+# Makefiles define CONFIGURATION to be one of the configurations below.
+# This file is automatically included into Makefiles via commondefs.
+#
+# $Id: configurations,v 1.1.1.1 2003/03/28 08:30:10 msm Exp $
+#
+#*************************************************************************
+
+CF_GEN_DEBUG_INFO	=  -g
+CF_GEN_DEBUG_LDINFO	=  -g
+
+CF_DEBUG_POSTFIX	= d
+
+# Disable optimizations
+CF_DEBUG_OPTIMIZER	= -O0
+# Maximize for speed
+CF_RELEASE_OPTIMIZER	= -O2
+
+CF_DEBUG_DEFS		= -D"DEBUG" -D"_DEBUG"
+CF_RELEASE_DEFS		= -D"NDEBUG"
+
+CF_STD_LIBS	= \
+		  $(NULL)
+
+#
+# To override strict type checking, define LINUX_STRICT to
+# be empty.
+#
+LINUX_STRICT = -D"STRICT"
+
+#
+# GenericRelease, GenericDebug
+#
+# This is the most basic format. Use this only for builds that have
+# no Linux dependencies. Console apps should use ConsoleRelease/Debug
+# instead of this configuration.
+#
+ifeq ($(CONFIGURATION),GenericRelease)
+LIBC_STYLE	=
+LIBC_STYLE_DEFS =
+PCH_OPTS	=
+CONFIG_COPTS	= $(CF_RELEASE_OPTIMIZER)
+CONFIG_CDEFS	= $(CF_RELEASE_DEFS)
+CONFIG_LDOPTS	= 
+CONFIG_LDLIBS	=
+CONFIG_DIRT	=
+CONFIG_TDIRT	=
+endif
+
+ifeq ($(CONFIGURATION),GenericDebug)
+LIBC_STYLE	=
+LIBC_STYLE_DEFS =
+PCH_OPTS	=
+CONFIG_COPTS	= $(CF_DEBUG_OPTIMIZER)
+CONFIG_CDEFS	= $(CF_DEBUG_DEFS)
+CONFIG_LDOPTS	= $(CF_GEN_DEBUG_LDINFO)
+CONFIG_LDLIBS	=
+CONFIG_DIRT	=
+CONFIG_TDIRT	=
+endif
+
+#
+# ConsoleRelease, ConsoleDebug
+#
+# Typical configuration for a non-graphical application.
+#
+ifeq ($(CONFIGURATION),ConsoleRelease)
+LIBC_STYLE	= 
+LIBC_STYLE_DEFS = 
+PCH_OPTS	= 
+CONFIG_COPTS	= $(CF_RELEASE_OPTIMIZER)
+CONFIG_CDEFS	= $(CF_RELEASE_DEFS) $(LINUX_STRICT)
+CONFIG_LDOPTS	=
+CONFIG_LDLIBS	= $(CF_STD_LIBS)
+CONFIG_DIRT	=
+CONFIG_TDIRT	=
+endif
+
+ifeq ($(CONFIGURATION),ConsoleDebug)
+LIBC_STYLE	=
+LIBC_STYLE_DEFS =
+PCH_OPTS	=
+CONFIG_COPTS	= $(CF_DEBUG_OPTIMIZER) $(CF_GEN_DEBUG_INFO)
+CONFIG_CDEFS	= $(CF_DEBUG_DEFS) $(LINUX_STRICT)
+CONFIG_LDOPTS	= $(CF_GEN_DEBUG_LDINFO) 
+CONFIG_LDLIBS	= $(CF_STD_LIBS)
+CONFIG_DIRT	=
+CONFIG_TDIRT	=
+endif
+
+#
+# LibRelease, LibDebug
+#
+# Typical configuration for a static library built with AR.
+#
+ifeq ($(CONFIGURATION),LibRelease)
+LIBC_STYLE	=
+LIBC_STYLE_DEFS =
+PCH_OPTS	=
+CONFIG_COPTS	= $(CF_RELEASE_OPTIMIZER)
+CONFIG_CDEFS	= $(CF_RELEASE_DEFS) $(LINUX_STRICT)
+CONFIG_LDOPTS	=
+CONFIG_LDLIBS	=
+CONFIG_DIRT	=
+CONFIG_TDIRT	=
+endif
+
+ifeq ($(CONFIGURATION),LibDebug)
+LIBC_STYLE	=
+LIBC_STYLE_DEFS =
+PCH_OPTS	=
+CONFIG_COPTS	= $(CF_DEBUG_OPTIMIZER) $(CF_GEN_DEBUG_INFO)
+CONFIG_CDEFS	= $(CF_DEBUG_DEFS) $(LINUX_STRICT)
+CONFIG_LDOPTS	= $(CF_GEN_DEBUG_LDINFO)
+CONFIG_LDLIBS	=
+CONFIG_DIRT	=
+CONFIG_TDIRT	=
+endif
+
+#
+# DllRelease, DllDebug
+#
+# Typical configuration for non-graphical DLL.
+#
+ifeq ($(CONFIGURATION),DllRelease)
+LIBC_STYLE	=
+LIBC_STYLE_DEFS =
+PCH_OPTS	=
+CONFIG_COPTS	= $(CF_RELEASE_OPTIMIZER)
+CONFIG_CDEFS	= $(CF_RELEASE_DEFS) $(LINUX_STRICT)
+CONFIG_LDOPTS	= -shared
+CONFIG_LDLIBS	= $(CF_STD_LIBS)
+CONFIG_DIRT	=
+CONFIG_TDIRT	= $(foreach targ,$(TARGETS),lib$(basename $(targ)).a) \
+		  $(foreach targ,$(TARGETS),lib$(basename $(targ)).so)
+endif
+
+ifeq ($(CONFIGURATION),DllDebug)
+LIBC_STYLE	=
+LIBC_STYLE_DEFS =
+PCH_OPTS	=
+CONFIG_COPTS	= $(CF_DEBUG_OPTIMIZER) $(CF_GEN_DEBUG_INFO)
+CONFIG_CDEFS	= $(CF_DEBUG_DEFS) $(LINUX_STRICT)
+CONFIG_LDOPTS	=  $(CF_GEN_DEBUG_LDINFO) -shared
+CONFIG_LDLIBS	= $(CF_STD_LIBS)
+CONFIG_DIRT	=
+CONFIG_TDIRT	= $(foreach targ,$(TARGETS),lib$(basename $(targ)).a) \
+		  $(foreach targ,$(TARGETS),lib$(basename $(targ)).so)
+endif
+
+#
+#
+# Put configuration settings, if any, into mainstream build
+#
+ifdef CONFIG_COPTS
+GCCOMOPTS	+= $(LIBC_STYLE) $(CONFIG_COPTS)
+GCCOMDEFS	+= $(CONFIG_CDEFS)
+GRCDEFS		+= $(CONFIG_CDEFS)
+GLDOPTS		+= $(CONFIG_LDOPTS)
+GLDLIBS		+= $(CONFIG_LDLIBS)
+GDIRT		+= $(CONFIG_DIRT)
+GTDIRT		+= $(CONFIG_TDIRT)
+endif

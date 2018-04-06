@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="var" path="MLE_ROOT/lib/android-10/mlert.jar"/>
+	<classpathentry kind="var" path="MLE_ROOT/lib/android-10/parts.jar"/>
+	<classpathentry kind="var" path="MLE_ROOT/lib/android-10/actors.jar"/>
+	<classpathentry kind="var" path="MLE_ROOT/lib/android-10/roles.jar"/>
+	<classpathentry kind="var" path="MLE_ROOT/lib/android-10/props.jar"/>
+	<classpathentry kind="var" path="MLE_ROOT/lib/android-10/mrefs.jar"/>
+	<classpathentry kind="var" path="MLE_ROOT/lib/android-10/sets.jar"/>
+	<classpathentry kind="var" path="MLE_ROOT/lib/android-10/stages.jar"/>
+	<classpathentry kind="var" path="MLE_ROOT/lib/android-10/mlmath.jar"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

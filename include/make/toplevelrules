@@ -1,0 +1,73 @@
+# -*- Makefile -*-
+#
+#  Copyright (C) 2000-2007  Wizzer Works
+#
+#  Wizzer Works makes available all content in this file ("Content").
+#  Unless otherwise indicated below, the Content is provided to you
+#  under the terms and conditions of the Common Public License Version 1.0
+#  ("CPL"). A copy of the CPL is available at
+#
+#      http://opensource.org/licenses/cpl1.0.php
+#
+#  For purposes of the CPL, "Program" will mean the Content.
+#
+#  For information concerning this Makefile, contact Mark S. Millard,
+#  of Wizzer Works at msm@wizzerworks.com.
+#
+#*************************************************************************
+#
+# toplevelrules - Nice rules for the top level makefile
+#
+# This file is the front-end to the system dependent toplevelrules file.
+#
+#
+#*************************************************************************
+
+#
+# Set a defualt platform.
+#
+ifndef PLATFORM
+PLATFORM = linux
+endif
+
+#
+# Set a default development environment.
+#
+
+ifndef MLE_ROOT
+#
+# Windows Platform
+#
+ifeq (win32,${PLATFORM})
+MLE_ROOT = C:/Program Files/WizzerWorks/MagicLantern
+endif
+
+#
+# Linux Platform
+#
+ifeq (linux,${PLATFORM})
+MLE_ROOT = /usr/local/WizzerWorks/MagicLantern
+endif
+
+#
+# PowerTv Platform
+#
+ifeq (powertv,${PLATFORM})
+MLE_ROOT = C:/Program Files/WizzerWorks/MagicLantern
+endif
+endif
+
+#
+# Include platform specific toplevelrules
+#
+ifeq (win32,${PLATFORM})
+include $(MLE_ROOT)/include/make/win32/toplevelrules
+endif
+
+ifeq (linux,${PLATFORM})
+include $(MLE_ROOT)/include/make/linux/toplevelrules
+endif
+
+ifeq (powertv,${PLATFORM})
+include $(MLE_ROOT)/include/make/powertv/toplevelrules
+endif

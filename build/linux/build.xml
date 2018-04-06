@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+COPYRIGHT_BEGIN
+
+   Copyright (c) 2015-2018 Wizzer Works
+  
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
+  
+   The above copyright notice and this permission notice shall be included in
+   a;; copies or substantial portions of the Software.
+  
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
+  
+    For information concerning this header file, contact Mark S. Millard,
+    of Wizzer Works at msm@wizzerworks.com.
+  
+    More information concerning Wizzer Works may be found at
+  
+        http:  www.wizzerworks.com
+  
+COPYRIGHT_END
+-->
+
+<project name="MagicLantern" basedir="." default="install">
+    <!-- Add ant-contrib tasks. -->
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+
+    <!-- Enable environment variables. -->
+    <property environment="env"/>
+
+    <!-- Set MLE_HOME variable. -->
+    <property name="mle.home" value="${env.HOME}/Projects/wz-mle-code"/>
+    <if>
+        <isset property="env.MLE_HOME"/>
+        <then>
+            <property name="mle.home" value="${env.MLE_HOME}"/>
+        </then>
+    </if>
+
+
+    <!-- Set MLE_ROOT variable. -->
+    <property name="mle.root" value="/opt/MagicLantern"/>
+    <if>
+        <isset property="env.MLE_ROOT"/>
+        <then>
+            <property name="mle.root" value="${env.MLE_ROOT}"/>
+        </then>
+    </if>
+
+    <!-- Set MLE_WORKPRINTS variable. -->
+    <property name="mle.workprints" value="/opt/MagicLantern/include/workprints"/>
+    <if>
+        <isset property="env.MLE_WORKPRINTS"/>
+        <then>
+            <property name="mle.workprints" value="${env.MLE_WORKPRNTS}"/>
+        </then>
+    </if>
+
+    <!-- Print build environment. -->
+    <target name="printenv">
+        <echo message="MLE_HOME=${mle.home}"/>
+        <echo message="MLE_ROOT=${mle.root}"/>
+        <echo message="MLE_WORKPRINTS=${mle.workprints}"/>
+    </target>
+
+    <!-- Install Java libraries into MLE_ROOT -->
+    <target name="install">
+        <mkdir dir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/mlmath.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/mlert.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/actors.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/parts.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/props.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/mrefs.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/roles.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/sets.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/stages.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+
+        <mkdir dir="${mle.root}/lib/java/tools"/>
+        <copy file="${mle.home}/lib/java/tools/codegen.jar"
+              todir="${mle.root}/lib/java/tools"/>
+    </target>
+
+    <!-- Uninstall libraries from MLE_ROOT. -->
+    <target name="uninstall">
+        <delete dir="${mle.root}/lib/java/runtime"/>
+        <delete dir="${mle.root}/lib/java/tools"/>
+    </target>
+
+    <!-- Install Java libraries into MLE_ROOT -->
+    <target name="install-doc">
+        <mkdir dir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/mlmathdoc.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/mlertdoc.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/actorsdoc.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/partsdoc.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/propsdoc.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/mrefsdoc.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/rolesdoc.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/setsdoc.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/stagesdoc.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+    </target>
+
+</project>

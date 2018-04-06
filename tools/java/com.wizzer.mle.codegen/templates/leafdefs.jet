@@ -1,0 +1,110 @@
+<%@ jet package="com.wizzer.mle.codegen" imports="com.wizzer.mle.codegen.*" class="LeafdefsTemplate" %>
+<%IMasteringConfiguration config = (IMasteringConfiguration)argument;%>
+<%String projectName = (String)config.getPropertyValue(IMasteringConfiguration.PROJECT_NAME);%>
+<%String projectDestination = (String)config.getPropertyValue(IMasteringConfiguration.PROJECT_DESTINATION_DIRECTORY);%>
+<%String projectSource = (String)config.getPropertyValue(IMasteringConfiguration.PROJECT_SOURCE_DIRECTORY);%>
+<%Boolean isVerbose = (Boolean)config.getPropertyValue(IMasteringConfiguration.VERBOSE);%>
+<%Boolean isBigEndian = (Boolean)config.getPropertyValue(IMasteringConfiguration.ENDIAN_MODE);%>
+<%String tags = (String)config.getPropertyValue(IMasteringConfiguration.TAGS);%>
+<%String workprint = (String)config.getPropertyValue(IMasteringConfiguration.DWP);%>
+<%String playprint = (String)config.getPropertyValue(IMasteringConfiguration.DPP);%>
+<%String actorid = (String)config.getPropertyValue(IMasteringConfiguration.GENGROUP_ACTORID);%>
+<%String groupid = (String)config.getPropertyValue(IMasteringConfiguration.GENGROUP_GROUPID);%>
+<%Boolean isGroupFixedPoint = (Boolean)config.getPropertyValue(IMasteringConfiguration.GENGROUP_FIXED_POINT);%>
+<%String sceneid = (String)config.getPropertyValue(IMasteringConfiguration.GENSCENE_SCENEID);%>
+<%Boolean isSceneFixedPoint = (Boolean)config.getPropertyValue(IMasteringConfiguration.GENSCENE_FIXED_POINT);%>
+<%String bom = (String)config.getPropertyValue(IMasteringConfiguration.GENMEDIA_INVENTORY);%>
+<%String script = (String)config.getPropertyValue(IMasteringConfiguration.GENPPSCRIPT_SCRIPT);%>
+<%String toc = (String)config.getPropertyValue(IMasteringConfiguration.GENPPSCRIPT_TOC);%>
+<%Boolean useMasteringConfig = (Boolean)config.getPropertyValue(IMasteringConfiguration.USE_MASTERING_CONFIGURATION);%>
+##########################################################################
+# -*- Makefile -*-
+#
+#  Copyright (C) 2000-2017  Wizzer Works
+#
+#  Wizzer Works makes available all content in this file ("Content").
+#  Unless otherwise indicated below, the Content is provided to you
+#  under the terms and conditions of the Common Public License Version 1.0
+#  ("CPL"). A copy of the CPL is available at
+#
+#      http://opensource.org/licenses/cpl1.0.php
+#
+#  For purposes of the CPL, "Program" will mean the Content.
+#
+#  For information concerning this Makefile, contact Mark S. Millard,
+#  of Wizzer Works at msm@wizzerworks.com.
+#
+##########################################################################
+
+ISM_DEPTH = $(LEAF_DEPTH)/..
+include $(ISM_DEPTH)/ismdefs
+
+#
+# VPATH points to where the code actually is.
+#
+<%if (useMasteringConfig.booleanValue()) {%>
+VPATH = $(LEAF_DEPTH):$(LEAF_DEPTH)/<%=projectDestination%>
+<%} else {%>
+VPATH = $(LEAF_DEPTH)
+<%}%>
+
+TARGETS = <%=projectName%>.exe
+
+LCXXINCS = \
+	-I$(LEAF_DEPTH) \
+<%if (useMasteringConfig.booleanValue()) {%>
+	-I$(LEAF_DEPTH)/<%=projectDestination%> \
+<%}%>
+	-I$(MLE_ROOT)/include \
+	-I$(BRENDER_ROOT)/INC \
+	$(NULL)
+
+CXXFILES = \
+	main.cxx \
+	callback.cxx \
+	title.cxx \
+	texture.cxx \
+<%if (useMasteringConfig.booleanValue()) {%>
+	<%=toc%>.cxx \
+	mltables.cxx \
+<%}%>
+	$(NULL)
+
+RCFILES = \
+	app.rc \
+	$(NULL)
+
+#
+# To use manual precompilation uncomment these two macros
+# and specify the name for the precompiled header (PCH_MANUAL_TARGET)
+# and the basename of the .h and .cxx files where precompilation is
+# to take place.
+#
+#PCH_MANUAL_TARGET = <%=projectName%>.pch
+#PCH_MANUAL_BASENAME = <%=projectName%>
+
+all: $(TARGETS)
+
+#
+# Add $(RCOBJECTS) after each $(OBJECTS) if resource files (*.res) are
+# to be linked into the target.
+#
+$(TARGETS): $(OBJECTS) $(RCOBJECTS)
+	$(CC) -o $@ $(OBJECTS) $(RCOBJECTS) $(LDFLAGS)
+	$(BSCF) $(SBRFILES)
+
+#
+# 'collect' is the rule that tells where the installation package
+# should put stuff.  CUR_COLLECTLOG is the collection file in the
+# directory of the current version (e.g. debug or release).
+#
+# *NOTE: the "-srcDir ." flag is not necessary!  It is just here in
+#        the example for completeness
+#
+collect: all
+	$(IBCOLLECT) -log $(CUR_COLLECTLOG) -tags "CMD" \
+		-srcDir . \
+		-destDir bin \
+		$(TARGETS)
+
+include $(ISMRULES)

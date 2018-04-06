@@ -1,0 +1,66 @@
+# -*- Makefile -*-
+#
+#  Copyright (C) 2000-2007  Wizzer Works
+#
+#  Wizzer Works makes available all content in this file ("Content").
+#  Unless otherwise indicated below, the Content is provided to you
+#  under the terms and conditions of the Common Public License Version 1.0
+#  ("CPL"). A copy of the CPL is available at
+#
+#      http://opensource.org/licenses/cpl1.0.php
+#
+#  For purposes of the CPL, "Program" will mean the Content.
+#
+#  For information concerning this Makefile, contact Mark S. Millard,
+#  of Wizzer Works at msm@wizzerworks.com.
+#
+#*************************************************************************
+#
+# helprules - Rules for building PC help files
+#
+# Makefiles must include $(COMMONRULES) and $(HELPRULES) AFTER the
+# first target is defined.
+#
+#*************************************************************************
+
+#
+# add a helpful dependency for $(HELPPROJECT).  this file depends
+# on stuff in the makefile so we've got an unfortunate dependency
+# on the makefile itself.
+#
+$(HELPPROJECT): Makefile
+	-[ "$(HPJGEN)" ] && \
+	    $(HPJGEN) -compress $(HELPCOMPRESS) \
+		-errlog $(HELPERRLOG) \
+		-imagedirs $(HELPIMAGEDIRS) \
+		-map $(HELPMAP) \
+		-out $(HELPTARGET) \
+		-srcdir $(HELPSRCDIR) \
+		-title $(HELPTITLE) \
+		-baggage "$(HELPBAGGAGE)" \
+		-window "$(HELPWINDOWS)" \
+		$(HELPFILES) > $(HELPPROJECT)
+
+#
+# makefiles for building help should define the following:
+#
+# HELPTARGET = <file>.hlp		-- the help file to build
+# CONTENTSTARGET = <file>.cnt		-- the contents file
+# HELPFILES = <file>.rtf ...		-- the source RTF files
+#
+# makefiles may define the following if needed:
+#
+# HHFILES = <file>.h ...		-- the HH files
+# HELPTITLE = "Title for Help"		-- the help title (HCW: Options/General)
+# HELPSRCDIR = <dir>			-- the directory with the source files
+# HELPCOMPRESS = "<compression scheme>"	-- (HCW: Options/Compression)
+#	Choices: "none", "phrase", "Zeck", "phrase Zeck", "Hall", "Hall Zeck"
+#	Default: "Hall Zeck" (maximum)
+#
+
+$(HELPTARGET): $(HELPPROJECT)
+	$(HCF) $(HELPPROJECT)
+	[ ! -f $(HELPERRLOG) ] || $(MLE_TOOLROOT)/bin/cat $(HELPERRLOG)
+
+$(CONTENTSTARGET): $(HELPSRCDIR)/$(shell $(MLE_TOOLROOT)/bin/basename $(CONTENTSTARGET))
+	$(CP) -f $(HELPSRCDIR)/`$(MLE_TOOLROOT)/bin/basename $(CONTENTSTARGET)` $(CONTENTSTARGET)

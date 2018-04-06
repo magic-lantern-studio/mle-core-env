@@ -1,0 +1,142 @@
+# -*- Makefile -*-
+#
+#  Copyright (C) 2000-2007  Wizzer Works
+#
+#  Wizzer Works makes available all content in this file ("Content").
+#  Unless otherwise indicated below, the Content is provided to you
+#  under the terms and conditions of the Common Public License Version 1.0
+#  ("CPL"). A copy of the CPL is available at
+#
+#      http://opensource.org/licenses/cpl1.0.php
+#
+#  For purposes of the CPL, "Program" will mean the Content.
+#
+#  For information concerning this Makefile, contact Mark S. Millard,
+#  of Wizzer Works at msm@wizzerworks.com.
+#
+#*************************************************************************
+#
+# ismcommondefs - Common build definitions and macros for ISMs
+#                 (Note: includes commondefs!)
+#
+# This file contains definitions that should be common to all
+# Makefiles for a particular ISM.  This file automatically includes
+# 'commondefs' as well.  The ismcommondefs file adds definitions that
+# require an ISM-like structure to exist (e.g. ISM_DEPTH must be
+# defined for each Makefile).  Include ismcommondefs either in your
+# top level ismdefs file or individually in each Makefile.
+#
+# Note: to use this file, the following variables MUST be
+# defined before this file is (eventually) included:
+#
+#	PLATFORM
+#	MLE_ROOT
+#	ISM_DEPTH
+#	ISM_NAME
+#	ISM_VERSION
+#	ISM_TIMEBOMB_DATE
+#
+# The build uses GNU make and a Bourne-compatible shell. All pathnames and
+# directories should be specified in UNIX style using the '/' separator
+# (drive letters can also be used).
+#
+# To build software on Linux you must install Magic Lantern.
+# Assuming the toolroot is installed in the default location
+# /usr/local/WizzerWorks/MagicLantern, you must put
+# /usr/local/WizzerWorks/MagicLantern/InstallBuilder/bin in your PATH
+#
+# The standard pathname for this file is:
+#
+#	/usr/local/WizzerWorks/MagicLantern/include/make/linux/ismcommondefs
+#
+# If Magic Lantern has been installed in a location other than
+# /usr/local/WizzerWorks/MagicLantern, define the environment variable
+# MLE_ROOT with the new location.
+#
+# $Id: ismcommondefs,v 1.1.1.1 2003/03/28 08:30:10 msm Exp $
+#
+#*************************************************************************
+
+#
+# First, bring in commondefs
+#
+include $(MLE_ROOT)/include/make/commondefs
+
+#
+# Point to ismcommonrules
+# (MUST DO THIS AFTER the first target is defined)
+#
+ISMCOMMONRULES = $(MLE_ROOT)/include/make/ismcommonrules
+
+
+########################################
+#
+# Install Builder defs and commands
+#
+
+#
+# The install builder needs to know the top of the tree
+#
+IBBASEDIR = $(ISM_DEPTH)
+
+#
+#  Path to installBuilder tools
+#
+IBDIR = $(MLE_ROOT)/tools/installBuilder
+
+#
+#  Command for making install collections:
+#
+IBCOLLECT = perl -w $(IBDIR)/bin/ibCollect.pl -baseDir $(IBBASEDIR)
+
+#
+#  Command for verifying install collections:
+#
+IBVERIFYCOLLECT = perl -w $(IBDIR)/bin/ibVerifyCollection.pl
+
+#
+#  Command for building the installer
+#
+IBBUILD = perl -w $(IBDIR)/bin/ibBuild.pl -baseDir $(IBBASEDIR)
+
+#
+# Put definitions to support building RPM files here.
+#
+
+#
+#  Collection log files.  Note that ISM_BUILDDIR, COLLECTLOG, and
+#  MASTERCOLLECTLOG can be overridden.
+#
+ISM_BUILDDIR = $(ISM_DEPTH)/build
+SPECFILE = spec.dat
+COLLECTLOG = collect.raw
+MASTERCOLLECTLOG = collect.master
+CUR_COLLECTLOG = $(ISM_BUILDDIR)/$(CUR_VERSION)/$(COLLECTLOG)
+COMMON_COLLECTLOG = $(ISM_BUILDDIR)/$(COLLECTLOG)
+ALL_COLLECTLOGS = $(COMMON_COLLECTLOG) $(ISM_BUILDDIR)/*/$(COLLECTLOG)
+
+#
+# Add the ISM_VERSION to the mainstream build defs
+#
+ICDEFS = -D"ISM_VERSION"="\"$(ISM_VERSION)\"" \
+	 -D"ISM_ALPHANUM"="\"$(ISM_ALPHANUM)\""
+ICXXDEFS = -D"ISM_VERSION"="\"$(ISM_VERSION)\"" \
+	   -D"ISM_ALPHANUM"="\"$(ISM_ALPHANUM)\""
+
+#
+# Time bomb support macros
+#
+ifdef ISM_TIMEBOMB_DATE
+ICDEFS += -DISM_TIMEBOMB_DATE="\"$(ISM_TIMEBOMB_DATE)\""
+ICXXDEFS += -DISM_TIMEBOMB_DATE="\"$(ISM_TIMEBOMB_DATE)\""
+endif
+
+# Company name
+ifndef COMPANY_NAME
+COMPANY_NAME = "Wizzer Works"
+endif
+
+# Company ID (for Registry Key and other less verbose uses)
+ifndef COMPANY_ID
+COMPANY_ID = "WizzerWorksSoftware"
+endif

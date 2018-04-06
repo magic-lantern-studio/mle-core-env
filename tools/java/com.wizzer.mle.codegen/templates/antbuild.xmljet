@@ -1,0 +1,18 @@
+<%@ jet package="com.wizzer.mle.codegen" imports="com.wizzer.mle.codegen.*" class="AntBuildTemplate" %>
+<%IMasteringConfiguration config = (IMasteringConfiguration)argument;%>
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Magic Lantern Project: <%=config.getPropertyValue(IMasteringConfiguration.PROJECT_NAME)%>" default="compile">
+
+# Initialize the build environment.
+<target name="init">
+  <mkdir dir="<%=config.getPropertyValue(IMasteringConfiguration.PROJECT_DESTINATION_DIRECTORY)%>" />
+  <mkdir dir="<%=config.getPropertyValue(IMasteringConfiguration.PROJECT_BUILD_DIRECTORY)%>" />
+</target>
+
+# Compile the project.
+<target name="compile" depends="init">
+  <javac srcdir="<%=config.getPropertyValue(IMasteringConfiguration.PROJECT_SOURCE_DIRECTORY)%>"
+         destdir="<%=config.getPropertyValue(IMasteringConfiguration.PROJECT_DESTINATION_DIRECTORY)%>" />
+</target>
+
+</project>

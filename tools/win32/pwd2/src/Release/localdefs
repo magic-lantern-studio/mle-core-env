@@ -1,0 +1,35 @@
+# -*- Makefile -*-
+#
+# Copyright (C) 2000-2006  Wizzer Works
+#
+# localdefs - for setting definitions specfic to building the Magic
+# Lantern 'pwd2' utility.
+#
+# $Id$
+#
+#*************************************************************************
+
+TARGETS = pwd2.exe
+
+LCDEFS = \
+    $(NULL)
+
+LCXXDEFS = \
+    $(LCDEFS) \
+    $(NULL)
+
+LCOPTS = \
+    -Gm -Zi -O2 -ML \
+    -Fp"pwd2.pch" -YX \
+    $(NULL)
+
+LCXXOPTS = \
+    -Gm -Zi -O2 -MLd \
+    -Fp"pwd2.pch" -YX \
+    $(NULL)
+
+LLDOPTS = \
+    -nologo \
+    -machine:I386 \
+    -out:"pwd2.exe" \
+    $(NULL)
