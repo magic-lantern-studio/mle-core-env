@@ -13,23 +13,34 @@ clean: studio_clean titles_clean
 install: studio_install titles_install
 
 # Targets for Magic Lantern utility library.
-libmlutil: check_env
+
+$(MLE_HOME)/Core/util/linux/build/Makefile:
+	cd $(MLE_HOME)/Core/util/linux/build; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+
+libmlutil_stage: $(MLE_HOME)/Core/util/linux/build/Makefile
+
+libmlutil: check_env libmlutil_stage
 	cd $(MLE_HOME)/Core/util/linux/build; make;
 
-libmlutil_clean: check_env
+libmlutil_clean: check_env libmlutil_stage
 	cd $(MLE_HOME)/Core/util/linux/build; make clean;
 
-libmlutil_install: check_env
+libmlutil_install: check_env libmlutil_stage
 	cd $(MLE_HOME)/Core/util/linux/build; sudo MLE_ROOT=$(MLE_ROOT) make install;
 
 # Targets for Magic Lantern math library.
-libmlmath: check_env
+$(MLE_HOME)/Core/math/linux/libmlmath/Makefile:
+	cd $(MLE_HOME)/Core/math/linux/libmlmath; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+
+libmlmath_stage: $(MLE_HOME)/Core/math/linux/libmlmath/Makefile
+
+libmlmath: check_env libmlmath_stage
 	cd $(MLE_HOME)/Core/math/linux/libmlmath; make;
 
-libmlmath_clean: check_env
+libmlmath_clean: check_env libmlmath_stage
 	cd $(MLE_HOME)/Core/math/linux/libmlmath; make clean;
 
-libmlmath_install: check_env
+libmlmath_install: check_env libmlmath_stage
 	cd $(MLE_HOME)/Core/math/linux/libmlmath; sudo MLE_ROOT=$(MLE_ROOT) make install;
 
 libmlmath-test: check_env
