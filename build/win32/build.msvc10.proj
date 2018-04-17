@@ -798,13 +798,13 @@
 
   <!-- Build 32-bit version of Rehearsal Player SDK -->
   <Target Name="BuildRehearsal32"
-      DependsOnTargets="BuildATK32;BuildProperties32;_processStage32;_processRoles32;BuildRehearsalMediaRefs32;BuildRehearsalSets32;BuildRehearsalRoles32;BuildRehearsalActors32;BuildRehearsalStage32;BuildRehearsalPlayer32">
+      DependsOnTargets="BuildProperties32;_processStage32;_processRoles32;BuildRehearsalMediaRefs32;BuildRehearsalSets32;BuildRehearsalRoles32;BuildRehearsalActors32;BuildRehearsalStage32;BuildATK32;BuildRehearsalPlayer32">
     <Message Text="Building 32-bit version of Magic Lantern Rehearsal Player SDK."/>
   </Target>
 
   <!-- Build 64-bit version of Rehearsal Player SDK -->
   <Target Name="BuildRehearsal64"
-      DependsOnTargets="BuildATK64;BuildProperties64;_processStage64;_processRoles64;BuildRehearsalMediaRefs64;BuildRehearsalSets64;BuildRehearsalRoles64;BuildRehearsalActors64;BuildRehearsalStage64;BuildRehearsalPlayer64">
+      DependsOnTargets="BuildProperties64;_processStage64;_processRoles64;BuildRehearsalMediaRefs64;BuildRehearsalSets64;BuildRehearsalRoles64;BuildRehearsalActors64;BuildRehearsalStage64;BuildATK64;BuildRehearsalPlayer64">
     <Message Text="Building 64-bit version of Magic Lantern Rehearsal Player SDK."/>
   </Target>
 
