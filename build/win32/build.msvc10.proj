@@ -756,8 +756,6 @@
 
     <MSBuild Projects="$(MLE_ROOT)\Players\rehearsal\build\msvc10\MlePlayers.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalPlayerConfiguration.Identity);Platform=x64"/>
-    <MSBuild Projects="$(MLE_ROOT)\Players\win32\src\msvc10\RehearsalPlayer\RehearsalPlayer.sln"
-             Targets="$(Action)" Properties="Configuration=%(RehearsalPlayerConfiguration.Identity);Platform=x64"/>
   </Target>
 
   <Target Name="BuildBrenderPackages32">
