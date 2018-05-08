@@ -340,24 +340,24 @@
          full DLL due to circular dependencies. -->
 
     <CreateItem
-      Include="..\..\..\inventor\antirot.cxx;
-               ..\..\..\inventor\CubeDragger.cxx;
-               ..\..\..\inventor\CubeManip.cxx;
-               ..\..\..\inventor\ivstage.cxx;
+      Include="..\..\..\inventor\src\antirot.cxx;
+               ..\..\..\inventor\src\CubeDragger.cxx;
+               ..\..\..\inventor\src\CubeManip.cxx;
+               ..\..\..\inventor\src\ivstage.cxx;
                ..\..\..\rehearsal\src\MleIvStage.cxx;
-               ..\..\..\inventor\MultiSearchAction.cxx;
-               ..\..\..\inventor\Nudger.cxx;
-               ..\..\..\inventor\Snapper.cxx;
-               ..\..\..\inventor\Source.cxx;
-               ..\..\..\inventor\SpotMarker.cxx;
+               ..\..\..\inventor\src\MultiSearchAction.cxx;
+               ..\..\..\inventor\src\Nudger.cxx;
+               ..\..\..\inventor\src\Snapper.cxx;
+               ..\..\..\inventor\src\Source.cxx;
+               ..\..\..\inventor\src\SpotMarker.cxx;
                ..\..\..\rehearsal\src\StdAfx.cpp;
-               ..\..\..\inventor\Target.cxx">
+               ..\..\..\inventor\src\Target.cxx">
       <Output TaskParameter="Include" ItemName="InventorStageFiles" />
     </CreateItem>
 
     <Makedir Directories="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc10\Win32\Release"/>
     <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc10"
-          Command='cl.exe /O2 /Ob1 /I "." /I "..\..\..\inventor" /I "..\..\include" /I "$(MLE_ROOT)\Parts\roles\common\include" /I "$(MLE_ROOT)\Parts\roles\inventor\include" /I "$(MLE_ROOT)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "$(MLE_ROOT)\ATK\common\include" /I "$(MLE_ROOT)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DLL" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"Win32\Release/rehearsal.pch" /Fo"Win32\Release/" /W3 /nologo /c /TP /errorReport:prompt %(InventorStageFiles.Identity)'/>
+          Command='cl.exe /O2 /Ob1 /I "." /I "..\..\..\inventor\include" /I "..\..\include" /I "$(MLE_ROOT)\Parts\roles\common\include" /I "$(MLE_ROOT)\Parts\roles\inventor\include" /I "$(MLE_ROOT)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "$(MLE_ROOT)\ATK\common\include" /I "$(MLE_ROOT)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DLL" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"Win32\Release/rehearsal.pch" /Fo"Win32\Release/" /W3 /nologo /c /TP /errorReport:prompt %(InventorStageFiles.Identity)'/>
 
 
     <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc10\Win32\Release"
@@ -368,7 +368,7 @@
 
     <Makedir Directories="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc10\Win32\Debug"/>
     <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc10"
-          Command='cl.exe /Od /I "." /I "..\..\..\inventor" /I "..\..\include" /I "$(MLE_ROOT)\Parts\roles\common\include" /I "$(MLE_ROOT)\Parts\roles\inventor\include" /I "$(MLE_ROOT)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "$(MLE_ROOT)\ATK\common\include" /I "$(MLE_ROOT)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DLL" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"Win32\Debug/rehearsal.pch" /Fo"Win32\Debug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(InventorStageFiles.Identity)' />
+          Command='cl.exe /Od /I "." /I "..\..\..\inventor\include" /I "..\..\include" /I "$(MLE_ROOT)\Parts\roles\common\include" /I "$(MLE_ROOT)\Parts\roles\inventor\include" /I "$(MLE_ROOT)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "$(MLE_ROOT)\ATK\common\include" /I "$(MLE_ROOT)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DLL" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"Win32\Debug/rehearsal.pch" /Fo"Win32\Debug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(InventorStageFiles.Identity)' />
 
     <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc10\Win32\Debug"
           Command='lib.exe /out:MleIvStaged.lib /def *.obj'/>
@@ -391,24 +391,24 @@
          full DLL due to circular dependencies. -->
 
     <CreateItem
-      Include="..\..\..\inventor\antirot.cxx;
-               ..\..\..\inventor\CubeDragger.cxx;
-               ..\..\..\inventor\CubeManip.cxx;
-               ..\..\..\inventor\ivstage.cxx;
+      Include="..\..\..\inventor\src\antirot.cxx;
+               ..\..\..\inventor\src\CubeDragger.cxx;
+               ..\..\..\inventor\src\CubeManip.cxx;
+               ..\..\..\inventor\src\ivstage.cxx;
                ..\..\..\rehearsal\src\MleIvStage.cxx;
-               ..\..\..\inventor\MultiSearchAction.cxx;
-               ..\..\..\inventor\Nudger.cxx;
-               ..\..\..\inventor\Snapper.cxx;
-               ..\..\..\inventor\Source.cxx;
-               ..\..\..\inventor\SpotMarker.cxx;
+               ..\..\..\inventor\src\MultiSearchAction.cxx;
+               ..\..\..\inventor\src\Nudger.cxx;
+               ..\..\..\inventor\src\Snapper.cxx;
+               ..\..\..\inventor\src\Source.cxx;
+               ..\..\..\inventor\src\SpotMarker.cxx;
                ..\..\..\rehearsal\src\StdAfx.cpp;
-               ..\..\..\inventor\Target.cxx">
+               ..\..\..\inventor\src\Target.cxx">
       <Output TaskParameter="Include" ItemName="InventorStageFiles" />
     </CreateItem>
 
     <Makedir Directories="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc10\x64\Release"/>
     <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc10"
-          Command='cl.exe /O2 /Ob1 /I "." /I "..\..\..\inventor" /I "..\..\include" /I "$(MLE_ROOT)\Parts\roles\common\include" /I "$(MLE_ROOT)\Parts\roles\inventor\include" /I "$(MLE_ROOT)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "$(MLE_ROOT)\ATK\common\include" /I "$(MLE_ROOT)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DLL" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"x64\Release/rehearsal.pch" /Fo"x64\Release/" /W3 /nologo /c /TP /errorReport:prompt %(InventorStageFiles.Identity)'/>
+          Command='cl.exe /O2 /Ob1 /I "." /I "..\..\..\inventor\include" /I "..\..\include" /I "$(MLE_ROOT)\Parts\roles\common\include" /I "$(MLE_ROOT)\Parts\roles\inventor\include" /I "$(MLE_ROOT)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "$(MLE_ROOT)\ATK\common\include" /I "$(MLE_ROOT)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DLL" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"x64\Release/rehearsal.pch" /Fo"x64\Release/" /W3 /nologo /c /TP /errorReport:prompt %(InventorStageFiles.Identity)'/>
 
 
     <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc10\x64\Release"
@@ -419,7 +419,7 @@
 
     <Makedir Directories="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc10\x64\Debug"/>
     <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc10"
-          Command='cl.exe /Od /I "." /I "..\..\..\inventor" /I "..\..\include" /I "$(MLE_ROOT)\Parts\roles\common\include" /I "$(MLE_ROOT)\Parts\roles\inventor\include" /I "$(MLE_ROOT)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "$(MLE_ROOT)\ATK\common\include" /I "$(MLE_ROOT)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DLL" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"x64\Debug/rehearsal.pch" /Fo"x64\Debug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(InventorStageFiles.Identity)' />
+          Command='cl.exe /Od /I "." /I "..\..\..\inventor\include" /I "..\..\include" /I "$(MLE_ROOT)\Parts\roles\common\include" /I "$(MLE_ROOT)\Parts\roles\inventor\include" /I "$(MLE_ROOT)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "$(MLE_ROOT)\ATK\common\include" /I "$(MLE_ROOT)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DLL" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"x64\Debug/rehearsal.pch" /Fo"x64\Debug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(InventorStageFiles.Identity)' />
 
     <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc10\x64\Debug"
           Command='lib.exe /out:MleIvStaged.lib /def *.obj'/>
