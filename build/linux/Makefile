@@ -299,19 +299,25 @@ $(MLE_HOME)/Core/mlert/linux/rehearsal/Makefile:
 $(MLE_HOME)/Core/mlert/linux/runtime/Makefile:
 	cd $(MLE_HOME)/Core/mlert/linux/runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-libmlert_stage: $(MLE_HOME)/Core/mlert/linux/rehearsal/Makefile $(MLE_HOME)/Core/mlert/linux/runtime/Makefile
+$(MLE_HOME)/Core/mlert/linux/inventor/Makefile:
+	cd $(MLE_HOME)/Core/mlert/linux/inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+
+libmlert_stage: $(MLE_HOME)/Core/mlert/linux/rehearsal/Makefile $(MLE_HOME)/Core/mlert/linux/runtime/Makefile $(MLE_HOME)/Core/mlert/linux/inventor/Makefile
 
 libmlert: check_env libmlert_stage
-	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; make;
-	cd $(MLE_HOME)/Core/mlert/linux/runtime; make;
+	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; make clean; make;
+	cd $(MLE_HOME)/Core/mlert/linux/runtime; make clean; make;
+	cd $(MLE_HOME)/Core/mlert/linux/inventor; make clean; make;
 
 libmlert_clean: check_env libmlert_stage
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; make clean;
 	cd $(MLE_HOME)/Core/mlert/linux/runtime; make clean;
+	cd $(MLE_HOME)/Core/mlert/linux/inventor; make clean;
 
 libmlert_install: check_env libmlert_stage
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Core/mlert/linux/runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Core/mlert/linux/inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 
 $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest/Makefile:
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
