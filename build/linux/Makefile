@@ -495,6 +495,8 @@ sdk_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libplayprin
 sdk_install: libmlutil_install libmlmath_install libDWP_install libDPP_install libplayprint_install libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install dumpgroup_install dumpscene_install dumpmedia_install dumpdpp_install libmlert_install props_install roles_install mediarefs_install sets_install stages_install actors_install players_install qt_install
 
 # Targets for Magic Lantern SDK Titles
+
+# The simple Null title which does nothing.
 null: check_env qt
 	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; make;
 
@@ -503,6 +505,31 @@ null_clean: check_env qt_clean
 
 null_install: check_env qt_install
 	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+
+# The HelloCube title which displays a simple cube.
+helloCube: check_env qt
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; make;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; make;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; make;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; make;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; make;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; make;
+
+helloCube_clean: check_env qt_clean
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; make clean;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; make clean;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; make clean;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; make clean;
+#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; make clean;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
+
+helloCube_install: check_env qt_install
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 
 # Magic Lantern Titles
 titles: null
