@@ -1,0 +1,24 @@
+diff --git a/include/Inventor/SbBasic.h b/include/Inventor/SbBasic.h
+index d038bb1..80b8886 100644
+--- a/include/Inventor/SbBasic.h
++++ b/include/Inventor/SbBasic.h
+@@ -25,6 +25,7 @@
+ \**************************************************************************/
+ 
+ #include <Inventor/C/basic.h>
++#include <Inventor/C/errors/debugerror.h>
+ 
+ /* ********************************************************************** */
+ /* Trap people trying to use Inventor headers while compiling C source code.
+diff --git a/src/fonts/freetype.cpp b/src/fonts/freetype.cpp
+index 6f4bf27..9f2cbc5 100644
+--- a/src/fonts/freetype.cpp
++++ b/src/fonts/freetype.cpp
+@@ -40,6 +40,7 @@
+ 
+ #include <stdlib.h>
+ #include <assert.h>
++#include <cstdlib>
+ 
+ #include "glue/freetype.h"
+ #include "glue/GLUWrapper.h"
