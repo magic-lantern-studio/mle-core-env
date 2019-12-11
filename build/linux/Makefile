@@ -27,10 +27,12 @@ libmlutil_clean: check_env libmlutil_stage
 	cd $(MLE_HOME)/Core/util/linux/build; make clean;
 
 libmlutil_install: libmlutil
-	cd $(MLE_HOME)/Core/util/linux/build; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Core/util/linux/build; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Core/util/linux/build; MLE_ROOT=$(MLE_ROOT) make install;
 
 libmlutil_uninstall: check_env libmlutil_stage
-	cd $(MLE_HOME)/Core/util/linux/build; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Core/util/linux/build; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Core/util/linux/build; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern math library.
 $(MLE_HOME)/Core/math/linux/libmlmath/Makefile:
@@ -45,10 +47,12 @@ libmlmath_clean: check_env libmlmath_stage
 	cd $(MLE_HOME)/Core/math/linux/libmlmath; make clean;
 
 libmlmath_install: libmlmath
-	cd $(MLE_HOME)/Core/math/linux/libmlmath; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Core/math/linux/libmlmath; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Core/math/linux/libmlmath; MLE_ROOT=$(MLE_ROOT) make install;
 
 libmlmath_uninstall: check_env libmlmath_stage
-	cd $(MLE_HOME)/Core/math/linux/libmlmath; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Core/math/linux/libmlmath; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Core/math/linux/libmlmath; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 $(MLE_HOME)/Core/math/linux/libmlmathtest/Makefile:
 	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
@@ -62,10 +66,12 @@ libmlmath-test_clean: check_env libmlmath-test_stage
 	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; make clean;
 
 libmlmath-test_install: libmlmath-test
-	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; MLE_ROOT=$(MLE_ROOT) make install;
 
 libmlmath-test_uninstall: check_env libmlmath-test_stage
-	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern DigitalWorkprint library.
 $(MLE_HOME)/DigitalWorkprint/lib/linux/Makefile:
@@ -80,10 +86,12 @@ libDWP_clean: check_env libDWP_stage
 	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; make clean;
 
 libDWP_install: libDWP
-	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 libDWP_uninstall: check_env libDWP_stage
-	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern DigitalPlayprint library.
 $(MLE_HOME)/DigitalPlayprint/lib/linux/Makefile:
@@ -98,10 +106,12 @@ libDPP_clean: check_env libDPP_stage
 	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; make clean;
 
 libDPP_install: libDPP
-	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 libDPP_uninstall: check_env libDPP_stage
-	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern DigitalPlayprint Runtime Library.
 $(MLE_HOME)/DigitalPlayprint/runtime/linux/Makefile:
@@ -116,10 +126,12 @@ libplayprint_clean: check_env libplayprint_stage
 	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; make clean;
 
 libplayprint_install: libplayprint
-	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 libplayprint_uninstall: check_env libplayprint_stage
-	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 #
 # Targets for Magic Lantern mastering tools.
@@ -138,10 +150,12 @@ libDPPGen_clean: check_env libDPPGen_stage
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; make clean;
 
 libDPPGen_install: libDPPGen
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; MLE_ROOT=$(MLE_ROOT) make install;
 
 libDPPGen_uninstall: check_env libDPPGen_stage
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Build rules for gentables mastering tool.
 $(MLE_HOME)/DigitalPlayprint/master/linux/gentables/Makefile:
@@ -156,10 +170,12 @@ gentables_clean: check_env libDPPGen_clean gentables_stage
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; make clean;
 
 gentables_install: gentables
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; MLE_ROOT=$(MLE_ROOT) make install;
 
 gentables_uninstall: check_env gentables_stage
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Build rules for gengroup mastering tool.
 $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup/Makefile:
@@ -174,10 +190,12 @@ gengroup_clean: check_env libDPPGen_clean gengroup_stage
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; make clean;
 
 gengroup_install: gengroup
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; MLE_ROOT=$(MLE_ROOT) make install;
 
 gengroup_uninstall: check_env gengroup_stage
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Build rules for genscene mastering tool.
 $(MLE_HOME)/DigitalPlayprint/master/linux/genscene/Makefile:
@@ -192,10 +210,12 @@ genscene_clean: check_env libDPPGen_clean genscene_stage
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; make clean;
 
 genscene_install: genscene
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; MLE_ROOT=$(MLE_ROOT) make install;
 
 genscene_uninstall: check_env genscene_stage
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Build rules for genmedia mastering tool.
 $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia/Makefile:
@@ -210,10 +230,12 @@ genmedia_clean: check_env libDPPGen_clean genmedia_stage
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; make clean;
 
 genmedia_install: genmedia
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; MLE_ROOT=$(MLE_ROOT) make install;
 
 genmedia_uninstall: check_env genmedia_stage
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Build rules for genmakefile mastering tool.
 $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile/Makefile:
@@ -228,10 +250,12 @@ genmakefile_clean: check_env libDPPGen_clean genmakefile_stage
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; make clean;
 
 genmakefile_install: genmakefile
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; MLE_ROOT=$(MLE_ROOT) make install;
 
 genmakefile_uninstall: check_env genmakefile_stage
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Build rules for genppscript mastering tool.
 $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript/Makefile:
@@ -246,10 +270,12 @@ genppscript_clean: check_env libDPPGen_clean genppscript_stage
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; make clean;
 
 genppscript_install: genppscript
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; MLE_ROOT=$(MLE_ROOT) make install;
 
 genppscript_uninstall: check_env genppscript_stage
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Build rules for gendpp mastering tool.
 $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp/Makefile:
@@ -264,10 +290,12 @@ gendpp_clean: check_env libDPPGen_clean gendpp_stage
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; make clean;
 
 gendpp_install: gendpp
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; MLE_ROOT=$(MLE_ROOT) make install;
 
 gendpp_uninstall: check_env gendpp_stage
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Build rules for dumpgroup mastering tool.
 $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup/Makefile:
@@ -282,10 +310,12 @@ dumpgroup_clean: check_env libDPPGen_clean dumpgroup_stage
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; make clean;
 
 dumpgroup_install: dumpgroup
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; MLE_ROOT=$(MLE_ROOT) make install;
 
 dumpgroup_uninstall: check_env dumpgroup_stage
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Build rules for dumpscene mastering tool.
 $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene/Makefile:
@@ -300,10 +330,12 @@ dumpscene_clean: check_env libDPPGen_clean dumpscene_stage
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; make clean;
 
 dumpscene_install: dumpscene
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; MLE_ROOT=$(MLE_ROOT) make install;
 
 dumpscene_uninstall: check_env dumpscene_stage
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Build rules for dumpmedia mastering tool.
 $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia/Makefile:
@@ -318,10 +350,12 @@ dumpmedia_clean: check_env libDPPGen_clean dumpmedia_stage
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; make clean;
 
 dumpmedia_install: dumpmedia
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; MLE_ROOT=$(MLE_ROOT) make install;
 
 dumpmedia_uninstall: check_env dumpmedia_stage
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Build rules for dumpdpp mastering tool.
 $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp/Makefile:
@@ -336,10 +370,12 @@ dumpdpp_clean: check_env libDPPGen_clean dumpdpp_stage
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; make clean;
 
 dumpdpp_install: dumpdpp
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; MLE_ROOT=$(MLE_ROOT) make install;
 
 dumpdpp_uninstall: check_env dumpdpp_stage
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Build rules for all mastering components.
 master: libDPPGen gentables gengroup genscene genmedia genmakefile genppscript gendpp dumpgroup dumpscene dumpmedia dumpdpp
@@ -373,14 +409,20 @@ libmlert_clean: check_env libmlert_stage
 	cd $(MLE_HOME)/Core/mlert/linux/inventor; make clean;
 
 libmlert_install: libmlert
-	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Core/mlert/linux/runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Core/mlert/linux/inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Core/mlert/linux/runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Core/mlert/linux/inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Core/mlert/linux/runtime; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Core/mlert/linux/inventor; MLE_ROOT=$(MLE_ROOT) make install;
 
 libmlert_uninstall: check_env libmlert_stage
-	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Core/mlert/linux/runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Core/mlert/linux/inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Core/mlert/linux/runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Core/mlert/linux/inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Core/mlert/linux/runtime;  MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Core/mlert/linux/inventor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest/Makefile:
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
@@ -399,12 +441,16 @@ libmlert-test_clean: check_env libmlert-test_stage
 	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; make clean;
 
 libmlert-test_install: libmlert-test
-	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; MLE_ROOT=$(MLE_ROOT) make install;
 
 libmlert-test_uninstall: check_env libmlert-test_stage
-	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK Properties
 props: check_env
@@ -414,10 +460,12 @@ props_clean: check_env
 	cd $(MLE_HOME)/Parts/props/linux; make clean;
 
 props_install: check_env
-	cd $(MLE_HOME)/Parts/props/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/props/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/props/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 props_uninstall: check_env
-	cd $(MLE_HOME)/Parts/props/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/props/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/props/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK Roles
 $(MLE_HOME)/Parts/roles/inventor/build/linux/Makefile:
@@ -432,10 +480,12 @@ roles_clean: check_env roles_stage
 	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; make clean;
 
 roles_install: roles
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 roles_uninstall: check_env roles_stage
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK MediaRefs
 $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux/Makefile:
@@ -450,10 +500,12 @@ mediarefs_clean: check_env mediarefs_stage
 	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; make clean;
 
 mediarefs_install: mediarefs
-	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 mediarefs_uninstall: check_env mediarefs_stage
-	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK Sets
 $(MLE_HOME)/Parts/sets/inventor/linux/Makefile:
@@ -468,10 +520,12 @@ sets_clean: check_env sets_stage
 	cd $(MLE_HOME)/Parts/sets/inventor/linux; make clean;
 
 sets_install: sets
-	cd $(MLE_HOME)/Parts/sets/inventor/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/sets/inventor/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/sets/inventor/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 sets_uninstall: check_env sets_stage
-	cd $(MLE_HOME)/Parts/sets/inventor/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/sets/inventor/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/sets/inventor/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK Stages
 $(MLE_HOME)/Parts/stages/rehearsal/build/linux/Makefile:
@@ -486,10 +540,12 @@ stages_clean: check_env stages_stage
 	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; make clean;
 
 stages_install: stages
-	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 stages_uninstall: check_env stages_stage
-	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK Actors
 $(MLE_HOME)/Parts/actors/rehearsal/build/linux/Makefile:
@@ -504,10 +560,12 @@ actors_clean: check_env actors_stage
 	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; make clean;
 
 actors_install: actors
-	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 actors_uninstall: check_env actors_stage
-	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK Players
 $(MLE_HOME)/Players/rehearsal/build/linux/Makefile:
@@ -522,10 +580,12 @@ players_clean: check_env players_stage
 	cd $(MLE_HOME)/Players/rehearsal/build/linux; make clean;
 
 players_install: players
-	cd $(MLE_HOME)/Players/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Players/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Players/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 players_uninstall: check_env players_stage
-	cd $(MLE_HOME)/Players/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Players/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Players/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Stage.
 qtstage: check_env
@@ -535,10 +595,12 @@ qtstage_clean: check_env
 	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
 
 qtstage_install: check_env
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtstage_uninstall: check_env
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Set.
 qtset: check_env
@@ -548,10 +610,12 @@ qtset_clean: check_env
 	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
 
 qtset_install: check_env
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtset_uninstall: check_env
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Mediaref.
 qtmref: check_env
@@ -561,10 +625,12 @@ qtmref_clean: check_env
 	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
 
 qtmref_install: check_env
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtmref_uninstall: check_env
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Role.
 qtrole: check_env
@@ -574,10 +640,12 @@ qtrole_clean: check_env
 	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
 
 qtrole_install: check_env
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtrole_uninstall: check_env
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Qt Targets
 qt: qtstage qtset qtmref qtrole
@@ -608,10 +676,12 @@ null_clean: check_env qt_clean
 	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
 
 null_install: check_env qt_install
-	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 null_uninstall: check_env
-	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # The HelloCube title which displays a simple cube.
 helloCube: check_env qt
@@ -631,20 +701,32 @@ helloCube_clean: check_env qt_clean
 #	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
 
 helloCube_install: check_env qt_install
-	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 #	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 helloCube_uninstall: check_env
-	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # The mtea title which displays a moving teapot.
 $(MLE_HOME)/Titles/mtea/build/linux/Makefile:
@@ -659,10 +741,12 @@ mtea_clean: check_env mtea_stage
 	cd $(MLE_HOME)/Titles/mtea/build/linux; make clean;
 
 mtea_install: check_env mtea_stage
-	cd $(MLE_HOME)/Titles/mtea/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/mtea/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Titles/mtea/build/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 mtea_uninstall: check_env mtea_stage
-	cd $(MLE_HOME)/Titles/mtea/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/mtea/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Titles/mtea/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Magic Lantern Titles
 titles: null
@@ -686,10 +770,12 @@ libmleatk_clean: check_env libmleatk_stage
 	cd $(MLE_HOME)/ATK/linux/rehearsal; make clean;
 
 libmleatk_install: libmleatk
-	cd $(MLE_HOME)/ATK/linux/rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/ATK/linux/rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/ATK/linux/rehearsal; MLE_ROOT=$(MLE_ROOT) make install;
 
 libmleatk_uninstall: check_env libmleatk_stage
-	cd $(MLE_HOME)/ATK/linux/rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/ATK/linux/rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/ATK/linux/rehearsal; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern utility library.
 $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/Makefile:
@@ -704,12 +790,16 @@ libDwpReader_clean: check_env libDwpReader_stage
 	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader; make clean;
 
 libDwpReader_install: check_env libDwpReader_stage
-	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/libDwpReader; sudo -Eu $(USER) MLE_HOME=$(MLE_HOME) make install_plugin;
+#	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/libDwpReader; sudo -Eu $(USER) MLE_HOME=$(MLE_HOME) make install_plugin;
+	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/libDwpReader; MLE_HOME=$(MLE_HOME) make install_plugin;
 
 libDwpReader_uninstall: check_env libDwpReader_stage
-	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/libDwpReader; sudo -Eu $(USER) MLE_HOME=$(MLE_HOME) make uninstall_plugin;
+#	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/libDwpReader; sudo -Eu $(USER) MLE_HOME=$(MLE_HOME) make uninstall_plugin;
+	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/libDwpReader; MLE_HOME=$(MLE_HOME) make uninstall_plugin;
 
 # Magic Lantern Studio
 studio: sdk libmleatk libDwpReader
