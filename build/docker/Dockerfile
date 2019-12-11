@@ -40,6 +40,8 @@ RUN mkdir $BUILD_ROOT/Projects && \
 # Copy packages into BUILD_ROOT
 COPY linux/ActiveTcl8.6.4.1.299124-linux-x86_64-threaded.tgz $BUILD_ROOT/Downloads
 COPY linux/mle-patch-1.0.diff $BUILD_ROOT/Downloads
+COPY linux/makerules.tgz $BUILD_ROOT/Downloads
+COPY linux/FreeImage3180.tgz $BUILD_ROOT/Downloads
 
 # Install Google repo command
 #RUN curl https://storage.googleapis.com/git-repo-downloads/repo > $BUILD_ROOT/bin/repo && \
@@ -78,6 +80,13 @@ RUN cd $BUILD_ROOT/Projects && \
     ../coin3d-simage-code/configure --enable-html --enable-man && \
     make install
 
+# Install FreeImage
+RUN cd $BUILD_ROOT/Downloads && \
+    tar xzf FreeImage3180.tgz && \
+    cd FreeImage && \
+    make && \
+    make install
+
 # Define environment variables
 ENV MLE_HOME $BUILD_ROOT/Projects/MagicLanternStudio
 ENV MLE_ROOT /opt/MagicLantern
@@ -97,8 +106,13 @@ RUN cd $BUILD_ROOT/Projects/Github-MagicLantern && \
     git clone https://github.com/magic-lantern-studio/mle-studio.git && \
     git clone https://github.com/magic-lantern-studio/mle-titles.git && \
     ./mle-core-env/bin/scripts/stagemle.sh && \
+    mkdir /opt/MagicLantern/include && \
+    tar xzf $BUILD_ROOT/Downloads/makerules.tgz -C /opt/MagicLantern/include && \
     cd $MLE_HOME/build/linux && \
-    make libmlutil_install
+    make sdk_install
 
 # Update PATH
 ENV PATH $MLE_ROOT/bin:$TCL_HOME/bin:$PATH
+
+# Set LD_LIBRARY_PATH
+ENV LD_LIBRARY_PATH $MLE_ROOT/lib:$MLE_ROOT/lib/mle/rehearsal:/usr/local/lib
