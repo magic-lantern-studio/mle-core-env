@@ -589,63 +589,63 @@ players_uninstall: check_env players_stage
 
 # Targets for Magic Lantern Qt Stage.
 qtstage: check_env
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
 
 qtstage_clean: check_env
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
 
 qtstage_install: check_env
-#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtstage_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Set.
 qtset: check_env
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
 
 qtset_clean: check_env
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
 
 qtset_install: check_env
-#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtset_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Mediaref.
 qtmref: check_env
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
 
 qtmref_clean: check_env
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
 
 qtmref_install: check_env
-#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtmref_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Role.
 qtrole: check_env
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
 
 qtrole_clean: check_env
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
 
 qtrole_install: check_env
-#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtrole_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Qt Targets
 qt: qtstage qtset qtmref qtrole
@@ -670,18 +670,18 @@ sdk_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_u
 
 # The simple Null title which does nothing.
 null: check_env qt
-	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
 
 null_clean: check_env qt_clean
-	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
 
 null_install: check_env qt_install
-#	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 null_uninstall: check_env
-#	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # The HelloCube title which displays a simple cube.
 helloCube: check_env qt
@@ -690,7 +690,7 @@ helloCube: check_env qt
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; make;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; make;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; make;
-#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; make;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
 
 helloCube_clean: check_env qt_clean
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; make clean;
@@ -698,7 +698,7 @@ helloCube_clean: check_env qt_clean
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; make clean;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; make clean;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; make clean;
-#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; make clean;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
 
 helloCube_install: check_env qt_install
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
@@ -706,13 +706,13 @@ helloCube_install: check_env qt_install
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; MLE_ROOT=$(MLE_ROOT) make install;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; MLE_ROOT=$(MLE_ROOT) make install;
-#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 helloCube_uninstall: check_env
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
@@ -720,13 +720,13 @@ helloCube_uninstall: check_env
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; MLE_ROOT=$(MLE_ROOT) make uninstall;
-#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_8_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # The mtea title which displays a moving teapot.
 $(MLE_HOME)/Titles/mtea/build/linux/Makefile:
