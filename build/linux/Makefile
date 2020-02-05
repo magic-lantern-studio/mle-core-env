@@ -396,32 +396,61 @@ $(MLE_HOME)/Core/mlert/linux/runtime/Makefile:
 $(MLE_HOME)/Core/mlert/linux/inventor/Makefile:
 	cd $(MLE_HOME)/Core/mlert/linux/inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-libmlert_stage: $(MLE_HOME)/Core/mlert/linux/rehearsal/Makefile $(MLE_HOME)/Core/mlert/linux/runtime/Makefile $(MLE_HOME)/Core/mlert/linux/inventor/Makefile
+libmlert_rehearsal_stage: $(MLE_HOME)/Core/mlert/linux/rehearsal/Makefile
 
-libmlert: check_env libDWP_install libDPP_install libmlert_stage
-	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; make clean; make;
+libmlert_runtime_stage: $(MLE_HOME)/Core/mlert/linux/runtime/Makefile
+
+libmlert_inventor_stage: $(MLE_HOME)/Core/mlert/linux/inventor/Makefile
+
+#libmlert: libmlert_rehearsal libmlert_runtime libmlert_inventor
+
+libmlert_rehearsal: check_env libDWP_install libDPP_install libmlert_rehearsal_stage
+#	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; make clean; make;
+	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; make;
+
+libmlert_runtime: check_env libDWP_install libDPP_install libmlert_runtime_stage
 	cd $(MLE_HOME)/Core/mlert/linux/runtime; make clean; make;
+
+libmlert_inventor: check_env libDWP_install libDPP_install libmlert_inventor_stage
 	cd $(MLE_HOME)/Core/mlert/linux/inventor; make clean; make;
 
-libmlert_clean: check_env libmlert_stage
+libmlert_clean: libmlert_rehearsal_clean libmlert_runtime_clean libmlert_inventor_clean
+
+libmlert_rehearsal_clean: check_env libmlert_rehearsal_stage
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; make clean;
+
+libmlert_runtime_clean: check_env libmlert_runtime_stage
 	cd $(MLE_HOME)/Core/mlert/linux/runtime; make clean;
+
+libmlert_inventor_clean: check_env libmlert_inventor_stage
 	cd $(MLE_HOME)/Core/mlert/linux/inventor; make clean;
 
-libmlert_install: libmlert
+#libmlert_install: libmlert_rehearsal_install libmlert_runtime_install libmlert_inventor_install
+
+libmlert_rehearsal_install: libmlert_rehearsal
 #	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-#	cd $(MLE_HOME)/Core/mlert/linux/runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-#	cd $(MLE_HOME)/Core/mlert/linux/inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; MLE_ROOT=$(MLE_ROOT) make install;
+
+libmlert_runtime_install: libmlert_runtime
+#	cd $(MLE_HOME)/Core/mlert/linux/runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Core/mlert/linux/runtime; MLE_ROOT=$(MLE_ROOT) make install;
+
+libmlert_inventor_install: libmlert_inventor
+#	cd $(MLE_HOME)/Core/mlert/linux/inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Core/mlert/linux/inventor; MLE_ROOT=$(MLE_ROOT) make install;
 
-libmlert_uninstall: check_env libmlert_stage
+libmlert_uninstall: libmlert_rehearsal_uninstall libmlert_runtime_uninstall libmlert_inventor_uninstall
+
+libmlert_rehearsal_uninstall: check_env libmlert_rehearsal_stage
 #	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-#	cd $(MLE_HOME)/Core/mlert/linux/runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-#	cd $(MLE_HOME)/Core/mlert/linux/inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+libmlert_runtime_uninstall: check_env libmlert_runtime_stage
+#	cd $(MLE_HOME)/Core/mlert/linux/runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Core/mlert/linux/runtime;  MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+libmlert_inventor_uninstall: check_env libmlert_inventor_stage
+#	cd $(MLE_HOME)/Core/mlert/linux/inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Core/mlert/linux/inventor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest/Makefile:
@@ -468,104 +497,344 @@ props_uninstall: check_env
 	cd $(MLE_HOME)/Parts/props/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK Roles
-$(MLE_HOME)/Parts/roles/inventor/build/linux/Makefile:
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+$(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal/Makefile:
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-roles_stage: $(MLE_HOME)/Parts/roles/inventor/build/linux/Makefile
+$(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime/Makefile:
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-roles: check_env libmlert_install props_install roles_stage
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; make;
+$(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor/Makefile:
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-roles_clean: check_env roles_stage
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; make clean;
+roles_stage: roles_rehearsal_stage roles_runtime_stage roles_inventor_stage
 
-roles_install: roles
-#	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; MLE_ROOT=$(MLE_ROOT) make install;
+roles_rehearsal_stage: $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal/Makefile
 
-roles_uninstall: check_env roles_stage
-#	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
+roles_runtime_stage: $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime/Makefile
+
+roles_inventor_stage: $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor/Makefile
+
+roles: roles_rehearsal roles_runtime roles_inventor
+
+roles_rehearsal: check_env libmlert_rehearsal_install props_install roles_rehearsal_stage
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; make;
+
+roles_runtime: check_env libmlert_runtime_install props_install roles_runtime_stage
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; make;
+
+roles_inventor: check_env libmlert_inventor_install props_install roles_inventor_stage
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; make;
+
+roles_clean: roles_rehearsal_clean roles_runtime_clean roles_inventor_clean
+
+roles_rehearsal_clean: check_env roles_rehearsal_stage
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; make clean;
+
+roles_runtime_clean: check_env roles_runtime_stage
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; make clean;
+
+roles_inventor_clean: check_env roles_inventor_stage
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; make clean;
+
+roles_install: roles_rehearsal_install roles_runtime_install roles_inventor_install
+
+roles_rehearsal_install: roles_rehearsal
+#	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; MLE_ROOT=$(MLE_ROOT) make install;
+
+roles_runtime_install: roles_runtime
+#	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; MLE_ROOT=$(MLE_ROOT) make install;
+
+roles_inventor_install: roles_inventor
+#	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; MLE_ROOT=$(MLE_ROOT) make install;
+
+roles_uninstall: roles_rehearsal_uninstall roles_runtime_uninstall roles_inventor_uninstall
+
+roles_rehearsal_uninstall: check_env roles_rehearsal_stage
+#	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+roles_runtime_uninstall: check_env roles_runtime_stage
+#	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+roles_inventor_uninstall: check_env roles_inventor_stage
+#	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK MediaRefs
-$(MLE_HOME)/Parts/mediaref/rehearsal/build/linux/Makefile:
-	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+$(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal/Makefile:
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-mediarefs_stage: $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux/Makefile
+$(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime//Makefile:
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-mediarefs: check_env libmlert_install mediarefs_stage
-	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; make;
+$(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor/Makefile:
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-mediarefs_clean: check_env mediarefs_stage
-	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; make clean;
+mediarefs_stage: mediarefs_rehearsal_stage mediarefs_runtime_stage mediarefs_inventor_stage
 
-mediarefs_install: mediarefs
-#	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make install;
+mediarefs_rehearsal_stage: $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal/Makefile
 
-mediarefs_uninstall: check_env mediarefs_stage
-#	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/mediaref/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
+mediarefs_runtime_stage: $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime/Makefile
+
+mediarefs_inventor_stage: $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor/Makefile
+
+mediarefs: mediarefs_rehearsal mediarefs_runtime mediarefs_inventor
+
+mediarefs_rehearsal: check_env libmlert_rehearsal_install mediarefs_rehearsal_stage
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal; make;
+
+mediarefs_runtime: check_env libmlert_runtime_install mediarefs_runtime_stage
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime; make;
+
+mediarefs_inventor: check_env libmlert_inventor_install mediarefs_inventor_stage
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; make;
+
+mediarefs_clean: mediarefs_rehearsal_clean mediarefs_runtime_clean mediarefs_inventor_clean
+
+mediarefs_rehearsal_clean: check_env mediarefs_rehearsal_stage
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal; make clean;
+
+mediarefs_runtime_clean: check_env mediarefs_runtime_stage
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime; make clean;
+
+mediarefs_inventor_clean: check_env mediarefs_inventor_stage
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; make clean;
+
+mediarefs_install: mediarefs_rehearsal_install mediarefs_runtime_install mediarefs_inventor_install
+
+mediarefs_rehearsal_install: mediarefs_rehearsal
+#	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal; MLE_ROOT=$(MLE_ROOT) make install;
+
+mediarefs_runtime_install: mediarefs_runtime
+#	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime; MLE_ROOT=$(MLE_ROOT) make install;
+
+mediarefs_inventor_install: mediarefs_inventor
+#	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; MLE_ROOT=$(MLE_ROOT) make install;
+
+mediarefs_uninstall: mediarefs_rehearsal_uninstall mediarefs_runtime_uninstall mediarefs_inventor_uninstall
+
+mediarefs_rehearsal_uninstall: check_env mediarefs_rehearsal_stage
+#	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+mediarefs_runtime_uninstall: check_env mediarefs_runtime_stage
+#	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+mediarefs_inventor_uninstall: check_env mediarefs_inventor_stage
+#	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK Sets
-$(MLE_HOME)/Parts/sets/inventor/linux/Makefile:
-	cd $(MLE_HOME)/Parts/sets/inventor/linux; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+$(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal/Makefile:
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-sets_stage: $(MLE_HOME)/Parts/sets/inventor/linux/Makefile
+$(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime/Makefile:
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-sets: check_env libmlert_install sets_stage
-	cd $(MLE_HOME)/Parts/sets/inventor/linux; make;
+$(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor/Makefile:
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-sets_clean: check_env sets_stage
-	cd $(MLE_HOME)/Parts/sets/inventor/linux; make clean;
+sets_stage: sets_rehearsal_stage sets_runtime_stage sets_inventor_stage
 
-sets_install: sets
-#	cd $(MLE_HOME)/Parts/sets/inventor/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/sets/inventor/linux; MLE_ROOT=$(MLE_ROOT) make install;
+sets_rehearsal_stage: $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal/Makefile
 
-sets_uninstall: check_env sets_stage
-#	cd $(MLE_HOME)/Parts/sets/inventor/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/sets/inventor/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
+sets_runtime_stage: $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime/Makefile
+
+sets_inventor_stage: $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor/Makefile
+
+sets: sets_rehearsal sets_runtime sets_inventor
+
+sets_rehearsal: check_env libmlert_rehearsal_install sets_rehearsal_stage
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal; make;
+
+sets_runtime: check_env libmlert_runtime_install sets_runtime_stage
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; make;
+
+sets_inventor: check_env libmlert_inventor_install sets_inventor_stage
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor; make;
+
+sets_clean: sets_rehearsal_clean sets_runtime_clean sets_inventor_clean
+
+sets_rehearsal_clean: check_env sets_rehearsal_stage
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal; make clean;
+
+sets_runtime_clean: check_env sets_runtime_stage
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; make clean;
+
+sets_inventor_clean: check_env sets_inventor_stage
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; make clean;
+
+sets_install: sets_rehearsal_install sets_runtime_install sets_inventor_install
+
+sets_rehearsal_install: sets_rehearsal
+#	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal; MLE_ROOT=$(MLE_ROOT) make install;
+
+sets_runtime_install: sets_runtime
+#	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; MLE_ROOT=$(MLE_ROOT) make install;
+
+sets_inventor_install: sets_inventor
+#	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor; MLE_ROOT=$(MLE_ROOT) make install;
+
+sets_uninstall: sets_rehearsal_uninstall sets_runtime_uninstall sets_inventor_uninstall
+
+sets_rehearsal_uninstall: check_env sets_rehearsal_stage
+#	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+sets_runtime_uninstall: check_env sets_runtime_stage
+#	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+sets_inventor_uninstall: check_env sets_inventor_stage
+#	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK Stages
-$(MLE_HOME)/Parts/stages/rehearsal/build/linux/Makefile:
-	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+$(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal/Makefile:
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-stages_stage: $(MLE_HOME)/Parts/stages/rehearsal/build/linux/Makefile
+$(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime/Makefile:
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-stages: check_env libmlert_install roles_install mediarefs_install sets_install stages_stage
-	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; make;
+$(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor/Makefile:
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-stages_clean: check_env stages_stage
-	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; make clean;
+stages_stage: stages_rehearsal_stage stages_runtime_stage stages_inventor_stage
 
-stages_install: stages
-#	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make install;
+stages_rehearsal_stage: $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal/Makefile
 
-stages_uninstall: check_env stages_stage
-#	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/stages/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
+stages_runtime_stage: $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime/Makefile
+
+stages_inventor_stage: $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor/Makefile
+
+stages: stages_rehearsal stages_runtime stages_inventor
+
+stages_rehearsal: check_env libmlert_rehearsal_install roles_rehearsal_install mediarefs_rehearsal_install sets_rehearsal_install stages_rehearsal_stage
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal; make;
+
+stages_runtime: check_env libmlert_runtime_install roles_runtime_install mediarefs_runtime_install sets_runtime_install stages_runtime_stage
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime; make;
+
+stages_inventor: check_env libmlert_inventor_install roles_inventor_install mediarefs_inventor_install sets_inventor_install stages_inventor_stage
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; make;
+
+stages_clean: stages_rehearsal_clean stages_runtime_clean stages_inventor_clean
+
+stages_rehearsal_clean: check_env stages_rehearsal_stage
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal; make clean;
+
+stages_runtime_clean: check_env stages_runtime_stage
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime; make clean;
+
+stages_inventor_clean: check_env stages_inventor_stage
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; make clean;
+
+stages_install: stages_rehearsal_install stages_runtime_install stages_inventor_install
+
+stages_rehearsal_install: stages_rehearsal
+#	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal; MLE_ROOT=$(MLE_ROOT) make install;
+
+stages_runtime_install: stages_runtime
+#	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime; MLE_ROOT=$(MLE_ROOT) make install;
+
+stages_inventor_install: stages_inventor
+#	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; MLE_ROOT=$(MLE_ROOT) make install;
+
+stages_uninstall: stages_rehearsal_uninstall stages_runtime_uninstall stages_inventor_uninstall
+
+stages_rehearsal_uninstall: check_env stages_rehearsal_stage
+#	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+stages_runtime_uninstall: check_env stages_runtime_stage
+#	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+stages_inventor_uninstall: check_env stages_inventor_stage
+#	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK Actors
-$(MLE_HOME)/Parts/actors/rehearsal/build/linux/Makefile:
-	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+$(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal/Makefile:
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-actors_stage: $(MLE_HOME)/Parts/actors/rehearsal/build/linux/Makefile
+$(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime/Makefile:
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-actors: check_env actors_stage
-	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; make;
+$(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor/Makefile:
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
-actors_clean: check_env actors_stage
-	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; make clean;
+actors_stage: actors_rehearsal_stage actors_runtime_stage actors_inventor_stage
 
-actors_install: actors
-#	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make install;
+actors_rehearsal_stage: $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal/Makefile
 
-actors_uninstall: check_env actors_stage
-#	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/actors/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
+actors_runtime_stage: $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime/Makefile
+
+actors_inventor_stage: $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor/Makefile
+
+actors: actors_rehearsal actors_runtime actors_inventor
+
+actors_rehearsal: check_env actors_rehearsal_stage
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal; make;
+
+actors_runtime: check_env actors_runtime_stage
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime; make;
+
+actors_inventor: check_env actors_inventor_stage
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; make;
+
+actors_clean: actors_rehearsal_clean actors_runtime_clean actors_inventor_clean
+
+actors_rehearsal_clean: check_env actors_rehearsal_stage
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal; make clean;
+
+actors_runtime_clean: check_env actors_runtime_stage
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime; make clean;
+
+actors_inventor_clean: check_env actors_inventor_stage
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; make clean;
+
+actors_install: actors_rehearsal_install actors_runtime_install actors_inventor_install
+
+actors_rehearsal_install: actors_rehearsal
+#	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal; MLE_ROOT=$(MLE_ROOT) make install;
+
+actors_runtime_install: actors_runtime
+#	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime; MLE_ROOT=$(MLE_ROOT) make install;
+
+actors_inventor_install: actors_inventor
+#	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; MLE_ROOT=$(MLE_ROOT) make install;
+
+actors_uninstall: actors_rehearsal_uninstall actors_runtime_uninstall actors_inventor_uninstall
+
+actors_rehearsal_uninstall: check_env actors_rehearsal_stage
+#	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+actors_runtime_uninstall: check_env actors_runtime_stage
+#	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+actors_inventor_uninstall: check_env actors_inventor_stage
+#	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern SDK Players
 $(MLE_HOME)/Players/rehearsal/build/linux/Makefile:
@@ -573,7 +842,7 @@ $(MLE_HOME)/Players/rehearsal/build/linux/Makefile:
 
 players_stage: $(MLE_HOME)/Players/rehearsal/build/linux/Makefile
 
-players: check_env libmleatk_install stages_install players_stage
+players: check_env libmleatk_install stages_rehearsal_install players_stage
 	cd $(MLE_HOME)/Players/rehearsal/build/linux; make;
 
 players_clean: check_env players_stage
@@ -665,6 +934,30 @@ sdk_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libplayprin
 sdk_install: libmlutil_install libmlmath_install libDWP_install libDPP_install libplayprint_install libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install dumpgroup_install dumpscene_install dumpmedia_install dumpdpp_install libmlert_install props_install roles_install mediarefs_install sets_install stages_install actors_install players_install
 
 sdk_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_uninstall libplayprint_uninstall libDPPGen_uninstall gentables_uninstall gengroup_uninstall genscene_uninstall genmedia_uninstall genmakefile_uninstall genppscript_uninstall gendpp_uninstall dumpgroup_uninstall dumpscene_uninstall dumpmedia_uninstall dumpdpp_uninstall libmlert_uninstall props_uninstall roles_uninstall mediarefs_uninstall sets_uninstall stages_uninstall actors_uninstall players_uninstall
+
+sdk_rehearsal: libmlutil libmlmath libDWP libDPP libplayprint libDPPGen gentables gengroup genscene genmedia genmakefile genppscript gendpp dumpgroup dumpscene dumpmedia dumpdpp libmlert_rehearsal props roles_rehearsal mediarefs_rehearsal sets_rehearsal stages_rehearsal actors_rehearsal players
+
+sdk_rehearsal_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libplayprint_clean libDPPGen_clean gentables_clean gengroup_clean genscene_clean genmedia_clean genmakefile_clean genppscript_clean gendpp_clean dumpgroup_clean dumpscene_clean dumpmedia_clean dumpdpp_clean libmlert_rehearsal_clean props_clean roles_rehearsal_clean mediarefs_rehearsal_clean sets_rehearsal_clean stages_rehearsal_clean actors_rehearsal_clean players_clean
+
+sdk_rehearsal_install: libmlutil_install libmlmath_install libDWP_install libDPP_install libplayprint_install libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install dumpgroup_install dumpscene_install dumpmedia_install dumpdpp_install libmlert_rehearsal_install props_install roles_rehearsal_install mediarefs_rehearsal_install sets_rehearsal_install stages_rehearsal_install actors_rehearsal_install players_install
+
+sdk_rehearsal_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_uninstall libplayprint_uninstall libDPPGen_uninstall gentables_uninstall gengroup_uninstall genscene_uninstall genmedia_uninstall genmakefile_uninstall genppscript_uninstall gendpp_uninstall dumpgroup_uninstall dumpscene_uninstall dumpmedia_uninstall dumpdpp_uninstall libmlert_rehearsal_uninstall props_uninstall roles_rehearsal_uninstall mediarefs_rehearsal_uninstall sets_rehearsal_uninstall stages_rehearsal_uninstall actors_rehearsal_uninstall players_uninstall
+
+sdk_runtime: libmlutil libmlmath libDWP libDPP libplayprint libDPPGen gentables gengroup genscene genmedia genmakefile genppscript gendpp dumpgroup dumpscene dumpmedia dumpdpp libmlert_runtime props roles_runtime mediarefs_runtime sets_runtime stages_runtime actors_runtime
+
+sdk_runtime_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libplayprint_clean libDPPGen_clean gentables_clean gengroup_clean genscene_clean genmedia_clean genmakefile_clean genppscript_clean gendpp_clean dumpgroup_clean dumpscene_clean dumpmedia_clean dumpdpp_clean libmlert_runtime_clean props_clean roles_runtime_clean mediarefs_runtime_clean sets_runtime_clean stages_runtime_clean actors_runtime_clean
+
+sdk_runtime_install: libmlutil_install libmlmath_install libDWP_install libDPP_install libplayprint_install libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install dumpgroup_install dumpscene_install dumpmedia_install dumpdpp_install libmlert_runtime_install props_install roles_runtime_install mediarefs_runtime_install sets_runtime_install stages_runtime_install actors_runtime_install
+
+sdk_runtime_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_uninstall libplayprint_uninstall libDPPGen_uninstall gentables_uninstall gengroup_uninstall genscene_uninstall genmedia_uninstall genmakefile_uninstall genppscript_uninstall gendpp_uninstall dumpgroup_uninstall dumpscene_uninstall dumpmedia_uninstall dumpdpp_uninstall libmlert_runtime_uninstall props_uninstall roles_runtime_uninstall mediarefs_runtime_uninstall sets_runtime_uninstall stages_runtime_uninstall actors_runtime_uninstall
+
+sdk_inventor: libmlutil libmlmath libDWP libDPP libplayprint libDPPGen gentables gengroup genscene genmedia genmakefile genppscript gendpp dumpgroup dumpscene dumpmedia dumpdpp libmlert_inventor props roles_inventor mediarefs_inventor sets_inventor stages_inventor actors_inventor players
+
+sdk_inventor_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libplayprint_clean libDPPGen_clean gentables_clean gengroup_clean genscene_clean genmedia_clean genmakefile_clean genppscript_clean gendpp_clean dumpgroup_clean dumpscene_clean dumpmedia_clean dumpdpp_clean libmlert_inventor_clean props_clean roles_inventor_clean mediarefs_inventor_clean sets_inventor_clean stages_inventor_clean actors_inventor_clean players_clean
+
+sdk_inventor_install: libmlutil_install libmlmath_install libDWP_install libDPP_install libplayprint_install libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install dumpgroup_install dumpscene_install dumpmedia_install dumpdpp_install libmlert_inventor_install props_install roles_inventor_install mediarefs_inventor_install sets_inventor_install stages_inventor_install actors_inventor_install players_install
+
+sdk_inventor_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_uninstall libplayprint_uninstall libDPPGen_uninstall gentables_uninstall gengroup_uninstall genscene_uninstall genmedia_uninstall genmakefile_uninstall genppscript_uninstall gendpp_uninstall dumpgroup_uninstall dumpscene_uninstall dumpmedia_uninstall dumpdpp_uninstall libmlert_inventor_uninstall props_uninstall roles_inventor_uninstall mediarefs_inventor_uninstall sets_inventor_uninstall stages_inventor_uninstall actors_inventor_uninstall players_uninstall
 
 # Targets for Magic Lantern SDK Titles
 
@@ -806,9 +1099,36 @@ studio: sdk libmleatk libDwpReader
 
 studio_clean: sdk_clean libmleatk_clean libDwpReader_clean
 
-studio_install: sdk_install libmleatk_install libDwpReader_install
+#studio_install: sdk_install libmleatk_install libDwpReader_install
 
 studio_uninstall: sdk_uninstall libmleatk_uninstall libDwpReader_uninstall
+
+# Rehearsal components
+rehearsal: libmlert_rehearsal props roles_rehearsal mediarefs_rehearsal sets_rehearsal stages_rehearsal
+
+rehearsal_clean: libmlert_rehearsal_clean props_clean roles_rehearsal_clean mediarefs_rehearsal_clean sets_rehearsal_clean stages_rehearsal_clean
+
+rehearsal_install: libmlert_rehearsal_install props_install roles_rehearsal_install mediarefs_rehearsal_install sets_rehearsal_install stages_rehearsal_install
+
+rehearsal_uninstall: libmlert_rehearsal_uninstall props_uninstall roles_rehearsal_uninstall mediarefs_rehearsal_unisntall sets_rehearsal_uninstall stages_rehearsal_uninstall
+
+# Inventor DPP Runtime components
+runtime: libmlert_runtime props roles_runtime mediarefs_runtime sets_runtime stages_runtime
+
+runtime_clean: libmlert_runtime_clean props_clean roles_runtime_clean mediarefs_runtime_clean sets_runtime_clean stages_runtime_clean
+
+runtime_install: libmlert_runtime_install props_install roles_runtime_install mediarefs_runtime_install sets_runtime_install stages_runtime_install
+
+runtime_uninstall: libmlert_runtime_uninstall props_uninstall roles_runtime_uninstall mediarefs_runtime_unisntall sets_runtime_uninstall stages_runtime_uninstall
+
+# Inventor DWP Runtime components
+inventor: libmlert_inventor props roles_inventor mediarefs_inventor sets_inventor stages_inventor
+
+inventor_clean: libmlert_inventor_clean props_clean roles_inventor_clean mediarefs_inventor_clean sets_inventor_clean stages_inventor_clean
+
+inventor_install: libmlert_inventor_install props_install roles_inventor_install mediarefs_inventor_install sets_inventor_install stages_inventor_install
+
+inventor_uninstall: libmlert_inventor_uninstall props_uninstall roles_inventor_uninstall mediarefs_inventor_unisntall sets_inventor_uninstall stages_inventor_uninstall
 
 # Magic Lantern Studio Unit Tests
 unittests: studio libmlmath-test libmlert-test
