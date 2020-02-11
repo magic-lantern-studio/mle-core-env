@@ -402,17 +402,19 @@ libmlert_runtime_stage: $(MLE_HOME)/Core/mlert/linux/runtime/Makefile
 
 libmlert_inventor_stage: $(MLE_HOME)/Core/mlert/linux/inventor/Makefile
 
-#libmlert: libmlert_rehearsal libmlert_runtime libmlert_inventor
+libmlert: libmlert_rehearsal libmlert_runtime libmlert_inventor
 
 libmlert_rehearsal: check_env libDWP_install libDPP_install libmlert_rehearsal_stage
 #	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; make clean; make;
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; make;
 
 libmlert_runtime: check_env libDWP_install libDPP_install libmlert_runtime_stage
-	cd $(MLE_HOME)/Core/mlert/linux/runtime; make clean; make;
+#	cd $(MLE_HOME)/Core/mlert/linux/runtime; make clean; make;
+	cd $(MLE_HOME)/Core/mlert/linux/runtime; make;
 
 libmlert_inventor: check_env libDWP_install libDPP_install libmlert_inventor_stage
-	cd $(MLE_HOME)/Core/mlert/linux/inventor; make clean; make;
+#	cd $(MLE_HOME)/Core/mlert/linux/inventor; make clean; make;
+	cd $(MLE_HOME)/Core/mlert/linux/inventor; make;
 
 libmlert_clean: libmlert_rehearsal_clean libmlert_runtime_clean libmlert_inventor_clean
 
@@ -425,7 +427,7 @@ libmlert_runtime_clean: check_env libmlert_runtime_stage
 libmlert_inventor_clean: check_env libmlert_inventor_stage
 	cd $(MLE_HOME)/Core/mlert/linux/inventor; make clean;
 
-#libmlert_install: libmlert_rehearsal_install libmlert_runtime_install libmlert_inventor_install
+libmlert_install: libmlert_rehearsal_install libmlert_runtime_install libmlert_inventor_install
 
 libmlert_rehearsal_install: libmlert_rehearsal
 #	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
