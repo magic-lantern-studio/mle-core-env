@@ -1101,7 +1101,7 @@ studio: sdk libmleatk libDwpReader
 
 studio_clean: sdk_clean libmleatk_clean libDwpReader_clean
 
-#studio_install: sdk_install libmleatk_install libDwpReader_install
+studio_install: sdk_install libmleatk_install libDwpReader_install
 
 studio_uninstall: sdk_uninstall libmleatk_uninstall libDwpReader_uninstall
 
