@@ -85,6 +85,35 @@ helloCube_uninstall: check_env
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
+# The HelloCube title which displays a simple cube.
+helloCube_qt: check_env
+	cd $(MLE_HOME)/Titles/helloCube/qt/actors/CubeActor/build/build-CubeActor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Titles/helloCube/qt/roles/CubeRole/build/build-CubeRole-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Titles/helloCube/qt/sets/CubeSet/build/build-CubeSet-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Titles/helloCube/qt/stages/CubeStage/build/build-CubeStage-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+
+helloCube_qt_clean: check_env
+	cd $(MLE_HOME)/Titles/helloCube/qt/actors/CubeActor/build/build-CubeActor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Titles/helloCube/qt/roles/CubeRole/build/build-CubeRole-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Titles/helloCube/qt/sets/CubeSet/build/build-CubeSet-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Titles/helloCube/qt/stages/CubeStage/build/build-CubeStage-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+
+helloCube_qt_install: check_env
+	cd $(MLE_HOME)/Titles/helloCube/qt/actors/CubeActor/build/build-CubeActor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+	cd $(MLE_HOME)/Titles/helloCube/qt/roles/CubeRole/build/build-CubeRole-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+	cd $(MLE_HOME)/Titles/helloCube/qt/sets/CubeSet/build/build-CubeSet-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+	cd $(MLE_HOME)/Titles/helloCube/qt/stages/CubeStage/build/build-CubeStage-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+
+helloCube_qt_uninstall: check_env
+	cd $(MLE_HOME)/Titles/helloCube/qt/actors/CubeActor/build/build-CubeActor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Titles/helloCube/qt/roles/CubeRole/build/build-CubeRole-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Titles/helloCube/qt/sets/CubeSet/build/build-CubeSet-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Titles/helloCube/qt/stages/CubeStage/build/build-CubeStage-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+
 # The mtea title which displays a moving teapot.
 $(MLE_HOME)/Titles/mtea/build/linux/Makefile:
 	cd $(MLE_HOME)/Titles/mtea/build/linux; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
