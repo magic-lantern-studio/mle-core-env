@@ -44,6 +44,19 @@ install: qt_install titles_install
 
 uninstall: qt_uninstall titles_uninstall
 
+# Targets for Magic Lantern Qt Runtime Engine.
+libmlert_inventor: check_env
+	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_inventor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+
+libmlert_inventor_clean: check_env
+	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_inventor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+
+libmlert_inventor_install: check_env
+	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_inventor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+
+libmlert_inventor_uninstall: check_env
+	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_inventor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+
 # Targets for Magic Lantern Qt Stage.
 qtstage: check_env
 	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
