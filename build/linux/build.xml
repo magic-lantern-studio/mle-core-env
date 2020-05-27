@@ -131,4 +131,27 @@ COPYRIGHT_END
               todir="${mle.root}/lib/java/runtime"/>
     </target>
 
+        <!-- Install Java libraries into MLE_ROOT -->
+    <target name="install-sdk">
+        <mkdir dir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/mlmath.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/mlert.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/actors.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/parts.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/props.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/mrefs.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/roles.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/sets.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+        <copy file="${mle.home}/lib/java/runtime/stages.jar"
+              todir="${mle.root}/lib/java/runtime"/>
+    </target>
+
 </project>
