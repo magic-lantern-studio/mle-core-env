@@ -1,5 +1,5 @@
 Magic Lantern Java2D Studio 1.0 Release Notes
-Date: January 3, 2018
+Date: June 22, 2020
 
 
 This documentation provices information concerning the Alpha release of the Magic Lantern Java2D Studio authoring tool for Linux platforms.
@@ -16,14 +16,14 @@ This release targets applications being developed for the Java 2D platform. It i
 
 1.2 Open Source
 
-Magic Lantern is an Open Source project that can be found on SourceForge. The project can be found at http://sourceforge.net/projects/wz-mle/. Downloads can be obtained for the Windows platform.
+Magic Lantern is an Open Source project that can be found on Github. The project is comprised multiple repositories at https://github.com/magic-lantern-studio. Documentation can be found on the project wiki at https://github.com/magic-lantern-studio/mle-documentation/wiki.
 
 
 1.3 Platform Requirements
 
 Magic Lantern has the following system requirements:
 
-  * Ubuntu 16.04 LTS 64-bit OS
+  * Ubuntu 18.04 LTS 64-bit OS
   * 2.4 GHz Intel Core Duo or higher is recommended
   * 4GB RAM (8GB recommended)
   * a video card with OpenGL 3D acceleration
@@ -41,9 +41,9 @@ Magic Lantern is currently distributed as a complete Eclipse development environ
 
 1.4.2 Quck Installation Guide
 
-  1. Download the InstallBuilder installation package, "mlejava2dstudio-1.0.01032018-alpha-linux-x64-installer.run".
-  2. Add executable permissions to the package, "sudo chmod 755 mlejava2dstudio-1.0.01032018-alpha-linux-x64-installer.run".
-  3. Run the executable package as super user, "sudo mlejava2dstudio-1.0.01032018-alpha-linux-x64-installer.run".
+  1. Download the InstallBuilder installation package, "mlejava2dstudio-1.0.06222020-alpha-linux-x64-installer.run".
+  2. Add executable permissions to the package, "sudo chmod 755 mlejava2dstudio-1.0.06222020-alpha-linux-x64-installer.run".
+  3. Run the executable package as super user, "sudo mlejava2dstudio-1.0.06222020-alpha-linux-x64-installer.run".
   4. Follow the default instructions presented by the installer. You will be insalling Magic Lantern Java2D Studio in "/opt/MagicLanternJava2DStudio" and Active Tcl/Tk in "/opt/ActiveTcl-8.6".
   5. Run the ActiveTcl installer as super user, "sudo /opt/MagicLanternJava2DStudio/tools/3rdparty/ActiveTcl/ActiveTcl8.6.4.1.299124-linux-x86_64-threaded/install.sh".
   6. Follow the default instructions presented by the ActiveTcl installer.
@@ -103,6 +103,5 @@ For more information concerning this release, please contact:
 Wizzer Works
 4144 Prairie Fire Circle
 Longmont, Colorado 80503
-p: 303-772-9008
 
 msm@wizzerworks.com
