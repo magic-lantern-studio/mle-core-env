@@ -36,7 +36,7 @@ Magic Lantern is currently distributed as a complete Eclipse development environ
 
 1.4.1 Dependencies
 
-  1. Magic Lantern Java2D Studio is dependent upon version 1.8 of the Java JDK. You will need to install the JDK prior to installing Magic Lantern. Instructions for installing the JDK can be found at "https://sourceforge.net/p/wz-mle/mlewiki/SDK_Build_Environment_for_Linux_Platform" (see Section "Install Java SDK").
+  1. Magic Lantern Java2D Studio is dependent upon version 1.8 of the Java JDK. You will need to install the JDK prior to installing Magic Lantern. Instructions for installing the JDK can be found at "https://github.com/magic-lantern-studio/mle-documentation/wiki/Common-Build-Environment-for-Linux-Platform#install-java-sdk" (see Section "Install Java SDK").
   2. The mastering tools use ActiveTcl, version 8.6. The Magic Lantern Java2D Studio installer includes this product. Please see the documentation below for installation instructions.
 
 1.4.2 Quck Installation Guide
