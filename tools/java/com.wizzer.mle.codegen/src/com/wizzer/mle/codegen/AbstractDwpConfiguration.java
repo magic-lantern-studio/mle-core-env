@@ -50,7 +50,7 @@ import java.util.HashMap;
 public class AbstractDwpConfiguration implements IDwpConfiguration
 {
     /** The hash map of mastering configuration parameters. */
-    protected HashMap m_configuration = new HashMap();
+    protected HashMap<String,Object> m_configuration = new HashMap<String,Object>();
     
     /* (non-Javadoc)
      * @see com.wizzer.mle.studio.codegen.IMasteringConfiguration#getPropertyValue(java.lang.String)

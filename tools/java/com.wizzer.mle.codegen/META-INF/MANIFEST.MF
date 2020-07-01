@@ -15,4 +15,5 @@ Export-Package: com.wizzer.mle.codegen,
 Bundle-Activator: com.wizzer.mle.codegen.CodegenPlugin
 Bundle-ClassPath: codegen.jar
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: com.wizzer.mle.codegen
