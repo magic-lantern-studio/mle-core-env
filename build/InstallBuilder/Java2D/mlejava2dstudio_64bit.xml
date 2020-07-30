@@ -1,12 +1,12 @@
 <project>
     <shortName>mlejava2dstudio</shortName>
     <fullName>Magic Lantern Studio</fullName>
-    <version>1.0.01032018-beta-x64</version>
-    <readmeFile>resources/WindowsReleaseNotes.txt</readmeFile>
-    <licenseFile>resources/license.txt</licenseFile>
-    <leftImage>resources/WwSidebar.png</leftImage>
-    <logoImage>resources/genieLamp_48x48_32bit.png</logoImage>
-    <splashImage>resources/WwLogoSplash.png</splashImage>
+    <version>1.0.07292020-beta-x64</version>
+    <readmeFile>../../../../../MagicLantern/build/InstallBuilder/Java2D/resources/WindowsReleaseNotes.txt</readmeFile>
+    <licenseFile>../../../../../MagicLantern/build/InstallBuilder/Java2D/resources/license.txt</licenseFile>
+    <leftImage>../../../../../MagicLanternStudio/build/InstallBuilder/Java2D/resources/WwSidebar.png</leftImage>
+    <logoImage>../../../../../MagicLanternStudio/build/InstallBuilder/Java2D/resources/genieLamp_48x48_32bit.png</logoImage>
+    <splashImage>../../../../../MagicLanternStudio/build/InstallBuilder/Java2D/resources/WwLogoSplash.png</splashImage>
     <componentList>
         <component>
             <name>default</name>
@@ -66,13 +66,13 @@
                     <platforms>windows</platforms>
                     <distributionFileList>
                         <distributionDirectory>
-                            <origin>stage/MagicLantern</origin>
+                            <origin>../../../../../MagicLanternStudio/build/InstallBuilder/Java2D/stage/MagicLantern</origin>
                         </distributionDirectory>
                         <distributionFile>
-                            <origin>resources/mlejava2dstudio.bat</origin>
+                            <origin>../../../../../MagicLanternStudio/build/InstallBuilder/Java2D/resources/mlejava2dstudio.bat</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>resources/GenieLamp.ico</origin>
+                            <origin>../../../../../MagicLanternStudio/build/InstallBuilder/Java2D/resources/GenieLamp.ico</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
@@ -89,58 +89,58 @@
                     <platforms>all</platforms>
                     <distributionFileList>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/stages.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/stages.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/actors.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/actors.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/mlert.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/mlert.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/mlmath.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/mlmath.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/mrefs.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/mrefs.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/parts.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/parts.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/props.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/props.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/roles.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/roles.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/sets.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/sets.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/stagesdoc.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/stagesdoc.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/actorsdoc.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/actorsdoc.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/mlertdoc.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/mlertdoc.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/mlmathdoc.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/mlmathdoc.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/mrefsdoc.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/mrefsdoc.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/partsdoc.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/partsdoc.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/propsdoc.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/propsdoc.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/rolesdoc.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/rolesdoc.jar</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/java/runtime/setsdoc.jar</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/java/runtime/setsdoc.jar</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
@@ -151,37 +151,37 @@
                     <platforms>windows</platforms>
                     <distributionFileList>
                         <distributionFile>
-                            <origin>../../../bin64/dumpgroup.exe</origin>
+                            <origin>../../../../../MagicLanternStudio/bin64/dumpgroup.exe</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../bin64/dumpmedia.exe</origin>
+                            <origin>../../../../../MagicLanternStudio/bin64/dumpmedia.exe</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../bin64/dumpscene.exe</origin>
+                            <origin>../../../../../MagicLanternStudio/bin64/dumpscene.exe</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../bin64/DWPChecker.exe</origin>
+                            <origin>../../../../../MagicLanternStudio/bin64/DWPChecker.exe</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../bin64/gendpp.exe</origin>
+                            <origin>../../../../../MagicLanternStudio/bin64/gendpp.exe</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../bin64/gengroup.exe</origin>
+                            <origin>../../../../../MagicLanternStudio/bin64/gengroup.exe</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../bin64/genmakefile.exe</origin>
+                            <origin>../../../../../MagicLanternStudio/bin64/genmakefile.exe</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../bin64/genmedia.exe</origin>
+                            <origin>../../../../../MagicLanternStudio/bin64/genmedia.exe</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../bin64/genppscript.exe</origin>
+                            <origin>../../../../../MagicLanternStudio/bin64/genppscript.exe</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../bin64/genscene.exe</origin>
+                            <origin>../../../../../MagicLanternStudio/bin64/genscene.exe</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../bin64/gentables.exe</origin>
+                            <origin>../../../../../MagicLanternStudio/bin64/gentables.exe</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
@@ -192,7 +192,7 @@
                     <platforms>all</platforms>
                     <distributionFileList>
                         <distributionFile>
-                            <origin>../../../Parts/sets/java/workprints/MleJ2dSet.wpf</origin>
+                            <origin>../../../../../MagicLanternStudio/Parts/sets/java/workprints/MleJ2dSet.wpf</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
@@ -203,16 +203,16 @@
                     <platforms>all</platforms>
                     <distributionFileList>
                         <distributionFile>
-                            <origin>../../../lib/TOCJavaGlobals.tmpl</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/TOCJavaGlobals.tmpl</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/TitleCppCode.tmpl</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/TitleCppCode.tmpl</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/TitleJavaCode.tmpl</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/TitleJavaCode.tmpl</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../lib/TOCCppGlobals.tmpl</origin>
+                            <origin>../../../../../MagicLanternStudio/lib/TOCCppGlobals.tmpl</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
@@ -264,7 +264,7 @@
                     <platforms>windows</platforms>
                     <distributionFileList>
                         <distributionFile>
-                            <origin>../../../tools/3rdparty/ActiveTcl-8.6.6.8606-MSWin32-x64-401995.exe</origin>
+                            <origin>../../../../../MagicLanternStudio/tools/3rdparty/ActiveTcl-8.6.6.8606-MSWin32-x64-401995.exe</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
