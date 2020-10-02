@@ -45,6 +45,19 @@ uninstall: titles_uninstall
 
 # Targets for Magic Lantern SDK Titles
 
+# HelloWorld title wich dispalys the string "Hello World!".
+helloWorld: check_env
+	cd $(MLE_HOME)/Titles/helloWorld/rehearsal/build/linux/LabelWidget; make;
+
+helloWorld_clean: check_env
+	cd $(MLE_HOME)/Titles/helloWorld/rehearsal/build/linux/LabelWidget; make clean;
+
+helloWorld_install: check_env
+	cd $(MLE_HOME)/Titles/helloWorld/rehearsal/build/linux/LabelWidget; MLE_ROOT=$(MLE_ROOT) make install;
+
+helloWorld_uninstall: check_env
+	cd $(MLE_HOME)/Titles/helloWorld/rehearsal/build/linux/LabelWidget; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	
 # The HelloCube title which displays a simple cube.
 helloCube: check_env
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; make;
@@ -61,11 +74,6 @@ helloCube_clean: check_env
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; make clean;
 
 helloCube_install: check_env
-#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; MLE_ROOT=$(MLE_ROOT) make install;
@@ -73,11 +81,6 @@ helloCube_install: check_env
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; MLE_ROOT=$(MLE_ROOT) make install;
 
 helloCube_uninstall: check_env
-#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-#	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; MLE_ROOT=$(MLE_ROOT) make uninstall;
