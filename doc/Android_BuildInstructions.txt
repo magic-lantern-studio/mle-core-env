@@ -1,0 +1,27 @@
+The following Magic Lantern Eclipse packages are used to build the Android Studio:
+
+$MLE_HOME\tools\java\com.wizzer.mle.codegen
+$MLE_HOME\Core\math\android\com.wizzer.mle.math
+$MLE_HOME\Parts\base\android\com.wizzer.mle.parts
+$MLE_HOME\Parts\actors\android\com.wizzer.mle.parts.actors
+$MLE_HOME\Parts\mediaref\android\com.wizzer.mle.parts.mrefs
+$MLE_HOME\Parts\props\android\com.wizzer.mle.parts.props
+$MLE_HOME\Parts\roles\android\com.wizzer.mle.parts.roles
+$MLE_HOME\Parts\sets\android\com.wizzer.mle.parts.sets
+$MLE_HOME\Parts\stages\android\com.wizzer.mle.parts.stages
+$MLE_HOME\Core\mlert\android\com.wizzer.mle.runtime
+$MLE_HOME\Core\mlert\android\com.wizzer.mle.runtime.unittest
+$MLE_HOME\Studio\plugins\com.wizzer.mle.studio
+$MLE_HOME\Studio\plugins\com.wizzer.mle.studio.dpp
+$MLE_HOME\Studio\plugins\com.wizzer.mle.studio.dwp
+$MLE_HOME\Studio\plugins\com.wizzer.mle.studio.framework
+$MLE_HOME\Studio\plugins\com.wizzer.mle.studio.android
+$MLE_HOME\Titles\dppTest\android\com.wizzer.mle.title.dpptest
+$MLE_HOME\Titles\imageTest\android\com.wizzer.mle.title.imagetest
+
+Installing the SDK
+
+Install in C:\PROGRA~2\Android\android-sdk
+
+Installing Elipse plugins
+

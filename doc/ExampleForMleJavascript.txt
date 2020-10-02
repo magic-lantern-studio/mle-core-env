@@ -1,0 +1,47 @@
+    	function testIMleCallback()
+    	{
+            console.log("Executing testIMleCallback().");
+            Namespace.use('com.wizzer.mle.runtime.core.*');  // For Console.
+
+            // Create a new instance of IMleCallback.
+            Namespace.use('com.wizzer.mle.runtime.core.IMleCallback');
+            var cb = new IMleCallback();
+            // And call a method.
+            cb.isEnabled();
+            
+            function MyEventCallback()
+            {
+                console.log("MyEventCallback constructor called.");
+            };
+            MyEventCallback.prototype = new IMleCallback();
+            MyEventCallback.prototype.constructor = MyEventCallback;
+            var myCB = new MyEventCallback();
+            myCB.isEnabled();
+            
+            MleConsole.log("IMleCallback() test complete.");
+    	}
+    	
+    	function testIMleEventCallback()
+    	{
+    	    console.log("Executing testIMleEventCallback().");
+    	    Namespace.use('com.wizzer.mle.runtime.core.*');  // For Console.
+    	    
+    	    // Create a new instance of IMleEventCallback.
+            Namespace.use('com.wizzer.mle.runtime.event.IMleEventCallback');
+    	    IMleEventCallback.Inherits(IMleCallback);
+            var cb = new IMleEventCallback();
+            //cb.prototype.isEnabled();
+            cb.isEnabled();
+            cb.dispatch(new Object(), new Object());
+            
+            console.log('MLE_EVENT_IMMEDIATE: ' + IMleEventCallback.MLE_EVENT_IMMEDIATE);
+            console.log('MLE_EVNET_DELAYED: ' + IMleEventCallback.MLE_EVENT_DELAYED);
+    	    MleConsole.log("IMleEventCallback() test complete.");
+    	}
+    	
+    	function testSuite()
+    	{
+    	    testIMleCallback();
+    	    testIMleEventCallback();
+    	}
+    	
