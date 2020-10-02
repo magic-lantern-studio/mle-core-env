@@ -888,77 +888,8 @@ players_uninstall: check_env players_stage
 #	cd $(MLE_HOME)/Players/rehearsal/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Players/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
-# Targets for Magic Lantern Qt Stage.
-qtstage: check_env
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
-
-qtstage_clean: check_env
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
-
-qtstage_install: check_env
-#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
-
-qtstage_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
-
-# Targets for Magic Lantern Qt Set.
-qtset: check_env
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
-
-qtset_clean: check_env
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
-
-qtset_install: check_env
-#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
-
-qtset_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
-
-# Targets for Magic Lantern Qt Mediaref.
-qtmref: check_env
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
-
-qtmref_clean: check_env
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
-
-qtmref_install: check_env
-#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
-
-qtmref_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
-
-# Targets for Magic Lantern Qt Role.
-qtrole: check_env
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
-
-qtrole_clean: check_env
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
-
-qtrole_install: check_env
-#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
-
-qtrole_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
-
-# Qt Targets
-qt: qtstage qtset qtmref qtrole
-
-qt_clean: qtstage_clean qtset_clean qtmref_clean qtrole_clean
-
-qt_install: qtstage_install qtset_install qtmref_install qtrole_install
-
-qt_uninstall: qtstage_uninstall qtset_uninstall qtmref_uninstall qtrole_uninstall
-
 # Magic Lantern SDK
-#  sdk build does not include Qt target for Linux
+#  sdk build does not include Qt target for Linux. See Makefile.qt.
 sdk: libmlutil libmlmath libDWP libDPP libplayprint libDPPGen gentables gengroup genscene genmedia genmakefile genppscript gendpp dumpgroup dumpscene dumpmedia dumpdpp libmlert props roles mediarefs sets stages actors players
 
 sdk_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libplayprint_clean libDPPGen_clean gentables_clean gengroup_clean genscene_clean genmedia_clean genmakefile_clean genppscript_clean gendpp_clean dumpgroup_clean dumpscene_clean dumpmedia_clean dumpdpp_clean libmlert_clean props_clean roles_clean mediarefs_clean sets_clean stages_clean actors_clean players_clean
@@ -1045,31 +976,31 @@ studio_install: sdk_install libmleatk_install libDwpReader_install
 studio_uninstall: sdk_uninstall libmleatk_uninstall libDwpReader_uninstall
 
 # Rehearsal components
-rehearsal: libmlert_rehearsal props roles_rehearsal mediarefs_rehearsal sets_rehearsal stages_rehearsal
+rehearsal: libmlert_rehearsal props roles_rehearsal mediarefs_rehearsal sets_rehearsal stages_rehearsal actors_rehearsal
 
-rehearsal_clean: libmlert_rehearsal_clean props_clean roles_rehearsal_clean mediarefs_rehearsal_clean sets_rehearsal_clean stages_rehearsal_clean
+rehearsal_clean: libmlert_rehearsal_clean props_clean roles_rehearsal_clean mediarefs_rehearsal_clean sets_rehearsal_clean stages_rehearsal_clean actors_rehearsal_clean
 
-rehearsal_install: libmlert_rehearsal_install props_install roles_rehearsal_install mediarefs_rehearsal_install sets_rehearsal_install stages_rehearsal_install
+rehearsal_install: libmlert_rehearsal_install props_install roles_rehearsal_install mediarefs_rehearsal_install sets_rehearsal_install stages_rehearsal_install actors_rehearsal_install
 
-rehearsal_uninstall: libmlert_rehearsal_uninstall props_uninstall roles_rehearsal_uninstall mediarefs_rehearsal_uninstall sets_rehearsal_uninstall stages_rehearsal_uninstall
+rehearsal_uninstall: libmlert_rehearsal_uninstall props_uninstall roles_rehearsal_uninstall mediarefs_rehearsal_uninstall sets_rehearsal_uninstall stages_rehearsal_uninstall actors_rehearsal_uninstall
 
 # Inventor DPP Runtime components
-runtime: libmlert_runtime props roles_runtime mediarefs_runtime sets_runtime stages_runtime
+runtime: libmlert_runtime props roles_runtime mediarefs_runtime sets_runtime stages_runtime actors_runtime
 
-runtime_clean: libmlert_runtime_clean props_clean roles_runtime_clean mediarefs_runtime_clean sets_runtime_clean stages_runtime_clean
+runtime_clean: libmlert_runtime_clean props_clean roles_runtime_clean mediarefs_runtime_clean sets_runtime_clean stages_runtime_clean actors_runtime_clean
 
-runtime_install: libmlert_runtime_install props_install roles_runtime_install mediarefs_runtime_install sets_runtime_install stages_runtime_install
+runtime_install: libmlert_runtime_install props_install roles_runtime_install mediarefs_runtime_install sets_runtime_install stages_runtime_install actors_runtime_install
 
-runtime_uninstall: libmlert_runtime_uninstall props_uninstall roles_runtime_uninstall mediarefs_runtime_unisntall sets_runtime_uninstall stages_runtime_uninstall
+runtime_uninstall: libmlert_runtime_uninstall props_uninstall roles_runtime_uninstall mediarefs_runtime_uninstall sets_runtime_uninstall stages_runtime_uninstall actors_runtime_uninstall
 
 # Inventor DWP Runtime components
-inventor: libmlert_inventor props roles_inventor mediarefs_inventor sets_inventor stages_inventor
+inventor: libmlert_inventor props roles_inventor mediarefs_inventor sets_inventor stages_inventor actors_inventor
 
-inventor_clean: libmlert_inventor_clean props_clean roles_inventor_clean mediarefs_inventor_clean sets_inventor_clean stages_inventor_clean
+inventor_clean: libmlert_inventor_clean props_clean roles_inventor_clean mediarefs_inventor_clean sets_inventor_clean stages_inventor_clean actors_inventor_clean
 
-inventor_install: libmlert_inventor_install props_install roles_inventor_install mediarefs_inventor_install sets_inventor_install stages_inventor_install
+inventor_install: libmlert_inventor_install props_install roles_inventor_install mediarefs_inventor_install sets_inventor_install stages_inventor_install actors_inventor_install
 
-inventor_uninstall: libmlert_inventor_uninstall props_uninstall roles_inventor_uninstall mediarefs_inventor_uninstall sets_inventor_uninstall stages_inventor_uninstall
+inventor_uninstall: libmlert_inventor_uninstall props_uninstall roles_inventor_uninstall mediarefs_inventor_uninstall sets_inventor_uninstall stages_inventor_uninstall actors_inventor_uninstall
 
 # Magic Lantern Studio Unit Tests
 unittests: studio libmlmath-test libmlert-test
