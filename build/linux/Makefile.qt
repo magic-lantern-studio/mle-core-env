@@ -46,160 +46,160 @@ uninstall: qt_uninstall titles_uninstall
 
 # Targets for Magic Lantern Qt Runtime Engine.
 libmlert_inventor: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_inventor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 libmlert_inventor_clean: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_inventor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
 libmlert_inventor_install: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_inventor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 libmlert_inventor_uninstall: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_inventor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_-_GCC_64bit-Debug; make uninstall;
 
 libmlert_rehearsal: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 libmlert_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
 libmlert_rehearsal_install: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 libmlert_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 libmlert_runtime: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_runtime-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 libmlert_runtime_clean: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_runtime-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
 libmlert_runtime_install: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_runtime-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 libmlert_runtime_uninstall: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build/build-libmlert_runtime-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 ivstage_rehearsal: check_env
-	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build/build-ivstage_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivstage_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build/build-ivstage_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
 ivstage_rehearsal_install: check_env
-	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build/build-ivstage_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 ivstage_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build/build-ivstage_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 ivset_rehearsal: check_env
-	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build/build-ivset_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivset_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build/build-ivset_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
 ivset_rehearsal_install: check_env
-	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build/build-ivset_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt//build-ivset_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 ivset_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build/build-ivset_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 ivmref_rehearsal: check_env
-	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build/build-ivmref_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivmref_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build/build-ivmref_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
 ivmref_rehearsal_install: check_env
-	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build/build-ivmref_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 ivmref_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build/build-ivmref_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 ivrole_rehearsal: check_env
-	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build/build-ivrole_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivrole_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build/build-ivrole_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
 ivrole_rehearsal_install: check_env
-	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build/build-ivrole_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 ivrole_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build/build-ivrole_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 ivactor_rehearsal: check_env
-	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build/build-ivactor_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivactor_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build/build-ivactor_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
 ivactor_rehearsal_install: check_env
-	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build/build-ivactor_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 ivactor_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build/build-ivactor_rehearsal-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 # Targets for Magic Lantern Qt Stage.
 qtstage: check_env
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 qtstage_clean: check_env
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
 qtstage_install: check_env
-#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_15_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_15_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtstage_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_15_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_15_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Set.
 qtset: check_env
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 qtset_clean: check_env
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
 qtset_install: check_env
-#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_15_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_15_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtset_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_15_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_Qt_5_15_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Mediaref.
 qtmref: check_env
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 qtmref_clean: check_env
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
 qtmref_install: check_env
-#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_15_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_15_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtmref_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_15_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_Qt_5_15_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Role.
 qtrole: check_env
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; make;
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 qtrole_clean: check_env
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
 qtrole_install: check_env
-#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_15_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_15_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtrole_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_15_0_GCC_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_Qt_5_15_0_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Qt Targets
 qt: qtstage qtset qtmref qtrole
