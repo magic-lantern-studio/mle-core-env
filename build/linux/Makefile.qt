@@ -210,6 +210,14 @@ qt_install: qtstage_install qtset_install qtmref_install qtrole_install
 
 qt_uninstall: qtstage_uninstall qtset_uninstall qtmref_uninstall qtrole_uninstall
 
+qt_rehearsal: libmlert_rehearal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal
+
+qt_rehearsal_clean: libmlert_rehearal_clean ivstage_rehearsal_clean ivset_rehearsal_clean ivmref_rehearsal_clean ivrole_rehearsal_clean ivactor_rehearsal_clean
+
+qt_rehearsal_install: libmlert_rehearal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal_install
+
+qt_rehearsal_uninstall: libmlert_rehearal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal_uninstall
+
 # Targets for Magic Lantern SDK Titles
 
 # The simple Null title which does nothing.
