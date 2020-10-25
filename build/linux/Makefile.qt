@@ -141,6 +141,18 @@ ivactor_rehearsal_install: check_env
 ivactor_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
+libmleatk_rehearsal: check_env
+	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
+
+libmleatk_rehearsal_clean: check_env
+	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+
+libmleatk_rehearsal_install: check_env
+	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
+
+libmleatk_rehearsal_uninstall: check_env
+	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
+
 # Targets for Magic Lantern Qt Stage.
 qtstage: check_env
 	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
