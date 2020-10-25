@@ -222,15 +222,22 @@ qt_install: qtstage_install qtset_install qtmref_install qtrole_install
 
 qt_uninstall: qtstage_uninstall qtset_uninstall qtmref_uninstall qtrole_uninstall
 
-qt_rehearsal: libmlert_rehearal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal
+qt_rehearsal: libmlert_rehearsal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal
 
-qt_rehearsal_clean: libmlert_rehearal_clean ivstage_rehearsal_clean ivset_rehearsal_clean ivmref_rehearsal_clean ivrole_rehearsal_clean ivactor_rehearsal_clean
+qt_rehearsal_clean: libmlert_rehearsal_clean ivstage_rehearsal_clean ivset_rehearsal_clean ivmref_rehearsal_clean ivrole_rehearsal_clean ivactor_rehearsal_clean
 
-qt_rehearsal_install: libmlert_rehearal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal_install
+qt_rehearsal_install: libmlert_rehearsal_install ivstage_rehearsal_install ivset_rehearsal_install ivmref_rehearsal_install ivrole_rehearsal_install ivactor_rehearsal_install
 
-qt_rehearsal_uninstall: libmlert_rehearal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal_uninstall
+qt_rehearsal_uninstall: libmlert_rehearsal_uninstall ivstage_rehearsal_uninstall ivset_rehearsal_uninstall ivmref_rehearsal_uninstall ivrole_rehearsal_uninstall ivactor_rehearsal_uninstall
 
 # Targets for Magic Lantern SDK Titles
+sdk_rehearsal: qt_rehearsal
+
+sdk_rehearsal_clean: qt_rehearsal_clean
+
+sdk_rehearsal_install: qt_rehearsal_install
+
+sdk_rehearsal_uninstall: qt_rehearsal_uninstall
 
 # The simple Null title which does nothing.
 null: check_env qt
@@ -291,6 +298,19 @@ helloCube_uninstall: check_env
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+# The mtea title displays a moving teapot.
+mtea: check_env
+	cd $(MLE_HOME)/Titles/mtea/build/qt/build-SpinnerActor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
+
+mtea_clean: check_env
+	cd $(MLE_HOME)/Titles/mtea/build/qt/build-SpinnerActor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+
+mtea_install: check_env
+	cd $(MLE_HOME)/Titles/mtea/build/qt/build-SpinnerActor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
+
+mtea_uninstall: check_env
+	cd $(MLE_HOME)/Titles/mtea/build/qt/build-SpinnerActor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 # Magic Lantern Titles
 titles: null
