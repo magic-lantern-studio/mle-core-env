@@ -44,12 +44,51 @@ install: qt_install titles_install
 
 uninstall: qt_uninstall titles_uninstall
 
+# Targets for Magic Lantern utility library.
+libmlutil: check_env
+	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
+
+libmlutil_clean: check_env
+	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f libmlutil.so*;
+
+libmlutil_install: check_env
+	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
+
+libmlutil_uninstall: check_env
+	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
+
+# Targets of Magic Lantern math library.
+libmlmath: check_env libmlutil_install
+	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
+
+libmlmath_clean: check_env
+	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f libmlmath.so*;
+
+libmlmath_install: check_env
+	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
+
+libmlmath_uninstall: check_env
+	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
+
+# Targets for Magic Lantern Digital Workprint library.
+libDWP: check_env libmlutil_install libmlmath_install
+	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
+
+libDWP_clean: check_env
+	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f libDWP.so*;
+
+libDWP_install: check_env
+	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
+
+libDWP_uninstall: check_env
+	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
+
 # Targets for Magic Lantern Qt Runtime Engine.
-libmlert_inventor: check_env
+libmlert_inventor: check_env libmlutil_install
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 libmlert_inventor_clean: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;  rm -f libmlert.so*;
 
 libmlert_inventor_install: check_env
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
@@ -57,11 +96,11 @@ libmlert_inventor_install: check_env
 libmlert_inventor_uninstall: check_env
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_-_GCC_64bit-Debug; make uninstall;
 
-libmlert_rehearsal: check_env
+libmlert_rehearsal: check_env libmlutil_install
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 libmlert_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f libmlert.so*;
 
 libmlert_rehearsal_install: check_env
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
@@ -69,11 +108,11 @@ libmlert_rehearsal_install: check_env
 libmlert_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
-libmlert_runtime: check_env
+libmlert_runtime: check_env libmlutil_install
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 libmlert_runtime_clean: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f libmlert.so*;
 
 libmlert_runtime_install: check_env
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
@@ -81,11 +120,11 @@ libmlert_runtime_install: check_env
 libmlert_runtime_uninstall: check_env
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
-ivstage_rehearsal: check_env
+ivstage_rehearsal: check_env libmlert_rehearsal_install
 	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivstage_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f libMleIvStage.so*;
 
 ivstage_rehearsal_install: check_env
 	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
@@ -93,11 +132,11 @@ ivstage_rehearsal_install: check_env
 ivstage_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
-ivset_rehearsal: check_env
+ivset_rehearsal: check_env libmlert_rehearsal_install
 	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivset_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f Iv2dSet/libMle2dSet.so* Iv3dSet/libMle3dSet.so*;
 
 ivset_rehearsal_install: check_env
 	cd $(MLE_HOME)/Parts/sets/inventor/build/qt//build-ivset_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
@@ -109,7 +148,7 @@ ivmref_rehearsal: check_env
 	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivmref_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f Mle2dImageMediaref/libMle2dImageMediaRef.so* Mle3dColorMapMediaref/libMle3dColorMapMediaRef.so* Mle3dModelMediaref/libMle3dModelMediaRef.so* Mle3dTextureMapMediaref/libMle3dTextureMapMediaRef.so*;
 
 ivmref_rehearsal_install: check_env
 	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
@@ -121,7 +160,7 @@ ivrole_rehearsal: check_env
 	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivrole_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f ivroles/libivroles.so* MleIv2dImgRole/libMle2dImgRole.so* MleIv2dRole/libMle2dRole.so* MleIv3dRole/libMle3dRole.so*;
 
 ivrole_rehearsal_install: check_env
 	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
@@ -133,7 +172,7 @@ ivactor_rehearsal: check_env
 	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivactor_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f Mle2dImageActor/libMle2dImageActor.so* Mle3dCameraActor/libMle3dCameraActor.so* MleEscapeActor/libMleEscapeActor.so*;
 
 ivactor_rehearsal_install: check_env
 	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
@@ -145,7 +184,7 @@ libmleatk_rehearsal: check_env
 	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 libmleatk_rehearsal_clean: check_env
-	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f libmleatk.so*;
 
 libmleatk_rehearsal_install: check_env
 	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
@@ -222,13 +261,13 @@ qt_install: qtstage_install qtset_install qtmref_install qtrole_install
 
 qt_uninstall: qtstage_uninstall qtset_uninstall qtmref_uninstall qtrole_uninstall
 
-qt_rehearsal: libmlert_rehearsal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal
+qt_rehearsal: libmlert_rehearsal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal libmleatk_rehearsal
 
-qt_rehearsal_clean: libmlert_rehearsal_clean ivstage_rehearsal_clean ivset_rehearsal_clean ivmref_rehearsal_clean ivrole_rehearsal_clean ivactor_rehearsal_clean
+qt_rehearsal_clean: libmlutil_clean libmlmath_clean libmlert_rehearsal_clean ivstage_rehearsal_clean ivset_rehearsal_clean ivmref_rehearsal_clean ivrole_rehearsal_clean ivactor_rehearsal_clean libmleatk_rehearsal_clean
 
-qt_rehearsal_install: libmlert_rehearsal_install ivstage_rehearsal_install ivset_rehearsal_install ivmref_rehearsal_install ivrole_rehearsal_install ivactor_rehearsal_install
+qt_rehearsal_install: libmlert_rehearsal_install ivstage_rehearsal_install ivset_rehearsal_install ivmref_rehearsal_install ivrole_rehearsal_install ivactor_rehearsal_install libmleatk_rehearsal_install
 
-qt_rehearsal_uninstall: libmlert_rehearsal_uninstall ivstage_rehearsal_uninstall ivset_rehearsal_uninstall ivmref_rehearsal_uninstall ivrole_rehearsal_uninstall ivactor_rehearsal_uninstall
+qt_rehearsal_uninstall: libmlert_rehearsal_uninstall ivstage_rehearsal_uninstall ivset_rehearsal_uninstall ivmref_rehearsal_uninstall ivrole_rehearsal_uninstall ivactor_rehearsal_uninstall libmleatk_rehearsal_uninstall
 
 # Targets for Magic Lantern SDK Titles
 sdk_rehearsal: qt_rehearsal
