@@ -36,13 +36,13 @@
 
 # Uber targets.
 #   studio build includes sdk
-all: qt titles
+all: qt_rehearsal
 
-clean: qt_clean titles_clean
+clean: qt_rehearsal_clean
 
-install: qt_install titles_install
+install: qt_rehearsal_install
 
-uninstall: qt_uninstall titles_uninstall
+uninstall: qt_rehearsal_uninstall
 
 # Targets for Magic Lantern utility library.
 libmlutil: check_env
@@ -120,6 +120,7 @@ libmlert_runtime_install: check_env
 libmlert_runtime_uninstall: check_env
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
+# Targets for Magic Lantern Rehearsal Player stage.
 ivstage_rehearsal: check_env libmlert_rehearsal_install
 	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
@@ -132,6 +133,7 @@ ivstage_rehearsal_install: check_env
 ivstage_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
+# Targets for Magic Lantern Rehearsal Player sets.
 ivset_rehearsal: check_env libmlert_rehearsal_install
 	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
@@ -144,6 +146,7 @@ ivset_rehearsal_install: check_env
 ivset_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
+# Targets for Magic Lantern Rehearsal Player media references.
 ivmref_rehearsal: check_env
 	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
@@ -156,7 +159,21 @@ ivmref_rehearsal_install: check_env
 ivmref_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
-ivrole_rehearsal: check_env
+# Targets for Magic Lantern properties.
+mleprops: check_env
+	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
+
+mleprops_clean: check_env
+	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+
+mleprops_install: check_env
+	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
+
+mleprops_uninstall: check_env
+	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
+
+# Targets for Magic Lantern Rehearsal Player roles.
+ivrole_rehearsal: check_env mleprops_install
 	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivrole_rehearsal_clean: check_env
@@ -168,6 +185,7 @@ ivrole_rehearsal_install: check_env
 ivrole_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
+# Targets for Magic Lantern Rehearsal Player actors.
 ivactor_rehearsal: check_env
 	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
@@ -180,6 +198,7 @@ ivactor_rehearsal_install: check_env
 ivactor_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
+# Targets for Magic Lantern Rehearsal Player Authoring Toolkit.
 libmleatk_rehearsal: check_env
 	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
@@ -261,6 +280,7 @@ qt_install: qtstage_install qtset_install qtmref_install qtrole_install
 
 qt_uninstall: qtstage_uninstall qtset_uninstall qtmref_uninstall qtrole_uninstall
 
+# Qt Rehearsal Player Targets
 qt_rehearsal: libmlert_rehearsal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal libmleatk_rehearsal
 
 qt_rehearsal_clean: libmlutil_clean libmlmath_clean libmlert_rehearsal_clean ivstage_rehearsal_clean ivset_rehearsal_clean ivmref_rehearsal_clean ivrole_rehearsal_clean ivactor_rehearsal_clean libmleatk_rehearsal_clean
