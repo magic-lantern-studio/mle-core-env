@@ -94,7 +94,7 @@ libmlert_inventor_install: check_env
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 libmlert_inventor_uninstall: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_-_GCC_64bit-Debug; make uninstall;
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 libmlert_rehearsal: check_env libmlutil_install
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
