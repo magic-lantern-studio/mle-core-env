@@ -36,13 +36,13 @@
 
 # Uber targets.
 #   studio build includes sdk
-all: qt_rehearsal
+all: qt_rehearsal mtea
 
-clean: qt_rehearsal_clean
+clean: qt_rehearsal_clean mtea_clean
 
-install: qt_rehearsal_install
+install: qt_rehearsal_install mtea_install
 
-uninstall: qt_rehearsal_uninstall
+uninstall: qt_rehearsal_uninstall mtea_uninstall
 
 # Targets for Magic Lantern utility library.
 libmlutil: check_env
@@ -51,7 +51,7 @@ libmlutil: check_env
 libmlutil_clean: check_env
 	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f libmlutil.so*;
 
-libmlutil_install: check_env
+libmlutil_install: check_env libmlutil
 	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 libmlutil_uninstall: check_env
@@ -64,7 +64,7 @@ libmlmath: check_env libmlutil_install
 libmlmath_clean: check_env
 	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f libmlmath.so*;
 
-libmlmath_install: check_env
+libmlmath_install: check_env libmlmath
 	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 libmlmath_uninstall: check_env
@@ -77,7 +77,7 @@ libDWP: check_env libmlutil_install libmlmath_install
 libDWP_clean: check_env
 	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean; rm -f libDWP.so*;
 
-libDWP_install: check_env
+libDWP_install: check_env libDWP
 	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 libDWP_uninstall: check_env
@@ -96,7 +96,7 @@ libmlert_inventor_install: check_env
 libmlert_inventor_uninstall: check_env
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
-libmlert_rehearsal: check_env libmlutil_install
+libmlert_rehearsal: check_env libmlutil_install libDWP_install
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 libmlert_rehearsal_clean: check_env
@@ -199,7 +199,7 @@ ivactor_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player Authoring Toolkit.
-libmleatk_rehearsal: check_env
+libmleatk_rehearsal: check_env libmlutil_install libmlmath_install libDWP_install
 	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 libmleatk_rehearsal_clean: check_env
@@ -210,6 +210,19 @@ libmleatk_rehearsal_install: check_env
 
 libmleatk_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
+
+# Targets for Magic Lantern Rehearsal Player Loaders.
+libmlloaders_rehearsal: check_env libmlutil_install libmlmath_install libDWP_install
+	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
+
+libmlloaders_rehearsal_clean: check_env
+	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
+
+libmlloaders_rehearsal_install: check_env
+	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
+
+libmlloaders_rehearsal_uninstall: check_env
+	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 # Targets for Magic Lantern Qt Stage.
 qtstage: check_env
@@ -281,13 +294,13 @@ qt_install: qtstage_install qtset_install qtmref_install qtrole_install
 qt_uninstall: qtstage_uninstall qtset_uninstall qtmref_uninstall qtrole_uninstall
 
 # Qt Rehearsal Player Targets
-qt_rehearsal: libmlutil libmlmath libDWP libmlert_rehearsal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal libmleatk_rehearsal
+qt_rehearsal: libmlutil libmlmath libDWP libmlert_rehearsal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal libmleatk_rehearsal libmlloaders_rehearsal
 
-qt_rehearsal_clean: libmlutil_clean libmlmath_clean libDWP_clean libmlert_rehearsal_clean ivstage_rehearsal_clean ivset_rehearsal_clean ivmref_rehearsal_clean ivrole_rehearsal_clean ivactor_rehearsal_clean libmleatk_rehearsal_clean
+qt_rehearsal_clean: libmlutil_clean libmlmath_clean libDWP_clean libmlert_rehearsal_clean ivstage_rehearsal_clean ivset_rehearsal_clean ivmref_rehearsal_clean ivrole_rehearsal_clean ivactor_rehearsal_clean libmleatk_rehearsal_clean libmlloaders_rehearsal_clean
 
-qt_rehearsal_install: libmlutil_install libmlmath_install libDWP_install libmlert_rehearsal_install ivstage_rehearsal_install ivset_rehearsal_install ivmref_rehearsal_install ivrole_rehearsal_install ivactor_rehearsal_install libmleatk_rehearsal_install
+qt_rehearsal_install: libmlutil_install libmlmath_install libDWP_install libmlert_rehearsal_install ivstage_rehearsal_install ivset_rehearsal_install ivmref_rehearsal_install ivrole_rehearsal_install ivactor_rehearsal_install libmleatk_rehearsal_install libmlloaders_rehearsal_install
 
-qt_rehearsal_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libmlert_rehearsal_uninstall ivstage_rehearsal_uninstall ivset_rehearsal_uninstall ivmref_rehearsal_uninstall ivrole_rehearsal_uninstall ivactor_rehearsal_uninstall libmleatk_rehearsal_uninstall
+qt_rehearsal_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libmlert_rehearsal_uninstall ivstage_rehearsal_uninstall ivset_rehearsal_uninstall ivmref_rehearsal_uninstall ivrole_rehearsal_uninstall ivactor_rehearsal_uninstall libmleatk_rehearsal_uninstall libmlloaders_rehearsal_uninstall
 
 qt_player: check_env
 	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
