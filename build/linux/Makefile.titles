@@ -130,21 +130,19 @@ mtea_clean: check_env mtea_stage
 	cd $(MLE_HOME)/Titles/mtea/build/linux; make clean;
 
 mtea_install: check_env mtea_stage
-#	cd $(MLE_HOME)/Titles/mtea/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/mtea/build/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 mtea_uninstall: check_env mtea_stage
-#	cd $(MLE_HOME)/Titles/mtea/build/linux; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/mtea/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Magic Lantern Titles
-titles: helloCube mtea
+titles: helloCube mtea helloWorld
 
-titles_clean: helloCube_clean mtea_clean
+titles_clean: helloCube_clean mtea_clean helloWorld_clean
 
-titles_install: helloCube_install mtea_install
+titles_install: helloCube_install mtea_install helloWorld_install
 
-titles_uninstall: helloCube_uninstall mtea_uninstall
+titles_uninstall: helloCube_uninstall mtea_uninstall helloWorld_uninstall
 
 .PHONY: check_MLE_HOME check_MLE_ROOT check_MLE_WORKPRINTS check_TCL_HOME
 
