@@ -121,7 +121,7 @@ libmlert_runtime_uninstall: check_env
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player stage.
-ivstage_rehearsal: check_env libmlert_rehearsal_install
+ivstage_rehearsal: check_env libmlert_rehearsal_install mleprops_install
 	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivstage_rehearsal_clean: check_env
@@ -173,7 +173,7 @@ mleprops_uninstall: check_env
 	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player roles.
-ivrole_rehearsal: check_env mleprops_install
+ivrole_rehearsal: check_env mleprops_install ivmref_rehearsal_install
 	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivrole_rehearsal_clean: check_env
@@ -186,7 +186,7 @@ ivrole_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player actors.
-ivactor_rehearsal: check_env
+ivactor_rehearsal: check_env ivrole_rehearsal_install
 	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 ivactor_rehearsal_clean: check_env
@@ -199,7 +199,7 @@ ivactor_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player Authoring Toolkit.
-libmleatk_rehearsal: check_env libmlutil_install libmlmath_install libDWP_install
+libmleatk_rehearsal: check_env libmlutil_install libmlmath_install libDWP_install ivset_rehearsal_install
 	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 libmleatk_rehearsal_clean: check_env
@@ -212,7 +212,7 @@ libmleatk_rehearsal_uninstall: check_env
 	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player Loaders.
-libmlloaders_rehearsal: check_env libmlutil_install libmlmath_install libDWP_install
+libmlloaders_rehearsal: check_env libmlutil_install libmlmath_install libDWP_install libmleatk_rehearsal_install
 	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 libmlloaders_rehearsal_clean: check_env
@@ -302,13 +302,13 @@ qt_rehearsal_install: libmlutil_install libmlmath_install libDWP_install libmler
 
 qt_rehearsal_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libmlert_rehearsal_uninstall ivstage_rehearsal_uninstall ivset_rehearsal_uninstall ivmref_rehearsal_uninstall ivrole_rehearsal_uninstall ivactor_rehearsal_uninstall libmleatk_rehearsal_uninstall libmlloaders_rehearsal_uninstall
 
-qt_player: check_env
+qt_player: check_env ivstage_rehearsal_install libmlloaders_rehearsal_install
 	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_Qt_5_15_0_GCC_64bit-Debug; make;
 
 qt_player_clean: check_env
 	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_Qt_5_15_0_GCC_64bit-Debug; make clean;
 
-qt_player_install: check_env
+qt_player_install: check_env qt_player
 	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_Qt_5_15_0_GCC_64bit-Debug; make install;
 
 qt_player_uninstall: check_env
