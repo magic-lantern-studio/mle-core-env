@@ -436,7 +436,7 @@ qt_player: check_env ivstage_rehearsal_install libmlloaders_rehearsal_install
 	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_$(QT_CC)_64bit-Debug; make;
 
 qt_player_clean: check_env
-	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_$(QT_CC)_64bit-Debug; make clean;
+	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_$(QT_CC)_64bit-Debug; make clean; rm mleplayer;
 
 qt_player_install: check_env qt_player
 	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_$(QT_CC)_64bit-Debug; make install;
