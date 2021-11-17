@@ -114,7 +114,7 @@ gentables: check_env libDPP_install libDPPGen_install
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gentables-Desktop_$(QT_CC)_64bit-Debug; make;
 
 gentables_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gentables-Desktop_$(QT_CC)_64bit-Debug; make clean; rm gentables;
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gentables-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f gentables;
 
 gentables_install: gentables
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gentables-Desktop_$(QT_CC)_64bit-Debug; make install;
@@ -127,7 +127,7 @@ gengroup: check_env libDPP_install libDPPGen_install libplayprint_install
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gengroup-Desktop_$(QT_CC)_64bit-Debug; make;
 
 gengroup_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gengroup-Desktop_$(QT_CC)_64bit-Debug; make clean; rm gengroup;
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gengroup-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f gengroup;
 
 gengroup_install: gengroup
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gengroup-Desktop_$(QT_CC)_64bit-Debug; make install;
@@ -140,7 +140,7 @@ genscene: check_env libDPP_install libDPPGen_install
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genscene-Desktop_$(QT_CC)_64bit-Debug; make;
 
 genscene_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genscene-Desktop_$(QT_CC)_64bit-Debug; make clean; rm genscene;
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genscene-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f genscene;
 
 genscene_install: genscene
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genscene-Desktop_$(QT_CC)_64bit-Debug; make install;
@@ -153,7 +153,7 @@ genmedia: check_env libDPP_install libDPPGen_install
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmedia-Desktop_$(QT_CC)_64bit-Debug; make;
 
 genmedia_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmedia-Desktop_$(QT_CC)_64bit-Debug; make clean; rm genmedia;
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmedia-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f genmedia;
 
 genmedia_install: genmedia
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmedia-Desktop_$(QT_CC)_64bit-Debug; make install;
@@ -166,7 +166,7 @@ genmakefile: check_env libDPP_install libDPPGen_install
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmakefile-Desktop_$(QT_CC)_64bit-Debug; make;
 
 genmakefile_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmakefile-Desktop_$(QT_CC)_64bit-Debug; make clean; rm genmakefile;
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmakefile-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f genmakefile;
 
 genmakefile_install: genmakefile
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmakefile-Desktop_$(QT_CC)_64bit-Debug; make install;
@@ -179,7 +179,7 @@ genppscript: check_env libDPP_install libDPPGen_install
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genppscript-Desktop_$(QT_CC)_64bit-Debug; make;
 
 genppscript_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genppscript-Desktop_$(QT_CC)_64bit-Debug; make clean; rm genppscript;
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genppscript-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f genppscript;
 
 genppscript_install: genppscript
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genppscript-Desktop_$(QT_CC)_64bit-Debug; make install;
@@ -192,7 +192,7 @@ gendpp: check_env libDPP_install libDPPGen_install
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gendpp-Desktop_$(QT_CC)_64bit-Debug; make;
 
 gendpp_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gendpp-Desktop_$(QT_CC)_64bit-Debug; make clean; rm gendpp;
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gendpp-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f gendpp;
 
 gendpp_install: gendpp
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gendpp-Desktop_$(QT_CC)_64bit-Debug; make install;
@@ -205,7 +205,7 @@ libplayprint: check_env libDPP_install libDPPGen_install
 	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop_$(QT_CC)_64bit-Debug; make;
 
 libplayprint_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop_$(QT_CC)_64bit-Debug; make clean; rm libplayprint.so* libplayprint*.dylib;
+	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f libplayprint.so* libplayprint*.dylib;
 
 libplayprint_install: libplayprint
 	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop_$(QT_CC)_64bit-Debug; make install;
@@ -436,7 +436,7 @@ qt_player: check_env ivstage_rehearsal_install libmlloaders_rehearsal_install
 	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_$(QT_CC)_64bit-Debug; make;
 
 qt_player_clean: check_env
-	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_$(QT_CC)_64bit-Debug; make clean; rm mleplayer;
+	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f mleplayer;
 
 qt_player_install: check_env qt_player
 	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_$(QT_CC)_64bit-Debug; make install;
