@@ -41,31 +41,36 @@ COPYRIGHT_END
     <property environment="env"/>
 
     <!-- Set MLE_HOME variable. -->
-    <property name="mle.home" value="${env.HOME}/Projects/MagicLanternStudio"/>
     <if>
         <isset property="env.MLE_HOME"/>
         <then>
             <property name="mle.home" value="${env.MLE_HOME}"/>
         </then>
+	<else>
+            <property name="mle.home" value="${env.HOME}/Projects/MagicLanternStudio"/>
+	</else>
     </if>
 
-
     <!-- Set MLE_ROOT variable. -->
-    <property name="mle.root" value="/opt/MagicLantern"/>
     <if>
         <isset property="env.MLE_ROOT"/>
         <then>
             <property name="mle.root" value="${env.MLE_ROOT}"/>
         </then>
+	<else>
+            <property name="mle.root" value="/opt/MagicLantern"/>	  
+	</else>
     </if>
 
     <!-- Set MLE_WORKPRINTS variable. -->
-    <property name="mle.workprints" value="/opt/MagicLantern/include/workprints"/>
     <if>
         <isset property="env.MLE_WORKPRINTS"/>
         <then>
-            <property name="mle.workprints" value="${env.MLE_WORKPRNTS}"/>
+            <property name="mle.workprints" value="${env.MLE_WORKPRINTS}"/>
         </then>
+	<else>
+            <property name="mle.workprints" value="/opt/MagicLantern/include/workprints"/>
+	</else>
     </if>
 
     <!-- Print build environment. -->
