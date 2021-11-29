@@ -946,6 +946,12 @@ libmleatk_uninstall: check_env libmleatk_stage
 $(MLE_HOME)/Parts/loaders/build/rehearsal/Makefile:
 	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
+$(MLE_HOME)/Parts/loaders/build/runtime/Makefile:
+	cd $(MLE_HOME)/Parts/loaders/build/runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+
+$(MLE_HOME)/Parts/loaders/build/inventor/Makefile:
+	cd $(MLE_HOME)/Parts/loaders/build/inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+
 libmlloaders_rehearsal_stage: $(MLE_HOME)/Parts/loaders/build/rehearsal/Makefile
 
 libmlloaders_rehearsal: check_env libmlloaders_rehearsal_stage
@@ -959,6 +965,42 @@ libmlloaders_rehearsal_install: libmlloaders_rehearsal
 
 libmlloaders_rehearsal_uninstall: check_env libmlloaders_rehearsal_stage
 	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+libmlloaders_runtime_stage: $(MLE_HOME)/Parts/loaders/build/runtime/Makefile
+
+libmlloaders_runtime: check_env libmlloaders_runtime_stage
+	cd $(MLE_HOME)/Parts/loaders/build/runtime; make;
+
+libmlloaders_runtime_clean: check_env libmlloaders_runtime_stage
+	cd $(MLE_HOME)/Parts/loaders/build/runtime; make clean;
+
+libmlloaders_runtime_install: libmlloaders_runtime
+	cd $(MLE_HOME)/Parts/loaders/build/runtime; MLE_ROOT=$(MLE_ROOT) make install;
+
+libmlloaders_runtime_uninstall: check_env libmlloaders_runtime_stage
+	cd $(MLE_HOME)/Parts/loaders/build/runtime; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+libmlloaders_inventor_stage: $(MLE_HOME)/Parts/loaders/build/inventor/Makefile
+
+libmlloaders_inventor: check_env libmlloaders_inventor_stage
+	cd $(MLE_HOME)/Parts/loaders/build/inventor; make;
+
+libmlloaders_inventor_clean: check_env libmlloaders_inventor_stage
+	cd $(MLE_HOME)/Parts/loaders/build/inventor; make clean;
+
+libmlloaders_inventor_install: libmlloaders_inventor
+	cd $(MLE_HOME)/Parts/loaders/build/inventor; MLE_ROOT=$(MLE_ROOT) make install;
+
+libmlloaders_inventor_uninstall: check_env libmlloaders_inventor_stage
+	cd $(MLE_HOME)/Parts/loaders/build/inventor; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
+libmlloaders: libmlloaders_rehearsal
+
+libmlloaders_clean: libmlloaders_rehearsal_clean
+
+libmlloaders_install: libmlloaders_rehearsal_install
+
+libmlloaders_uninstall: libmlloaders_rehearsal_uninstall
 
 # Targets for Magic Lantern utility library.
 $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/Makefile:
