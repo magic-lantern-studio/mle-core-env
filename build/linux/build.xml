@@ -3,7 +3,7 @@
 <!--
 COPYRIGHT_BEGIN
 
-   Copyright (c) 2015-2020 Wizzer Works
+   Copyright (c) 2015-2021 Wizzer Works
   
    Permission is hereby granted, free of charge, to any person obtaining a copy
    of this software and associated documentation files (the "Software"), to deal
@@ -80,6 +80,16 @@ COPYRIGHT_END
         <echo message="MLE_WORKPRINTS=${mle.workprints}"/>
     </target>
 
+    <target name="compile-math">
+        <ant antfile="${mle.home}/Core/math/java/com.wizzer.mle.math/build.xml"
+	     target="create-jar"/>
+    </target>
+
+    <target name="clean-math">
+        <ant antfile="${mle.home}/Core/math/java/com.wizzer.mle.math/build.xml"
+	     target="delete-jar"/>
+    </target>
+
     <!-- Install Java libraries into MLE_ROOT -->
     <target name="install">
         <mkdir dir="${mle.root}/lib/java/runtime"/>
@@ -136,7 +146,7 @@ COPYRIGHT_END
               todir="${mle.root}/lib/java/runtime"/>
     </target>
 
-        <!-- Install Java libraries into MLE_ROOT -->
+    <!-- Install Java libraries into MLE_ROOT -->
     <target name="install-sdk">
         <mkdir dir="${mle.root}/lib/java/runtime"/>
         <copy file="${mle.home}/lib/java/runtime/mlmath.jar"
