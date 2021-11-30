@@ -177,7 +177,7 @@ COPYRIGHT_END
     </target>
 
     <!-- mrefs.jar targets -->
-    <target name="build-mrefs" description="Buld mref.jar">
+    <target name="build-mrefs" description="Buld mrefs.jar">
         <ant antfile="${mle.home}/Parts/mediaref/java/com.wizzer.mle.parts.mrefs/build.xml"
              inheritAll="false"
              target="create-jar">
@@ -201,14 +201,39 @@ COPYRIGHT_END
              target="delete-jardoc"/>
     </target>
 
+    <!-- roles.jar targets -->
+    <target name="build-roles" description="Buld roles.jar">
+        <ant antfile="${mle.home}/Parts/roles/java/com.wizzer.mle.parts.j2d/build.xml"
+             inheritAll="false"
+             target="create-jar">
+            <property name="com.wizzer.mle.math.location" value="${mle.home}/Core/math/java/com.wizzer.mle.math"/>
+            <property name="com.wizzer.mle.runtime.location" value="${mle.home}/Core/mlert/java/com.wizzer.mle.runtime"/>
+        </ant>
+    </target>
+
+    <target name="build-rolesdoc" description="Build rolesdoc.jar">
+        <ant antfile="${mle.home}/Parts/roles/java/com.wizzer.mle.parts.j2d/build.xml"
+             inheritAll="false"
+             target="create-jardoc"/>
+    </target>
+
+    <target name="clean-roles" description="Delete roles.jar and rolesdoc.jar">
+        <ant antfile="${mle.home}/Parts/roles/java/com.wizzer.mle.parts.j2d/build.xml"
+             inheritAll="false"
+             target="delete-jar"/>
+        <ant antfile="${mle.home}/Parts/roles/java/com.wizzer.mle.parts.j2d/build.xml"
+             inheritAll="false"
+             target="delete-jardoc"/>
+    </target>
+
     <!-- Build libraries -->
-    <target name="build" description="Build all Java libraries" depends="build-math,build-parts,build-actors,build-props,build-mrefs"/>
+    <target name="build" description="Build all Java libraries" depends="build-math,build-parts,build-actors,build-props,build-mrefs,build-roles"/>
 
     <!-- Build library documentation -->
-    <target name="build-doc" description="Build all Java library documentation" depends="build-mathdoc,build-partsdoc,build-actorsdoc,build-propsdoc,build-mrefsdoc"/>
+    <target name="build-doc" description="Build all Java library documentation" depends="build-mathdoc,build-partsdoc,build-actorsdoc,build-propsdoc,build-mrefsdoc,build-rolesdoc"/>
 
     <!-- Clean libraries -->
-    <target name="clean" description="Clean all Java libraries" depends="clean-math,clean-parts,clean-actors,clean-props,clean-mrefs"/>
+    <target name="clean" description="Clean all Java libraries" depends="clean-math,clean-parts,clean-actors,clean-props,clean-mrefs,clean-roles"/>
 
     <!-- Install Java libraries into MLE_ROOT -->
     <target name="install" description="Build and install all Java libraries" depends="build">
