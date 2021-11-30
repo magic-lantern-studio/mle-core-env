@@ -80,6 +80,7 @@ COPYRIGHT_END
         <echo message="MLE_WORKPRINTS=${mle.workprints}"/>
     </target>
 
+    <!-- mlmath.jar targets -->
     <target name="build-math" description="Buid mlmath.jar">
         <ant antfile="${mle.home}/Core/math/java/com.wizzer.mle.math/build.xml"
              inheritAll="false"
@@ -101,12 +102,13 @@ COPYRIGHT_END
              target="delete-jardoc"/>
     </target>
 
+    <!-- parts.jar targets -->
     <target name="build-parts" description="Buld parts.jar">
         <ant antfile="${mle.home}/Parts/base/java/com.wizzer.mle.parts/build.xml"
              inheritAll="false"
              target="create-jar">
-	  <property name="com.wizzer.mle.runtime.location" value="${mle.home}/Core/mlert/java/com.wizzer.mle.runtime"/>
-	</ant>
+          <property name="com.wizzer.mle.runtime.location" value="${mle.home}/Core/mlert/java/com.wizzer.mle.runtime"/>
+        </ant>
     </target>
 
     <target name="build-partsdoc" description="Build partsdoc.jar">
@@ -124,14 +126,39 @@ COPYRIGHT_END
              target="delete-jardoc"/>
     </target>
 
+    <!-- actors.jar targets -->
+    <target name="build-actors" description="Buld actors.jar">
+        <ant antfile="${mle.home}/Parts/actors/java/com.wizzer.mle.parts.actors/build.xml"
+             inheritAll="false"
+             target="create-jar">
+            <property name="com.wizzer.mle.math.location" value="${mle.home}/Core/math/java/com.wizzer.mle.math"/>
+            <property name="com.wizzer.mle.runtime.location" value="${mle.home}/Core/mlert/java/com.wizzer.mle.runtime"/>
+        </ant>
+    </target>
+
+    <target name="build-actorsdoc" description="Build actorsdoc.jar">
+        <ant antfile="${mle.home}/Parts/actors/java/com.wizzer.mle.parts.actors/build.xml"
+             inheritAll="false"
+             target="create-jardoc"/>
+    </target>
+
+    <target name="clean-actors" description="Delete actors.jar and actorsdoc.jar">
+        <ant antfile="${mle.home}/Parts/actors/java/com.wizzer.mle.parts.actors/build.xml"
+             inheritAll="false"
+             target="delete-jar"/>
+        <ant antfile="${mle.home}/Parts/actors/java/com.wizzer.mle.parts.actors/build.xml"
+             inheritAll="false"
+             target="delete-jardoc"/>
+    </target>
+
     <!-- Build libraries -->
-    <target name="build" description="Build all Java libraries" depends="build-math,build-parts"/>
+    <target name="build" description="Build all Java libraries" depends="build-math,build-parts,build-actors"/>
 
     <!-- Build library documentation -->
-    <target name="build-doc" description="Build all Java library documentation" depends="build-mathdoc,build-partsdoc"/>
+    <target name="build-doc" description="Build all Java library documentation" depends="build-mathdoc,build-partsdoc,build-actorsdoc"/>
 
     <!-- Clean libraries -->
-    <target name="clean" description="Clean all Java libraries" depends="clean-math,clean-parts"/>
+    <target name="clean" description="Clean all Java libraries" depends="clean-math,clean-parts,clean-actors"/>
 
     <!-- Install Java libraries into MLE_ROOT -->
     <target name="install" description="Build and install all Java libraries" depends="build">
