@@ -301,14 +301,28 @@ COPYRIGHT_END
              target="delete-jardoc"/>
     </target>
 
+    <!-- codegen.jar targets -->
+    <target name="build-codegen" description="Buld codegen.jar">
+        <ant antfile="${mle.home}/tools/java/com.wizzer.mle.codegen/build.xml"
+             inheritAll="false"
+             target="create-jar">
+        </ant>
+    </target>
+
+    <target name="clean-codegen" description="Delete codegen.jar">
+        <ant antfile="${mle.home}/tools/java/com.wizzer.mle.codegen/build.xml"
+             inheritAll="false"
+             target="delete-jar"/>
+    </target>
+
     <!-- Build libraries -->
-    <target name="build" description="Build all Java libraries" depends="build-math,build-mlert,build-parts,build-actors,build-props,build-mrefs,build-roles,build-sets,build-stages"/>
+    <target name="build" description="Build all Java libraries" depends="build-math,build-mlert,build-parts,build-actors,build-props,build-mrefs,build-roles,build-sets,build-stages,build-codegen"/>
 
     <!-- Build library documentation -->
     <target name="build-doc" description="Build all Java library documentation" depends="build-mathdoc,build-mlertdoc,build-partsdoc,build-actorsdoc,build-propsdoc,build-mrefsdoc,build-rolesdoc,build-setsdoc,build-stagesdoc"/>
 
     <!-- Clean libraries -->
-    <target name="clean" description="Clean all Java libraries" depends="clean-math,clean-mlert,clean-parts,clean-actors,clean-props,clean-mrefs,clean-roles,clean-sets,clean-stages"/>
+    <target name="clean" description="Clean all Java libraries" depends="clean-math,clean-mlert,clean-parts,clean-actors,clean-props,clean-mrefs,clean-roles,clean-sets,clean-stages,clean-codegen"/>
 
     <!-- Install Java libraries into MLE_ROOT -->
     <target name="install" description="Build and install all Java libraries" depends="build">
