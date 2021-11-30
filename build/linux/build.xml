@@ -151,14 +151,39 @@ COPYRIGHT_END
              target="delete-jardoc"/>
     </target>
 
+    <!-- props.jar targets -->
+    <target name="build-props" description="Buld props.jar">
+        <ant antfile="${mle.home}/Parts/props/java/com.wizzer.mle.parts.props/build.xml"
+             inheritAll="false"
+             target="create-jar">
+            <property name="com.wizzer.mle.math.location" value="${mle.home}/Core/math/java/com.wizzer.mle.math"/>
+            <property name="com.wizzer.mle.runtime.location" value="${mle.home}/Core/mlert/java/com.wizzer.mle.runtime"/>
+        </ant>
+    </target>
+
+    <target name="build-propsdoc" description="Build propsdoc.jar">
+        <ant antfile="${mle.home}/Parts/props/java/com.wizzer.mle.parts.props/build.xml"
+             inheritAll="false"
+             target="create-jardoc"/>
+    </target>
+
+    <target name="clean-props" description="Delete props.jar and propsdoc.jar">
+        <ant antfile="${mle.home}/Parts/props/java/com.wizzer.mle.parts.props/build.xml"
+             inheritAll="false"
+             target="delete-jar"/>
+        <ant antfile="${mle.home}/Parts/props/java/com.wizzer.mle.parts.props/build.xml"
+             inheritAll="false"
+             target="delete-jardoc"/>
+    </target>
+
     <!-- Build libraries -->
-    <target name="build" description="Build all Java libraries" depends="build-math,build-parts,build-actors"/>
+    <target name="build" description="Build all Java libraries" depends="build-math,build-parts,build-actors,build-props"/>
 
     <!-- Build library documentation -->
-    <target name="build-doc" description="Build all Java library documentation" depends="build-mathdoc,build-partsdoc,build-actorsdoc"/>
+    <target name="build-doc" description="Build all Java library documentation" depends="build-mathdoc,build-partsdoc,build-actorsdoc,build-propsdoc"/>
 
     <!-- Clean libraries -->
-    <target name="clean" description="Clean all Java libraries" depends="clean-math,clean-parts,clean-actors"/>
+    <target name="clean" description="Clean all Java libraries" depends="clean-math,clean-parts,clean-actors,clean-props"/>
 
     <!-- Install Java libraries into MLE_ROOT -->
     <target name="install" description="Build and install all Java libraries" depends="build">
