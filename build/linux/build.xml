@@ -46,9 +46,9 @@ COPYRIGHT_END
         <then>
             <property name="mle.home" value="${env.MLE_HOME}"/>
         </then>
-	<else>
+        <else>
             <property name="mle.home" value="${env.HOME}/Projects/MagicLanternStudio"/>
-	</else>
+        </else>
     </if>
 
     <!-- Set MLE_ROOT variable. -->
@@ -57,9 +57,9 @@ COPYRIGHT_END
         <then>
             <property name="mle.root" value="${env.MLE_ROOT}"/>
         </then>
-	<else>
-            <property name="mle.root" value="/opt/MagicLantern"/>	  
-	</else>
+        <else>
+            <property name="mle.root" value="/opt/MagicLantern"/>          
+        </else>
     </if>
 
     <!-- Set MLE_WORKPRINTS variable. -->
@@ -68,30 +68,73 @@ COPYRIGHT_END
         <then>
             <property name="mle.workprints" value="${env.MLE_WORKPRINTS}"/>
         </then>
-	<else>
+        <else>
             <property name="mle.workprints" value="/opt/MagicLantern/include/workprints"/>
-	</else>
+        </else>
     </if>
 
     <!-- Print build environment. -->
-    <target name="printenv">
+    <target name="printenv" description="Display build environment">
         <echo message="MLE_HOME=${mle.home}"/>
         <echo message="MLE_ROOT=${mle.root}"/>
         <echo message="MLE_WORKPRINTS=${mle.workprints}"/>
     </target>
 
-    <target name="compile-math">
+    <target name="build-math" description="Buid mlmath.jar">
         <ant antfile="${mle.home}/Core/math/java/com.wizzer.mle.math/build.xml"
-	     target="create-jar"/>
+             inheritAll="false"
+             target="create-jar"/>
     </target>
 
-    <target name="clean-math">
+    <target name="build-mathdoc" description="Build mlmathdoc.jar">
         <ant antfile="${mle.home}/Core/math/java/com.wizzer.mle.math/build.xml"
-	     target="delete-jar"/>
+             inheritAll="false"
+             target="create-jardoc"/>
     </target>
+
+    <target name="clean-math" description="Delete mlmath.jar and mlmathdoc.jar">
+        <ant antfile="${mle.home}/Core/math/java/com.wizzer.mle.math/build.xml"
+             inheritAll="false"
+             target="delete-jar"/>
+        <ant antfile="${mle.home}/Core/math/java/com.wizzer.mle.math/build.xml"
+             inheritAll="false"
+             target="delete-jardoc"/>
+    </target>
+
+    <target name="build-parts" description="Buld parts.jar">
+        <ant antfile="${mle.home}/Parts/base/java/com.wizzer.mle.parts/build.xml"
+             inheritAll="false"
+             target="create-jar">
+	  <property name="com.wizzer.mle.runtime.location" value="${mle.home}/Core/mlert/java/com.wizzer.mle.runtime"/>
+	</ant>
+    </target>
+
+    <target name="build-partsdoc" description="Build partsdoc.jar">
+        <ant antfile="${mle.home}/Parts/base/java/com.wizzer.mle.parts/build.xml"
+             inheritAll="false"
+             target="create-jardoc"/>
+    </target>
+
+    <target name="clean-parts" description="Delete parts.jar and partsdoc.jar">
+        <ant antfile="${mle.home}/Parts/base/java/com.wizzer.mle.parts/build.xml"
+             inheritAll="false"
+             target="delete-jar"/>
+        <ant antfile="${mle.home}/Parts/base/java/com.wizzer.mle.parts/build.xml"
+             inheritAll="false"
+             target="delete-jardoc"/>
+    </target>
+
+    <!-- Build libraries -->
+    <target name="build" description="Build all Java libraries" depends="build-math,build-parts"/>
+
+    <!-- Build library documentation -->
+    <target name="build-doc" description="Build all Java library documentation" depends="build-mathdoc,build-partsdoc"/>
+
+    <!-- Clean libraries -->
+    <target name="clean" description="Clean all Java libraries" depends="clean-math,clean-parts"/>
 
     <!-- Install Java libraries into MLE_ROOT -->
-    <target name="install">
+    <target name="install" description="Build and install all Java libraries" depends="build">
         <mkdir dir="${mle.root}/lib/java/runtime"/>
         <copy file="${mle.home}/lib/java/runtime/mlmath.jar"
               todir="${mle.root}/lib/java/runtime"/>
@@ -118,13 +161,13 @@ COPYRIGHT_END
     </target>
 
     <!-- Uninstall libraries from MLE_ROOT. -->
-    <target name="uninstall">
+    <target name="uninstall" description="Delete all Java libraries">
         <delete dir="${mle.root}/lib/java/runtime"/>
         <delete dir="${mle.root}/lib/java/tools"/>
     </target>
 
     <!-- Install Java libraries into MLE_ROOT -->
-    <target name="install-doc">
+    <target name="install-doc" description="Install all Java library documentation" depends="build-doc">
         <mkdir dir="${mle.root}/lib/java/runtime"/>
         <copy file="${mle.home}/lib/java/runtime/mlmathdoc.jar"
               todir="${mle.root}/lib/java/runtime"/>
@@ -147,7 +190,7 @@ COPYRIGHT_END
     </target>
 
     <!-- Install Java libraries into MLE_ROOT -->
-    <target name="install-sdk">
+    <target name="install-sdk" description="Build and install Java SDK libraries" depends="build">
         <mkdir dir="${mle.root}/lib/java/runtime"/>
         <copy file="${mle.home}/lib/java/runtime/mlmath.jar"
               todir="${mle.root}/lib/java/runtime"/>
