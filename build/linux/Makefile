@@ -968,16 +968,16 @@ libmlloaders_rehearsal_uninstall: check_env libmlloaders_rehearsal_stage
 
 libmlloaders_runtime_stage: $(MLE_HOME)/Parts/loaders/build/runtime/Makefile
 
-libmlloaders_runtime: check_env libmlloaders_runtime_stage
+libmlloaders_runtime: check_env libmlloaders_runtime_stage libplayprint_install
 	cd $(MLE_HOME)/Parts/loaders/build/runtime; make;
 
-libmlloaders_runtime_clean: check_env libmlloaders_runtime_stage
+libmlloaders_runtime_clean: check_env libmlloaders_runtime_stage libplayprint_clean
 	cd $(MLE_HOME)/Parts/loaders/build/runtime; make clean;
 
-libmlloaders_runtime_install: libmlloaders_runtime
+libmlloaders_runtime_install: libmlloaders_runtime libplayprint_install
 	cd $(MLE_HOME)/Parts/loaders/build/runtime; MLE_ROOT=$(MLE_ROOT) make install;
 
-libmlloaders_runtime_uninstall: check_env libmlloaders_runtime_stage
+libmlloaders_runtime_uninstall: check_env libmlloaders_runtime_stage libplayprint_uninstall
 	cd $(MLE_HOME)/Parts/loaders/build/runtime; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 libmlloaders_inventor_stage: $(MLE_HOME)/Parts/loaders/build/inventor/Makefile
