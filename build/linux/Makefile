@@ -4,7 +4,7 @@
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2020 Wizzer Works
+# Copyright (c) 2020-2022 Wizzer Works
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -1071,7 +1071,7 @@ unittests_install: studio_install libmlmath-test_install libmlert-test_install
 
 unittests_uninstall: studio_uninstall libmlmath-test_uninstall libmlert-test_uninstall
 
-.PHONY: check_MLE_HOME check_MLE_ROOT check_MLE_WORKPRINTS check_TCL_HOME
+.PHONY: check_MLE_HOME check_MLE_ROOT check_MLE_WORKPRINTS
 
 # Make sure environment variables are set.
 check_MLE_HOME:
@@ -1092,18 +1092,11 @@ check_MLE_WORKPRINTS:
 	exit 1; \
 	fi
 
-check_TCL_HOME:
-	@if test "$(TCL_HOME)" = "" ; then \
-	echo "***** TCL_HOME environment variable not set."; \
-	exit 1; \
-	fi
-
-check_env: check_MLE_HOME check_MLE_ROOT check_MLE_WORKPRINTS check_TCL_HOME
+check_env: check_MLE_HOME check_MLE_ROOT check_MLE_WORKPRINTS
 	@echo "Using Magic Lantern environment:"; \
 	echo "    MLE_HOME= $(MLE_HOME)"; \
 	echo "    MLE_ROOT= $(MLE_ROOT)"; \
 	echo "    MLE_WORKPRINTS= $(MLE_WORKPRINTS)"; \
 	echo "    JAVA_HOME= $(JAVA_HOME)"; \
-	echo "    TCL_HOME= $(TCL_HOME)"; \
 	echo "    PATH= $(PATH)"; \
 	echo "";
