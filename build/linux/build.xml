@@ -324,6 +324,13 @@ COPYRIGHT_END
     <!-- Clean libraries -->
     <target name="clean" description="Clean all Java libraries" depends="clean-math,clean-mlert,clean-parts,clean-actors,clean-props,clean-mrefs,clean-roles,clean-sets,clean-stages,clean-codegen"/>
 
+    <!-- Install Digital Workprints into MLE_WORKPRINTS -->
+    <target name="install-workprints" description="Install Digital Workprints">
+        <mkdir dir="${mle.workprints}/Parts/sets/java/workprints"/>
+        <copy file="${mle.home}/Parts/sets/java/workprints/MleJ2dSet.wpf"
+              todir="${mle.workprints}/Parts/sets/java/workprints"/>
+    </target>
+
     <!-- Install Java libraries into MLE_ROOT -->
     <target name="install" description="Build and install all Java libraries" depends="build">
         <mkdir dir="${mle.root}/lib/java/runtime"/>
@@ -357,7 +364,7 @@ COPYRIGHT_END
         <delete dir="${mle.root}/lib/java/tools"/>
     </target>
 
-    <!-- Install Java libraries into MLE_ROOT -->
+    <!-- Install Java document libraries into MLE_ROOT -->
     <target name="install-doc" description="Install all Java library documentation" depends="build-doc">
         <mkdir dir="${mle.root}/lib/java/runtime"/>
         <copy file="${mle.home}/lib/java/runtime/mlmathdoc.jar"
@@ -380,7 +387,7 @@ COPYRIGHT_END
               todir="${mle.root}/lib/java/runtime"/>
     </target>
 
-    <!-- Install Java libraries into MLE_ROOT -->
+    <!-- Install Java SDK libraries into MLE_ROOT -->
     <target name="install-sdk" description="Build and install Java SDK libraries" depends="build">
         <mkdir dir="${mle.root}/lib/java/runtime"/>
         <copy file="${mle.home}/lib/java/runtime/mlmath.jar"
