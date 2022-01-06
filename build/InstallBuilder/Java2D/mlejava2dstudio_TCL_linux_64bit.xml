@@ -1,7 +1,7 @@
 <project>
     <shortName>mlejava2dstudio</shortName>
     <fullName>Magic Lantern Studio</fullName>
-    <version>1.0.01062022-alpha</version>
+    <version>1.0.06222020-alpha</version>
     <readmeFile>resources/LinuxReleaseNotes.txt</readmeFile>
     <licenseFile>resources/license.txt</licenseFile>
     <leftImage>resources/WwSidebar.png</leftImage>
@@ -233,10 +233,10 @@
                             <origin>../../../../../../../../opt/MagicLantern/lib/libDWP.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../../../../../../opt/MagicLantern/lib/libDWP.so.1</origin>
+                            <origin>../../../../../../../../opt/MagicLantern/lib/libDWP.so.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../../../../../../opt/MagicLantern/lib/libDWP.so.1.0.0</origin>
+                            <origin>../../../../../../../../opt/MagicLantern/lib/libDWP.so.0.0.0</origin>
                         </distributionFile>
                         <distributionFile>
                             <origin>../../../../../../../../opt/MagicLantern/lib/libmlutil.a</origin>
@@ -248,10 +248,10 @@
                             <origin>../../../../../../../../opt/MagicLantern/lib/libmlutil.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../../../../../../opt/MagicLantern/lib/libmlutil.so.1</origin>
+                            <origin>../../../../../../../../opt/MagicLantern/lib/libmlutil.so.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../../../../../../opt/MagicLantern/lib/libmlutil.so.1.0.0</origin>
+                            <origin>../../../../../../../../opt/MagicLantern/lib/libmlutil.so.0.0.0</origin>
                         </distributionFile>
                         <distributionFile>
                             <origin>../../../../../../../../opt/MagicLantern/lib/libmlmath.a</origin>
@@ -263,10 +263,10 @@
                             <origin>../../../../../../../../opt/MagicLantern/lib/libmlmath.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../../../../../../opt/MagicLantern/lib/libmlmath.so.1</origin>
+                            <origin>../../../../../../../../opt/MagicLantern/lib/libmlmath.so.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../../../../../../opt/MagicLantern/lib/libmlmath.so.1.0.0</origin>
+                            <origin>../../../../../../../../opt/MagicLantern/lib/libmlmath.so.0.0.0</origin>
                         </distributionFile>
                         <distributionFile>
                             <origin>../../../../../../../../opt/MagicLantern/lib/libDPP.a</origin>
@@ -278,10 +278,10 @@
                             <origin>../../../../../../../../opt/MagicLantern/lib/libDPP.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../../../../../../opt/MagicLantern/lib/libDPP.so.1</origin>
+                            <origin>../../../../../../../../opt/MagicLantern/lib/libDPP.so.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../../../../../../opt/MagicLantern/lib/libDPP.so.1.0.0</origin>
+                            <origin>../../../../../../../../opt/MagicLantern/lib/libDPP.so.0.0.0</origin>
                         </distributionFile>
                         <distributionFile>
                             <origin>../../../../../../../../opt/MagicLantern/lib/libDPPGen.a</origin>
@@ -293,10 +293,10 @@
                             <origin>../../../../../../../../opt/MagicLantern/lib/libDPPGen.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../../../../../../opt/MagicLantern/lib/libDPPGen.so.1</origin>
+                            <origin>../../../../../../../../opt/MagicLantern/lib/libDPPGen.so.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../../../../../../opt/MagicLantern/lib/libDPPGen.so.1.0.0</origin>
+                            <origin>../../../../../../../../opt/MagicLantern/lib/libDPPGen.so.0.0.0</origin>
                         </distributionFile>
                         <distributionFile>
                             <origin>../../../../../../../../opt/MagicLantern/lib/libplayprint.a</origin>
@@ -308,14 +308,24 @@
                             <origin>../../../../../../../../opt/MagicLantern/lib/libplayprint.so</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../../../../../../opt/MagicLantern/lib/libplayprint.so.1</origin>
+                            <origin>../../../../../../../../opt/MagicLantern/lib/libplayprint.so.0</origin>
                         </distributionFile>
                         <distributionFile>
-                            <origin>../../../../../../../../opt/MagicLantern/lib/libplayprint.so.1.0.0</origin>
+                            <origin>../../../../../../../../opt/MagicLantern/lib/libplayprint.so.0.0.0</origin>
                         </distributionFile>
                     </distributionFileList>
                 </folder>
             </folderList>
+            <parameterList>
+                <booleanParameter>
+                    <name>installTCL</name>
+                    <title>Install Tool Command Language (TCL)</title>
+                    <description></description>
+                    <explanation>TCL is required by the Magic Lantern mastering tools.</explanation>
+                    <value>1</value>
+                    <default>1</default>
+                </booleanParameter>
+            </parameterList>
             <postInstallationActionList>
                 <addUser>
                     <explanation>Adding User wizzerworks</explanation>
@@ -380,6 +390,91 @@
                 </startMenuShortcut>
             </startMenuShortcutList>
         </component>
+        <component>
+            <name>tcl</name>
+            <description>TCL Component</description>
+            <canBeEdited>1</canBeEdited>
+            <selected>1</selected>
+            <show>1</show>
+            <folderList>
+                <folder>
+                    <description>Program Files</description>
+                    <destination>${installdir}/tools/3rdparty/ActiveTcl</destination>
+                    <name>activetcl</name>
+                    <platforms>linux-x64</platforms>
+                    <distributionFileList>
+                        <distributionFile>
+                            <origin>../../../tools/3rdparty/ActiveTcl8.6.4.1.299124-linux-x86_64-threaded.tar.gz</origin>
+                        </distributionFile>
+                    </distributionFileList>
+                </folder>
+            </folderList>
+            <parameterList>
+                <directoryParameter>
+                    <name>installdirTCL</name>
+                    <title>Specifiy TCL home directory</title>
+                    <description></description>
+                    <explanation>Please indicate where you plan to install TCL.</explanation>
+                    <value></value>
+                    <default>/opt/ActiveTcl-8.6</default>
+                    <allowEmptyValue>0</allowEmptyValue>
+                    <mustBeWritable>0</mustBeWritable>
+                    <mustExist>0</mustExist>
+                    <width>40</width>
+                    <ruleList>
+                        <isTrue>
+                            <value>${installTCL}</value>
+                        </isTrue>
+                    </ruleList>
+                </directoryParameter>
+                <infoParameter>
+                    <name>installTCLInstructions</name>
+                    <title>Install ActiveTcl</title>
+                    <description></description>
+                    <explanation></explanation>
+                    <value>ActiveTcl must be installed separately by executing ${installdir}/tools/3rdparty/ActiveTcl/ActiveTcl8.6.4.1.299124-linux-x86_64-threaded/install.sh.
+
+Note that super user permissions are required if ActiveTcl is installed in the default location, /opt/ActiveTcl-8.6. Use sudo to run as super user.</value>
+                    <default></default>
+                    <insertAfter>installdirTCL</insertAfter>
+                    <trimMarginNumChars>0</trimMarginNumChars>
+                    <ruleList>
+                        <isTrue>
+                            <value>${installTCL}</value>
+                        </isTrue>
+                    </ruleList>
+                </infoParameter>
+            </parameterList>
+            <postInstallationActionList>
+                <runProgram>
+                    <explanation>Extracting Tcl package</explanation>
+                    <program>/bin/tar</program>
+                    <programArguments>-xzf ${installdir}/tools/3rdparty/ActiveTcl/ActiveTcl8.6.4.1.299124-linux-x86_64-threaded.tar.gz -C ${installdir}/tools/3rdparty/ActiveTcl &gt; /dev/null 2&gt; /dev/null</programArguments>
+                    <useMSDOSPath>0</useMSDOSPath>
+                    <ruleList>
+                        <isTrue>
+                            <value>${installTCL}</value>
+                        </isTrue>
+                    </ruleList>
+                </runProgram>
+            </postInstallationActionList>
+            <postUninstallationActionList>
+                <deleteEnvironmentVariable>
+                    <explanation>Remove TCL_HOME environment variable</explanation>
+                    <name>TCL_HOME</name>
+                    <scope>user</scope>
+                </deleteEnvironmentVariable>
+                <removeDirectoryFromPath>
+                    <explanation>Delete ${installdirTCL} from PATH</explanation>
+                    <path>${installdirTCL}/bin</path>
+                </removeDirectoryFromPath>
+            </postUninstallationActionList>
+            <shouldPackRuleList>
+                <isTrue>
+                    <value>${installTCL}</value>
+                </isTrue>
+            </shouldPackRuleList>
+        </component>
     </componentList>
     <preInstallationActionList>
         <autodetectJava>
@@ -397,6 +492,13 @@
             </validVersionList>
         </autodetectJava>
     </preInstallationActionList>
+    <postInstallationActionList>
+        <addDirectoriesToUninstaller>
+            <addContents>1</addContents>
+            <explanation>Remove ActiveTcl installation</explanation>
+            <files>${installdir}/tools/3rdparty/ActiveTcl/ActiveTcl8.6.4.1.229124-linux-x86_64-threaded</files>
+        </addDirectoriesToUninstaller>
+    </postInstallationActionList>
     <defaultUnixDirectoryPermissions>777</defaultUnixDirectoryPermissions>
     <defaultUnixFilePermissions>666</defaultUnixFilePermissions>
     <enableRollback>1</enableRollback>
@@ -407,6 +509,27 @@
     <vendor>Wizzer Works</vendor>
     <windows64bitMode>1</windows64bitMode>
     <finalPageActionList>
+        <addEnvironmentVariable>
+            <explanation>Set TCL_HOME environment variable</explanation>
+            <name>TCL_HOME</name>
+            <scope>system</scope>
+            <value>${installdirTCL}</value>
+            <ruleList>
+                <isTrue>
+                    <value>${installTCL}</value>
+                </isTrue>
+            </ruleList>
+        </addEnvironmentVariable>
+        <addDirectoryToPath>
+            <explanation>Add TCL to PATH</explanation>
+            <insertAt>beginning</insertAt>
+            <path>${installdirTCL}/bin</path>
+            <ruleList>
+                <isTrue>
+                    <value>${installTCL}</value>
+                </isTrue>
+            </ruleList>
+        </addDirectoryToPath>
         <setWindowsACL>
             <action>allow</action>
             <explanation>Update ACL permissions</explanation>

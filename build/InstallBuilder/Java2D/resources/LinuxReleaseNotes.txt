@@ -1,5 +1,5 @@
 Magic Lantern Java2D Studio 1.0 Release Notes
-Date: June 22, 2020
+Date: January 6, 2022
 
 
 This documentation provices information concerning the Alpha release of the Magic Lantern Java2D Studio authoring tool for Linux platforms.
@@ -9,14 +9,14 @@ This documentation provices information concerning the Alpha release of the Magi
 
 Magic Lantern is a interactive, title development platform for authoring highly interactive titles, such as interactive TV applications, games, educational programs, and point-of-information/sales kiosks. It is being created specifically for the real-world needs of professional title development teams as they break new ground in the development of real-time interactive titles.
 
-The Magic Lantern authoring system is being developed with an understanding of how the top professional development teams are currently creating titles. It is designed to streamline development and collaborative processes so that title developers can focus on enhancing content, performance and interactivity. The Magic Lantern development environment will run on Windows and UNIX workstations; for title playback, the Magic Lantern architecture facilitates efficient deployment of a title to one or more platforms, such as an interactive TV set-top box, a Pentium-based PC, or game console.
+The Magic Lantern authoring system is being developed with an understanding of how the top professional development teams are currently creating titles. It is designed to streamline development and collaborative processes so that title developers can focus on enhancing content, performance and interactivity. The Magic Lantern development environment will run on Windows and UNIX workstations; for title playback, the Magic Lantern architecture facilitates efficient deployment of a title to one or more platforms, such as an interactive TV set-top box, a PC, or game console.
 
 This release targets applications being developed for the Java 2D platform. It is compliant with the Oracle Java SE Version 1.8 release.
 
 
 1.2 Open Source
 
-Magic Lantern is an Open Source project that can be found on Github. The project is comprised multiple repositories at https://github.com/magic-lantern-studio. Documentation can be found on the project wiki at https://github.com/magic-lantern-studio/mle-documentation/wiki.
+Magic Lantern is an Open Source project that can be found on Github. The project is comprised of multiple repositories at https://github.com/magic-lantern-studio. Documentation can be found on the project wiki at https://github.com/magic-lantern-studio/mle-documentation/wiki.
 
 
 1.3 Platform Requirements
@@ -37,34 +37,31 @@ Magic Lantern is currently distributed as a complete Eclipse development environ
 1.4.1 Dependencies
 
   1. Magic Lantern Java2D Studio is dependent upon version 1.8 of the Java JDK. You will need to install the JDK prior to installing Magic Lantern. Instructions for installing the JDK can be found at "https://github.com/magic-lantern-studio/mle-documentation/wiki/Common-Build-Environment-for-Linux-Platform#install-java-sdk" (see Section "Install Java SDK").
-  2. The mastering tools use ActiveTcl, version 8.6. The Magic Lantern Java2D Studio installer includes this product. Please see the documentation below for installation instructions.
+  2. The mastering tools use Python 3.x for script evaluation.
 
 1.4.2 Quck Installation Guide
 
-  1. Download the InstallBuilder installation package, "mlejava2dstudio-1.0.06222020-alpha-linux-x64-installer.run".
-  2. Add executable permissions to the package, "sudo chmod 755 mlejava2dstudio-1.0.06222020-alpha-linux-x64-installer.run".
-  3. Run the executable package as super user, "sudo mlejava2dstudio-1.0.06222020-alpha-linux-x64-installer.run".
-  4. Follow the default instructions presented by the installer. You will be insalling Magic Lantern Java2D Studio in "/opt/MagicLanternJava2DStudio" and Active Tcl/Tk in "/opt/ActiveTcl-8.6".
-  5. Run the ActiveTcl installer as super user, "sudo /opt/MagicLanternJava2DStudio/tools/3rdparty/ActiveTcl/ActiveTcl8.6.4.1.299124-linux-x86_64-threaded/install.sh".
-  6. Follow the default instructions presented by the ActiveTcl installer.
-  7. During the installation of Magic Lantern, a new user and group was created. The new user is "wizzerworks" and the new group is also "wizzerworks". Add users that wish to run Magic Lantern Java2 Studio to the "wizzerworks" group (i.e. /etc/group).
-  8. The Magic Lantern installer added a shortcut for Magic Lantern java2D Studio to the Desktop. Use this shortcut to run Magic Lantern Java2D Studio. An Eclipse workspace will be created in the users $HOME directory, "$HOME/workspace".
+  1. Download the InstallBuilder installation package, "mlejava2dstudio-1.0.01062022-alpha-linux-x64-installer.run".
+  2. Add executable permissions to the package, "sudo chmod 755 mlejava2dstudio-1.0.01062022-alpha-linux-x64-installer.run".
+  3. Run the executable package as super user, "sudo mlejava2dstudio-1.0.01062022-alpha-linux-x64-installer.run".
+  4. Follow the default instructions presented by the installer. You will be insalling Magic Lantern Java2D Studio in "/opt/MagicLanternJava2DStudio".
+  5. During the installation of Magic Lantern, a new user and group was created. The new user is "wizzerworks" and the new group is also "wizzerworks". Add users that wish to run Magic Lantern Java2 Studio to the "wizzerworks" group (i.e. /etc/group).
+  6. The Magic Lantern installer added a shortcut for Magic Lantern java2D Studio to the Desktop. Use this shortcut to run Magic Lantern Java2D Studio. An Eclipse workspace will be created in the users $HOME directory, "$HOME/workspace".
 
 Please refer to the installation document, "Magic Lantern Java2D Installation", for detailed instructions on installing Magic Lantern.
 
 
 1.5 Uninstallation Notes
 
-To completely uninstall Magic Lantern Java2D Studio, both the Magic Lantern and ActiveTcl products should be uninstalled.
+To completely uninstall Magic Lantern Java2D Studio, both the toolchain and the project workspace should be removed ("$HOME/workspace").
 
 1.5.1 Quick Uninstallation Guide
 
   1. Remove Magic Lantern Java2D Studio by running "sudo /opt/MagicLanternJava2DStudio/uninstall"
-  2. Remove ActiveTcl by running "sudo /opt/ActiveTcl-8.6/lib/ppm/log/activetcl8.6-thread/uninstall"
-  3. Remove residual Magic Lantern files not recognized by the uninstaller, "sudo rm -rf /opt/MagicLanternJava2DStudio"
-  4. Remove Eclipse workspace, "rm -rf $HOME/workspace".
+  2. Remove residual Magic Lantern files not recognized by the uninstaller, "sudo rm -rf /opt/MagicLanternJava2DStudio"
+  3. Remove Eclipse workspace, "rm -rf $HOME/workspace".
 
-Please refer to the installation document, "Magic Lantern Java2D Installation", for detailed instructions on installing Magic Lantern.
+Please refer to the installation document, "Magic Lantern Java2D Installation", for detailed instructions on uninstalling Magic Lantern.
 
 
 1.6 Known Issues
