@@ -994,13 +994,13 @@ libmlloaders_inventor_install: libmlloaders_inventor
 libmlloaders_inventor_uninstall: check_env libmlloaders_inventor_stage
 	cd $(MLE_HOME)/Parts/loaders/build/inventor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
-libmlloaders: libmlloaders_rehearsal
+libmlloaders: libmlloaders_rehearsal libmlloaders_inventor libmlloaders_runtime
 
-libmlloaders_clean: libmlloaders_rehearsal_clean
+libmlloaders_clean: libmlloaders_rehearsal_clean libmlloaders_inventor_clean libmlloaders_runtime_clean
 
-libmlloaders_install: libmlloaders_rehearsal_install
+libmlloaders_install: libmlloaders_rehearsal_install libmlloaders_inventor_install libmlloaders_runtime_install
 
-libmlloaders_uninstall: libmlloaders_rehearsal_uninstall
+libmlloaders_uninstall: libmlloaders_rehearsal_uninstall libmlloaders_inventor_uninstall libmlloaders_runtime_uninstall
 
 # Targets for Magic Lantern utility library.
 $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/Makefile:
