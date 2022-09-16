@@ -1431,13 +1431,13 @@ libDwpReader_uninstall: check_env libDwpReader_stage
 	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/libDwpReader; MLE_HOME=$(MLE_HOME) make uninstall_plugin;
 
 # Magic Lantern Studio
-studio: sdk libmleatk libDwpReader players
+studio: sdk_rehearsal sdk_runtime libmleatk libDwpReader players
 
-studio_clean: sdk_clean libmleatk_clean libDwpReader_clean players_clean
+studio_clean: sdk_rehearsal_clean sdk_runtime_clean libmleatk_clean libDwpReader_clean players_clean
 
-studio_install: sdk_install libmleatk_install libDwpReader_install players_install
+studio_install: sdk_rehearsal_install sdk_runtime_install libmleatk_install libDwpReader_install players_install
 
-studio_uninstall: sdk_uninstall libmleatk_uninstall libDwpReader_uninstall players_uninstall
+studio_uninstall: sdk_rehearsal_uninstall sdk_runtime_uninstall libmleatk_uninstall libDwpReader_uninstall players_uninstall
 
 # Rehearsal components
 rehearsal: libmlert_rehearsal props roles_rehearsal mediarefs_rehearsal sets_rehearsal stages_rehearsal actors_rehearsal
