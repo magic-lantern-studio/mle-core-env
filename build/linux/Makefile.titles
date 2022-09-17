@@ -4,7 +4,7 @@
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2020 Wizzer Works
+# Copyright (c) 2020-2022 Wizzer Works
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -47,19 +47,35 @@ uninstall: titles_uninstall
 
 # HelloWorld title wich dispalys the string "Hello World!".
 helloWorld: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloWorld *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloWorld/rehearsal/build/linux/LabelWidget; make;
 
 helloWorld_clean: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloWorld_clean *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloWorld/rehearsal/build/linux/LabelWidget; make clean;
 
 helloWorld_install: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloWorld_install *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloWorld/rehearsal/build/linux/LabelWidget; MLE_ROOT=$(MLE_ROOT) make install;
 
 helloWorld_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloWorld_uninstall *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloWorld/rehearsal/build/linux/LabelWidget; MLE_ROOT=$(MLE_ROOT) make uninstall;
 	
 # The HelloCube title which displays a simple cube.
+
 helloCube: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloCube *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; make;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; make;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; make;
@@ -67,6 +83,9 @@ helloCube: check_env
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; make;
 
 helloCube_clean: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloCube_clean *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; make clean;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; make clean;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; make clean;
@@ -74,6 +93,9 @@ helloCube_clean: check_env
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; make clean;
 
 helloCube_install: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloCube_install *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; MLE_ROOT=$(MLE_ROOT) make install;
@@ -81,6 +103,9 @@ helloCube_install: check_env
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; MLE_ROOT=$(MLE_ROOT) make install;
 
 helloCube_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloWorld_uninstall *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; MLE_ROOT=$(MLE_ROOT) make uninstall;
@@ -89,7 +114,11 @@ helloCube_uninstall: check_env
 #	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_5_12_6_GCC_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # The HelloCube title which displays a simple cube.
+
 helloCube_qt: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloCube_qt *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/qt/actors/CubeActor/build/build-CubeActor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
 	cd $(MLE_HOME)/Titles/helloCube/qt/roles/CubeRole/build/build-CubeRole-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
 	cd $(MLE_HOME)/Titles/helloCube/qt/sets/CubeSet/build/build-CubeSet-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
@@ -97,6 +126,9 @@ helloCube_qt: check_env
 	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
 
 helloCube_qt_clean: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloCube_qt_clean *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/qt/actors/CubeActor/build/build-CubeActor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
 	cd $(MLE_HOME)/Titles/helloCube/qt/roles/CubeRole/build/build-CubeRole-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
 	cd $(MLE_HOME)/Titles/helloCube/qt/sets/CubeSet/build/build-CubeSet-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
@@ -104,6 +136,9 @@ helloCube_qt_clean: check_env
 	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_4_8_7_GCC_64bit-Debug; make clean;
 
 helloCube_qt_install: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloCube_qt_install *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/qt/actors/CubeActor/build/build-CubeActor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
 	cd $(MLE_HOME)/Titles/helloCube/qt/roles/CubeRole/build/build-CubeRole-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
 	cd $(MLE_HOME)/Titles/helloCube/qt/sets/CubeSet/build/build-CubeSet-Desktop_Qt_4_8_7_GCC_64bit-Debug; make install;
@@ -111,6 +146,9 @@ helloCube_qt_install: check_env
 	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
 
 helloCube_qt_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloCube_qt_uninstall *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/qt/actors/CubeActor/build/build-CubeActor-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/qt/roles/CubeRole/build/build-CubeRole-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/qt/sets/CubeSet/build/build-CubeSet-Desktop_Qt_4_8_7_GCC_64bit-Debug; make uninstall;
@@ -118,24 +156,38 @@ helloCube_qt_uninstall: check_env
 	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_Qt_4_8_7_GCC_64bit-Debug; make;
 
 # The mtea title which displays a moving teapot.
+
 $(MLE_HOME)/Titles/mtea/build/linux/Makefile:
 	cd $(MLE_HOME)/Titles/mtea/build/linux; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
 mtea_stage: $(MLE_HOME)/Titles/mtea/build/linux/Makefile
 
 mtea: check_env mtea_stage
+	@echo ""
+	@echo "***** Running Makefile target mtea *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/mtea/build/linux; make;
 
 mtea_clean: check_env mtea_stage
+	@echo ""
+	@echo "***** Running Makefile target mtea_clean *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/mtea/build/linux; make clean;
 
 mtea_install: check_env mtea_stage
+	@echo ""
+	@echo "***** Running Makefile target mtea_install *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/mtea/build/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
 mtea_uninstall: check_env mtea_stage
+	@echo ""
+	@echo "***** Running Makefile target mtea_uninstall *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/mtea/build/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Magic Lantern Titles
+
 titles: helloCube mtea helloWorld
 
 titles_clean: helloCube_clean mtea_clean helloWorld_clean
