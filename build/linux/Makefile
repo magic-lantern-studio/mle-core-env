@@ -86,7 +86,7 @@ libmlmath: check_env libmlmath_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlmath *****"
 	@echo ""
-	cd $(MLE_HOME)/Core/math/linux/libmlmath; make;
+	cd $(MLE_HOME)/Core/math/linux/libmlmath; MLE_ROOT=$(MLE_ROOT) make;
 
 libmlmath_clean: check_env libmlmath_stage
 	@echo ""
@@ -117,7 +117,7 @@ libDWP: check_env libDWP_stage libmlmath_install libmlutil_install
 	@echo ""
 	@echo "***** Running Makefile target libDWP *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; make;
+	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; MLE_ROOT=$(MLE_ROOT) make;
 
 libDWP_clean: check_env libDWP_stage
 	@echo ""
@@ -148,7 +148,7 @@ libDPP: check_env libDPP_stage libDWP_install
 	@echo ""
 	@echo "***** Running Makefile target libDPP *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; make;
+	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; MLE_ROOT=$(MLE_ROOT) make;
 
 libDPP_clean: check_env libDPP_stage
 	@echo ""
@@ -179,7 +179,7 @@ libplayprint: check_env libplayprint_stage
 	@echo ""
 	@echo "***** Running Makefile target libplayprint *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; make;
+	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; MLE_ROOT=$(MLE_ROOT) make;
 
 libplayprint_clean: check_env libplayprint_stage
 	@echo ""
@@ -214,7 +214,7 @@ libDPPGen: check_env libDPPGen_stage
 	@echo ""
 	@echo "***** Running Makefile target libDPPGen *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; make;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; MLE_ROOT=$(MLE_ROOT) make;
 
 libDPPGen_clean: check_env libDPPGen_stage
 	@echo ""
@@ -245,7 +245,7 @@ gentables: check_env libDPP_install libDPPGen_install gentables_stage
 	@echo ""
 	@echo "***** Running Makefile target gentables *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; make;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; MLE_ROOT=$(MLE_ROOT) make;
 
 gentables_clean: check_env libDPPGen_clean gentables_stage
 	@echo ""
@@ -276,7 +276,7 @@ gengroup: check_env libplayprint_install libDPP_install libDPPGen_install gengro
 	@echo ""
 	@echo "***** Running Makefile target gengroup *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; make;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; MLE_ROOT=$(MLE_ROOT) make;
 
 gengroup_clean: check_env libDPPGen_clean gengroup_stage
 	@echo ""
@@ -307,7 +307,7 @@ genscene: check_env libDPPGen_install genscene_stage
 	@echo ""
 	@echo "***** Running Makefile target genscene *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; make;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; MLE_ROOT=$(MLE_ROOT) make;
 
 genscene_clean: check_env libDPPGen_clean genscene_stage
 	@echo ""
@@ -338,7 +338,7 @@ genmedia: check_env libDPPGen_install genmedia_stage
 	@echo ""
 	@echo "***** Running Makefile target genmedia *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; make;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; MLE_ROOT=$(MLE_ROOT) make;
 
 genmedia_clean: check_env libDPPGen_clean genmedia_stage
 	@echo ""
@@ -369,7 +369,7 @@ genmakefile: check_env libDPPGen_install genmakefile_stage
 	@echo ""
 	@echo "***** Running Makefile target genmakefile *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; make;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; MLE_ROOT=$(MLE_ROOT) make;
 
 genmakefile_clean: check_env libDPPGen_clean genmakefile_stage
 	@echo ""
@@ -400,7 +400,7 @@ genppscript: check_env libDPPGen_install genppscript_stage
 	@echo ""
 	@echo "***** Running Makefile target genppscript *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; make;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; MLE_ROOT=$(MLE_ROOT) make;
 
 genppscript_clean: check_env libDPPGen_clean genppscript_stage
 	@echo ""
@@ -431,7 +431,7 @@ gendpp: check_env libDPPGen_install gendpp_stage
 	@echo ""
 	@echo "***** Running Makefile target gendpp *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; make;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; MLE_ROOT=$(MLE_ROOT) make;
 
 gendpp_clean: check_env libDPPGen_clean gendpp_stage
 	@echo ""
@@ -462,7 +462,7 @@ dumpgroup: check_env libDPPGen_install dumpgroup_stage
 	@echo ""
 	@echo "***** Running Makefile target dumpgroup *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; make;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; MLE_ROOT=$(MLE_ROOT) make;
 
 dumpgroup_clean: check_env libDPPGen_clean dumpgroup_stage
 	@echo ""
@@ -493,7 +493,7 @@ dumpscene: check_env libDPPGen_install dumpscene_stage
 	@echo ""
 	@echo "***** Running Makefile target dumpscene *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; make;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; MLE_ROOT=$(MLE_ROOT) make;
 
 dumpscene_clean: check_env libDPPGen_clean dumpscene_stage
 	@echo ""
@@ -524,7 +524,7 @@ dumpmedia: check_env libDPPGen_install dumpmedia_stage
 	@echo ""
 	@echo "***** Running Makefile target dumpmedia *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; make;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; MLE_ROOT=$(MLE_ROOT) make;
 
 dumpmedia_clean: check_env libDPPGen_clean dumpmedia_stage
 	@echo ""
@@ -555,7 +555,7 @@ dumpdpp: check_env libDPPGen_install dumpdpp_stage
 	@echo ""
 	@echo "***** Running Makefile target dumpdpp *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; make;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; MLE_ROOT=$(MLE_ROOT) make;
 
 dumpdpp_clean: check_env libDPPGen_clean dumpdpp_stage
 	@echo ""
@@ -608,19 +608,19 @@ libmlert_rehearsal: check_env libDWP_install libDPP_install libmlert_rehearsal_s
 	@echo ""
 	@echo "***** Running Makefile target libmlert_rehearsal *****"
 	@echo ""
-	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; make;
+	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; MLE_ROOT=$(MLE_ROOT) make;
 
 libmlert_runtime: check_env libDWP_install libDPP_install libmlert_runtime_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlert_runtime *****"
 	@echo ""
-	cd $(MLE_HOME)/Core/mlert/linux/runtime; make;
+	cd $(MLE_HOME)/Core/mlert/linux/runtime; MLE_ROOT=$(MLE_ROOT) make;
 
 libmlert_inventor: check_env libDWP_install libDPP_install libmlert_inventor_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlert_inventor *****"
 	@echo ""
-	cd $(MLE_HOME)/Core/mlert/linux/inventor; make;
+	cd $(MLE_HOME)/Core/mlert/linux/inventor; MLE_ROOT=$(MLE_ROOT) make;
 
 libmlert_clean: libmlert_rehearsal_clean libmlert_runtime_clean libmlert_inventor_clean
 
