@@ -4,7 +4,7 @@
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2020-2022 Wizzer Works
+# Copyright (c) 2020-2024 Wizzer Works
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -186,6 +186,12 @@ libplayprint_clean: check_env libplayprint_stage
 	@echo "***** Running Makefile target libplayprint_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; make clean;
+
+libplayprint_clobber: check_env libplayprint_stage
+	@echo ""
+	@echo "***** Running Makefile target libplayprint_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; make maintainer-clean;
 
 libplayprint_install: libplayprint
 	@echo ""
@@ -688,7 +694,7 @@ props: check_env
 	@echo ""
 	@echo "***** Running Makefile target props *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/props/linux; make;
+	cd $(MLE_HOME)/Parts/props/linux; MLE_ROOT=$(MLE_ROOT) make;
 
 props_clean: check_env
 	@echo ""
@@ -733,19 +739,19 @@ roles_rehearsal: check_env libmlert_rehearsal_install props_install roles_rehear
 	@echo ""
 	@echo "***** Running Makefile target roles_rehearsal *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; make;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; MLE_ROOT=$(MLE_ROOT) make;
 
 roles_runtime: check_env libmlert_runtime_install props_install roles_runtime_stage
 	@echo ""
 	@echo "***** Running Makefile target roles_runtime *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; make;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; MLE_ROOT=$(MLE_ROOT) make;
 
 roles_inventor: check_env libmlert_inventor_install props_install roles_inventor_stage
 	@echo ""
 	@echo "***** Running Makefile target roles_inventor *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; make;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; MLE_ROOT=$(MLE_ROOT) make;
 
 roles_clean: roles_rehearsal_clean roles_runtime_clean roles_inventor_clean
 
@@ -766,6 +772,26 @@ roles_inventor_clean: check_env roles_inventor_stage
 	@echo "***** Running Makefile target roles_inventor_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; make clean;
+
+roles_clobber: roles_rehearsal_clobber roles_runtime_clobber roles_inventor_clobber
+
+roles_rehearsal_clobber: check_env roles_rehearsal_stage
+	@echo ""
+	@echo "***** Running Makefile target roles_rehearsal_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; make maintainer-clean;
+
+roles_runtime_clobber: check_env roles_runtime_stage
+	@echo ""
+	@echo "***** Running Makefile target roles_runtime_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; make maintainer-clean;
+
+roles_inventor_clobber: check_env roles_inventor_stage
+	@echo ""
+	@echo "***** Running Makefile target roles_inventor_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; make maintainer-clean;
 
 roles_install: roles_rehearsal_install roles_runtime_install roles_inventor_install
 
@@ -1214,13 +1240,19 @@ players: check_env libmleatk_install stages_rehearsal_install libmlloaders_rehea
 	@echo ""
 	@echo "***** Running Makefile target players *****"
 	@echo ""
-	cd $(MLE_HOME)/Players/rehearsal/build/linux; make;
+	cd $(MLE_HOME)/Players/rehearsal/build/linux; MLE_ROOT=$(MLE_ROOT) make;
 
 players_clean: check_env players_stage
 	@echo ""
 	@echo "***** Running Makefile target players_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/Players/rehearsal/build/linux; make clean;
+
+players_clobber: check_env players_stage
+	@echo ""
+	@echo "***** Running Makefile target players_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Players/rehearsal/build/linux; make maintainer-clean;
 
 players_install: players
 	@echo ""
@@ -1280,13 +1312,19 @@ libmleatk: check_env libmleatk_stage
 	@echo ""
 	@echo "***** Running Makefile target libmleatk *****"
 	@echo ""
-	cd $(MLE_HOME)/ATK/linux/rehearsal; make;
+	cd $(MLE_HOME)/ATK/linux/rehearsal; MLE_ROOT=$(MLE_ROOT) make;
 
 libmleatk_clean: check_env libmleatk_stage
 	@echo ""
 	@echo "***** Running Makefile target libmleatk_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/ATK/linux/rehearsal; make clean;
+
+libmleatk_clobber: check_env libmleatk_stage
+	@echo ""
+	@echo "***** Running Makefile target libmleatk_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/ATK/linux/rehearsal; make maintainer-clean;
 
 libmleatk_install: libmleatk
 	@echo ""
@@ -1317,13 +1355,19 @@ libmlloaders_rehearsal: check_env libmlloaders_rehearsal_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_rehearsal *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; make;
+	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; MLE_ROOT=$(MLE_ROOT) make;
 
 libmlloaders_rehearsal_clean: check_env libmlloaders_rehearsal_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_rehearsal_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; make clean;
+
+libmlloaders_rehearsal_clobber: check_env libmlloaders_rehearsal_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_rehearsal_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; make maintainer-clean;
 
 libmlloaders_rehearsal_install: libmlloaders_rehearsal
 	@echo ""
@@ -1343,13 +1387,19 @@ libmlloaders_runtime: check_env libmlloaders_runtime_stage libplayprint_install
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_runtime *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/runtime; make;
+	cd $(MLE_HOME)/Parts/loaders/build/runtime; MLE_ROOT=$(MLE_ROOT) make;
 
 libmlloaders_runtime_clean: check_env libmlloaders_runtime_stage libplayprint_clean
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_runtime_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/Parts/loaders/build/runtime; make clean;
+
+libmlloaders_runtime_clobber: check_env libmlloaders_runtime_stage libplayprint_clobber
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_runtime_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/runtime; make maintainer-clean;
 
 libmlloaders_runtime_install: libmlloaders_runtime libplayprint_install
 	@echo ""
@@ -1369,13 +1419,19 @@ libmlloaders_inventor: check_env libmlloaders_inventor_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_inventor *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/inventor; make;
+	cd $(MLE_HOME)/Parts/loaders/build/inventor; MLE_ROOT=$(MLE_ROOT) make;
 
 libmlloaders_inventor_clean: check_env libmlloaders_inventor_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_inventor_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/Parts/loaders/build/inventor; make clean;
+
+libmlloaders_inventor_clobber: check_env libmlloaders_inventor_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_inventor_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/inventor; make maintainer-clean;
 
 libmlloaders_inventor_install: libmlloaders_inventor
 	@echo ""
@@ -1392,6 +1448,8 @@ libmlloaders_inventor_uninstall: check_env libmlloaders_inventor_stage
 libmlloaders: libmlloaders_rehearsal libmlloaders_inventor libmlloaders_runtime
 
 libmlloaders_clean: libmlloaders_rehearsal_clean libmlloaders_inventor_clean libmlloaders_runtime_clean
+
+libmlloaders_clobber: libmlloaders_rehearsal_clobber libmlloaders_inventor_clobber libmlloaders_runtime_clobber
 
 libmlloaders_install: libmlloaders_rehearsal_install libmlloaders_inventor_install libmlloaders_runtime_install
 
