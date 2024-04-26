@@ -4,7 +4,7 @@
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2022 Wizzer Works
+# Copyright (c) 2022-2024 Wizzer Works
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -47,6 +47,30 @@ uninstall: unittests_uninstall
 
 # Targets for Magic Lantern Utility Library Unit Tests
 
+# Targets for Magic Lantern Utility Library Unit Tests
+
+$(MLE_HOME)/Core/util/linux/test/Makefile:
+	cd $(MLE_HOME)/Core/util/linux/test; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+
+libmlutil-test_stage: $(MLE_HOME)/Core/util/linux/test/Makefile
+
+libmlutil-test: check_env libmlutil-test_stage
+	cd $(MLE_HOME)/Core/util/linux/test; make;
+
+libmlutil-test_clean: check_env libmlutil-test_stage
+	cd $(MLE_HOME)/Core/util/linux/test; make clean;
+
+libmlutil-test_clobber: check_env libmlutil-test_stage libmlutil-test_clean
+	cd $(MLE_HOME)/Core/util/linux/test; make maintainer-clean;
+
+libmlutil-test_install: libmlutil-test
+#	cd $(MLE_HOME)/Core/util/linux/test; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Core/util/linux/test; MLE_ROOT=$(MLE_ROOT) make install;
+
+libmlutil-test_uninstall: check_env libmlutil-test_stage
+#	cd $(MLE_HOME)/Core/util/linux/libmlutiltest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Core/util/linux/libmlutiltest; MLE_ROOT=$(MLE_ROOT) make uninstall;
+
 # Targets for Magic Lantern Math Library Unit Tests
 
 $(MLE_HOME)/Core/math/linux/libmlmathtest/Makefile:
@@ -59,6 +83,9 @@ libmlmath-test: check_env libmlmath-test_stage
 
 libmlmath-test_clean: check_env libmlmath-test_stage
 	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; make clean;
+
+libmlmath-test_clobber: check_env libmlmath-test_stage libmlmath-test_clean
+	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; make maintainer-clean;
 
 libmlmath-test_install: libmlmath-test
 #	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;

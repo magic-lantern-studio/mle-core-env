@@ -63,6 +63,12 @@ libmlutil_clean: check_env libmlutil_stage
 	@echo ""
 	cd $(MLE_HOME)/Core/util/linux/build; make clean;
 
+libmlutil_clobber: check_env libmlutil_stage libmlutil_clean
+	@echo ""
+	@echo "***** Running Makefile target libmlutil_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/util/linux/build; make maintainer-clean;
+
 libmlutil_install: libmlutil
 	@echo ""
 	@echo "***** Running Makefile target libmlutil_install *****"
@@ -82,7 +88,7 @@ $(MLE_HOME)/Core/math/linux/libmlmath/Makefile:
 
 libmlmath_stage: $(MLE_HOME)/Core/math/linux/libmlmath/Makefile
 
-libmlmath: check_env libmlmath_stage
+libmlmath: check_env libmlmath_stage libmlutil_install
 	@echo ""
 	@echo "***** Running Makefile target libmlmath *****"
 	@echo ""
@@ -93,6 +99,12 @@ libmlmath_clean: check_env libmlmath_stage
 	@echo "***** Running Makefile target libmlmath_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/Core/math/linux/libmlmath; make clean;
+
+libmlmath_clobber: check_env libmlmath_stage libmlmath_clean
+	@echo ""
+	@echo "***** Running Makefile target libmlmath_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/linux/libmlmath; make maintainer-clean;
 
 libmlmath_install: libmlmath
 	@echo ""
@@ -113,7 +125,7 @@ $(MLE_HOME)/DigitalWorkprint/lib/linux/Makefile:
 
 libDWP_stage: $(MLE_HOME)/DigitalWorkprint/lib/linux/Makefile
 
-libDWP: check_env libDWP_stage libmlmath_install libmlutil_install
+libDWP: check_env libDWP_stage libmlutil_install libmlmath_install
 	@echo ""
 	@echo "***** Running Makefile target libDWP *****"
 	@echo ""
@@ -124,6 +136,12 @@ libDWP_clean: check_env libDWP_stage
 	@echo "***** Running Makefile target libDWP_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; make clean;
+
+libDWP_clobber: check_env libDWP_stage libDWP_clean
+	@echo ""
+	@echo "***** Running Makefile target libDWP_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; make maintainer-clean;
 
 libDWP_install: libDWP
 	@echo ""
