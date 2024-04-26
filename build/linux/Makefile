@@ -174,6 +174,12 @@ libDPP_clean: check_env libDPP_stage
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; make clean;
 
+libDPP_clobber: check_env libDPP_stage libDPP_clean
+	@echo ""
+	@echo "***** Running Makefile target libDPP_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; make maintainer-clean;
+
 libDPP_install: libDPP
 	@echo ""
 	@echo "***** Running Makefile target libDPP_install *****"
@@ -205,7 +211,7 @@ libplayprint_clean: check_env libplayprint_stage
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; make clean;
 
-libplayprint_clobber: check_env libplayprint_stage
+libplayprint_clobber: check_env libplayprint_stage libplayprint_clean
 	@echo ""
 	@echo "***** Running Makefile target libplayprint_clobber *****"
 	@echo ""
@@ -246,6 +252,12 @@ libDPPGen_clean: check_env libDPPGen_stage
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; make clean;
 
+libDPPGen_clobber: check_env libDPPGen_stage libDPPGen_clean
+	@echo ""
+	@echo "***** Running Makefile target libDPPGen_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; make maintainer-clean;
+
 libDPPGen_install: libDPPGen
 	@echo ""
 	@echo "***** Running Makefile target libDPPGen_install *****"
@@ -265,17 +277,23 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/gentables/Makefile:
 
 gentables_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/gentables/Makefile
 
-gentables: check_env libDPP_install libDPPGen_install gentables_stage
+gentables: check_env gentables_stage libDPP_install libDPPGen_install
 	@echo ""
 	@echo "***** Running Makefile target gentables *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; MLE_ROOT=$(MLE_ROOT) make;
 
-gentables_clean: check_env libDPPGen_clean gentables_stage
+gentables_clean: check_env gentables_stage libDPPGen_clean 
 	@echo ""
 	@echo "***** Running Makefile target gemtables_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; make clean;
+
+gentables_clobber: check_env gentables_stage gentables_clean
+	@echo ""
+	@echo "***** Running Makefile target gemtables_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; make maintainer-clean;
 
 gentables_install: gentables
 	@echo ""
@@ -296,17 +314,23 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup/Makefile:
 
 gengroup_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup/Makefile
 
-gengroup: check_env libplayprint_install libDPP_install libDPPGen_install gengroup_stage
+gengroup: check_env gengroup_stage libplayprint_install libDPP_install libDPPGen_install
 	@echo ""
 	@echo "***** Running Makefile target gengroup *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; MLE_ROOT=$(MLE_ROOT) make;
 
-gengroup_clean: check_env libDPPGen_clean gengroup_stage
+gengroup_clean: check_env gengroup_stage libDPPGen_clean
 	@echo ""
 	@echo "***** Running Makefile target gengroup_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; make clean;
+
+gengroup_clobber: check_env gengroup_stage libDPPGen_clean
+	@echo ""
+	@echo "***** Running Makefile target gengroup_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; make maintainer-clean;
 
 gengroup_install: gengroup
 	@echo ""
@@ -327,17 +351,23 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/genscene/Makefile:
 
 genscene_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/genscene/Makefile
 
-genscene: check_env libDPPGen_install genscene_stage
+genscene: check_env genscene_stage libDPPGen_install
 	@echo ""
 	@echo "***** Running Makefile target genscene *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; MLE_ROOT=$(MLE_ROOT) make;
 
-genscene_clean: check_env libDPPGen_clean genscene_stage
+genscene_clean: check_env genscene_stage libDPPGen_clean
 	@echo ""
 	@echo "***** Running Makefile target genscene_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; make clean;
+
+genscene_clobber: check_env genscene_stage libDPPGen_clean
+	@echo ""
+	@echo "***** Running Makefile target genscene_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; make maintainer-clean;
 
 genscene_install: genscene
 	@echo ""
@@ -358,17 +388,23 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia/Makefile:
 
 genmedia_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia/Makefile
 
-genmedia: check_env libDPPGen_install genmedia_stage
+genmedia: check_env genmedia_stage libDPPGen_install
 	@echo ""
 	@echo "***** Running Makefile target genmedia *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; MLE_ROOT=$(MLE_ROOT) make;
 
-genmedia_clean: check_env libDPPGen_clean genmedia_stage
+genmedia_clean: check_env genmedia_stage libDPPGen_clean
 	@echo ""
 	@echo "***** Running Makefile target genmedia_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; make clean;
+
+genmedia_clobber: check_env genmedia_stage libDPPGen_clean
+	@echo ""
+	@echo "***** Running Makefile target genmedia_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; make maintainer-clean;
 
 genmedia_install: genmedia
 	@echo ""
@@ -389,17 +425,23 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile/Makefile:
 
 genmakefile_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile/Makefile
 
-genmakefile: check_env libDPPGen_install genmakefile_stage
+genmakefile: check_env genmakefile_stage libDPPGen_install
 	@echo ""
 	@echo "***** Running Makefile target genmakefile *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; MLE_ROOT=$(MLE_ROOT) make;
 
-genmakefile_clean: check_env libDPPGen_clean genmakefile_stage
+genmakefile_clean: check_env genmakefile_stage libDPPGen_clean
 	@echo ""
 	@echo "***** Running Makefile target genmakefile_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; make clean;
+
+genmakefile_clobber: check_env genmakefile_stage libDPPGen_clean
+	@echo ""
+	@echo "***** Running Makefile target genmakefile_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; make maintainer-clean;
 
 genmakefile_install: genmakefile
 	@echo ""
@@ -420,17 +462,23 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript/Makefile:
 
 genppscript_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript/Makefile
 
-genppscript: check_env libDPPGen_install genppscript_stage
+genppscript: check_env genppscript_stage libDPPGen_install
 	@echo ""
 	@echo "***** Running Makefile target genppscript *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; MLE_ROOT=$(MLE_ROOT) make;
 
-genppscript_clean: check_env libDPPGen_clean genppscript_stage
+genppscript_clean: check_env genppscript_stage libDPPGen_clean
 	@echo ""
 	@echo "***** Running Makefile target genppscript_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; make clean;
+
+genppscript_clobber: check_env genppscript_stage libDPPGen_clean
+	@echo ""
+	@echo "***** Running Makefile target genppscript_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; make maintainer-clean;
 
 genppscript_install: genppscript
 	@echo ""
@@ -451,17 +499,23 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp/Makefile:
 
 gendpp_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp/Makefile
 
-gendpp: check_env libDPPGen_install gendpp_stage
+gendpp: check_env gendpp_stage libDPPGen_install
 	@echo ""
 	@echo "***** Running Makefile target gendpp *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; MLE_ROOT=$(MLE_ROOT) make;
 
-gendpp_clean: check_env libDPPGen_clean gendpp_stage
+gendpp_clean: check_env gendpp_stage libDPPGen_clean
 	@echo ""
 	@echo "***** Running Makefile target gendpp_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; make clean;
+
+gendpp_clobber: check_env gendpp_stage libDPPGen_clean
+	@echo ""
+	@echo "***** Running Makefile target gendpp_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; make maintainer-clean;
 
 gendpp_install: gendpp
 	@echo ""
@@ -482,17 +536,23 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup/Makefile:
 
 dumpgroup_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup/Makefile
 
-dumpgroup: check_env libDPPGen_install dumpgroup_stage
+dumpgroup: check_env dumpgroup_stage libDPPGen_install
 	@echo ""
 	@echo "***** Running Makefile target dumpgroup *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; MLE_ROOT=$(MLE_ROOT) make;
 
-dumpgroup_clean: check_env libDPPGen_clean dumpgroup_stage
+dumpgroup_clean: check_env dumpgroup_stage libDPPGen_clean
 	@echo ""
 	@echo "***** Running Makefile target dumpgroup_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; make clean;
+
+dumpgroup_clobber: check_env dumpgroup_stage libDPPGen_clean
+	@echo ""
+	@echo "***** Running Makefile target dumpgroup_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; make maintainer-clean;
 
 dumpgroup_install: dumpgroup
 	@echo ""
@@ -513,17 +573,23 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene/Makefile:
 
 dumpscene_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene/Makefile
 
-dumpscene: check_env libDPPGen_install dumpscene_stage
+dumpscene: check_env dumpscene_stage libDPPGen_install
 	@echo ""
 	@echo "***** Running Makefile target dumpscene *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; MLE_ROOT=$(MLE_ROOT) make;
 
-dumpscene_clean: check_env libDPPGen_clean dumpscene_stage
+dumpscene_clean: check_env dumpscene_stage libDPPGen_clean
 	@echo ""
 	@echo "***** Running Makefile target dumpscene_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; make clean;
+
+dumpscene_clobber: check_env dumpscene_stage libDPPGen_clean
+	@echo ""
+	@echo "***** Running Makefile target dumpscene_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; make maintainer-clean;
 
 dumpscene_install: dumpscene
 	@echo ""
@@ -544,17 +610,23 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia/Makefile:
 
 dumpmedia_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia/Makefile
 
-dumpmedia: check_env libDPPGen_install dumpmedia_stage
+dumpmedia: check_env dumpmedia_stage libDPPGen_install
 	@echo ""
 	@echo "***** Running Makefile target dumpmedia *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; MLE_ROOT=$(MLE_ROOT) make;
 
-dumpmedia_clean: check_env libDPPGen_clean dumpmedia_stage
+dumpmedia_clean: check_env dumpmedia_stage libDPPGen_clean
 	@echo ""
 	@echo "***** Running Makefile target dumpmedia_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; make clean;
+
+dumpmedia_clobber: check_env dumpmedia_stage libDPPGen_clean
+	@echo ""
+	@echo "***** Running Makefile target dumpmedia_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; make maintainer-clean;
 
 dumpmedia_install: dumpmedia
 	@echo ""
@@ -575,17 +647,23 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp/Makefile:
 
 dumpdpp_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp/Makefile
 
-dumpdpp: check_env libDPPGen_install dumpdpp_stage
+dumpdpp: check_env dumpdpp_stage libDPPGen_install
 	@echo ""
 	@echo "***** Running Makefile target dumpdpp *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; MLE_ROOT=$(MLE_ROOT) make;
 
-dumpdpp_clean: check_env libDPPGen_clean dumpdpp_stage
+dumpdpp_clean: check_env dumpdpp_stage libDPPGen_clean
 	@echo ""
 	@echo "***** Running Makefile target dumpdpp_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; make clean;
+
+dumpdpp_clobber: check_env dumpdpp_stage libDPPGen_clean
+	@echo ""
+	@echo "***** Running Makefile target dumpdpp_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; make maintainer-clean;
 
 dumpdpp_install: dumpdpp
 	@echo ""
@@ -604,6 +682,8 @@ dumpdpp_uninstall: check_env dumpdpp_stage
 master: libDPPGen gentables gengroup genscene genmedia genmakefile genppscript gendpp dumpgroup dumpscene dumpmedia dumpdpp
 
 master_clean: libDPPGen_clean gentables_clean gengroup_clean genscene_clean genmedia_clean genmakefile_clean genppscript_clean gendpp_clean dumpgroup_clean dumpscene_clean dumpmedia_clean dumpdpp_clean
+
+master_clobber: libDPPGen_clobber gentables_clobber gengroup_clobber genscene_clobber genmedia_clobber genmakefile_clobber genppscript_clobber gendpp_clobber dumpgroup_clobber dumpscene_clobber dumpmedia_clobber dumpdpp_clobber
 
 master_install: libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install dumpgroup_install dumpscene_install dumpmedia_install dumpdpp_install
 
