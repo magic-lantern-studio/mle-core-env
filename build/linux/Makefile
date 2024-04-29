@@ -47,7 +47,10 @@ uninstall: studio_uninstall
 # Targets for Magic Lantern utility library.
 
 $(MLE_HOME)/Core/util/linux/build/Makefile:
-	cd $(MLE_HOME)/Core/util/linux/build; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libmlutil configure *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/util/linux/build; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 libmlutil_stage: $(MLE_HOME)/Core/util/linux/build/Makefile
 
@@ -84,7 +87,10 @@ libmlutil_uninstall: check_env libmlutil_stage
 # Targets for Magic Lantern math library.
 
 $(MLE_HOME)/Core/math/linux/libmlmath/Makefile:
-	cd $(MLE_HOME)/Core/math/linux/libmlmath; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libmlmath configure *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/linux/libmlmath; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 libmlmath_stage: $(MLE_HOME)/Core/math/linux/libmlmath/Makefile
 
@@ -121,7 +127,10 @@ libmlmath_uninstall: check_env libmlmath_stage
 # Targets for Magic Lantern DigitalWorkprint library.
 
 $(MLE_HOME)/DigitalWorkprint/lib/linux/Makefile:
-	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libDWP configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 libDWP_stage: $(MLE_HOME)/DigitalWorkprint/lib/linux/Makefile
 
@@ -158,7 +167,10 @@ libDWP_uninstall: check_env libDWP_stage
 # Targets for Magic Lantern DigitalPlayprint library.
 
 $(MLE_HOME)/DigitalPlayprint/lib/linux/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libDPP configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/lib/linux; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 libDPP_stage: $(MLE_HOME)/DigitalPlayprint/lib/linux/Makefile
 
@@ -195,7 +207,10 @@ libDPP_uninstall: check_env libDPP_stage
 # Targets for Magic Lantern DigitalPlayprint Runtime Library.
 
 $(MLE_HOME)/DigitalPlayprint/runtime/linux/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libplayprint configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/runtime/linux; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 libplayprint_stage: $(MLE_HOME)/DigitalPlayprint/runtime/linux/Makefile
 
@@ -236,11 +251,14 @@ libplayprint_uninstall: check_env libplayprint_stage
 # Build rules for DPPGen mastering library.
 
 $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libDPPGen configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 libDPPGen_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/libDPPGen/Makefile
 
-libDPPGen: check_env libDPPGen_stage
+libDPPGen: check_env libDPPGen_stage libDPP_install
 	@echo ""
 	@echo "***** Running Makefile target libDPPGen *****"
 	@echo ""
@@ -273,7 +291,10 @@ libDPPGen_uninstall: check_env libDPPGen_stage
 # Build rules for gentables mastering tool.
 
 $(MLE_HOME)/DigitalPlayprint/master/linux/gentables/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target gentables configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 gentables_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/gentables/Makefile
 
@@ -310,7 +331,10 @@ gentables_uninstall: check_env gentables_stage
 # Build rules for gengroup mastering tool.
 
 $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target gengroup configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 gengroup_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup/Makefile
 
@@ -326,7 +350,7 @@ gengroup_clean: check_env gengroup_stage libDPPGen_clean
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; make clean;
 
-gengroup_clobber: check_env gengroup_stage libDPPGen_clean
+gengroup_clobber: check_env gengroup_stage gengroup_clean
 	@echo ""
 	@echo "***** Running Makefile target gengroup_clobber *****"
 	@echo ""
@@ -347,7 +371,10 @@ gengroup_uninstall: check_env gengroup_stage
 # Build rules for genscene mastering tool.
 
 $(MLE_HOME)/DigitalPlayprint/master/linux/genscene/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target genscene configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 genscene_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/genscene/Makefile
 
@@ -357,7 +384,7 @@ genscene: check_env genscene_stage libDPPGen_install
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; MLE_ROOT=$(MLE_ROOT) make;
 
-genscene_clean: check_env genscene_stage libDPPGen_clean
+genscene_clean: check_env genscene_stage genscene_clean
 	@echo ""
 	@echo "***** Running Makefile target genscene_clean *****"
 	@echo ""
@@ -384,7 +411,10 @@ genscene_uninstall: check_env genscene_stage
 # Build rules for genmedia mastering tool.
 
 $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target genmedia configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 genmedia_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia/Makefile
 
@@ -400,7 +430,7 @@ genmedia_clean: check_env genmedia_stage libDPPGen_clean
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; make clean;
 
-genmedia_clobber: check_env genmedia_stage libDPPGen_clean
+genmedia_clobber: check_env genmedia_stage genmedia_clean
 	@echo ""
 	@echo "***** Running Makefile target genmedia_clobber *****"
 	@echo ""
@@ -421,7 +451,10 @@ genmedia_uninstall: check_env genmedia_stage
 # Build rules for genmakefile mastering tool.
 
 $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target genmakefile configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 genmakefile_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile/Makefile
 
@@ -437,7 +470,7 @@ genmakefile_clean: check_env genmakefile_stage libDPPGen_clean
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; make clean;
 
-genmakefile_clobber: check_env genmakefile_stage libDPPGen_clean
+genmakefile_clobber: check_env genmakefile_stage genmakefile_clean
 	@echo ""
 	@echo "***** Running Makefile target genmakefile_clobber *****"
 	@echo ""
@@ -458,7 +491,10 @@ genmakefile_uninstall: check_env genmakefile_stage
 # Build rules for genppscript mastering tool.
 
 $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target genppscript configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 genppscript_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript/Makefile
 
@@ -474,7 +510,7 @@ genppscript_clean: check_env genppscript_stage libDPPGen_clean
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; make clean;
 
-genppscript_clobber: check_env genppscript_stage libDPPGen_clean
+genppscript_clobber: check_env genppscript_stage genppscript_clean
 	@echo ""
 	@echo "***** Running Makefile target genppscript_clobber *****"
 	@echo ""
@@ -495,7 +531,10 @@ genppscript_uninstall: check_env genppscript_stage
 # Build rules for gendpp mastering tool.
 
 $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target gendpp configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 gendpp_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp/Makefile
 
@@ -511,7 +550,7 @@ gendpp_clean: check_env gendpp_stage libDPPGen_clean
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; make clean;
 
-gendpp_clobber: check_env gendpp_stage libDPPGen_clean
+gendpp_clobber: check_env gendpp_stage gendpp_clean
 	@echo ""
 	@echo "***** Running Makefile target gendpp_clobber *****"
 	@echo ""
@@ -532,7 +571,10 @@ gendpp_uninstall: check_env gendpp_stage
 # Build rules for dumpgroup mastering tool.
 
 $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target dumpgroup configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 dumpgroup_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup/Makefile
 
@@ -548,7 +590,7 @@ dumpgroup_clean: check_env dumpgroup_stage libDPPGen_clean
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; make clean;
 
-dumpgroup_clobber: check_env dumpgroup_stage libDPPGen_clean
+dumpgroup_clobber: check_env dumpgroup_stage dumpgroup_clean
 	@echo ""
 	@echo "***** Running Makefile target dumpgroup_clobber *****"
 	@echo ""
@@ -569,7 +611,10 @@ dumpgroup_uninstall: check_env dumpgroup_stage
 # Build rules for dumpscene mastering tool.
 
 $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target dumpscene configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 dumpscene_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene/Makefile
 
@@ -585,7 +630,7 @@ dumpscene_clean: check_env dumpscene_stage libDPPGen_clean
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; make clean;
 
-dumpscene_clobber: check_env dumpscene_stage libDPPGen_clean
+dumpscene_clobber: check_env dumpscene_stage dumpscene_clean
 	@echo ""
 	@echo "***** Running Makefile target dumpscene_clobber *****"
 	@echo ""
@@ -606,7 +651,10 @@ dumpscene_uninstall: check_env dumpscene_stage
 # Build rules for dumpmedia mastering tool.
 
 $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target dumpmedia configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 dumpmedia_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia/Makefile
 
@@ -622,7 +670,7 @@ dumpmedia_clean: check_env dumpmedia_stage libDPPGen_clean
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; make clean;
 
-dumpmedia_clobber: check_env dumpmedia_stage libDPPGen_clean
+dumpmedia_clobber: check_env dumpmedia_stage dumpmedia_clean
 	@echo ""
 	@echo "***** Running Makefile target dumpmedia_clobber *****"
 	@echo ""
@@ -643,7 +691,10 @@ dumpmedia_uninstall: check_env dumpmedia_stage
 # Build rules for dumpdpp mastering tool.
 
 $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp/Makefile:
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target dumpdpp configure *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 dumpdpp_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp/Makefile
 
@@ -659,7 +710,7 @@ dumpdpp_clean: check_env dumpdpp_stage libDPPGen_clean
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; make clean;
 
-dumpdpp_clobber: check_env dumpdpp_stage libDPPGen_clean
+dumpdpp_clobber: check_env dumpdpp_stage dumpdpp_clean
 	@echo ""
 	@echo "***** Running Makefile target dumpdpp_clobber *****"
 	@echo ""
@@ -692,13 +743,13 @@ master_uninstall: libDPPGen_uninstall gentables_uninstall gengroup_uninstall gen
 # Targets for Magic Lantern Runtime Engine libraries.
 
 $(MLE_HOME)/Core/mlert/linux/rehearsal/Makefile:
-	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Core/mlert/linux/runtime/Makefile:
-	cd $(MLE_HOME)/Core/mlert/linux/runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Core/mlert/linux/runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Core/mlert/linux/inventor/Makefile:
-	cd $(MLE_HOME)/Core/mlert/linux/inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Core/mlert/linux/inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 libmlert_rehearsal_stage: $(MLE_HOME)/Core/mlert/linux/rehearsal/Makefile
 
@@ -708,19 +759,19 @@ libmlert_inventor_stage: $(MLE_HOME)/Core/mlert/linux/inventor/Makefile
 
 libmlert: libmlert_rehearsal libmlert_runtime libmlert_inventor
 
-libmlert_rehearsal: check_env libDWP_install libDPP_install libmlert_rehearsal_stage
+libmlert_rehearsal: check_env libmlert_rehearsal_stage libDWP_install libDPP_install
 	@echo ""
 	@echo "***** Running Makefile target libmlert_rehearsal *****"
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; MLE_ROOT=$(MLE_ROOT) make;
 
-libmlert_runtime: check_env libDWP_install libDPP_install libmlert_runtime_stage
+libmlert_runtime: check_env libmlert_runtime_stage libDWP_install libDPP_install
 	@echo ""
 	@echo "***** Running Makefile target libmlert_runtime *****"
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/linux/runtime; MLE_ROOT=$(MLE_ROOT) make;
 
-libmlert_inventor: check_env libDWP_install libDPP_install libmlert_inventor_stage
+libmlert_inventor: check_env libmlert_inventor_stage libDWP_install libDPP_install
 	@echo ""
 	@echo "***** Running Makefile target libmlert_inventor *****"
 	@echo ""
@@ -745,6 +796,26 @@ libmlert_inventor_clean: check_env libmlert_inventor_stage
 	@echo "***** Running Makefile target libmlert_inventor_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/linux/inventor; make clean;
+
+libmlert_clobber: libmlert_rehearsal_clobber libmlert_runtime_clobber libmlert_inventor_clobber
+
+libmlert_rehearsal_clobber: check_env libmlert_rehearsal_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlert_rehearsal_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; make maintainer-clean;
+
+libmlert_runtime_clobber: check_env libmlert_runtime_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlert_runtime_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/linux/runtime; make maintainer-clean;
+
+libmlert_inventor_clobber: check_env libmlert_inventor_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlert_inventor_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/linux/inventor; make maintainer-clean;
 
 libmlert_install: libmlert_rehearsal_install libmlert_runtime_install libmlert_inventor_install
 
@@ -800,6 +871,13 @@ props_clean: check_env
 	@echo ""
 	cd $(MLE_HOME)/Parts/props/linux; make clean;
 
+props_clobber: check_env
+	@echo ""
+	@echo "***** Running Makefile target props_clobber *****"
+	@echo ""
+	#cd $(MLE_HOME)/Parts/props/linux; make maintainer-clean;
+	@echo "***** NOT SUPPORTED
+
 props_install: check_env
 	@echo ""
 	@echo "***** Running Makefile target props_install *****"
@@ -815,13 +893,13 @@ props_uninstall: check_env
 # Targets for Magic Lantern SDK Roles
 
 $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal/Makefile:
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime/Makefile:
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor/Makefile:
-	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 roles_stage: roles_rehearsal_stage roles_runtime_stage roles_inventor_stage
 
@@ -934,13 +1012,13 @@ roles_inventor_uninstall: check_env roles_inventor_stage
 # Targets for Magic Lantern SDK MediaRefs
 
 $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal/Makefile:
-	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime/Makefile:
-	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor/Makefile:
-	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 mediarefs_stage: mediarefs_rehearsal_stage mediarefs_runtime_stage mediarefs_inventor_stage
 
@@ -990,6 +1068,26 @@ mediarefs_inventor_clean: check_env mediarefs_inventor_stage
 	@echo ""
 	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; make clean;
 
+mediarefs_clobber: mediarefs_rehearsal_clobber mediarefs_runtime_clobber mediarefs_inventor_clobber
+
+mediarefs_rehearsal_clobber: check_env mediarefs_rehearsal_stage
+	@echo ""
+	@echo "***** Running Makefile target mediarefs_rehearsal_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal; make maintainer-clean;
+
+mediarefs_runtime_clobber: check_env mediarefs_runtime_stage
+	@echo ""
+	@echo "***** Running Makefile target mediarefs_runtime_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime; make maintainer-clean;
+
+mediarefs_inventor_clobber: check_env mediarefs_inventor_stage
+	@echo ""
+	@echo "***** Running Makefile target mediarefs_inventor_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; make maintainer-clean;
+
 mediarefs_install: mediarefs_rehearsal_install mediarefs_runtime_install mediarefs_inventor_install
 
 mediarefs_rehearsal_install: mediarefs_rehearsal
@@ -1033,13 +1131,13 @@ mediarefs_inventor_uninstall: check_env mediarefs_inventor_stage
 # Targets for Magic Lantern SDK Sets
 
 $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal/Makefile:
-	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime/Makefile:
-	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor/Makefile:
-	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 sets_stage: sets_rehearsal_stage sets_runtime_stage sets_inventor_stage
 
@@ -1089,6 +1187,26 @@ sets_inventor_clean: check_env sets_inventor_stage
 	@echo ""
 	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; make clean;
 
+sets_clobber: sets_rehearsal_clobber sets_runtime_clobber sets_inventor_clobber
+
+sets_rehearsal_clobber: check_env sets_rehearsal_stage
+	@echo ""
+	@echo "***** Running Makefile target sets_rehearsal_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal; make maintainer-clean;
+
+sets_runtime_clobber: check_env sets_runtime_stage
+	@echo ""
+	@echo "***** Running Makefile target sets_runtime_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; make maintainer-clean;
+
+sets_inventor_clobber: check_env sets_inventor_stage
+	@echo ""
+	@echo "***** Running Makefile target sets_inventor_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; make maintainer-clean;
+
 sets_install: sets_rehearsal_install sets_runtime_install sets_inventor_install
 
 sets_rehearsal_install: sets_rehearsal
@@ -1132,13 +1250,13 @@ sets_inventor_uninstall: check_env sets_inventor_stage
 # Targets for Magic Lantern SDK Stages
 
 $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal/Makefile:
-	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime/Makefile:
-	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor/Makefile:
-	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 stages_stage: stages_rehearsal_stage stages_runtime_stage stages_inventor_stage
 
@@ -1188,6 +1306,26 @@ stages_inventor_clean: check_env stages_inventor_stage
 	@echo ""
 	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; make clean;
 
+stages_clobber: stages_rehearsal_clobber stages_runtime_clobber stages_inventor_clobber
+
+stages_rehearsal_clobber: check_env stages_rehearsal_stage
+	@echo ""
+	@echo "***** Running Makefile target stages_rehearsal_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal; make maintainer-clean;
+
+stages_runtime_clobber: check_env stages_runtime_stage
+	@echo ""
+	@echo "***** Running Makefile target stages_runtime_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime; make maintainer-clean;
+
+stages_inventor_clobber: check_env stages_inventor_stage
+	@echo ""
+	@echo "***** Running Makefile target stages_inventor_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; make maintainer-clean;
+
 stages_install: stages_rehearsal_install stages_runtime_install stages_inventor_install
 
 stages_rehearsal_install: stages_rehearsal
@@ -1231,13 +1369,13 @@ stages_inventor_uninstall: check_env stages_inventor_stage
 # Targets for Magic Lantern SDK Actors
 
 $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal/Makefile:
-	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime/Makefile:
-	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor/Makefile:
-	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 actors_stage: actors_rehearsal_stage actors_runtime_stage actors_inventor_stage
 
@@ -1287,6 +1425,26 @@ actors_inventor_clean: check_env actors_inventor_stage
 	@echo ""
 	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; make clean;
 
+actors_clobber: actors_rehearsal_clobber actors_runtime_clobber actors_inventor_clobber
+
+actors_rehearsal_clobber: check_env actors_rehearsal_stage
+	@echo ""
+	@echo "***** Running Makefile target actors_rehearsal_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal; make maintainer-clean;
+
+actors_runtime_clobber: check_env actors_runtime_stage
+	@echo ""
+	@echo "***** Running Makefile target actors_runtime_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime; make maintainer-clean;
+
+actors_inventor_clobber: check_env actors_inventor_stage
+	@echo ""
+	@echo "***** Running Makefile target actors_inventor_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; make maintainer-clean;
+
 actors_install: actors_rehearsal_install actors_runtime_install actors_inventor_install
 
 actors_rehearsal_install: actors_rehearsal
@@ -1330,7 +1488,7 @@ actors_inventor_uninstall: check_env actors_inventor_stage
 # Targets for Magic Lantern SDK Players
 
 $(MLE_HOME)/Players/rehearsal/build/linux/Makefile:
-	cd $(MLE_HOME)/Players/rehearsal/build/linux; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	cd $(MLE_HOME)/Players/rehearsal/build/linux; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 players_stage: $(MLE_HOME)/Players/rehearsal/build/linux/Makefile
 
@@ -1371,6 +1529,8 @@ sdk: libmlutil libmlmath libDWP libDPP libplayprint libDPPGen gentables gengroup
 
 sdk_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libplayprint_clean libDPPGen_clean gentables_clean gengroup_clean genscene_clean genmedia_clean genmakefile_clean genppscript_clean gendpp_clean dumpgroup_clean dumpscene_clean dumpmedia_clean dumpdpp_clean libmlert_clean props_clean roles_clean mediarefs_clean sets_clean stages_clean actors_clean libmlloaders_clean
 
+sdk_clobber: libmlutil_clobber libmlmath_clobber libDWP_clobber libDPP_clobber libplayprint_clobber libDPPGen_clobber gentables_clobber gengroup_clobber genscene_clobber genmedia_clobber genmakefile_clobber genppscript_clobber gendpp_clobber dumpgroup_clobber dumpscene_clobber dumpmedia_clobber dumpdpp_clobber libmlert_clobber props_clobber roles_clobber mediarefs_clobber sets_clobber stages_clobber actors_clobber libmlloaders_clobber
+
 sdk_install: libmlutil_install libmlmath_install libDWP_install libDPP_install libplayprint_install libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install dumpgroup_install dumpscene_install dumpmedia_install dumpdpp_install libmlert_install props_install roles_install mediarefs_install sets_install stages_install actors_install libmlloaders_install
 
 sdk_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_uninstall libplayprint_uninstall libDPPGen_uninstall gentables_uninstall gengroup_uninstall genscene_uninstall genmedia_uninstall genmakefile_uninstall genppscript_uninstall gendpp_uninstall dumpgroup_uninstall dumpscene_uninstall dumpmedia_uninstall dumpdpp_uninstall libmlert_uninstall props_uninstall roles_uninstall mediarefs_uninstall sets_uninstall stages_uninstall actors_uninstall libmlloaders_uninstall
@@ -1378,6 +1538,8 @@ sdk_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_u
 sdk_rehearsal: libmlutil libmlmath libDWP libDPP libplayprint libDPPGen gentables gengroup genscene genmedia genmakefile genppscript gendpp dumpgroup dumpscene dumpmedia dumpdpp libmlert_rehearsal props roles_rehearsal mediarefs_rehearsal sets_rehearsal stages_rehearsal actors_rehearsal libmleatk libmlloaders_rehearsal players
 
 sdk_rehearsal_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libplayprint_clean libDPPGen_clean gentables_clean gengroup_clean genscene_clean genmedia_clean genmakefile_clean genppscript_clean gendpp_clean dumpgroup_clean dumpscene_clean dumpmedia_clean dumpdpp_clean libmlert_rehearsal_clean props_clean roles_rehearsal_clean mediarefs_rehearsal_clean sets_rehearsal_clean stages_rehearsal_clean actors_rehearsal_clean libmleatk_clean libmlloaders_rehearsal_clean players_clean
+
+sdk_rehearsal_clobber: libmlutil_clobber libmlmath_clobber libDWP_clobber libDPP_clobber libplayprint_clobber libDPPGen_clobber gentables_clobber gengroup_clobber genscene_clobber genmedia_clobber genmakefile_clobber genppscript_clobber gendpp_clobber dumpgroup_clobber dumpscene_clobber dumpmedia_clobber dumpdpp_clobber libmlert_rehearsal_clobber props_clobber roles_rehearsal_clobber mediarefs_rehearsal_clobber sets_rehearsal_clobber stages_rehearsal_clobber actors_rehearsal_clobber libmleatk_clobber libmlloaders_rehearsal_clobber players_clobber
 
 sdk_rehearsal_install: libmlutil_install libmlmath_install libDWP_install libDPP_install libplayprint_install libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install dumpgroup_install dumpscene_install dumpmedia_install dumpdpp_install libmlert_rehearsal_install props_install roles_rehearsal_install mediarefs_rehearsal_install sets_rehearsal_install stages_rehearsal_install actors_rehearsal_install libmleatk_install libmlloaders_rehearsal_install players_install
 
@@ -1387,6 +1549,8 @@ sdk_runtime: libmlutil libmlmath libDWP libDPP libplayprint libDPPGen gentables 
 
 sdk_runtime_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libplayprint_clean libDPPGen_clean gentables_clean gengroup_clean genscene_clean genmedia_clean genmakefile_clean genppscript_clean gendpp_clean dumpgroup_clean dumpscene_clean dumpmedia_clean dumpdpp_clean libmlert_runtime_clean props_clean roles_runtime_clean mediarefs_runtime_clean sets_runtime_clean stages_runtime_clean actors_runtime_clean libmlloaders_runtime_clean
 
+sdk_runtime_clobber: libmlutil_clobber libmlmath_clobber libDWP_clobber libDPP_clobber libplayprint_clobber libDPPGen_clobber gentables_clobber gengroup_clobber genscene_clobber genmedia_clobber genmakefile_clobber genppscript_clobber gendpp_clobber dumpgroup_clobber dumpscene_clobber dumpmedia_clobber dumpdpp_clobber libmlert_runtime_clobber props_clobber roles_runtime_clobber mediarefs_runtime_clobber sets_runtime_clobber stages_runtime_clobber actors_runtime_clobber libmlloaders_runtime_clobber
+
 sdk_runtime_install: libmlutil_install libmlmath_install libDWP_install libDPP_install libplayprint_install libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install dumpgroup_install dumpscene_install dumpmedia_install dumpdpp_install libmlert_runtime_install props_install roles_runtime_install mediarefs_runtime_install sets_runtime_install stages_runtime_install actors_runtime_install libmlloaders_runtime_install
 
 sdk_runtime_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_uninstall libplayprint_uninstall libDPPGen_uninstall gentables_uninstall gengroup_uninstall genscene_uninstall genmedia_uninstall genmakefile_uninstall genppscript_uninstall gendpp_uninstall dumpgroup_uninstall dumpscene_uninstall dumpmedia_uninstall dumpdpp_uninstall libmlert_runtime_uninstall props_uninstall roles_runtime_uninstall mediarefs_runtime_uninstall sets_runtime_uninstall stages_runtime_uninstall actors_runtime_uninstall libmlloaders_runtime_uninstall
@@ -1394,6 +1558,8 @@ sdk_runtime_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall 
 sdk_inventor: libmlutil libmlmath libDWP libDPP libplayprint libDPPGen gentables gengroup genscene genmedia genmakefile genppscript gendpp dumpgroup dumpscene dumpmedia dumpdpp libmlert_inventor props roles_inventor mediarefs_inventor sets_inventor stages_inventor actors_inventor libmlloaders_inventor
 
 sdk_inventor_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libplayprint_clean libDPPGen_clean gentables_clean gengroup_clean genscene_clean genmedia_clean genmakefile_clean genppscript_clean gendpp_clean dumpgroup_clean dumpscene_clean dumpmedia_clean dumpdpp_clean libmlert_inventor_clean props_clean roles_inventor_clean mediarefs_inventor_clean sets_inventor_clean stages_inventor_clean actors_inventor_clean libmlloaders_inventor_clean
+
+sdk_inventor_clobber: libmlutil_clobber libmlmath_clobber libDWP_clobber libDPP_clobber libplayprint_clobber libDPPGen_clobber gentables_clobber gengroup_clobber genscene_clobber genmedia_clobber genmakefile_clobber genppscript_clobber gendpp_clobber dumpgroup_clobber dumpscene_clobber dumpmedia_clobber dumpdpp_clobber libmlert_inventor_clobber props_clobber roles_inventor_clobber mediarefs_inventor_clobber sets_inventor_clobber stages_inventor_clobber actors_inventor_clobber libmlloaders_inventor_clobber
 
 sdk_inventor_install: libmlutil_install libmlmath_install libDWP_install libDPP_install libplayprint_install libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install dumpgroup_install dumpscene_install dumpmedia_install dumpdpp_install libmlert_inventor_install props_install roles_inventor_install mediarefs_inventor_install sets_inventor_install stages_inventor_install actors_inventor_install libmlloaders_inventor_install
 
@@ -1439,13 +1605,22 @@ libmleatk_uninstall: check_env libmleatk_stage
 # Targets for Magic Lantern Loader library.
 
 $(MLE_HOME)/Parts/loaders/build/rehearsal/Makefile:
-	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_rehearsal configure *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/loaders/build/runtime/Makefile:
-	cd $(MLE_HOME)/Parts/loaders/build/runtime; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_runtime configure *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/loaders/build/inventor/Makefile:
-	cd $(MLE_HOME)/Parts/loaders/build/inventor; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_inventor configure *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 libmlloaders_rehearsal_stage: $(MLE_HOME)/Parts/loaders/build/rehearsal/Makefile
 
@@ -1556,7 +1731,10 @@ libmlloaders_uninstall: libmlloaders_rehearsal_uninstall libmlloaders_inventor_u
 # Targets for Magic Lantern DWP reader library.
 
 $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/Makefile:
-	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_rehearsal_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 libDwpReader_stage: $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/Makefile
 
@@ -1571,6 +1749,12 @@ libDwpReader_clean: check_env libDwpReader_stage
 	@echo "***** Running Makefile target libDwpReader_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader; make clean;
+
+libDwpReader_clobber: check_env libDwpReader_stage
+	@echo ""
+	@echo "***** Running Makefile target libDwpReader_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader; make maintainer-clean;
 
 libDwpReader_install: check_env libDwpReader_stage
 	@echo ""
@@ -1591,6 +1775,8 @@ studio: sdk_rehearsal sdk_runtime libmleatk libDwpReader players
 
 studio_clean: sdk_rehearsal_clean sdk_runtime_clean libmleatk_clean libDwpReader_clean players_clean
 
+studio_clobber: sdk_rehearsal_clobber sdk_runtime_clobber libmleatk_clobber libDwpReader_clobber players_clobber
+
 studio_install: sdk_rehearsal_install sdk_runtime_install libmleatk_install libDwpReader_install players_install
 
 studio_uninstall: sdk_rehearsal_uninstall sdk_runtime_uninstall libmleatk_uninstall libDwpReader_uninstall players_uninstall
@@ -1599,6 +1785,8 @@ studio_uninstall: sdk_rehearsal_uninstall sdk_runtime_uninstall libmleatk_uninst
 rehearsal: libmlert_rehearsal props roles_rehearsal mediarefs_rehearsal sets_rehearsal stages_rehearsal actors_rehearsal
 
 rehearsal_clean: libmlert_rehearsal_clean props_clean roles_rehearsal_clean mediarefs_rehearsal_clean sets_rehearsal_clean stages_rehearsal_clean actors_rehearsal_clean
+
+rehearsal_clobber: libmlert_rehearsal_clobber props_clobber roles_rehearsal_clobber mediarefs_rehearsal_clobber sets_rehearsal_clobber stages_rehearsal_clobber actors_rehearsal_clobber
 
 rehearsal_install: libmlert_rehearsal_install props_install roles_rehearsal_install mediarefs_rehearsal_install sets_rehearsal_install stages_rehearsal_install actors_rehearsal_install
 
@@ -1610,6 +1798,8 @@ runtime: libmlert_runtime props roles_runtime mediarefs_runtime sets_runtime sta
 
 runtime_clean: libmlert_runtime_clean props_clean roles_runtime_clean mediarefs_runtime_clean sets_runtime_clean stages_runtime_clean actors_runtime_clean
 
+runtime_clobber: libmlert_runtime_clobber props_clobber roles_runtime_clobber mediarefs_runtime_clobber sets_runtime_clobber stages_runtime_clobber actors_runtime_clobber
+
 runtime_install: libmlert_runtime_install props_install roles_runtime_install mediarefs_runtime_install sets_runtime_install stages_runtime_install actors_runtime_install
 
 runtime_uninstall: libmlert_runtime_uninstall props_uninstall roles_runtime_uninstall mediarefs_runtime_uninstall sets_runtime_uninstall stages_runtime_uninstall actors_runtime_uninstall
@@ -1619,6 +1809,8 @@ runtime_uninstall: libmlert_runtime_uninstall props_uninstall roles_runtime_unin
 inventor: libmlert_inventor props roles_inventor mediarefs_inventor sets_inventor stages_inventor actors_inventor
 
 inventor_clean: libmlert_inventor_clean props_clean roles_inventor_clean mediarefs_inventor_clean sets_inventor_clean stages_inventor_clean actors_inventor_clean
+
+inventor_clobber: libmlert_inventor_clobber props_clobber roles_inventor_clobber mediarefs_inventor_clobber sets_inventor_clobber stages_inventor_clobber actors_inventor_clobber
 
 inventor_install: libmlert_inventor_install props_install roles_inventor_install mediarefs_inventor_install sets_inventor_install stages_inventor_install actors_inventor_install
 
