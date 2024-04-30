@@ -35,14 +35,14 @@
 #
 
 # Uber targets.
-#   studio build includes sdk
-all: studio
+#   studio targets includes sdk, inventor targets
+all: studio inventor
 
-clean: studio_clean
+clean: studio_clean inventor_clean
 
-install: studio_install
+install: studio_install inventor_install
 
-uninstall: studio_uninstall
+uninstall: studio_uninstall inventor_uninstall
 
 # Targets for Magic Lantern utility library.
 
@@ -743,12 +743,21 @@ master_uninstall: libDPPGen_uninstall gentables_uninstall gengroup_uninstall gen
 # Targets for Magic Lantern Runtime Engine libraries.
 
 $(MLE_HOME)/Core/mlert/linux/rehearsal/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target libmlert_rehearsal configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Core/mlert/linux/runtime/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target libmlert_runtime configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Core/mlert/linux/runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Core/mlert/linux/inventor/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target libmlert_inventor configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Core/mlert/linux/inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 libmlert_rehearsal_stage: $(MLE_HOME)/Core/mlert/linux/rehearsal/Makefile
@@ -757,7 +766,7 @@ libmlert_runtime_stage: $(MLE_HOME)/Core/mlert/linux/runtime/Makefile
 
 libmlert_inventor_stage: $(MLE_HOME)/Core/mlert/linux/inventor/Makefile
 
-libmlert: libmlert_rehearsal libmlert_runtime libmlert_inventor
+libmlert: libmlert_rehearsal_clean libmlert_rehearsal libmlert_runtime_clean libmlert_runtime libmlert_inventor_clean libmlert_inventor
 
 libmlert_rehearsal: check_env libmlert_rehearsal_stage libDWP_install libDPP_install
 	@echo ""
@@ -765,7 +774,7 @@ libmlert_rehearsal: check_env libmlert_rehearsal_stage libDWP_install libDPP_ins
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; MLE_ROOT=$(MLE_ROOT) make;
 
-libmlert_runtime: check_env libmlert_runtime_stage libDWP_install libDPP_install
+libmlert_runtime: check_env libmlert_runtime_stage libDWP_install libDPP_install libplayprint_install
 	@echo ""
 	@echo "***** Running Makefile target libmlert_runtime *****"
 	@echo ""
@@ -799,25 +808,25 @@ libmlert_inventor_clean: check_env libmlert_inventor_stage
 
 libmlert_clobber: libmlert_rehearsal_clobber libmlert_runtime_clobber libmlert_inventor_clobber
 
-libmlert_rehearsal_clobber: check_env libmlert_rehearsal_stage
+libmlert_rehearsal_clobber: check_env libmlert_rehearsal_stage libmlert_rehearsal_clean
 	@echo ""
 	@echo "***** Running Makefile target libmlert_rehearsal_clobber *****"
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; make maintainer-clean;
 
-libmlert_runtime_clobber: check_env libmlert_runtime_stage
+libmlert_runtime_clobber: check_env libmlert_runtime_stage libmlert_runtime_clean
 	@echo ""
 	@echo "***** Running Makefile target libmlert_runtime_clobber *****"
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/linux/runtime; make maintainer-clean;
 
-libmlert_inventor_clobber: check_env libmlert_inventor_stage
+libmlert_inventor_clobber: check_env libmlert_inventor_stage libmlert_inventor_clean
 	@echo ""
 	@echo "***** Running Makefile target libmlert_inventor_clobber *****"
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/linux/inventor; make maintainer-clean;
 
-libmlert_install: libmlert_rehearsal_install libmlert_runtime_install libmlert_inventor_install
+libmlert_install: libmlert_rehearsal_clean libmlert_rehearsal_install libmlert_runtime_clean libmlert_runtime_install libmlert_inventor_clean libmlert_inventor_install
 
 libmlert_rehearsal_install: libmlert_rehearsal
 	@echo ""
@@ -875,8 +884,7 @@ props_clobber: check_env
 	@echo ""
 	@echo "***** Running Makefile target props_clobber *****"
 	@echo ""
-	#cd $(MLE_HOME)/Parts/props/linux; make maintainer-clean;
-	@echo "***** NOT SUPPORTED
+	@echo "***** props_clobber NOT SUPPORTED
 
 props_install: check_env
 	@echo ""
@@ -893,12 +901,21 @@ props_uninstall: check_env
 # Targets for Magic Lantern SDK Roles
 
 $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target ivrole_rehearsal configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target ivrole_runtime configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target ivrole_inventor configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 roles_stage: roles_rehearsal_stage roles_runtime_stage roles_inventor_stage
@@ -909,7 +926,7 @@ roles_runtime_stage: $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-runtime
 
 roles_inventor_stage: $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor/Makefile
 
-roles: roles_rehearsal roles_runtime roles_inventor
+roles: roles_rehearsal_clean roles_rehearsal roles_runtime_clean roles_runtime roles_inventor_clean roles_inventor
 
 roles_rehearsal: check_env libmlert_rehearsal_install props_install roles_rehearsal_stage
 	@echo ""
@@ -969,7 +986,7 @@ roles_inventor_clobber: check_env roles_inventor_stage
 	@echo ""
 	cd $(MLE_HOME)/Parts/roles/inventor/build/linux/ivrole-inventor; make maintainer-clean;
 
-roles_install: roles_rehearsal_install roles_runtime_install roles_inventor_install
+roles_install: roles_rehearsal_clean roles_rehearsal_install roles_runtime_clean roles_runtime_install roles_inventor_clean roles_inventor_install
 
 roles_rehearsal_install: roles_rehearsal
 	@echo ""
@@ -1012,12 +1029,21 @@ roles_inventor_uninstall: check_env roles_inventor_stage
 # Targets for Magic Lantern SDK MediaRefs
 
 $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target mediaref_rehearsal configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target mediaref_runtime configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target mediaref_inventor configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 mediarefs_stage: mediarefs_rehearsal_stage mediarefs_runtime_stage mediarefs_inventor_stage
@@ -1028,7 +1054,7 @@ mediarefs_runtime_stage: $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-
 
 mediarefs_inventor_stage: $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor/Makefile
 
-mediarefs: mediarefs_rehearsal mediarefs_runtime mediarefs_inventor
+mediarefs: mediarefs_rehearsal_clean mediarefs_rehearsal mediarefs_runtime_clean mediarefs_runtime mediarefs_inventor_clean mediarefs_inventor
 
 mediarefs_rehearsal: check_env libmlert_rehearsal_install mediarefs_rehearsal_stage
 	@echo ""
@@ -1088,7 +1114,7 @@ mediarefs_inventor_clobber: check_env mediarefs_inventor_stage
 	@echo ""
 	cd $(MLE_HOME)/Parts/mediaref/inventor/build/linux/ivmref-inventor; make maintainer-clean;
 
-mediarefs_install: mediarefs_rehearsal_install mediarefs_runtime_install mediarefs_inventor_install
+mediarefs_install: mediarefs_rehearsal_clean mediarefs_rehearsal_install mediarefs_runtime_clean mediarefs_runtime_install mediarefs_inventor_clean  mediarefs_inventor_install
 
 mediarefs_rehearsal_install: mediarefs_rehearsal
 	@echo ""
@@ -1131,12 +1157,21 @@ mediarefs_inventor_uninstall: check_env mediarefs_inventor_stage
 # Targets for Magic Lantern SDK Sets
 
 $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target sets_rehearsal configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target sets_runtime configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target sets_inventor configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 sets_stage: sets_rehearsal_stage sets_runtime_stage sets_inventor_stage
@@ -1147,7 +1182,7 @@ sets_runtime_stage: $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime/Makefile
 
 sets_inventor_stage: $(MLE_HOME)/Parts/sets/inventor/build/ivset-inventor/Makefile
 
-sets: sets_rehearsal sets_runtime sets_inventor
+sets: sets_rehearsal_clean sets_rehearsal sets_runtime_clean sets_runtime sets_inventor_clean sets_inventor
 
 sets_rehearsal: check_env props_install libmlert_rehearsal_install sets_rehearsal_stage
 	@echo ""
@@ -1207,7 +1242,7 @@ sets_inventor_clobber: check_env sets_inventor_stage
 	@echo ""
 	cd $(MLE_HOME)/Parts/sets/inventor/build/ivset-runtime; make maintainer-clean;
 
-sets_install: sets_rehearsal_install sets_runtime_install sets_inventor_install
+sets_install: sets_rehearsal_clean sets_rehearsal_install sets_runtime_clean sets_runtime_install sets_inventor_clean sets_inventor_install
 
 sets_rehearsal_install: sets_rehearsal
 	@echo ""
@@ -1250,12 +1285,21 @@ sets_inventor_uninstall: check_env sets_inventor_stage
 # Targets for Magic Lantern SDK Stages
 
 $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target stages_rehearsal configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target stages_runtime configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target stages_inventor configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 stages_stage: stages_rehearsal_stage stages_runtime_stage stages_inventor_stage
@@ -1266,7 +1310,7 @@ stages_runtime_stage: $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-runt
 
 stages_inventor_stage: $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor/Makefile
 
-stages: stages_rehearsal stages_runtime stages_inventor
+stages: stages_rehearsal_clean stages_rehearsal stages_runtime_clean stages_runtime stages_inventor_clean stages_inventor
 
 stages_rehearsal: check_env libmlert_rehearsal_install roles_rehearsal_install mediarefs_rehearsal_install sets_rehearsal_install stages_rehearsal_stage
 	@echo ""
@@ -1326,7 +1370,7 @@ stages_inventor_clobber: check_env stages_inventor_stage
 	@echo ""
 	cd $(MLE_HOME)/Parts/stages/inventor/build/linux/ivstage-inventor; make maintainer-clean;
 
-stages_install: stages_rehearsal_install stages_runtime_install stages_inventor_install
+stages_install: stages_rehearsal_clean stages_rehearsal_install stages_runtime_clean stages_runtime_install stages_inventor_clean stages_inventor_install
 
 stages_rehearsal_install: stages_rehearsal
 	@echo ""
@@ -1369,12 +1413,21 @@ stages_inventor_uninstall: check_env stages_inventor_stage
 # Targets for Magic Lantern SDK Actors
 
 $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target actors_rehearsal configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target actors_runtime configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target actors_inventor configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 actors_stage: actors_rehearsal_stage actors_runtime_stage actors_inventor_stage
@@ -1385,7 +1438,7 @@ actors_runtime_stage: $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_runt
 
 actors_inventor_stage: $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor/Makefile
 
-actors: actors_rehearsal actors_runtime actors_inventor
+actors: actors_rehearsal_clean actors_rehearsal actors_runtime_clean actors_runtime actors_inventor_clean actors_inventor
 
 actors_rehearsal: check_env actors_rehearsal_stage
 	@echo ""
@@ -1445,7 +1498,7 @@ actors_inventor_clobber: check_env actors_inventor_stage
 	@echo ""
 	cd $(MLE_HOME)/Parts/actors/inventor/build/linux/ivactor_inventor; make maintainer-clean;
 
-actors_install: actors_rehearsal_install actors_runtime_install actors_inventor_install
+actors_install: actors_rehearsal_clean actors_rehearsal_install actors_runtime_clean actors_runtime_install actors_inventor_clean actors_inventor_install
 
 actors_rehearsal_install: actors_rehearsal
 	@echo ""
@@ -1488,11 +1541,14 @@ actors_inventor_uninstall: check_env actors_inventor_stage
 # Targets for Magic Lantern SDK Players
 
 $(MLE_HOME)/Players/rehearsal/build/linux/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target players configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Players/rehearsal/build/linux; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 players_stage: $(MLE_HOME)/Players/rehearsal/build/linux/Makefile
 
-players: check_env libmleatk_install stages_rehearsal_install libmlloaders_rehearsal_install players_stage
+players: check_env players_stage libmleatk_install stages_rehearsal_install libmlloaders_rehearsal_install
 	@echo ""
 	@echo "***** Running Makefile target players *****"
 	@echo ""
@@ -1568,6 +1624,9 @@ sdk_inventor_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall
 # Targets for Magic Lantern Authoring Toolkit (ATK)
 
 $(MLE_HOME)/ATK/linux/rehearsal/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target libmleatk configure *****"
+	@echo ""
 	cd $(MLE_HOME)/ATK/linux/rehearsal; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
 libmleatk_stage: $(MLE_HOME)/ATK/linux/rehearsal/Makefile
@@ -1624,7 +1683,7 @@ $(MLE_HOME)/Parts/loaders/build/inventor/Makefile:
 
 libmlloaders_rehearsal_stage: $(MLE_HOME)/Parts/loaders/build/rehearsal/Makefile
 
-libmlloaders_rehearsal: check_env libmlloaders_rehearsal_stage
+libmlloaders_rehearsal: check_env libmlloaders_rehearsal_stage libmleatk_install
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_rehearsal *****"
 	@echo ""
@@ -1718,13 +1777,13 @@ libmlloaders_inventor_uninstall: check_env libmlloaders_inventor_stage
 	@echo ""
 	cd $(MLE_HOME)/Parts/loaders/build/inventor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
-libmlloaders: libmlloaders_rehearsal libmlloaders_inventor libmlloaders_runtime
+libmlloaders: libmlloaders_rehearsal_clean libmlloaders_rehearsal libmlloaders_inventor_clean libmlloaders_inventor libmlloaders_runtime_clean libmlloaders_runtime
 
 libmlloaders_clean: libmlloaders_rehearsal_clean libmlloaders_inventor_clean libmlloaders_runtime_clean
 
 libmlloaders_clobber: libmlloaders_rehearsal_clobber libmlloaders_inventor_clobber libmlloaders_runtime_clobber
 
-libmlloaders_install: libmlloaders_rehearsal_install libmlloaders_inventor_install libmlloaders_runtime_install
+libmlloaders_install: libmlloaders_rehearsal_clean libmlloaders_rehearsal_install libmlloaders_inventor_clean libmlloaders_inventor_install libmlloaders_runtime_clean libmlloaders_runtime_install
 
 libmlloaders_uninstall: libmlloaders_rehearsal_uninstall libmlloaders_inventor_uninstall libmlloaders_runtime_uninstall
 
@@ -1732,7 +1791,7 @@ libmlloaders_uninstall: libmlloaders_rehearsal_uninstall libmlloaders_inventor_u
 
 $(MLE_HOME)/Studio/DwpReader/linux/DwpReader/Makefile:
 	@echo ""
-	@echo "***** Running Makefile target libmlloaders_rehearsal_clobber *****"
+	@echo "***** Running Makefile target DwpReader configure *****"
 	@echo ""
 	cd $(MLE_HOME)/Studio/DwpReader/linux/DwpReader; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
