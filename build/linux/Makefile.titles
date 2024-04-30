@@ -158,7 +158,10 @@ helloCube_qt_uninstall: check_env
 # The mtea title which displays a moving teapot.
 
 $(MLE_HOME)/Titles/mtea/build/linux/Makefile:
-	cd $(MLE_HOME)/Titles/mtea/build/linux; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target mtea configure *****"
+	@echo ""
+	cd $(MLE_HOME)/Titles/mtea/build/linux; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 mtea_stage: $(MLE_HOME)/Titles/mtea/build/linux/Makefile
 
@@ -173,6 +176,12 @@ mtea_clean: check_env mtea_stage
 	@echo "***** Running Makefile target mtea_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/Titles/mtea/build/linux; make clean;
+
+mtea_clobber: check_env mtea_stage
+	@echo ""
+	@echo "***** Running Makefile target mtea_clobber *****"
+	@echo ""
+	cd $(MLE_HOME)/Titles/mtea/build/linux; make maintainer-clean;
 
 mtea_install: check_env mtea_stage
 	@echo ""
