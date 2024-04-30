@@ -47,79 +47,133 @@ uninstall: unittests_uninstall
 
 # Targets for Magic Lantern Utility Library Unit Tests
 
-# Targets for Magic Lantern Utility Library Unit Tests
-
 $(MLE_HOME)/Core/util/linux/test/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target libmlutil-test configure *****"
+	@echo ""
 	cd $(MLE_HOME)/Core/util/linux/test; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
 
 libmlutil-test_stage: $(MLE_HOME)/Core/util/linux/test/Makefile
 
 libmlutil-test: check_env libmlutil-test_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlutil-test *****"
+	@echo ""
 	cd $(MLE_HOME)/Core/util/linux/test; make;
 
 libmlutil-test_clean: check_env libmlutil-test_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlutil-test_clean *****"
+	@echo ""
 	cd $(MLE_HOME)/Core/util/linux/test; make clean;
 
 libmlutil-test_clobber: check_env libmlutil-test_stage libmlutil-test_clean
+	@echo ""
+	@echo "***** Running Makefile target libmlutil-test_clobber *****"
+	@echo ""
 	cd $(MLE_HOME)/Core/util/linux/test; make maintainer-clean;
 
 libmlutil-test_install: libmlutil-test
+	@echo ""
+	@echo "***** Running Makefile target libmlutil-test_install *****"
+	@echo ""
 #	cd $(MLE_HOME)/Core/util/linux/test; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Core/util/linux/test; MLE_ROOT=$(MLE_ROOT) make install;
 
 libmlutil-test_uninstall: check_env libmlutil-test_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlutil-test_uninstall *****"
+	@echo ""
 #	cd $(MLE_HOME)/Core/util/linux/libmlutiltest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Core/util/linux/libmlutiltest; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Math Library Unit Tests
 
 $(MLE_HOME)/Core/math/linux/libmlmathtest/Makefile:
-	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libmlmath-test configure *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 libmlmath-test_stage: $(MLE_HOME)/Core/math/linux/libmlmathtest/Makefile
 
 libmlmath-test: check_env libmlmath-test_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlmath-test *****"
+	@echo ""
 	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; make;
 
 libmlmath-test_clean: check_env libmlmath-test_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlmath-test_clean *****"
+	@echo ""
 	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; make clean;
 
 libmlmath-test_clobber: check_env libmlmath-test_stage libmlmath-test_clean
+	@echo ""
+	@echo "***** Running Makefile target libmlmath-test_clobber *****"
+	@echo ""
 	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; make maintainer-clean;
 
 libmlmath-test_install: libmlmath-test
+	@echo ""
+	@echo "***** Running Makefile target libmlmath-test_install *****"
+	@echo ""
 #	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; MLE_ROOT=$(MLE_ROOT) make install;
 
 libmlmath-test_uninstall: check_env libmlmath-test_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlmath-test_uninstall *****"
+	@echo ""
 #	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Core/math/linux/libmlmathtest; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Runtime Engine Unit Tests
 
 $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest/Makefile:
-	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libmlmath-rehearsal-test configure *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
 $(MLE_HOME)/Core/mlert/linux/runtime-unittest/Makefile:
-	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; libtoolize; aclocal; automake --add-missing; autoconf; ./configure;
+	@echo ""
+	@echo "***** Running Makefile target libmlmath-runtime-test configure *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
-libmlert-test_stage: $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest/Makefile $(MLE_HOME)/Core/mlert/linux/runtime-unittest/Makefile
+libmlert-rehearsal-test_stage: $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest/Makefile $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest/Makefile
 
-libmlert-test: check_env libmlert-test_stage
+libmlert-runtime-test_stage: $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest/Makefile $(MLE_HOME)/Core/mlert/linux/runtime-unittest/Makefile
+
+libmlert-test: check_env libmlert-rehearsal-test_stage libmlert-runtime-test_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlert-test *****"
+	@echo ""
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; make;
 	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; make;
 
-libmlert-test_clean: check_env libmlert-test_stage
+libmlert-test_clean: check_env libmlert-rehearsal-test_stage libmlert-runtime-test_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlert-test_clean *****"
+	@echo ""
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; make clean;
 	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; make clean;
 
-libmlert-test_install: libmlert-test
+libmlert-test_install: check_env libmlert-test
+	@echo ""
+	@echo "***** Running Makefile target libmlert-test_install *****"
+	@echo ""
 #	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 #	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; MLE_ROOT=$(MLE_ROOT) make install;
 
 libmlert-test_uninstall: check_env libmlert-test_stage
+	@echo ""
+	@echo "***** Running Makefile target libmlert-test_uninstall *****"
+	@echo ""
 #	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Core/mlert/linux/runtime-unittest; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Core/mlert/linux/rehearsal-unittest; MLE_ROOT=$(MLE_ROOT) make uninstall;
