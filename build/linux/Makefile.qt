@@ -46,373 +46,709 @@ uninstall: qt_rehearsal_uninstall mtea_uninstall
 
 # Targets for Magic Lantern utility library.
 libmlutil: check_env
-	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target libmlutil *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop-Debug; make;
 
 libmlutil_clean: check_env
-	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f libmlutil.so*;
+	@echo ""
+	@echo "***** Running Makefile target libmlutil_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop-Debug; make clean; rm -f libmlutil.so*;
 
 libmlutil_install: check_env libmlutil
-	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target libmlutil_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop-Debug; make install;
 
 libmlutil_uninstall: check_env
-	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target libmlutil_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/util/qt/build-mlutil-Desktop-Debug; make uninstall;
 
 # Targets of Magic Lantern math library.
 libmlmath: check_env libmlutil_install
-	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target libmlmath *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop-Debug; make;
 
 libmlmath_clean: check_env
-	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f libmlmath.so*;
+	@echo ""
+	@echo "***** Running Makefile target libmlmath_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop-Debug; make clean; rm -f libmlmath.so*;
 
 libmlmath_install: check_env libmlmath
-	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target libmlmath_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop-Debug; make install;
 
 libmlmath_uninstall: check_env
-	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target libmlmath_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/qt/build-mlmath-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern Digital Workprint library.
 libDWP: check_env libmlutil_install libmlmath_install
-	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target libDWP *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop-Debug; make;
 
 libDWP_clean: check_env
-	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f libDWP.so*;
+	@echo ""
+	@echo "***** Running Makefile target libDWP_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop-Debug; make clean; rm -f libDWP.so*;
 
 libDWP_install: check_env libDWP
-	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target libDWP_install *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop-Debug; make install;
 
 libDWP_uninstall: check_env
-	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target libDWP_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalWorkprint/lib/qt/build-DWP-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern Digital Playprint library.
 libDPP: check_env libmlutil_install libmlmath_install libDWP_install
-	cd $(MLE_HOME)/DigitalPlayprint/lib/qt/build-DPP-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target libDPP *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/lib/qt/build-DPP-Desktop-Debug; make;
 
 libDPP_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/lib/qt/build-DPP-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f libDPP.so* libDPP*.dylib;
+	@echo ""
+	@echo "***** Running Makefile target libDPP_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/lib/qt/build-DPP-Desktop-Debug; make clean; rm -f libDPP.so* libDPP*.dylib;
 
 libDPP_install: libDPP
-	cd $(MLE_HOME)/DigitalPlayprint/lib/qt/build-DPP-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target libDPP_install *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/lib/qt/build-DPP-Desktop-Debug; make install;
 
 libDPP_uninstall: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/lib/qt/build-DPP-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target libDPP_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/lib/qt/build-DPP-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern DPPGen mastering library.
 libDPPGen: check_env libmlutil_install libmlmath_install libDWP_install libDPP_install
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-DPPGen-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target libDPPGen *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-DPPGen-Desktop-Debug; make;
 
 libDPPGen_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-DPPGen-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f libDPPGen.so* libDPPGen*.dylib;
+	@echo ""
+	@echo "***** Running Makefile target libDPPGen_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-DPPGen-Desktop-Debug; make clean; rm -f libDPPGen.so* libDPPGen*.dylib;
 
 libDPPGen_install: libDPPGen
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-DPPGen-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target libDPPGen_install *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-DPPGen-Desktop-Debug; make install;
 
 libDPPGen_uninstall: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-DPPGen-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target libDPPGen_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-DPPGen-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern gentables mastering tool.
 gentables: check_env libDPP_install libDPPGen_install
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gentables-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target gentables *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gentables-Desktop-Debug; make;
 
 gentables_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gentables-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f gentables;
+	@echo ""
+	@echo "***** Running Makefile target gentables_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gentables-Desktop-Debug; make clean; rm -f gentables;
 
 gentables_install: gentables
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gentables-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target gentables_install *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gentables-Desktop-Debug; make install;
 
 gentables_uninstall: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gentables-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target gentables_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gentables-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern gengroup mastering tool.
 gengroup: check_env libDPP_install libDPPGen_install libplayprint_install
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gengroup-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target gengroup *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gengroup-Desktop-Debug; make;
 
 gengroup_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gengroup-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f gengroup;
+	@echo ""
+	@echo "***** Running Makefile target gengroup_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gengroup-Desktop-Debug; make clean; rm -f gengroup;
 
 gengroup_install: gengroup
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gengroup-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target gengroup_install *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gengroup-Desktop-Debug; make install;
 
 gengroup_uninstall: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gengroup-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target gengroup_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gengroup-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern genscene mastering tool.
 genscene: check_env libDPP_install libDPPGen_install
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genscene-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target genscene *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genscene-Desktop-Debug; make;
 
 genscene_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genscene-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f genscene;
+	@echo ""
+	@echo "***** Running Makefile target genscene_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genscene-Desktop-Debug; make clean; rm -f genscene;
 
 genscene_install: genscene
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genscene-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target genscene_install *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genscene-Desktop-Debug; make install;
 
 genscene_uninstall: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genscene-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target genscene_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genscene-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern genmedia mastering tool.
 genmedia: check_env libDPP_install libDPPGen_install
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmedia-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target genmedia *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmedia-Desktop-Debug; make;
 
 genmedia_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmedia-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f genmedia;
+	@echo ""
+	@echo "***** Running Makefile target genmedia_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmedia-Desktop-Debug; make clean; rm -f genmedia;
 
 genmedia_install: genmedia
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmedia-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target genmedia_install *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmedia-Desktop-Debug; make install;
 
 genmedia_uninstall: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmedia-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target genmedia_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmedia-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern genmakefile mastering tool.
 genmakefile: check_env libDPP_install libDPPGen_install
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmakefile-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target genmakefile *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmakefile-Desktop-Debug; make;
 
 genmakefile_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmakefile-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f genmakefile;
+	@echo ""
+	@echo "***** Running Makefile target genmakefile_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmakefile-Desktop-Debug; make clean; rm -f genmakefile;
 
 genmakefile_install: genmakefile
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmakefile-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target genmakefile_install *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmakefile-Desktop-Debug; make install;
 
 genmakefile_uninstall: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmakefile-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target genmakefile_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genmakefile-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern genppscript mastering tool.
 genppscript: check_env libDPP_install libDPPGen_install
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genppscript-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target genppscript *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genppscript-Desktop-Debug; make;
 
 genppscript_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genppscript-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f genppscript;
+	@echo ""
+	@echo "***** Running Makefile target genppscript_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genppscript-Desktop-Debug; make clean; rm -f genppscript;
 
 genppscript_install: genppscript
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genppscript-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target genppscript_install *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genppscript-Desktop-Debug; make install;
 
 genppscript_uninstall: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genppscript-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target genppscript_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-genppscript-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern gendpp mastering tool.
 gendpp: check_env libDPP_install libDPPGen_install
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gendpp-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target gendpp *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gendpp-Desktop-Debug; make;
 
 gendpp_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gendpp-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f gendpp;
+	@echo ""
+	@echo "***** Running Makefile target gendpp_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gendpp-Desktop-Debug; make clean; rm -f gendpp;
 
 gendpp_install: gendpp
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gendpp-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target gendpp_install *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gendpp-Desktop-Debug; make install;
 
 gendpp_uninstall: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gendpp-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target gendpp_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-gendpp-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern playprint mastering library.
 libplayprint: check_env libDPP_install libDPPGen_install
-	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target libplayprint *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop-Debug; make;
 
 libplayprint_clean: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f libplayprint.so* libplayprint*.dylib;
+	@echo ""
+	@echo "***** Running Makefile target libplayprint_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop-Debug; make clean; rm -f libplayprint.so* libplayprint*.dylib;
 
 libplayprint_install: libplayprint
-	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target libplayprint_install *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop-Debug; make install;
 
 libplayprint_uninstall: check_env
-	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target libplayprint_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern Qt Runtime Engine.
 libmlert_inventor: check_env libmlutil_install
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target libmlert_inventor *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop-Debug; make;
 
 libmlert_inventor_clean: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_$(QT_CC)_64bit-Debug; make clean;  rm -f libmlert.so*;
+	@echo ""
+	@echo "***** Running Makefile target libmlert_inventor_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop-Debug; make clean;  rm -f libmlert.so*;
 
 libmlert_inventor_install: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target libmlert_inventor_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop-Debug; make install;
 
 libmlert_inventor_uninstall: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target libmlert_inventor_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop-Debug; make uninstall;
 
 libmlert_rehearsal: check_env libmlutil_install libDWP_install
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target libmlert_rehearsal *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop-Debug; make;
 
 libmlert_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f libmlert.so*;
+	@echo ""
+	@echo "***** Running Makefile target libmlert_rehearsal_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop-Debug; make clean; rm -f libmlert.so*;
 
 libmlert_rehearsal_install: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target libmlert_rehearsal_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop-Debug; make install;
 
 libmlert_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target libmlert_rehearsal_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop-Debug; make uninstall;
 
 libmlert_runtime: check_env libmlutil_install
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target libmlert_runtime *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop-Debug; make;
 
 libmlert_runtime_clean: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f libmlert.so*;
+	@echo ""
+	@echo "***** Running Makefile target libmlert_runtime_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop-Debug; make clean; rm -f libmlert.so*;
 
 libmlert_runtime_install: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target libmlert_runtime_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop-Debug; make install;
 
 libmlert_runtime_uninstall: check_env
-	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target libmlert_runtime_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player stage.
 ivstage_rehearsal: check_env libmlert_rehearsal_install mleprops_install
-	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target ivstage_rehearsal *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop-Debug; make;
 
 ivstage_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f libMleIvStage.so*;
+	@echo ""
+	@echo "***** Running Makefile target ivstage_rehearsal_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop-Debug; make clean; rm -f libMleIvStage.so*;
 
 ivstage_rehearsal_install: check_env
-	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target ivstage_rehearsal_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop-Debug; make install;
 
 ivstage_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target ivstage_rehearsal_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player sets.
 ivset_rehearsal: check_env libmlert_rehearsal_install
-	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target ivset_rehearsal *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop-Debug; make;
 
 ivset_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f Iv2dSet/libMle2dSet.so* Iv3dSet/libMle3dSet.so*;
+	@echo ""
+	@echo "***** Running Makefile target ivset_rehearsal_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop-Debug; make clean; rm -f Iv2dSet/libMle2dSet.so* Iv3dSet/libMle3dSet.so*;
 
 ivset_rehearsal_install: check_env
-	cd $(MLE_HOME)/Parts/sets/inventor/build/qt//build-ivset_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target ivset_rehearsal_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt//build-ivset_rehearsal-Desktop-Debug; make install;
 
 ivset_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target ivset_rehearsal_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player media references.
 ivmref_rehearsal: check_env
-	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target ivmref_rehearsal *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop-Debug; make;
 
 ivmref_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f Mle2dImageMediaref/libMle2dImageMediaRef.so* Mle3dColorMapMediaref/libMle3dColorMapMediaRef.so* Mle3dModelMediaref/libMle3dModelMediaRef.so* Mle3dTextureMapMediaref/libMle3dTextureMapMediaRef.so*;
+	@echo ""
+	@echo "***** Running Makefile target ivmref_rehearsal_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop-Debug; make clean; rm -f Mle2dImageMediaref/libMle2dImageMediaRef.so* Mle3dColorMapMediaref/libMle3dColorMapMediaRef.so* Mle3dModelMediaref/libMle3dModelMediaRef.so* Mle3dTextureMapMediaref/libMle3dTextureMapMediaRef.so*;
 
 ivmref_rehearsal_install: check_env
-	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target ivmref_rehearsal_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop-Debug; make install;
 
 ivmref_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target ivmref_rehearsal_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern properties.
 mleprops: check_env
-	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target mleprops *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop-Debug; make;
 
 mleprops_clean: check_env
-	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop_$(QT_CC)_64bit-Debug; make clean;
+	@echo ""
+	@echo "***** Running Makefile target mleprops_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop-Debug; make clean;
 
 mleprops_install: check_env
-	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target mleprops_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop-Debug; make install;
 
 mleprops_uninstall: check_env
-	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target mleprops_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player roles.
 ivrole_rehearsal: check_env mleprops_install ivmref_rehearsal_install
-	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target ivrole_rehearsal *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop-Debug; make;
 
 ivrole_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f ivroles/libivroles.so* MleIv2dImgRole/libMle2dImgRole.so* MleIv2dRole/libMle2dRole.so* MleIv3dRole/libMle3dRole.so*;
+	@echo ""
+	@echo "***** Running Makefile target ivrole_rehearsal_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop-Debug; make clean; rm -f ivroles/libivroles.so* MleIv2dImgRole/libMle2dImgRole.so* MleIv2dRole/libMle2dRole.so* MleIv3dRole/libMle3dRole.so*;
 
 ivrole_rehearsal_install: check_env
-	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target ivrole_rehearsal_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop-Debug; make install;
 
 ivrole_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target ivrole_rehearsal_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player actors.
 ivactor_rehearsal: check_env ivrole_rehearsal_install
-	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target ivactor_rehearsal *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop-Debug; make;
 
 ivactor_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f Mle2dImageActor/libMle2dImageActor.so* Mle3dCameraActor/libMle3dCameraActor.so* MleEscapeActor/libMleEscapeActor.so*;
+	@echo ""
+	@echo "***** Running Makefile target ivactor_rehearsal_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop-Debug; make clean; rm -f Mle2dImageActor/libMle2dImageActor.so* Mle3dCameraActor/libMle3dCameraActor.so* MleEscapeActor/libMleEscapeActor.so*;
 
 ivactor_rehearsal_install: check_env
-	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target ivactor_rehearsal_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop-Debug; make install;
 
 ivactor_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target ivactor_rehearsal_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player Authoring Toolkit.
 libmleatk_rehearsal: check_env libmlutil_install libmlmath_install libDWP_install ivset_rehearsal_install
-	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target libmleatk_rehearsal *****"
+	@echo ""
+	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop-Debug; make;
 
 libmleatk_rehearsal_clean: check_env
-	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f libmleatk.so*;
+	@echo ""
+	@echo "***** Running Makefile target libmleatk_rehearsal_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop-Debug; make clean; rm -f libmleatk.so*;
 
 libmleatk_rehearsal_install: check_env
-	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target libmleatk_rehearsal_install *****"
+	@echo ""
+	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop-Debug; make install;
 
 libmleatk_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target libmleatk_rehearsal_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern Rehearsal Player Loaders.
 libmlloaders_rehearsal: check_env libmlutil_install libmlmath_install libDWP_install libmleatk_rehearsal_install
-	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_rehearsal *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop-Debug; make;
 
 libmlloaders_rehearsal_clean: check_env
-	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make clean;
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_rehearsal_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop-Debug; make clean;
 
 libmlloaders_rehearsal_install: check_env
-	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_rehearsal_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop-Debug; make install;
 
 libmlloaders_rehearsal_uninstall: check_env
-	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_rehearsal_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern Qt Stage.
 qtstage: check_env
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target qtstage *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop-Debug; make;
 
 qtstage_clean: check_env
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_$(QT_CC)_64bit-Debug; make clean;
+	@echo ""
+	@echo "***** Running Makefile target qtstage_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop-Debug; make clean;
 
 qtstage_install: check_env
-#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_$(QT_CC)_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_$(QT_CC)_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+	@echo ""
+	@echo "***** Running Makefile target qtstage_install *****"
+	@echo ""
+#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtstage_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_$(QT_CC)_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop_$(QT_CC)_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target qtstage_uninstall *****"
+	@echo ""
+#	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Set.
 qtset: check_env
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target qtset *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop-Debug; make;
 
 qtset_clean: check_env
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_$(QT_CC)_64bit-Debug; make clean;
+	@echo ""
+	@echo "***** Running Makefile target qtset_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop-Debug; make clean;
 
 qtset_install: check_env
-#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_$(QT_CC)_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_$(QT_CC)_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+	@echo ""
+	@echo "***** Running Makefile target qtset_install *****"
+	@echo ""
+#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtset_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_$(QT_CC)_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop_$(QT_CC)_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target qtset_uninstall *****"
+	@echo ""
+#	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Mediaref.
 qtmref: check_env
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target qtmref *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop-Debug; make;
 
 qtmref_clean: check_env
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_$(QT_CC)_64bit-Debug; make clean;
+	@echo ""
+	@echo "***** Running Makefile target qtmref_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop-Debug; make clean;
 
 qtmref_install: check_env
-#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_$(QT_CC)_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_$(QT_CC)_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+	@echo ""
+	@echo "***** Running Makefile target qtmref_install *****"
+	@echo ""
+#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtmref_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_$(QT_CC)_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop_$(QT_CC)_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target qtmref_uninstall *****"
+	@echo ""
+#	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Role.
 qtrole: check_env
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target qtrole *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop-Debug; make;
 
 qtrole_clean: check_env
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_$(QT_CC)_64bit-Debug; make clean;
+	@echo ""
+	@echo "***** Running Makefile target qtrole_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop-Debug; make clean;
 
 qtrole_install: check_env
-#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_$(QT_CC)_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_$(QT_CC)_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+	@echo ""
+	@echo "***** Running Makefile target qtrole_install *****"
+	@echo ""
+#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtrole_uninstall: check_env
-#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_$(QT_CC)_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop_$(QT_CC)_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target qtrole_uninstall *****"
+	@echo ""
+#	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Qt Targets
 qt: qtstage qtset qtmref qtrole
@@ -433,16 +769,28 @@ qt_rehearsal_install: libmlutil_install libmlmath_install libDWP_install libDPP_
 qt_rehearsal_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_uninstall libDPPGen_uninstall gentables_uninstall gengroup_uninstall genscene_uninstall genmedia_uninstall genmakefile_uninstall genppscript_uninstall gendpp_uninstall libplayprint_uninstall mleprops_uninstall libmlert_rehearsal_uninstall ivstage_rehearsal_uninstall ivset_rehearsal_uninstall ivmref_rehearsal_uninstall ivrole_rehearsal_uninstall ivactor_rehearsal_uninstall libmleatk_rehearsal_uninstall libmlloaders_rehearsal_uninstall
 
 qt_player: check_env ivstage_rehearsal_install libmlloaders_rehearsal_install
-	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target qt_player *****"
+	@echo ""
+	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop-Debug; make;
 
 qt_player_clean: check_env
-	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_$(QT_CC)_64bit-Debug; make clean; rm -f mleplayer;
+	@echo ""
+	@echo "***** Running Makefile target qt_player_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop-Debug; make clean; rm -f mleplayer;
 
 qt_player_install: check_env qt_player
-	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target qt_player_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop-Debug; make install;
 
 qt_player_uninstall: check_env
-	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target qt_player_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop-Debug; make uninstall;
 
 # Targets for Magic Lantern SDK Titles
 sdk_rehearsal: qt_rehearsal qt_player
@@ -455,76 +803,112 @@ sdk_rehearsal_uninstall: qt_rehearsal_uninstall qt_player_uninstall
 
 # The simple Null title which does nothing.
 null: check_env qt
-	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target null *****"
+	@echo ""
+	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop-Debug; make;
 
 null_clean: check_env qt_clean
-	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_$(QT_CC)_64bit-Debug; make clean;
+	@echo ""
+	@echo "***** Running Makefile target null_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop-Debug; make clean;
 
 null_install: check_env qt_install
-#	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_$(QT_CC)_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_$(QT_CC)_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+	@echo ""
+	@echo "***** Running Makefile target null_install *****"
+	@echo ""
+#	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 null_uninstall: check_env
-#	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_$(QT_CC)_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop_$(QT_CC)_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target null_uninstall *****"
+	@echo ""
+#	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Titles/null/qt/build/build-null-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # The HelloCube title which displays a simple cube.
 helloCube: check_env qt
+	@echo ""
+	@echo "***** Running Makefile target helloCube *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; make;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; make;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; make;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; make;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; make;
-#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_$(QT_CC)_64bit-Debug; make;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop-Debug; make;
 
 helloCube_clean: check_env qt_clean
+	@echo ""
+	@echo "***** Running Makefile target helloCube_clean *****"
+	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; make clean;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; make clean;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; make clean;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; make clean;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; make clean;
-#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_$(QT_CC)_64bit-Debug; make clean;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop-Debug; make clean;
 
 helloCube_install: check_env qt_install
+	@echo ""
+	@echo "***** Running Makefile target helloCube_install *****"
+	@echo ""
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_$(QT_CC)_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; MLE_ROOT=$(MLE_ROOT) make install;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; MLE_ROOT=$(MLE_ROOT) make install;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; MLE_ROOT=$(MLE_ROOT) make install;
-#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_$(QT_CC)_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 helloCube_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target helloCube_uninstall *****"
+	@echo ""
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_$(QT_CC)_64bit-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeActor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeRole; MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeSet; MLE_ROOT=$(MLE_ROOT) make uninstall;
 	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/CubeStage; MLE_ROOT=$(MLE_ROOT) make uninstall;
 #	cd $(MLE_HOME)/Titles/helloCube/rehearsal/build/linux/HelloCube; MLE_ROOT=$(MLE_ROOT) make uninstall;
-#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop_$(QT_CC)_64bit-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+#	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # The mtea title displays a moving teapot.
 mtea: check_env
-	cd $(MLE_HOME)/Titles/mtea/build/qt/build-SpinnerActor-Desktop_$(QT_CC)_64bit-Debug; make;
+	@echo ""
+	@echo "***** Running Makefile target mtea *****"
+	@echo ""
+	cd $(MLE_HOME)/Titles/mtea/build/qt/build-SpinnerActor-Desktop-Debug; make;
 
 mtea_clean: check_env
-	cd $(MLE_HOME)/Titles/mtea/build/qt/build-SpinnerActor-Desktop_$(QT_CC)_64bit-Debug; make clean;
+	@echo ""
+	@echo "***** Running Makefile target mtea_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Titles/mtea/build/qt/build-SpinnerActor-Desktop-Debug; make clean;
 
 mtea_install: check_env
-	cd $(MLE_HOME)/Titles/mtea/build/qt/build-SpinnerActor-Desktop_$(QT_CC)_64bit-Debug; make install;
+	@echo ""
+	@echo "***** Running Makefile target mtea_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Titles/mtea/build/qt/build-SpinnerActor-Desktop-Debug; make install;
 
 mtea_uninstall: check_env
-	cd $(MLE_HOME)/Titles/mtea/build/qt/build-SpinnerActor-Desktop_$(QT_CC)_64bit-Debug; make uninstall;
+	@echo ""
+	@echo "***** Running Makefile target mtea_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Titles/mtea/build/qt/build-SpinnerActor-Desktop-Debug; make uninstall;
 
 # Magic Lantern Titles
 titles: null
@@ -562,12 +946,11 @@ check_QT_CC:
 	exit 1; \
 	fi
 
-check_env: check_MLE_HOME check_MLE_ROOT check_MLE_WORKPRINTS check_QT_CC
+check_env: check_MLE_HOME check_MLE_ROOT check_MLE_WORKPRINTS
 	@echo "Using Magic Lantern environment:"; \
 	echo "    MLE_HOME= $(MLE_HOME)"; \
 	echo "    MLE_ROOT= $(MLE_ROOT)"; \
 	echo "    MLE_WORKPRINTS= $(MLE_WORKPRINTS)"; \
 	echo "    JAVA_HOME= $(JAVA_HOME)"; \
-	echo "    QT_CC= $(QT_CC)"; \
 	echo "    PATH= $(PATH)"; \
 	echo "";
