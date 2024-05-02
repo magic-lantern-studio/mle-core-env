@@ -394,7 +394,7 @@ libmlert_inventor_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop-Debug; make uninstall;
 
-libmlert_rehearsal: check_env libmlutil_install libDWP_install
+libmlert_rehearsal: check_env libmlutil_install libDWP_install libmleatk_rehearsal_install
 	@echo ""
 	@echo "***** Running Makefile target libmlert_rehearsal *****"
 	@echo ""
@@ -406,7 +406,7 @@ libmlert_rehearsal_clean: check_env
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop-Debug; make clean; rm -f libmlert.so*;
 
-libmlert_rehearsal_install: check_env
+libmlert_rehearsal_install: check_env libmlert_rehearsal
 	@echo ""
 	@echo "***** Running Makefile target libmlert_rehearsal_install *****"
 	@echo ""
@@ -430,7 +430,7 @@ libmlert_runtime_clean: check_env
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop-Debug; make clean; rm -f libmlert.so*;
 
-libmlert_runtime_install: check_env
+libmlert_runtime_install: check_env libmlert_runtime
 	@echo ""
 	@echo "***** Running Makefile target libmlert_runtime_install *****"
 	@echo ""
@@ -455,7 +455,7 @@ ivstage_rehearsal_clean: check_env
 	@echo ""
 	cd $(MLE_HOME)/Parts/stages/inventor/build/qt/build-ivstage_rehearsal-Desktop-Debug; make clean; rm -f libMleIvStage.so*;
 
-ivstage_rehearsal_install: check_env
+ivstage_rehearsal_install: check_env ivstage_rehearsal
 	@echo ""
 	@echo "***** Running Makefile target ivstage_rehearsal_install *****"
 	@echo ""
@@ -480,7 +480,7 @@ ivset_rehearsal_clean: check_env
 	@echo ""
 	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop-Debug; make clean; rm -f Iv2dSet/libMle2dSet.so* Iv3dSet/libMle3dSet.so*;
 
-ivset_rehearsal_install: check_env
+ivset_rehearsal_install: check_env ivset_rehearsal
 	@echo ""
 	@echo "***** Running Makefile target ivset_rehearsal_install *****"
 	@echo ""
@@ -505,7 +505,7 @@ ivmref_rehearsal_clean: check_env
 	@echo ""
 	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop-Debug; make clean; rm -f Mle2dImageMediaref/libMle2dImageMediaRef.so* Mle3dColorMapMediaref/libMle3dColorMapMediaRef.so* Mle3dModelMediaref/libMle3dModelMediaRef.so* Mle3dTextureMapMediaref/libMle3dTextureMapMediaRef.so*;
 
-ivmref_rehearsal_install: check_env
+ivmref_rehearsal_install: check_env ivmref_rehearsal
 	@echo ""
 	@echo "***** Running Makefile target ivmref_rehearsal_install *****"
 	@echo ""
@@ -530,7 +530,7 @@ mleprops_clean: check_env
 	@echo ""
 	cd $(MLE_HOME)/Parts/props/qt/build-mleprops-Desktop-Debug; make clean;
 
-mleprops_install: check_env
+mleprops_install: check_env mleprops
 	@echo ""
 	@echo "***** Running Makefile target mleprops_install *****"
 	@echo ""
@@ -555,7 +555,7 @@ ivrole_rehearsal_clean: check_env
 	@echo ""
 	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop-Debug; make clean; rm -f ivroles/libivroles.so* MleIv2dImgRole/libMle2dImgRole.so* MleIv2dRole/libMle2dRole.so* MleIv3dRole/libMle3dRole.so*;
 
-ivrole_rehearsal_install: check_env
+ivrole_rehearsal_install: check_env ivrole_rehearsal
 	@echo ""
 	@echo "***** Running Makefile target ivrole_rehearsal_install *****"
 	@echo ""
@@ -580,7 +580,7 @@ ivactor_rehearsal_clean: check_env
 	@echo ""
 	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop-Debug; make clean; rm -f Mle2dImageActor/libMle2dImageActor.so* Mle3dCameraActor/libMle3dCameraActor.so* MleEscapeActor/libMleEscapeActor.so*;
 
-ivactor_rehearsal_install: check_env
+ivactor_rehearsal_install: check_env ivactor_rehearsal
 	@echo ""
 	@echo "***** Running Makefile target ivactor_rehearsal_install *****"
 	@echo ""
@@ -605,7 +605,7 @@ libmleatk_rehearsal_clean: check_env
 	@echo ""
 	cd $(MLE_HOME)/ATK/rehearsal/build/qt/build-libmleatk_rehearsal-Desktop-Debug; make clean; rm -f libmleatk.so*;
 
-libmleatk_rehearsal_install: check_env
+libmleatk_rehearsal_install: check_env libmleatk_rehearsal
 	@echo ""
 	@echo "***** Running Makefile target libmleatk_rehearsal_install *****"
 	@echo ""
