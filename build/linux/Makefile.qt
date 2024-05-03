@@ -357,7 +357,7 @@ libplayprint_clean: check_env
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/runtime/qt/build-playprint-Desktop-Debug; make clean; rm -f libplayprint.so* libplayprint*.dylib;
 
-libplayprint_install: libplayprint
+libplayprint_install: check_env libplayprint
 	@echo ""
 	@echo "***** Running Makefile target libplayprint_install *****"
 	@echo ""
@@ -394,7 +394,7 @@ libmlert_inventor_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_inventor-Desktop-Debug; make uninstall;
 
-libmlert_rehearsal: check_env libmlutil_install libDWP_install libmleatk_rehearsal_install
+libmlert_rehearsal: check_env libmlutil_install libDWP_install
 	@echo ""
 	@echo "***** Running Makefile target libmlert_rehearsal *****"
 	@echo ""
@@ -418,7 +418,7 @@ libmlert_rehearsal_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop-Debug; make uninstall;
 
-libmlert_runtime: check_env libmlutil_install
+libmlert_runtime: check_env libmlutil_install libplayprint_install
 	@echo ""
 	@echo "***** Running Makefile target libmlert_runtime *****"
 	@echo ""
