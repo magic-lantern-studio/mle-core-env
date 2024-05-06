@@ -418,7 +418,7 @@ libmlert_rehearsal_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_rehearsal-Desktop-Debug; make uninstall;
 
-libmlert_runtime: check_env libmlutil_install libplayprint_install
+libmlert_runtime: check_env libmlutil_install libplayprint_install libmlloaders_runtime_install
 	@echo ""
 	@echo "***** Running Makefile target libmlert_runtime *****"
 	@echo ""
@@ -642,113 +642,137 @@ libmlloaders_rehearsal_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Parts/loaders/build/qt/rehearsal/build-libmlloaders_rehearsal-Desktop-Debug; make uninstall;
 
+libmlloaders_runtime: check_env libmlutil_install libmlmath_install
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_runtime *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/qt/runtime/build-libmlloaders_runtime-Desktop-Debug; make;
+
+libmlloaders_runtime_clean: check_env
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_runtime_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/qt/runtime/build-libmlloaders_runtime-Desktop-Debug; make clean;
+
+libmlloaders_runtime_install: check_env
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_runtime_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/qt/runtime/build-libmlloaders_runtime-Desktop-Debug; make install;
+
+libmlloaders_runtime_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target libmlloaders_runtime_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/loaders/build/qt/runtime/build-libmlloaders_runtime-Desktop-Debug; make uninstall;
+
 # Targets for Magic Lantern Qt Stage.
-qtstage: check_env
+qtstage: check_env libmlert_runtime_install
 	@echo ""
 	@echo "***** Running Makefile target qtstage *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop-Debug; make;
+	cd $(MLE_HOME)/Parts/stages/build-mleqtstage-Desktop-Debug; make;
 
 qtstage_clean: check_env
 	@echo ""
 	@echo "***** Running Makefile target qtstage_clean *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop-Debug; make clean;
+	cd $(MLE_HOME)/Parts/stages/build-mleqtstage-Desktop-Debug; make clean;
 
-qtstage_install: check_env
+qtstage_install: check_env qtstage
 	@echo ""
 	@echo "***** Running Makefile target qtstage_install *****"
 	@echo ""
 #	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/stages/build-mleqtstage-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtstage_uninstall: check_env
 	@echo ""
 	@echo "***** Running Makefile target qtstage_uninstall *****"
 	@echo ""
 #	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/stages/qt/build/build-mleqtstage-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/stages/build-mleqtstage-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Set.
-qtset: check_env
+qtset: check_env qtstage_install
 	@echo ""
 	@echo "***** Running Makefile target qtset *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop-Debug; make;
+	cd $(MLE_HOME)/Parts/sets/build-mleqtset-Desktop-Debug; make;
 
 qtset_clean: check_env
 	@echo ""
 	@echo "***** Running Makefile target qtset_clean *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop-Debug; make clean;
+	cd $(MLE_HOME)/Parts/sets/build-mleqtset-Desktop-Debug; make clean;
 
-qtset_install: check_env
+qtset_install: check_env qtstage
 	@echo ""
 	@echo "***** Running Makefile target qtset_install *****"
 	@echo ""
 #	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/sets/build-mleqtset-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtset_uninstall: check_env
 	@echo ""
 	@echo "***** Running Makefile target qtset_uninstall *****"
 	@echo ""
 #	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/sets/qt/build/build-mleqtset-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/sets/build-mleqtset-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Mediaref.
 qtmref: check_env
 	@echo ""
 	@echo "***** Running Makefile target qtmref *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop-Debug; make;
+	cd $(MLE_HOME)/Parts/mediaref/build-mleqtmref-Desktop-Debug; make;
 
 qtmref_clean: check_env
 	@echo ""
 	@echo "***** Running Makefile target qtmref_clean *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop-Debug; make clean;
+	cd $(MLE_HOME)/Parts/mediaref/build-mleqtmref-Desktop-Debug; make clean;
 
-qtmref_install: check_env
+qtmref_install: check_env qtmref
 	@echo ""
 	@echo "***** Running Makefile target qtmref_install *****"
 	@echo ""
 #	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/mediaref/build-mleqtmref-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtmref_uninstall: check_env
 	@echo ""
 	@echo "***** Running Makefile target qtmref_uninstall *****"
 	@echo ""
 #	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/mediaref/qt/build/build-mleqtmref-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/mediaref/build-mleqtmref-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Targets for Magic Lantern Qt Role.
 qtrole: check_env
 	@echo ""
 	@echo "***** Running Makefile target qtrole *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop-Debug; make;
+	cd $(MLE_HOME)/Parts/roles/build-mleqtrole-Desktop-Debug; make;
 
 qtrole_clean: check_env
 	@echo ""
 	@echo "***** Running Makefile target qtrole_clean *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop-Debug; make clean;
+	cd $(MLE_HOME)/Parts/roles/build-mleqtrole-Desktop-Debug; make clean;
 
 qtrole_install: check_env
 	@echo ""
 	@echo "***** Running Makefile target qtrole_install *****"
 	@echo ""
 #	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make install;
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Parts/roles/build-mleqtrole-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
 qtrole_uninstall: check_env
 	@echo ""
 	@echo "***** Running Makefile target qtrole_uninstall *****"
 	@echo ""
 #	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop-Debug; sudo -Eu $(USER) MLE_ROOT=$(MLE_ROOT) make uninstall;
-	cd $(MLE_HOME)/Parts/roles/qt/build/build-mleqtrole-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Parts/roles/build-mleqtrole-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # Qt Targets
 qt: qtstage qtset qtmref qtrole
