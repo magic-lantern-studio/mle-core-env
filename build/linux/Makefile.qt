@@ -722,6 +722,54 @@ ivmref_rehearsal_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_rehearsal-Desktop-Debug; make uninstall;
 
+ivmref_inventor: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivmref_inventor *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_inventor-Desktop-Debug; make;
+
+ivmref_inventor_clean: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivmref_inventor_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_inventor-Desktop-Debug; make clean; rm -f Mle2dImageMediaref/libMle2dImageMediaRef.so* Mle3dColorMapMediaref/libMle3dColorMapMediaRef.so* Mle3dModelMediaref/libMle3dModelMediaRef.so* Mle3dTextureMapMediaref/libMle3dTextureMapMediaRef.so*;
+
+ivmref_inventor_install: check_env ivmref_inventor
+	@echo ""
+	@echo "***** Running Makefile target ivmref_inventor_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_inventor-Desktop-Debug; make install;
+
+ivmref_inventor_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivmref_inventor_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_inventor-Desktop-Debug; make uninstall;
+
+ivmref_runtime: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivmref_runtime *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_runtime-Desktop-Debug; make;
+
+ivmref_runtime_clean: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivmref_runtime_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_runtime-Desktop-Debug; make clean; rm -f Mle2dImageMediaref/libMle2dImageMediaRef.so* Mle3dColorMapMediaref/libMle3dColorMapMediaRef.so* Mle3dModelMediaref/libMle3dModelMediaRef.so* Mle3dTextureMapMediaref/libMle3dTextureMapMediaRef.so*;
+
+ivmref_runtime_install: check_env ivmref_runtime
+	@echo ""
+	@echo "***** Running Makefile target ivmref_runtime_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_runtime-Desktop-Debug; make install;
+
+ivmref_runtime_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivmref_runtime_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/mediaref/inventor/build/qt/build-ivmref_runtime-Desktop-Debug; make uninstall;
+
 # Targets for Magic Lantern properties.
 
 mleprops: check_env
