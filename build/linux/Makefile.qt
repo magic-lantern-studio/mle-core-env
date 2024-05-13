@@ -822,6 +822,54 @@ ivrole_rehearsal_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_rehearsal-Desktop-Debug; make uninstall;
 
+ivrole_inventor: check_env mleprops_install ivmref_inventor_install
+	@echo ""
+	@echo "***** Running Makefile target ivrole_inventor *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_inventor-Desktop-Debug; make;
+
+ivrole_inventor_clean: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivrole_inventor_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_inventor-Desktop-Debug; make clean; rm -f ivroles/libivroles.so* MleIv2dImgRole/libMle2dImgRole.so* MleIv2dRole/libMle2dRole.so* MleIv3dRole/libMle3dRole.so*;
+
+ivrole_inventor_install: check_env ivrole_inventor
+	@echo ""
+	@echo "***** Running Makefile target ivrole_inventor_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_inventor-Desktop-Debug; make install;
+
+ivrole_inventor_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivrole_inventor_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_inventor-Desktop-Debug; make uninstall;
+
+ivrole_runtime: check_env mleprops_install ivmref_runtime_install
+	@echo ""
+	@echo "***** Running Makefile target ivrole_runtime *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_runtime-Desktop-Debug; make;
+
+ivrole_runtime_clean: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivrole_runtime_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_runtime-Desktop-Debug; make clean; rm -f ivroles/libivroles.so* MleIv2dImgRole/libMle2dImgRole.so* MleIv2dRole/libMle2dRole.so* MleIv3dRole/libMle3dRole.so*;
+
+ivrole_runtime_install: check_env ivrole_runtime
+	@echo ""
+	@echo "***** Running Makefile target ivrole_runtime_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_runtime-Desktop-Debug; make install;
+
+ivrole_runtime_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivrole_runtime_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/roles/inventor/build/qt/build-ivrole_runtime-Desktop-Debug; make uninstall;
+
 # Targets for Magic Lantern Rehearsal Player actors.
 
 ivactor_rehearsal: check_env ivrole_rehearsal_install
