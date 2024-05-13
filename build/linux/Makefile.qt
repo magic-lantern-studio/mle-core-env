@@ -648,7 +648,56 @@ ivset_rehearsal_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_rehearsal-Desktop-Debug; make uninstall;
 
+ivset_inventor: check_env libmlert_inventor_install
+	@echo ""
+	@echo "***** Running Makefile target ivset_inventor *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_inventor-Desktop-Debug; make;
+
+ivset_inventor_clean: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivset_inventor_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_inventor-Desktop-Debug; make clean; rm -f Iv2dSet/libMle2dSet.so* Iv3dSet/libMle3dSet.so*;
+
+ivset_inventor_install: check_env ivset_inventor
+	@echo ""
+	@echo "***** Running Makefile target ivset_inventor_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt//build-ivset_inventor-Desktop-Debug; make install;
+
+ivset_inventor_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivset_inventor_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_inventor-Desktop-Debug; make uninstall;
+
+ivset_runtime: check_env libmlert_runtime_install
+	@echo ""
+	@echo "***** Running Makefile target ivset_runtime *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_runtime-Desktop-Debug; make;
+
+ivset_runtime_clean: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivset_runtime_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_runtime-Desktop-Debug; make clean; rm -f Iv2dSet/libMle2dSet.so* Iv3dSet/libMle3dSet.so*;
+
+ivset_runtime_install: check_env ivset_runtime
+	@echo ""
+	@echo "***** Running Makefile target ivset_runtime_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt//build-ivset_runtime-Desktop-Debug; make install;
+
+ivset_runtime_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivset_runtime_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/sets/inventor/build/qt/build-ivset_inventor-Desktop-Debug; make uninstall;
+
 # Targets for Magic Lantern Rehearsal Player media references.
+
 ivmref_rehearsal: check_env
 	@echo ""
 	@echo "***** Running Makefile target ivmref_rehearsal *****"
