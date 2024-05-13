@@ -896,6 +896,54 @@ ivactor_rehearsal_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_rehearsal-Desktop-Debug; make uninstall;
 
+ivactor_inventor: check_env ivrole_inventor_install
+	@echo ""
+	@echo "***** Running Makefile target ivactor_inventor *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_inventor-Desktop-Debug; make;
+
+ivactor_inventor_clean: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivactor_inventor_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_inventor-Desktop-Debug; make clean; rm -f Mle2dImageActor/libMle2dImageActor.so* Mle3dCameraActor/libMle3dCameraActor.so* MleEscapeActor/libMleEscapeActor.so*;
+
+ivactor_inventor_install: check_env ivactor_inventor
+	@echo ""
+	@echo "***** Running Makefile target ivactor_rehearsal_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_inventor-Desktop-Debug; make install;
+
+ivactor_inventor_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivactor_inventor_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_inventor-Desktop-Debug; make uninstall;
+
+ivactor_runtime: check_env ivrole_runtime_install
+	@echo ""
+	@echo "***** Running Makefile target ivactor_runtime *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_runtime-Desktop-Debug; make;
+
+ivactor_runtime_clean: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivactor_runtime_clean *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_runtime-Desktop-Debug; make clean; rm -f Mle2dImageActor/libMle2dImageActor.so* Mle3dCameraActor/libMle3dCameraActor.so* MleEscapeActor/libMleEscapeActor.so*;
+
+ivactor_runtime_install: check_env ivactor_runtime
+	@echo ""
+	@echo "***** Running Makefile target ivactor_runtime_install *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_runtime-Desktop-Debug; make install;
+
+ivactor_runtime_uninstall: check_env
+	@echo ""
+	@echo "***** Running Makefile target ivactor_runtime_uninstall *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/actors/inventor/build/qt/build-ivactor_runtime-Desktop-Debug; make uninstall;
+
 # Targets for Magic Lantern Rehearsal Player Authoring Toolkit.
 
 libmleatk_rehearsal: check_env libmlutil_install libmlmath_install libDWP_install ivset_rehearsal_install
