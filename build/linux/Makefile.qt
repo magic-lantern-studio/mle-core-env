@@ -548,6 +548,14 @@ libmlert_runtime_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Core/mlert/qt/build-libmlert_runtime-Desktop-Debug; make uninstall;
 
+libmlert: libmlert_rehearsal libmlert_inventor libmlert_runtime
+
+libmlert_clean: libmlert_rehearsal_clean libmlert_inventor_clean libmlert_runtime_clean
+
+libmlert_install: libmlert_rehearsal_install libmlert_inventor_install libmlert_runtime_install
+
+libmlert_uninstall: libmlert_rehearsal_uninstall libmlert_inventor_uninstall libmlert_runtime_uninstall
+
 # Targets for Magic Lantern Rehearsal Player stage.
 
 ivstage_rehearsal: check_env libmlert_rehearsal_install mleprops_install
