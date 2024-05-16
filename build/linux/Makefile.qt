@@ -391,9 +391,9 @@ dumpscene_install: dumpscene
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-dumpscene-Desktop-Debug; make install;
 
-dumpsene_uninstall: check_env
+dumpscene_uninstall: check_env
 	@echo ""
-	@echo "***** Running Makefile target dumscene_uninstall *****"
+	@echo "***** Running Makefile target dumpscene_uninstall *****"
 	@echo ""
 	cd $(MLE_HOME)/DigitalPlayprint/master/qt/build-dumpscene-Desktop-Debug; make uninstall;
 
@@ -1176,13 +1176,13 @@ qt_uninstall: qtstage_uninstall qtset_uninstall qtmref_uninstall qtrole_uninstal
 
 # Qt Rehearsal Player Targets
 
-qt_rehearsal: libmlutil libmlmath libDWP libDPP libDPPGen gentables gengroup genscene genmedia genmakefile genppscript gendpp libplayprint mleprops libmlert_rehearsal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal libmleatk_rehearsal libmlloaders_rehearsal
+qt_rehearsal: libmlutil libmlmath libDWP libDPP mleprops libmlert_rehearsal ivstage_rehearsal ivset_rehearsal ivmref_rehearsal ivrole_rehearsal ivactor_rehearsal libmleatk_rehearsal libmlloaders_rehearsal qt_player
 
-qt_rehearsal_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libDPPGen_clean gentables_clean gengroup_clean genscene_clean genmedia_clean genmakefile_clean genppscript_clean gendpp_clean libplayprint_clean mleprops_clean libmlert_rehearsal_clean ivstage_rehearsal_clean ivset_rehearsal_clean ivmref_rehearsal_clean ivrole_rehearsal_clean ivactor_rehearsal_clean libmleatk_rehearsal_clean libmlloaders_rehearsal_clean
+qt_rehearsal_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean mleprops_clean libmlert_rehearsal_clean ivstage_rehearsal_clean ivset_rehearsal_clean ivmref_rehearsal_clean ivrole_rehearsal_clean ivactor_rehearsal_clean libmleatk_rehearsal_clean libmlloaders_rehearsal_clean qt_player_clean
 
-qt_rehearsal_install: libmlutil_install libmlmath_install libDWP_install libDPP_install libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install libplayprint_install mleprops_install libmlert_rehearsal_install ivstage_rehearsal_install ivset_rehearsal_install ivmref_rehearsal_install ivrole_rehearsal_install ivactor_rehearsal_install libmleatk_rehearsal_install libmlloaders_rehearsal_install
+qt_rehearsal_install: libmlutil_install libmlmath_install libDWP_install libDPP_install mleprops_install libmlert_rehearsal_install ivstage_rehearsal_install ivset_rehearsal_install ivmref_rehearsal_install ivrole_rehearsal_install ivactor_rehearsal_install libmleatk_rehearsal_install libmlloaders_rehearsal_install qt_player_install
 
-qt_rehearsal_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_uninstall libDPPGen_uninstall gentables_uninstall gengroup_uninstall genscene_uninstall genmedia_uninstall genmakefile_uninstall genppscript_uninstall gendpp_uninstall libplayprint_uninstall mleprops_uninstall libmlert_rehearsal_uninstall ivstage_rehearsal_uninstall ivset_rehearsal_uninstall ivmref_rehearsal_uninstall ivrole_rehearsal_uninstall ivactor_rehearsal_uninstall libmleatk_rehearsal_uninstall libmlloaders_rehearsal_uninstall
+qt_rehearsal_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_uninstall mleprops_uninstall libmlert_rehearsal_uninstall ivstage_rehearsal_uninstall ivset_rehearsal_uninstall ivmref_rehearsal_uninstall ivrole_rehearsal_uninstall ivactor_rehearsal_uninstall libmleatk_rehearsal_uninstall libmlloaders_rehearsal_uninstall qt_player_uninstall
 
 qt_player: check_env ivstage_rehearsal_install libmlloaders_rehearsal_install
 	@echo ""
@@ -1208,15 +1208,35 @@ qt_player_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Players/rehearsal/build/qt/build-mleplayer-Desktop-Debug; make uninstall;
 
+# Qt Runtime Targets
+
+qt_runtime: libmlutil libmlmath libDWP libDPP libDPPGen gentables gengroup genscene genmedia genmakefile genppscript gendpp libplayprint mleprops libmlert_runtime ivstage_runtime ivset_runtime ivmref_runtime ivrole_runtime ivactor_runtime libmlloaders_runtime
+
+qt_runtime_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libDPPGen_clean gentables_clean gengroup_clean genscene_clean genmedia_clean genmakefile_clean genppscript_clean gendpp_clean libplayprint_clean mleprops_clean libmlert_runtime_clean ivstage_runtime_clean ivset_runtime_clean ivmref_runtime_clean ivrole_runtime_clean ivactor_runtime_clean libmlloaders_runtime_clean
+
+qt_runtime_install: libmlutil_install libmlmath_install libDWP_install libDPP_install libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install libplayprint_install mleprops_install libmlert_runtime_install ivstage_runtime_install ivset_runtime_install ivmref_runtime_install ivrole_runtime_install ivactor_runtime_install libmlloaders_runtime_install
+
+qt_runtime_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_uninstall libDPPGen_uninstall gentables_uninstall gengroup_uninstall genscene_uninstall genmedia_uninstall genmakefile_uninstall genppscript_uninstall gendpp_uninstall libplayprint_uninstall mleprops_uninstall libmlert_runtime_uninstall ivstage_runtime_uninstall ivset_runtime_uninstall ivmref_runtime_uninstall ivrole_runtime_uninstall ivactor_runtime_uninstall libmlloaders_runtime_uninstall
+
+# Qt Inventor Targets
+
+qt_inventor: libmlutil libmlmath libDWP libDPP libDPPGen gentables gengroup genscene genmedia genmakefile genppscript gendpp libplayprint mleprops libmlert_inventor ivstage_inventor ivset_inventor ivmref_inventor ivrole_inventor ivactor_inventor libmlloaders_inventor
+
+qt_inventor_clean: libmlutil_clean libmlmath_clean libDWP_clean libDPP_clean libDPPGen_clean gentables_clean gengroup_clean genscene_clean genmedia_clean genmakefile_clean genppscript_clean gendpp_clean libplayprint_clean mleprops_clean libmlert_inventor_clean ivstage_inventor_clean ivset_inventor_clean ivmref_inventor_clean ivrole_inventor_clean ivactor_inventor_clean libmlloaders_inventor_clean
+
+qt_inventor_install: libmlutil_install libmlmath_install libDWP_install libDPP_install libDPPGen_install gentables_install gengroup_install genscene_install genmedia_install genmakefile_install genppscript_install gendpp_install libplayprint_install mleprops_install libmlert_inventor_install ivstage_inventor_install ivset_inventor_install ivmref_inventor_install ivrole_inventor_install ivactor_inventor_install libmlloaders_inventor_install
+
+qt_inventor_uninstall: libmlutil_uninstall libmlmath_uninstall libDWP_uninstall libDPP_uninstall libDPPGen_uninstall gentables_uninstall gengroup_uninstall genscene_uninstall genmedia_uninstall genmakefile_uninstall genppscript_uninstall gendpp_uninstall libplayprint_uninstall mleprops_uninstall libmlert_inventor_uninstall ivstage_inventor_uninstall ivset_inventor_uninstall ivmref_inventor_uninstall ivrole_inventor_uninstall ivactor_inventor_uninstall libmlloaders_inventor_uninstall
+
 # Targets for Magic Lantern SDK Rehearsal platform
 
-sdk_rehearsal: qt_rehearsal qt_player
+sdk_rehearsal: qt_rehearsal
 
-sdk_rehearsal_clean: qt_rehearsal_clean qt_player_clean
+sdk_rehearsal_clean: qt_rehearsal_clean
 
-sdk_rehearsal_install: qt_rehearsal_install qt_player_install
+sdk_rehearsal_install: qt_rehearsal_install
 
-sdk_rehearsal_uninstall: qt_rehearsal_uninstall qt_player_uninstall
+sdk_rehearsal_uninstall: qt_rehearsal_uninstall
 
 # Targets for Magic Lantern mastering functionality
 
@@ -1360,25 +1380,25 @@ helloCube: check_env qt CubeStage_install CubeSet_install CubeRole_install Cube_
 	@echo ""
 	@echo "***** Running Makefile target helloCube *****"
 	@echo ""
-	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop-Debug; make;
+	cd $(MLE_HOME)/Titles/helloCube/qt/build-hellocube-Desktop-Debug; make;
 
-helloCube_clean: check_env  CubeStage_clean CubeSet_clean CubeRole_clean Cube_Actor_clean
+helloCube_clean: check_env CubeStage_clean CubeSet_clean CubeRole_clean Cube_Actor_clean
 	@echo ""
 	@echo "***** Running Makefile target helloCube_clean *****"
 	@echo ""
-	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop-Debug; make clean;
+	cd $(MLE_HOME)/Titles/helloCube/qt/build-hellocube-Desktop-Debug; make clean;
 
 helloCube_install: check_env qt_install helloCube
 	@echo ""
 	@echo "***** Running Makefile target helloCube_install *****"
 	@echo ""
-	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Titles/helloCube/qt/build-hellocube-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make install;
 
-helloCube_uninstall: check_env CubeStage_unistall CubeSet_uninstall CubeRole_uninstall CubeActor_uninstall
+helloCube_uninstall: check_env CubeStage_uninstall CubeSet_uninstall CubeRole_uninstall CubeActor_uninstall
 	@echo ""
 	@echo "***** Running Makefile target helloCube_uninstall *****"
 	@echo ""
-	cd $(MLE_HOME)/Titles/helloCube/qt/build/build-hellocube-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Titles/helloCube/qt/build-hellocube-Desktop-Debug; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 # The mtea title displays a moving teapot.
 
