@@ -954,7 +954,7 @@ ivactor_runtime_uninstall: check_env
 
 # Targets for Magic Lantern Rehearsal Player Authoring Toolkit.
 
-libmleatk_rehearsal: check_env libmlutil_install libmlmath_install libDWP_install ivset_rehearsal_install
+libmleatk_rehearsal: check_env libmlutil_install libmlmath_install libDWP_install ivset_rehearsal_install ivrole_rehearsal_install
 	@echo ""
 	@echo "***** Running Makefile target libmleatk_rehearsal *****"
 	@echo ""
