@@ -1290,7 +1290,7 @@ null_uninstall: check_env
 
 # The HelloCube title which displays a simple cube.
 
-CubeStage: check_env
+CubeStage: check_env sdk_inventor_install
 	@echo ""
 	@echo "***** Running Makefile target helloCube CubeStage *****"
 	@echo ""
@@ -1314,7 +1314,7 @@ CubeStage_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/qt/stages/build-CubeStage-Desktop-Debug; make uninstall;
 
-CubeSet: check_env
+CubeSet: check_env CubeRole_install
 	@echo ""
 	@echo "***** Running Makefile target helloCube CubeSet *****"
 	@echo ""
@@ -1338,7 +1338,7 @@ CubeSet_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/qt/sets/build-CubeSet-Desktop-Debug; make uninstall;
 
-CubeRole: check_env
+CubeRole: check_env sdk_inventor_install
 	@echo ""
 	@echo "***** Running Makefile target helloCube CubeRole *****"
 	@echo ""
@@ -1362,7 +1362,7 @@ CubeRole_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/qt/roles/build-CubeRole-Desktop-Debug; make uninstall;
 
-CubeActor: check_env
+CubeActor: check_env CubeRole_install
 	@echo ""
 	@echo "***** Running Makefile target helloCube CubeActor *****"
 	@echo ""
@@ -1386,19 +1386,19 @@ CubeActor_uninstall: check_env
 	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/qt/actors/build-CubeActor-Desktop-Debug; make uninstall;
 
-helloCube: check_env qt CubeStage_install CubeSet_install CubeRole_install Cube_Actor_install
+helloCube: check_env CubeStage_install CubeRole_install CubeSet_install CubeActor_install
 	@echo ""
 	@echo "***** Running Makefile target helloCube *****"
 	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/qt/build-hellocube-Desktop-Debug; make;
 
-helloCube_clean: check_env CubeStage_clean CubeSet_clean CubeRole_clean Cube_Actor_clean
+helloCube_clean: check_env CubeStage_clean CubeSet_clean CubeRole_clean CubeActor_clean
 	@echo ""
 	@echo "***** Running Makefile target helloCube_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/Titles/helloCube/qt/build-hellocube-Desktop-Debug; make clean;
 
-helloCube_install: check_env qt_install helloCube
+helloCube_install: check_env helloCube
 	@echo ""
 	@echo "***** Running Makefile target helloCube_install *****"
 	@echo ""
