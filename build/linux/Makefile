@@ -884,7 +884,7 @@ props_clobber: check_env
 	@echo ""
 	@echo "***** Running Makefile target props_clobber *****"
 	@echo ""
-	@echo "***** props_clobber NOT SUPPORTED
+	@echo "***** props_clobber NOT SUPPORTED"
 
 props_install: check_env
 	@echo ""
