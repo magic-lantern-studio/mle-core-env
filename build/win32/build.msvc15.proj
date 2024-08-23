@@ -45,10 +45,10 @@
   </Target>
 
   <!-- Import Magic Lantern Solutions -->
-  <!-- Import Project="$(MLE_ROOT)\Core\math\win32\build\msvc15\mlmath.sln.proj"/ -->
+  <!-- Import Project="$(MLE_HOME)\Core\math\win32\build\msvc15\mlmath.sln.proj"/ -->
   <ItemGroup>
-    <Solutions Include="$(MLE_ROOT)\Core\util\win32\build\msvc15\mleutil.sln"/>
-    <Solutions Include="$(MLE_ROOT)\Core\math\win32\build\msvc15\mlmath.sln"/>
+    <Solutions Include="$(MLE_HOME)\Core\util\win32\build\msvc15\mleutil.sln"/>
+    <Solutions Include="$(MLE_HOME)\Core\math\win32\build\msvc15\mlmath.sln"/>
   </ItemGroup>
 
   <!-- Build the 32-bit flavor of Magic Lantern. -->
@@ -62,7 +62,7 @@
       <Output TaskParameter="Include" ItemName="MathConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Core\math\win32\build\msvc15\mlmath.sln"
+    <MSBuild Projects="$(MLE_HOME)\Core\math\win32\build\msvc15\mlmath.sln"
              Targets="$(Action)" Properties="Configuration=%(MathConfiguration.Identity)"/>
   </Target>
 
@@ -74,7 +74,7 @@
       <Output TaskParameter="Include" ItemName="MathConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Core\math\win32\build\msvc15\mlmath.sln"
+    <MSBuild Projects="$(MLE_HOME)\Core\math\win32\build\msvc15\mlmath.sln"
              Targets="$(Action)" Properties="Configuration=%(MathConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -88,7 +88,7 @@
       <Output TaskParameter="Include" ItemName="UtilConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Core\util\win32\build\msvc15\mleutil.sln"
+    <MSBuild Projects="$(MLE_HOME)\Core\util\win32\build\msvc15\mleutil.sln"
              Targets="$(Action)" Properties="Configuration=%(UtilConfiguration.Identity)"/>
   </Target>
 
@@ -100,7 +100,7 @@
       <Output TaskParameter="Include" ItemName="UtilConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Core\util\win32\build\msvc15\mleutil.sln"
+    <MSBuild Projects="$(MLE_HOME)\Core\util\win32\build\msvc15\mleutil.sln"
              Targets="$(Action)" Properties="Configuration=%(UtilConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -113,7 +113,7 @@
       <Output TaskParameter="Include" ItemName="DWPConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\DigitalWorkprint\lib\win32\build\msvc15\DwpAccess.sln"
+    <MSBuild Projects="$(MLE_HOME)\DigitalWorkprint\lib\win32\build\msvc15\DwpAccess.sln"
              Targets="$(Action)" Properties="Configuration=%(DWPConfiguration.Identity)"/>
   </Target>
 
@@ -125,7 +125,7 @@
       <Output TaskParameter="Include" ItemName="DWPConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\DigitalWorkprint\lib\win32\build\msvc15\DwpAccess.sln"
+    <MSBuild Projects="$(MLE_HOME)\DigitalWorkprint\lib\win32\build\msvc15\DwpAccess.sln"
              Targets="$(Action)" Properties="Configuration=%(DWPConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -138,7 +138,7 @@
       <Output TaskParameter="Include" ItemName="DPPConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\DigitalPlayprint\lib\win32\build\msvc15\DppAccess.sln"
+    <MSBuild Projects="$(MLE_HOME)\DigitalPlayprint\lib\win32\build\msvc15\DppAccess.sln"
              Targets="$(Action)" Properties="Configuration=%(DPPConfiguration.Identity)"/>
   </Target>
 
@@ -150,7 +150,7 @@
       <Output TaskParameter="Include" ItemName="DPPConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\DigitalPlayprint\lib\win32\build\msvc15\DppAccess.sln"
+    <MSBuild Projects="$(MLE_HOME)\DigitalPlayprint\lib\win32\build\msvc15\DppAccess.sln"
              Targets="$(Action)" Properties="Configuration=%(DPPConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -163,7 +163,7 @@
       <Output TaskParameter="Include" ItemName="DPPRuntimeConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\DigitalPlayprint\runtime\win32\build\msvc15\DppRuntime.sln"
+    <MSBuild Projects="$(MLE_HOME)\DigitalPlayprint\runtime\win32\build\msvc15\DppRuntime.sln"
              Targets="$(Action)" Properties="Configuration=%(DPPRuntimeConfiguration.Identity)"/>
   </Target>
 
@@ -175,7 +175,7 @@
       <Output TaskParameter="Include" ItemName="DPPRuntimeConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\DigitalPlayprint\runtime\win32\build\msvc15\DppRuntime.sln"
+    <MSBuild Projects="$(MLE_HOME)\DigitalPlayprint\runtime\win32\build\msvc15\DppRuntime.sln"
              Targets="$(Action)" Properties="Configuration=%(DPPRuntimeConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -188,7 +188,7 @@
       <Output TaskParameter="Include" ItemName="DPPMasterConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\DigitalPlayprint\master\win32\build\msvc15\DppMaster.sln"
+    <MSBuild Projects="$(MLE_HOME)\DigitalPlayprint\master\win32\build\msvc15\DppMaster.sln"
              Targets="$(Action)" Properties="Configuration=%(DPPMasterConfiguration.Identity)"/>
   </Target>
 
@@ -200,7 +200,7 @@
       <Output TaskParameter="Include" ItemName="DPPMasterConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\DigitalPlayprint\master\win32\build\msvc15\DppMaster.sln"
+    <MSBuild Projects="$(MLE_HOME)\DigitalPlayprint\master\win32\build\msvc15\DppMaster.sln"
              Targets="$(Action)" Properties="Configuration=%(DPPMasterConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -213,7 +213,7 @@
       <Output TaskParameter="Include" ItemName="RuntimeConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Core\mlert\win32\build\msvc15\mlert.sln"
+    <MSBuild Projects="$(MLE_HOME)\Core\mlert\win32\build\msvc15\mlert.sln"
              Targets="$(Action)" Properties="Configuration=%(RuntimeConfiguration.Identity)"/>
   </Target>
 
@@ -225,7 +225,7 @@
       <Output TaskParameter="Include" ItemName="RuntimeConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Core\mlert\win32\build\msvc15\mlert.sln"
+    <MSBuild Projects="$(MLE_HOME)\Core\mlert\win32\build\msvc15\mlert.sln"
              Targets="$(Action)" Properties="Configuration=%(RuntimeConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -238,7 +238,7 @@
       <Output TaskParameter="Include" ItemName="ATKConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\ATK\win32\build\msvc15\ATK.sln"
+    <MSBuild Projects="$(MLE_HOME)\ATK\win32\build\msvc15\ATK.sln"
              Targets="$(Action)" Properties="Configuration=%(ATKConfiguration.Identity)"/>
   </Target>
 
@@ -250,7 +250,7 @@
       <Output TaskParameter="Include" ItemName="ATKConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\ATK\win32\build\msvc15\ATK.sln"
+    <MSBuild Projects="$(MLE_HOME)\ATK\win32\build\msvc15\ATK.sln"
              Targets="$(Action)" Properties="Configuration=%(ATKConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -259,12 +259,12 @@
     <Message Text="Building 32-bit version of Magic Lantern Properties Library."/>
 
     <!-- Specify directory for property headers. -->
-    <CreateProperty Value="$(MLE_ROOT)\Parts\props\common\include\mle">
+    <CreateProperty Value="$(MLE_HOME)\Parts\props\common\include\mle">
       <Output PropertyName="PropertyHeadersSrc" TaskParameter="Value"/>
     </CreateProperty>
 
     <!-- Specify directory for property workspaces. -->
-    <CreateProperty Value="$(MLE_ROOT)\Parts\props\workprints">
+    <CreateProperty Value="$(MLE_HOME)\Parts\props\workprints">
       <Output PropertyName="PropertyWorkprintSrc" TaskParameter="Value"/>
     </CreateProperty>
 
@@ -284,9 +284,9 @@
     <Message Text="Property Workspace Source: $(PropertyWorkprintSrc)."/>
 
     <Copy SourceFiles="@(Headers)"
-          DestinationFolder="$(MLE_ROOT)\include\mle"/>
+          DestinationFolder="$(MLE_HOME)\include\mle"/>
     <Copy SourceFiles="@(Workprints)"
-          DestinationFolder="$(MLE_ROOT)\include\workprints"/>
+          DestinationFolder="$(MLE_HOME)\include\workprints"/>
 
   </Target>
 
@@ -295,12 +295,12 @@
     <Message Text="Building 64-bit version of Magic Lantern Properties Library."/>
 
     <!-- Specify directory for property headers. -->
-    <CreateProperty Value="$(MLE_ROOT)\Parts\props\common\include\mle">
+    <CreateProperty Value="$(MLE_HOME)\Parts\props\common\include\mle">
       <Output PropertyName="PropertyHeadersSrc" TaskParameter="Value"/>
     </CreateProperty>
 
     <!-- Specify directory for property workspaces. -->
-    <CreateProperty Value="$(MLE_ROOT)\Parts\props\workprints">
+    <CreateProperty Value="$(MLE_HOME)\Parts\props\workprints">
       <Output PropertyName="PropertyWorkprintSrc" TaskParameter="Value"/>
     </CreateProperty>
 
@@ -320,9 +320,9 @@
     <Message Text="Property Workspace Source: $(PropertyWorkprintSrc)."/>
 
     <Copy SourceFiles="@(Headers)"
-          DestinationFolder="$(MLE_ROOT)\include\mle"/>
+          DestinationFolder="$(MLE_HOME)\include\mle"/>
     <Copy SourceFiles="@(Workprints)"
-          DestinationFolder="$(MLE_ROOT)\include\workprints"/>
+          DestinationFolder="$(MLE_HOME)\include\workprints"/>
 
   </Target>
 
@@ -340,41 +340,41 @@
          full DLL due to circular dependencies. -->
 
     <CreateItem
-      Include="$(MLE_ROOT)\Parts\stages\inventor\src\antirot.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\CubeDragger.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\CubeManip.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\ivstage.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\MultiSearchAction.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\Nudger.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\Snapper.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\Source.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\SpotMarker.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\Target.cxx;
-               $(MLE_ROOT)\Parts\stages\rehearsal\src\MleIvStage.cxx;
-               $(MLE_ROOT)\Parts\stages\rehearsal\src\StdAfx.cpp">
+      Include="$(MLE_HOME)\Parts\stages\inventor\src\antirot.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\CubeDragger.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\CubeManip.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\ivstage.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\MultiSearchAction.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\Nudger.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\Snapper.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\Source.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\SpotMarker.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\Target.cxx;
+               $(MLE_HOME)\Parts\stages\rehearsal\src\MleIvStage.cxx;
+               $(MLE_HOME)\Parts\stages\rehearsal\src\StdAfx.cpp">
       <Output TaskParameter="Include" ItemName="InventorStageFiles" />
     </CreateItem>
 
-    <Makedir Directories="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15\Win32\Release"/>
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15"
-          Command='cl.exe /O2 /Ob1 /I "." /I "$(MLE_ROOT)\Parts\stages\inventor\include" /I "$(MLE_ROOT)\Parts\stages\include" /I "$(MLE_ROOT)\Parts\roles\common\include" /I "$(MLE_ROOT)\Parts\roles\inventor\include" /I "$(MLE_ROOT)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "$(MLE_ROOT)\ATK\common\include" /I "$(MLE_ROOT)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"Win32\Release/rehearsal.pch" /Fo"Win32\Release/" /W3 /nologo /c /TP /errorReport:prompt %(InventorStageFiles.Identity)'/>
+    <Makedir Directories="$(MLE_HOME)\Parts\stages\inventor\build\msvc15\Win32\Release"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\inventor\build\msvc15"
+          Command='cl.exe /O2 /Ob1 /I "." /I "$(MLE_HOME)\Parts\stages\inventor\include" /I "$(MLE_HOME)\Parts\stages\include" /I "$(MLE_HOME)\Parts\roles\common\include" /I "$(MLE_HOME)\Parts\roles\inventor\include" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_HOME)\include" /I "$(MLE_HOME)\include\rehearsal" /I "$(MLE_HOME)\ATK\common\include" /I "$(MLE_HOME)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"Win32\Release/rehearsal.pch" /Fo"Win32\Release/" /W3 /nologo /c /TP /errorReport:prompt %(InventorStageFiles.Identity)'/>
 
 
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15\Win32\Release"
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\inventor\build\msvc15\Win32\Release"
           Command='lib.exe /out:MleIvStage.lib /def *.obj'/>
 
-    <Copy SourceFiles="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15\Win32\Release\MleIvStage.lib"
-          DestinationFolder="$(MLE_ROOT)\lib\inventor"/>
+    <Copy SourceFiles="$(MLE_HOME)\Parts\stages\inventor\build\msvc15\Win32\Release\MleIvStage.lib"
+          DestinationFolder="$(MLE_HOME)\lib\inventor"/>
 
-    <Makedir Directories="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15\Win32\Debug"/>
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15"
-          Command='cl.exe /Od /I "." /I "$(MLE_ROOT)\Parts\stages\inventor\include" /I "$(MLE_ROOT)\Parts\stages\include" /I "$(MLE_ROOT)\Parts\roles\common\include" /I "$(MLE_ROOT)\Parts\roles\inventor\include" /I "$(MLE_ROOT)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "$(MLE_ROOT)\ATK\common\include" /I "$(MLE_ROOT)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"Win32\Debug/rehearsal.pch" /Fo"Win32\Debug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(InventorStageFiles.Identity)' />
+    <Makedir Directories="$(MLE_HOME)\Parts\stages\inventor\build\msvc15\Win32\Debug"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\inventor\build\msvc15"
+          Command='cl.exe /Od /I "." /I "$(MLE_HOME)\Parts\stages\inventor\include" /I "$(MLE_HOME)\Parts\stages\include" /I "$(MLE_HOME)\Parts\roles\common\include" /I "$(MLE_HOME)\Parts\roles\inventor\include" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_HOME)\include" /I "$(MLE_HOME)\include\rehearsal" /I "$(MLE_HOME)\ATK\common\include" /I "$(MLE_HOME)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"Win32\Debug/rehearsal.pch" /Fo"Win32\Debug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(InventorStageFiles.Identity)' />
 
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15\Win32\Debug"
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\inventor\build\msvc15\Win32\Debug"
           Command='lib.exe /out:MleIvStaged.lib /def *.obj'/>
 
-    <Copy SourceFiles="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15\Win32\Debug\MleIvStaged.lib"
-          DestinationFolder="$(MLE_ROOT)\lib\inventor"/>
+    <Copy SourceFiles="$(MLE_HOME)\Parts\stages\inventor\build\msvc15\Win32\Debug\MleIvStaged.lib"
+          DestinationFolder="$(MLE_HOME)\lib\inventor"/>
 
   </Target>
 
@@ -391,41 +391,41 @@
          full DLL due to circular dependencies. -->
 
     <CreateItem
-      Include="$(MLE_ROOT)\Parts\stages\inventor\src\antirot.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\CubeDragger.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\CubeManip.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\ivstage.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\MultiSearchAction.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\Nudger.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\Snapper.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\Source.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\SpotMarker.cxx;
-               $(MLE_ROOT)\Parts\stages\inventor\src\Target.cxx;
-               $(MLE_ROOT)\Parts\stages\rehearsal\src\MleIvStage.cxx;
-               $(MLE_ROOT)\Parts\stages\rehearsal\src\StdAfx.cpp">
+      Include="$(MLE_HOME)\Parts\stages\inventor\src\antirot.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\CubeDragger.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\CubeManip.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\ivstage.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\MultiSearchAction.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\Nudger.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\Snapper.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\Source.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\SpotMarker.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\Target.cxx;
+               $(MLE_HOME)\Parts\stages\rehearsal\src\MleIvStage.cxx;
+               $(MLE_HOME)\Parts\stages\rehearsal\src\StdAfx.cpp">
       <Output TaskParameter="Include" ItemName="InventorStageFiles" />
     </CreateItem>
 
-    <Makedir Directories="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15\x64\Release"/>
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15"
-          Command='cl.exe /O2 /Ob1 /I "." /I "$(MLE_ROOT)\Parts\stages\inventor\include" /I "$(MLE_ROOT)\Parts\stages\include" /I "$(MLE_ROOT)\Parts\roles\common\include" /I "$(MLE_ROOT)\Parts\roles\inventor\include" /I "$(MLE_ROOT)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "$(MLE_ROOT)\ATK\common\include" /I "$(MLE_ROOT)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"x64\Release/rehearsal.pch" /Fo"x64\Release/" /W3 /nologo /c /TP /errorReport:prompt %(InventorStageFiles.Identity)'/>
+    <Makedir Directories="$(MLE_HOME)\Parts\stages\inventor\build\msvc15\x64\Release"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\inventor\build\msvc15"
+          Command='cl.exe /O2 /Ob1 /I "." /I "$(MLE_HOME)\Parts\stages\inventor\include" /I "$(MLE_HOME)\Parts\stages\include" /I "$(MLE_HOME)\Parts\roles\common\include" /I "$(MLE_HOME)\Parts\roles\inventor\include" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_HOME)\include" /I "$(MLE_HOME)\include\rehearsal" /I "$(MLE_HOME)\ATK\common\include" /I "$(MLE_HOME)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"x64\Release/rehearsal.pch" /Fo"x64\Release/" /W3 /nologo /c /TP /errorReport:prompt %(InventorStageFiles.Identity)'/>
 
 
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15\x64\Release"
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\inventor\build\msvc15\x64\Release"
           Command='lib.exe /out:MleIvStage.lib /def *.obj'/>
 
-    <Copy SourceFiles="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15\x64\Release\MleIvStage.lib"
-          DestinationFolder="$(MLE_ROOT)\lib64\inventor"/>
+    <Copy SourceFiles="$(MLE_HOME)\Parts\stages\inventor\build\msvc15\x64\Release\MleIvStage.lib"
+          DestinationFolder="$(MLE_HOME)\lib64\inventor"/>
 
-    <Makedir Directories="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15\x64\Debug"/>
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15"
-          Command='cl.exe /Od /I "." /I "$(MLE_ROOT)\Parts\stages\inventor\include" /I "$(MLE_ROOT)\Parts\stages\include" /I "$(MLE_ROOT)\Parts\roles\common\include" /I "$(MLE_ROOT)\Parts\roles\inventor\include" /I "$(MLE_ROOT)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "$(MLE_ROOT)\ATK\common\include" /I "$(MLE_ROOT)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"x64\Debug/rehearsal.pch" /Fo"x64\Debug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(InventorStageFiles.Identity)' />
+    <Makedir Directories="$(MLE_HOME)\Parts\stages\inventor\build\msvc15\x64\Debug"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\inventor\build\msvc15"
+          Command='cl.exe /Od /I "." /I "$(MLE_HOME)\Parts\stages\inventor\include" /I "$(MLE_HOME)\Parts\stages\include" /I "$(MLE_HOME)\Parts\roles\common\include" /I "$(MLE_HOME)\Parts\roles\inventor\include" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_HOME)\include" /I "$(MLE_HOME)\include\rehearsal" /I "$(MLE_HOME)\ATK\common\include" /I "$(MLE_HOME)\ATK\win32\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "COIN_DLL" /D "SOWIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "REHEARSAL_EXPORTS" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"x64\Debug/rehearsal.pch" /Fo"x64\Debug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(InventorStageFiles.Identity)' />
 
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15\x64\Debug"
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\inventor\build\msvc15\x64\Debug"
           Command='lib.exe /out:MleIvStaged.lib /def *.obj'/>
 
-    <Copy SourceFiles="$(MLE_ROOT)\Parts\stages\inventor\build\msvc15\x64\Debug\MleIvStaged.lib"
-          DestinationFolder="$(MLE_ROOT)\lib64\inventor"/>
+    <Copy SourceFiles="$(MLE_HOME)\Parts\stages\inventor\build\msvc15\x64\Debug\MleIvStaged.lib"
+          DestinationFolder="$(MLE_HOME)\lib64\inventor"/>
 
   </Target>
 
@@ -439,25 +439,25 @@
       <Output TaskParameter="Include" ItemName="Inventor2dRoleFiles" />
     </CreateItem>
 
-    <Makedir Directories="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\Win32\Mle2dRoleRelease"/>
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15"
-          Command='cl.exe /O2 /Ob1 /I "..\..\..\common\include" /I "..\..\..\inventor" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_2DROLE_EXPORTS" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"Win32\Mle2dRoleRelease/Mle2dRole.pch" /Fo"Win32\Mle2dRoleRelease/" /Fd"Win32\Mle2dRoleRelease/" /W3 /nologo /c /TP /errorReport:prompt %(Inventor2dRoleFiles.Identity)'/>
+    <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc15\Win32\Mle2dRoleRelease"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15"
+          Command='cl.exe /O2 /Ob1 /I "..\..\..\common\include" /I "..\..\..\inventor" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_HOME)\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_2DROLE_EXPORTS" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"Win32\Mle2dRoleRelease/Mle2dRole.pch" /Fo"Win32\Mle2dRoleRelease/" /Fd"Win32\Mle2dRoleRelease/" /W3 /nologo /c /TP /errorReport:prompt %(Inventor2dRoleFiles.Identity)'/>
 
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\Win32\Mle2dRoleRelease"
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15\Win32\Mle2dRoleRelease"
           Command='lib.exe /out:Mle2dRole.lib /def *.obj'/>
 
-    <Copy SourceFiles="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\Win32\Mle2dRoleRelease\Mle2dRole.lib"
-          DestinationFolder="$(MLE_ROOT)\lib\rehearsal"/>
+    <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc15\Win32\Mle2dRoleRelease\Mle2dRole.lib"
+          DestinationFolder="$(MLE_HOME)\lib\rehearsal"/>
 
-    <Makedir Directories="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\Win32\Mle2dRoleDebug"/>
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15"
-          Command='cl.exe /Od /I "..\..\..\common\include" /I "..\..\..\inventor" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_2DROLE_EXPORTS" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"Win32\Mle2dRoleDebug/Mle2dRole.pch" /Fo"Win32\Mle2dRoleDebug/" /Fd"Win32\Mle2dRoleDebug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(Inventor2dRoleFiles.Identity)'/>
+    <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc15\Win32\Mle2dRoleDebug"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15"
+          Command='cl.exe /Od /I "..\..\..\common\include" /I "..\..\..\inventor" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_HOME)\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_2DROLE_EXPORTS" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"Win32\Mle2dRoleDebug/Mle2dRole.pch" /Fo"Win32\Mle2dRoleDebug/" /Fd"Win32\Mle2dRoleDebug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(Inventor2dRoleFiles.Identity)'/>
 
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\Win32\Mle2dRoleDebug"
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15\Win32\Mle2dRoleDebug"
           Command='lib.exe /out:Mle2dRoled.lib /def *.obj'/>
 
-    <Copy SourceFiles="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\Win32\Mle2dRoleDebug\Mle2dRoled.lib"
-          DestinationFolder="$(MLE_ROOT)\lib\rehearsal"/>
+    <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc15\Win32\Mle2dRoleDebug\Mle2dRoled.lib"
+          DestinationFolder="$(MLE_HOME)\lib\rehearsal"/>
 
     <CreateItem
       Include="..\..\Mle3dRole\Mle3dRole.cpp;
@@ -466,25 +466,25 @@
       <Output TaskParameter="Include" ItemName="Inventor3dRoleFiles" />
     </CreateItem>
 
-    <Makedir Directories="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\Win32\Mle3dRoleRelease"/>
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15"
-          Command='cl.exe /O2 /Ob1 /I "..\..\..\common\include" /I "..\..\..\inventor\include" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_3DROLE_EXPORTS" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"Win32\Mle3dRoleRelease/Mle3dRole.pch" /Fo"Win32\Mle3dRoleRelease/" /Fd"Win32\Mle3dRoleRelease/" /W3 /nologo /c /TP /errorReport:prompt %(Inventor3dRoleFiles.Identity)'/>
+    <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc15\Win32\Mle3dRoleRelease"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15"
+          Command='cl.exe /O2 /Ob1 /I "..\..\..\common\include" /I "..\..\..\inventor\include" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_HOME)\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_3DROLE_EXPORTS" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"Win32\Mle3dRoleRelease/Mle3dRole.pch" /Fo"Win32\Mle3dRoleRelease/" /Fd"Win32\Mle3dRoleRelease/" /W3 /nologo /c /TP /errorReport:prompt %(Inventor3dRoleFiles.Identity)'/>
 
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\Win32\Mle3dRoleRelease"
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15\Win32\Mle3dRoleRelease"
           Command='lib.exe /out:Mle3dRole.lib /def *.obj'/>
 
-    <Copy SourceFiles="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\Win32\Mle3dRoleRelease\Mle3dRole.lib"
-          DestinationFolder="$(MLE_ROOT)\lib\rehearsal"/>
+    <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc15\Win32\Mle3dRoleRelease\Mle3dRole.lib"
+          DestinationFolder="$(MLE_HOME)\lib\rehearsal"/>
 
-    <Makedir Directories="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\Win32\Mle3dRoleDebug"/>
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15"
-          Command='cl.exe /Od /I "..\..\..\common\include" /I "..\..\..\inventor\include" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_3DROLE_EXPORTS" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"Win32\Mle3dRoleDebug/Mle3dRole.pch" /Fo"Win32\Mle3dRoleDebug/" /Fd"Win32\Mle3dRoleDebug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(Inventor3dRoleFiles.Identity)'/>
+    <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc15\Win32\Mle3dRoleDebug"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15"
+          Command='cl.exe /Od /I "..\..\..\common\include" /I "..\..\..\inventor\include" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_HOME)\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_3DROLE_EXPORTS" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"Win32\Mle3dRoleDebug/Mle3dRole.pch" /Fo"Win32\Mle3dRoleDebug/" /Fd"Win32\Mle3dRoleDebug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(Inventor3dRoleFiles.Identity)'/>
 
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\Win32\Mle3dRoleDebug"
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15\Win32\Mle3dRoleDebug"
           Command='lib.exe /out:Mle3dRoled.lib /def *.obj'/>
 
-    <Copy SourceFiles="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\Win32\Mle3dRoleDebug\Mle3dRoled.lib"
-          DestinationFolder="$(MLE_ROOT)\lib\rehearsal"/>
+    <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc15\Win32\Mle3dRoleDebug\Mle3dRoled.lib"
+          DestinationFolder="$(MLE_HOME)\lib\rehearsal"/>
 
   </Target>
 
@@ -498,25 +498,25 @@
       <Output TaskParameter="Include" ItemName="Inventor2dRoleFiles" />
     </CreateItem>
 
-    <Makedir Directories="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\x64\Mle2dRoleRelease"/>
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15"
-          Command='cl.exe /O2 /Ob1 /I "..\..\..\common\include" /I "..\..\..\inventor" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_2DROLE_EXPORTS" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"x64\Mle2dRoleRelease/Mle2dRole.pch" /Fo"x64\Mle2dRoleRelease/" /Fd"x64\Mle2dRoleRelease/" /W3 /nologo /c /TP /errorReport:prompt %(Inventor2dRoleFiles.Identity)'/>
+    <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc15\x64\Mle2dRoleRelease"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15"
+          Command='cl.exe /O2 /Ob1 /I "..\..\..\common\include" /I "..\..\..\inventor" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_HOME)\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_2DROLE_EXPORTS" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"x64\Mle2dRoleRelease/Mle2dRole.pch" /Fo"x64\Mle2dRoleRelease/" /Fd"x64\Mle2dRoleRelease/" /W3 /nologo /c /TP /errorReport:prompt %(Inventor2dRoleFiles.Identity)'/>
 
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\x64\Mle2dRoleRelease"
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15\x64\Mle2dRoleRelease"
           Command='lib.exe /out:Mle2dRole.lib /def *.obj'/>
 
-    <Copy SourceFiles="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\x64\Mle2dRoleRelease\Mle2dRole.lib"
-          DestinationFolder="$(MLE_ROOT)\lib64\rehearsal"/>
+    <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc15\x64\Mle2dRoleRelease\Mle2dRole.lib"
+          DestinationFolder="$(MLE_HOME)\lib64\rehearsal"/>
 
-    <Makedir Directories="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\x64\Mle2dRoleDebug"/>
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15"
-          Command='cl.exe /Od /I "..\..\..\common\include" /I "..\..\..\inventor" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_2DROLE_EXPORTS" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"x64\Mle2dRoleDebug/Mle2dRole.pch" /Fo"x64\Mle2dRoleDebug/" /Fd"x64\Mle2dRoleDebug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(Inventor2dRoleFiles.Identity)'/>
+    <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc15\x64\Mle2dRoleDebug"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15"
+          Command='cl.exe /Od /I "..\..\..\common\include" /I "..\..\..\inventor" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_HOME)\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_2DROLE_EXPORTS" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"x64\Mle2dRoleDebug/Mle2dRole.pch" /Fo"x64\Mle2dRoleDebug/" /Fd"x64\Mle2dRoleDebug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(Inventor2dRoleFiles.Identity)'/>
 
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\x64\Mle2dRoleDebug"
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15\x64\Mle2dRoleDebug"
           Command='lib.exe /out:Mle2dRoled.lib /def *.obj'/>
 
-    <Copy SourceFiles="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\x64\Mle2dRoleDebug\Mle2dRoled.lib"
-          DestinationFolder="$(MLE_ROOT)\lib64\rehearsal"/>
+    <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc15\x64\Mle2dRoleDebug\Mle2dRoled.lib"
+          DestinationFolder="$(MLE_HOME)\lib64\rehearsal"/>
 
     <CreateItem
       Include="..\..\Mle3dRole\Mle3dRole.cpp;
@@ -525,25 +525,25 @@
       <Output TaskParameter="Include" ItemName="Inventor3dRoleFiles" />
     </CreateItem>
 
-    <Makedir Directories="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\x64\Mle3dRoleRelease"/>
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15"
-          Command='cl.exe /O2 /Ob1 /I "..\..\..\common\include" /I "..\..\..\inventor\include" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_3DROLE_EXPORTS" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"x64\Mle3dRoleRelease/Mle3dRole.pch" /Fo"x64\Mle3dRoleRelease/" /Fd"x64\Mle3dRoleRelease/" /W3 /nologo /c /TP /errorReport:prompt %(Inventor3dRoleFiles.Identity)'/>
+    <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc15\x64\Mle3dRoleRelease"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15"
+          Command='cl.exe /O2 /Ob1 /I "..\..\..\common\include" /I "..\..\..\inventor\include" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_HOME)\include" /I "$(COINDIR)\include" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_3DROLE_EXPORTS" /D "ML_MATH_DEBUG=0" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /GF /FD /EHsc /MD /Gy /Fp"x64\Mle3dRoleRelease/Mle3dRole.pch" /Fo"x64\Mle3dRoleRelease/" /Fd"x64\Mle3dRoleRelease/" /W3 /nologo /c /TP /errorReport:prompt %(Inventor3dRoleFiles.Identity)'/>
 
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\x64\Mle3dRoleRelease"
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15\x64\Mle3dRoleRelease"
           Command='lib.exe /out:Mle3dRole.lib /def *.obj'/>
 
-    <Copy SourceFiles="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\x64\Mle3dRoleRelease\Mle3dRole.lib"
-          DestinationFolder="$(MLE_ROOT)\lib64\rehearsal"/>
+    <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc15\x64\Mle3dRoleRelease\Mle3dRole.lib"
+          DestinationFolder="$(MLE_HOME)\lib64\rehearsal"/>
 
-    <Makedir Directories="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\x64\Mle3dRoleDebug"/>
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15"
-          Command='cl.exe /Od /I "..\..\..\common\include" /I "..\..\..\inventor\include" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_3DROLE_EXPORTS" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"x64\Mle3dRoleDebug/Mle3dRole.pch" /Fo"x64\Mle3dRoleDebug/" /Fd"x64\Mle3dRoleDebug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(Inventor3dRoleFiles.Identity)'/>
+    <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc15\x64\Mle3dRoleDebug"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15"
+          Command='cl.exe /Od /I "..\..\..\common\include" /I "..\..\..\inventor\include" /I "..\..\..\..\sets\inventor" /I "..\..\..\..\stages\inventor" /I "..\..\..\..\props\common" /I "..\..\..\..\mediaref\inventor" /I "$(MLE_HOME)\include" /I "$(COINDIR)\include" /D "MLE_DEBUG" /D "MLE_REHEARSAL" /D "MLE_DIGITAL_WORKPRINT" /D "MLE_DLL" /D "MLE_MAKE_DLL" /D "COIN_DLL" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_USRDLL" /D "MLE_3DROLE_EXPORTS" /D "ML_MATH_DEBUG=1" /D "ML_FIXED_POINT=0" /D "_VC80_UPGRADE=0x0600" /D "_WINDLL" /D "_MBCS" /Gm /EHsc /RTC1 /MDd /Fp"x64\Mle3dRoleDebug/Mle3dRole.pch" /Fo"x64\Mle3dRoleDebug/" /Fd"x64\Mle3dRoleDebug/" /W3 /nologo /c /ZI /TP /errorReport:prompt %(Inventor3dRoleFiles.Identity)'/>
 
-    <Exec WorkingDirectory="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\x64\Mle3dRoleDebug"
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc15\x64\Mle3dRoleDebug"
           Command='lib.exe /out:Mle3dRoled.lib /def *.obj'/>
 
-    <Copy SourceFiles="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\x64\Mle3dRoleDebug\Mle3dRoled.lib"
-          DestinationFolder="$(MLE_ROOT)\lib64\rehearsal"/>
+    <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc15\x64\Mle3dRoleDebug\Mle3dRoled.lib"
+          DestinationFolder="$(MLE_HOME)\lib64\rehearsal"/>
 
   </Target>
 
@@ -555,7 +555,7 @@
       <Output TaskParameter="Include" ItemName="RehearsalSetConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\sets\win32\build\msvc15\MleSets.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\sets\win32\build\msvc15\MleSets.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalSetConfiguration.Identity)"/>
   </Target>
 
@@ -567,7 +567,7 @@
       <Output TaskParameter="Include" ItemName="RehearsalSetConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\sets\win32\build\msvc15\MleSets.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\sets\win32\build\msvc15\MleSets.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalSetConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -579,7 +579,7 @@
       <Output TaskParameter="Include" ItemName="BrenderSetConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\sets\brender\build\msvc15\MleSets.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\sets\brender\build\msvc15\MleSets.sln"
              Targets="$(Action)" Properties="Configuration=%(BrenderSetConfiguration.Identity)"/>
   </Target>
 
@@ -591,9 +591,9 @@
       <Output TaskParameter="Include" ItemName="RehearsalRoleConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\roles\inventor\build\msvc15\MleRoles.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\roles\inventor\build\msvc15\MleRoles.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalRoleConfiguration.Identity)"/>
-    <MSBuild Projects="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\MleRoles.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\roles\win32\build\msvc15\MleRoles.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalRoleConfiguration.Identity)"/>
   </Target>
 
@@ -605,9 +605,9 @@
       <Output TaskParameter="Include" ItemName="RehearsalRoleConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\roles\inventor\build\msvc15\MleRoles.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\roles\inventor\build\msvc15\MleRoles.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalRoleConfiguration.Identity);Platform=x64"/>
-    <MSBuild Projects="$(MLE_ROOT)\Parts\roles\win32\build\msvc15\MleRoles.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\roles\win32\build\msvc15\MleRoles.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalRoleConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -619,7 +619,7 @@
       <Output TaskParameter="Include" ItemName="BrenderRoleConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\roles\brender\build\msvc15\MleRoles.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\roles\brender\build\msvc15\MleRoles.sln"
              Targets="$(Action)" Properties="Configuration=%(BrenderRoleConfiguration.Identity)"/>
   </Target>
 
@@ -631,7 +631,7 @@
       <Output TaskParameter="Include" ItemName="RehearsalMediarefConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\mediaref\rehearsal\build\msvc15\MleMediaRefs.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\mediaref\rehearsal\build\msvc15\MleMediaRefs.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalMediarefConfiguration.Identity)"/>
   </Target>
 
@@ -643,7 +643,7 @@
       <Output TaskParameter="Include" ItemName="RehearsalMediarefConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\mediaref\rehearsal\build\msvc15\MleMediaRefs.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\mediaref\rehearsal\build\msvc15\MleMediaRefs.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalMediarefConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -656,7 +656,7 @@
       <Output TaskParameter="Include" ItemName="BrenderMediarefConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\mediaref\brender\build\msvc15\MleMediaRefs.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\mediaref\brender\build\msvc15\MleMediaRefs.sln"
              Targets="$(Action)" Properties="Configuration=%(BrenderMediarefConfiguration.Identity)"/>
   </Target>
 
@@ -668,7 +668,7 @@
       <Output TaskParameter="Include" ItemName="RehearsalActorConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\actors\rehearsal\build\msvc15\MleActors.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\actors\rehearsal\build\msvc15\MleActors.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalActorConfiguration.Identity)"/>
   </Target>
 
@@ -680,7 +680,7 @@
       <Output TaskParameter="Include" ItemName="RehearsalActorConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\actors\rehearsal\build\msvc15\MleActors.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\actors\rehearsal\build\msvc15\MleActors.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalActorConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -692,7 +692,7 @@
       <Output TaskParameter="Include" ItemName="BrenderActorConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\actors\brender\build\msvc15\MleActors.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\actors\brender\build\msvc15\MleActors.sln"
              Targets="$(Action)" Properties="Configuration=%(BrenderActorConfiguration.Identity)"/>
   </Target>
 
@@ -704,7 +704,7 @@
       <Output TaskParameter="Include" ItemName="RehearsalStageConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc15\MleStages.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc15\MleStages.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalStageConfiguration.Identity)"/>
   </Target>
 
@@ -716,7 +716,7 @@
       <Output TaskParameter="Include" ItemName="RehearsalStageConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\stages\rehearsal\build\msvc15\MleStages.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc15\MleStages.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalStageConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -728,7 +728,7 @@
       <Output TaskParameter="Include" ItemName="BrenderStageConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\stages\brender\build\msvc15\MleStages.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\stages\brender\build\msvc15\MleStages.sln"
              Targets="$(Action)" Properties="Configuration=%(BrenderStageConfiguration.Identity)"/>
   </Target>
 
@@ -740,9 +740,9 @@
       <Output TaskParameter="Include" ItemName="RehearsalPlayerConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Players\rehearsal\build\msvc15\MlePlayers.sln"
+    <MSBuild Projects="$(MLE_HOME)\Players\rehearsal\build\msvc15\MlePlayers.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalPlayerConfiguration.Identity)"/>
-    <MSBuild Projects="$(MLE_ROOT)\Players\win32\src\msvc15\RehearsalPlayer\RehearsalPlayer.sln"
+    <MSBuild Projects="$(MLE_HOME)\Players\win32\src\msvc15\RehearsalPlayer\RehearsalPlayer.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalPlayerConfiguration.Identity)"/>
   </Target>
 
@@ -754,7 +754,7 @@
       <Output TaskParameter="Include" ItemName="RehearsalPlayerConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Players\rehearsal\build\msvc15\MlePlayers.sln"
+    <MSBuild Projects="$(MLE_HOME)\Players\rehearsal\build\msvc15\MlePlayers.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalPlayerConfiguration.Identity);Platform=x64"/>
   </Target>
 
@@ -766,7 +766,7 @@
       <Output TaskParameter="Include" ItemName="BrenderPackageConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Parts\packages\win32\build\msvc15\MlePackages.sln"
+    <MSBuild Projects="$(MLE_HOME)\Parts\packages\win32\build\msvc15\MlePackages.sln"
              Targets="$(Action)" Properties="Configuration=%(BrenderPackageConfiguration.Identity)"/>
   </Target>
 
@@ -778,7 +778,7 @@
       <Output TaskParameter="Include" ItemName="StudioConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Studio\DwpReader\win32\build\msvc15\JavaDwp.sln"
+    <MSBuild Projects="$(MLE_HOME)\Studio\DwpReader\win32\build\msvc15\JavaDwp.sln"
              Targets="$(Action)" Properties="Configuration=%(StudioConfiguration.Identity)"/>
   </Target>
 
@@ -790,7 +790,7 @@
       <Output TaskParameter="Include" ItemName="StudioConfiguration" />
     </CreateItem>
 
-    <MSBuild Projects="$(MLE_ROOT)\Studio\DwpReader\win32\build\msvc15\JavaDwp.sln"
+    <MSBuild Projects="$(MLE_HOME)\Studio\DwpReader\win32\build\msvc15\JavaDwp.sln"
              Targets="$(Action)" Properties="Configuration=%(StudioConfiguration.Identity);Platform=x64"/>
   </Target>
 
