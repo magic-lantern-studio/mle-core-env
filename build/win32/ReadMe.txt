@@ -3,14 +3,14 @@ To build Magic Lantern using msbuild:
 Requirements:
 
 1) Standard Magic Lantern build environment is configured for
-   Visual Studio 2010. Note that Visual Studio 2005 (msvc8) is no longer
-   supported.
+   Visual Studio 2017. Note that Visual Studio 2010 (msvc10) and 2005 (msvc8)
+   are no longer supported.
 
    See project web site for Wiki describing build environment.
 
 Command-line Usage:
 
-  msbuild build.msvc10.proj /p:Action={Clean|Build|Rebuild} /t:<target>
+  msbuild build.msvc15.proj /p:Action={Clean|Build|Rebuild} /t:<target>
 
   where <target> includes:
 
@@ -29,15 +29,15 @@ Command-line Usage:
 
 Examples:
 
-1) msbuild build.msvc10.proj
+1) msbuild build.msvc15.proj
 
    Builds everything for the 32-bit version of Magic Lantern.
 
-2) msbuild build.msvc10.proj /p:Configuration="Release;Debug"
+2) msbuild build.msvc15.proj /p:Configuration="Release;Debug"
 
    Builds Release and Debug Configurations for 32-bit version of Magic Lantern.
 
-3) msbuild build.msvc10.proj /p:Action="<action>"
+3) msbuild build.msvc15.proj /p:Action="<action>"
 
    where <action> is "Build | Clean | Rebuild"
 
@@ -45,4 +45,4 @@ Examples:
    Clean removes the build artifacts of the 32-bit version of Magic Lantern
    Rebuild will clean and rebuild the 32-bit version of Magic Lanter.
 
-   Example: msbuild build.msvc10.proj /p:Action=Rebuild
+   Example: msbuild build.msvc15.proj /p:Action=Rebuild
