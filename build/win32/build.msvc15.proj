@@ -327,7 +327,8 @@
   </Target>
 
   <!-- Targets for Magic Lantern Rehearsal Player. -->
-  <Target Name="_processStage32">
+  <Target Name="_processStage32"
+          Condition="'$(Action)'!='Clean'">
     <Message Text="Building 32-bit version of Magic Lantern Inventor Stage."/>
 
     <CreateItem
@@ -378,7 +379,8 @@
 
   </Target>
 
-  <Target Name="_processStage64">
+  <Target Name="_processStage64"
+          Condition="'$(Action)'!='Clean'">
     <Message Text="Building 64-bit version of Magic Lantern Inventor Stage."/>
 
     <CreateItem
@@ -429,7 +431,8 @@
 
   </Target>
 
-  <Target Name="_processRoles32">
+  <Target Name="_processRoles32"
+          Condition="'$(Action)'!='Clean'">
     <Message Text="Building 32-bit version of Magic Lantern Inventor Roles."/>
 
     <CreateItem
@@ -488,7 +491,8 @@
 
   </Target>
 
-  <Target Name="_processRoles64">
+  <Target Name="_processRoles64"
+          Condition="'$(Action)'!='Clean'">
     <Message Text="Building 64-bit version of Magic Lantern Inventor Roles."/>
 
     <CreateItem
