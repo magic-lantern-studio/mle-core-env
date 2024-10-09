@@ -1,5 +1,5 @@
 # Download base image Ubuntu 16.04
-FROM ubuntu:22.04
+FROM ubuntu:16.04
 
 # Install the build environment dependencies
 RUN apt-get update && apt-get install -y \
@@ -9,7 +9,6 @@ RUN apt-get update && apt-get install -y \
     autogen \
     automake \
     build-essential \
-    cmake \
     curl \
     doxygen \
     freeglut3-dev \
@@ -18,21 +17,14 @@ RUN apt-get update && apt-get install -y \
     gettext \
     git \
     gnu-standards \
-    libboost-dev \
-    libboost-all-dev \
-    libfreeimage-dev \
-    libgif-dev \
     libglu1-mesa-dev \
-    libjpeg-dev \
     libmotif-dev \
-    libsndfile1-dev \
-    libtiff-dev \
     libtool \
     libxmu-dev \
     libxpm-dev \
     libxt-dev \
-    libzstd-dev \
-    mesa-common-dev && \
+    mesa-common-dev \
+    python && \
     rm -rf /var/lib/apt/lists/*
 
 # Establish a build workspace location
@@ -46,28 +38,53 @@ RUN mkdir $BUILD_ROOT/Projects && \
     mkdir /opt/MagicLantern
 
 # Copy packages into BUILD_ROOT
+COPY linux/ActiveTcl8.6.4.1.299124-linux-x86_64-threaded.tgz $BUILD_ROOT/Downloads
+COPY linux/mle-patch-1.0.diff $BUILD_ROOT/Downloads
 COPY linux/makerules.tgz $BUILD_ROOT/Downloads
+COPY linux/FreeImage3180.tgz $BUILD_ROOT/Downloads
 
 # Install Google repo command
 #RUN curl https://storage.googleapis.com/git-repo-downloads/repo > $BUILD_ROOT/bin/repo && \
 #    chmod a+x $BUILD_ROOT/bin/repo
 #ENV PATH $BUILD_ROOT/bin:$PATH
 
+# Install Tcl/Tk
+RUN mkdir /opt/ActiveTcl-8.6 && \
+    tar xzf $BUILD_ROOT/Downloads/ActiveTcl8.6.4.1.299124-linux-x86_64-threaded.tgz -C /opt/ActiveTcl-8.6
+ENV TCL_HOME /opt/ActiveTcl-8.6
+
 # Install Coin3D libraries (libCoin.so, libSoXt.so, libsimage.so)
 RUN cd $BUILD_ROOT/Projects && \
-    git clone --recurse-submodules --branch magiclantern https://github.com/magic-lantern-studio/coin coin && \
-    cmake -Hcoin -Bcoin_build -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release -DCOIN_BUILD_DOCUMENTATION=OFF && \
-    cd coin_build && \
+    git clone https://github.com/coin3d/mle-coin3d.git coin3d-code && \
+    cd coin3d-code && \
+    git checkout magiclantern && \
+    git apply $BUILD_ROOT/Downloads/mle-patch-1.0.diff && \
+    cd .. && \
+    mkdir coin3d-build && \
+    cd coin3d-build && \
+    ../coin3d-code/configure --enable-html --enable-man && \
     make install && \
     cd $BUILD_ROOT/Projects && \
-    git clone --recurse-submodules --branch magiclantern https://github.com/magic-lantern-studio/soxt soxt && \
-    cmake -Hsoxt -Bsoxt_build -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_PREFIX_PATH="/usr/local" -DSOXT_BUILD_DOCUMENTATION=OFF && \
-    cd soxt_build && \
+    git clone https://github.com/coin3d/mle-SoXt.git coin3d-soxt-code && \
+    cd coin3d-soxt-code && \
+    git checkout magiclantern && \
+    cd .. && \
+    mkdir coin3d-soxt-build && \
+    cd coin3d-soxt-build && \
+    ../coin3d-soxt-code/configure --enable-html --enable-man && \
     make install && \
     cd $BUILD_ROOT/Projects && \
-    git clone --recurse-submodules https://github.com/magic-lantern-studio/simage simage && \
-    cmake -Hsimage -Bsimage_build -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release -DSIMAGE_BUILD_DOCUMENTATION=OFF && \
-    cd simage_build && \
+    git clone https://github.com/coin3d/mle-simage.git coin3d-simage-code && \
+    mkdir coin3d-simage-build && \
+    cd coin3d-simage-build && \
+    ../coin3d-simage-code/configure --enable-html --enable-man && \
+    make install
+
+# Install FreeImage
+RUN cd $BUILD_ROOT/Downloads && \
+    tar xzf FreeImage3180.tgz && \
+    cd FreeImage && \
+    make && \
     make install
 
 # Define environment variables
