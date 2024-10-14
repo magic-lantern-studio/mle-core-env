@@ -32,7 +32,8 @@ RUN apt-get update && apt-get install -y \
     libxpm-dev \
     libxt-dev \
     libzstd-dev \
-    mesa-common-dev && \
+    mesa-common-dev \
+    tree && \
     rm -rf /var/lib/apt/lists/*
 
 # Establish a build workspace location
@@ -92,7 +93,10 @@ RUN cd $BUILD_ROOT/Projects/Github-MagicLantern && \
     mkdir /opt/MagicLantern/include && \
     tar xzf $BUILD_ROOT/Downloads/makerules.tgz -C /opt/MagicLantern/include && \
     cd $MLE_HOME/build/linux && \
-    make sdk_install
+    make sdk_rehearsal_install && \
+    make sdk_rehearsal_clean && \
+    make sdk_runtime_install && \
+    make sdk_runtime_clean
 
 # Update PATH
 ENV PATH $MLE_ROOT/bin:$TCL_HOME/bin:$PATH
