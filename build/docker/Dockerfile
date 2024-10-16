@@ -96,10 +96,11 @@ RUN cd $BUILD_ROOT/Projects/Github-MagicLantern && \
     make sdk_rehearsal_install && \
     make sdk_rehearsal_clean && \
     make sdk_runtime_install && \
-    make sdk_runtime_clean
+    make sdk_runtime_clean && \
+    make -f Makefile.titles mtea_install
 
 # Update PATH
-ENV PATH $MLE_ROOT/bin:$TCL_HOME/bin:$PATH
+ENV PATH $MLE_ROOT/bin:$PATH
 
 # Set LD_LIBRARY_PATH
 ENV LD_LIBRARY_PATH $MLE_ROOT/lib:$MLE_ROOT/lib/mle/rehearsal:/usr/local/lib
