@@ -1631,7 +1631,7 @@ $(MLE_HOME)/ATK/linux/rehearsal/Makefile:
 
 libmleatk_stage: $(MLE_HOME)/ATK/linux/rehearsal/Makefile
 
-libmleatk: check_env libmleatk_stage
+libmleatk: check_env libmleatk_stage libmlutil_install libmlmath_install libDWP_install libmlert_rehearsal_install sets_rehearsal_install roles_rehearsal_install
 	@echo ""
 	@echo "***** Running Makefile target libmleatk *****"
 	@echo ""
