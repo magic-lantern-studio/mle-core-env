@@ -868,31 +868,39 @@ libmlert_inventor_uninstall: check_env libmlert_inventor_stage
 
 # Targets for Magic Lantern SDK Properties
 
-props: check_env
+$(MLE_HOME)/Parts/props/linux/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target props configure *****"
+	@echo ""
+	cd $(MLE_HOME)/Parts/props/linux; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+
+props_stage: $(MLE_HOME)/Parts/props/linux/Makefile
+
+props: check_env props_stage
 	@echo ""
 	@echo "***** Running Makefile target props *****"
 	@echo ""
 	cd $(MLE_HOME)/Parts/props/linux; MLE_ROOT=$(MLE_ROOT) make;
 
-props_clean: check_env
+props_clean: check_env props_stage
 	@echo ""
 	@echo "***** Running Makefile target props_clean *****"
 	@echo ""
 	cd $(MLE_HOME)/Parts/props/linux; make clean;
 
-props_clobber: check_env
+props_clobber: check_env props_stage props_clean
 	@echo ""
 	@echo "***** Running Makefile target props_clobber *****"
 	@echo ""
-	@echo "***** props_clobber NOT SUPPORTED"
+	cd $(MLE_HOME)/Parts/props/linux; make maintainer-clean;
 
-props_install: check_env
+props_install: check_env props_stage
 	@echo ""
 	@echo "***** Running Makefile target props_install *****"
 	@echo ""
 	cd $(MLE_HOME)/Parts/props/linux; MLE_ROOT=$(MLE_ROOT) make install;
 
-props_uninstall: check_env
+props_uninstall: check_env props_stage
 	@echo ""
 	@echo "***** Running Makefile target props_uninstall *****"
 	@echo ""
