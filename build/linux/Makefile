@@ -1671,119 +1671,119 @@ libmleatk_uninstall: check_env libmleatk_stage
 
 # Targets for Magic Lantern Loader library.
 
-$(MLE_HOME)/Parts/loaders/build/rehearsal/Makefile:
+$(MLE_HOME)/Loaders/build/rehearsal/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_rehearsal configure *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/Loaders/build/rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
-$(MLE_HOME)/Parts/loaders/build/runtime/Makefile:
+$(MLE_HOME)/Loaders/build/runtime/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_runtime configure *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/Loaders/build/runtime; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
-$(MLE_HOME)/Parts/loaders/build/inventor/Makefile:
+$(MLE_HOME)/Loaders/build/inventor/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_inventor configure *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/Loaders/build/inventor; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
 
-libmlloaders_rehearsal_stage: $(MLE_HOME)/Parts/loaders/build/rehearsal/Makefile
+libmlloaders_rehearsal_stage: $(MLE_HOME)/Loaders/build/rehearsal/Makefile
 
 libmlloaders_rehearsal: check_env libmlloaders_rehearsal_stage libmleatk_install
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_rehearsal *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; MLE_ROOT=$(MLE_ROOT) make;
+	cd $(MLE_HOME)/Loaders/build/rehearsal; MLE_ROOT=$(MLE_ROOT) make;
 
 libmlloaders_rehearsal_clean: check_env libmlloaders_rehearsal_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_rehearsal_clean *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; make clean;
+	cd $(MLE_HOME)/Loaders/build/rehearsal; make clean;
 
 libmlloaders_rehearsal_clobber: check_env libmlloaders_rehearsal_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_rehearsal_clobber *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; make maintainer-clean;
+	cd $(MLE_HOME)/Loaders/build/rehearsal; make maintainer-clean;
 
 libmlloaders_rehearsal_install: libmlloaders_rehearsal
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_rehearsal_install *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Loaders/build/rehearsal; MLE_ROOT=$(MLE_ROOT) make install;
 
 libmlloaders_rehearsal_uninstall: check_env libmlloaders_rehearsal_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_rehearsal_uninstall *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/rehearsal; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Loaders/build/rehearsal; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
-libmlloaders_runtime_stage: $(MLE_HOME)/Parts/loaders/build/runtime/Makefile
+libmlloaders_runtime_stage: $(MLE_HOME)/Loaders/build/runtime/Makefile
 
 libmlloaders_runtime: check_env libmlloaders_runtime_stage libplayprint_install
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_runtime *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/runtime; MLE_ROOT=$(MLE_ROOT) make;
+	cd $(MLE_HOME)/Loaders/build/runtime; MLE_ROOT=$(MLE_ROOT) make;
 
 libmlloaders_runtime_clean: check_env libmlloaders_runtime_stage libplayprint_clean
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_runtime_clean *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/runtime; make clean;
+	cd $(MLE_HOME)/Loaders/build/runtime; make clean;
 
 libmlloaders_runtime_clobber: check_env libmlloaders_runtime_stage libplayprint_clobber
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_runtime_clobber *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/runtime; make maintainer-clean;
+	cd $(MLE_HOME)/Loaders/build/runtime; make maintainer-clean;
 
 libmlloaders_runtime_install: libmlloaders_runtime libplayprint_install
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_runtime_install *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/runtime; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Loaders/build/runtime; MLE_ROOT=$(MLE_ROOT) make install;
 
 libmlloaders_runtime_uninstall: check_env libmlloaders_runtime_stage libplayprint_uninstall
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_runtime_uninstall *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/runtime; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Loaders/build/runtime; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
-libmlloaders_inventor_stage: $(MLE_HOME)/Parts/loaders/build/inventor/Makefile
+libmlloaders_inventor_stage: $(MLE_HOME)/Loaders/build/inventor/Makefile
 
 libmlloaders_inventor: check_env libmlloaders_inventor_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_inventor *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/inventor; MLE_ROOT=$(MLE_ROOT) make;
+	cd $(MLE_HOME)/Loaders/build/inventor; MLE_ROOT=$(MLE_ROOT) make;
 
 libmlloaders_inventor_clean: check_env libmlloaders_inventor_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_inventor_clean *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/inventor; make clean;
+	cd $(MLE_HOME)/Loaders/build/inventor; make clean;
 
 libmlloaders_inventor_clobber: check_env libmlloaders_inventor_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_inventor_clobber *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/inventor; make maintainer-clean;
+	cd $(MLE_HOME)/Loaders/build/inventor; make maintainer-clean;
 
 libmlloaders_inventor_install: libmlloaders_inventor
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_inventor_install *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/inventor; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Loaders/build/inventor; MLE_ROOT=$(MLE_ROOT) make install;
 
 libmlloaders_inventor_uninstall: check_env libmlloaders_inventor_stage
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_inventor_uninstall *****"
 	@echo ""
-	cd $(MLE_HOME)/Parts/loaders/build/inventor; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Loaders/build/inventor; MLE_ROOT=$(MLE_ROOT) make uninstall;
 
 libmlloaders: libmlloaders_rehearsal_clean libmlloaders_rehearsal libmlloaders_inventor_clean libmlloaders_inventor libmlloaders_runtime_clean libmlloaders_runtime
 

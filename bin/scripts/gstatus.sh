@@ -141,6 +141,21 @@ then
     echo "There are changes staged, but not committed."
 fi
 
+echo " ***** Processing mle-loaders *****"
+cd ../mle-loaders
+git diff --exit-code > /dev/null
+rc=$?
+if [[ $rc != 0 ]]
+then
+    echo "There are local, unstaged changes."
+fi
+git diff --cached --exit-code > /dev/null
+rc=$?
+if [[ $rc != 0 ]]
+then
+    echo "There are changes staged, but not committed."
+fi
+
 echo " ***** Processing mle-players *****"
 cd ../mle-players
 git diff --exit-code > /dev/null

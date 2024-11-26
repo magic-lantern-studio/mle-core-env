@@ -60,6 +60,12 @@ then
     ln -s `pwd`/mle-atk/ATK $MLE_HOME/ATK
 fi
 
+if [ -d `pwd`/mle-loaders ]
+then
+    echo "Creating symbolic links for mle-loaders."
+    ln -s `pwd`/mle-loaders/Loaders $MLE_HOME/Loaders
+fi
+
 if [ -d `pwd`/mle-studio ]
 then
     echo "Creating symbolic links for mle-studio."

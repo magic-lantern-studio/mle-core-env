@@ -42,6 +42,10 @@ echo " ***** Processing mle-atk *****"
 cd ../mle-atk
 git pull
 
+echo " ***** Processing mle-loaders *****"
+cd ../mle-loaders
+git pull
+
 echo " ***** Processing mle-players *****"
 cd ../mle-players
 git pull

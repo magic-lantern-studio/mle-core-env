@@ -51,6 +51,10 @@ IF EXIST %CD%\mle-atk\ (
     MKLINK /D %MLE_HOME%\ATK %CD%\mle-atk\ATK
 )
 
+IF EXIST %CD%\mle-loaders\ (
+    MKLINK /D %MLE_HOME%\Loaders %CD%\mle-loaders\Loaders
+)
+
 IF EXIST %CD%\mle-studio\ (
     MKLINK /D %MLE_HOME%\Studio %CD%\mle-studio\Studio
 )
