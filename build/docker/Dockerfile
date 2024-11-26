@@ -87,6 +87,7 @@ RUN cd $BUILD_ROOT/Projects/Github-MagicLantern && \
     git clone https://github.com/magic-lantern-studio/mle-parts.git && \
     git clone https://github.com/magic-lantern-studio/mle-players.git && \
     git clone https://github.com/magic-lantern-studio/mle-atk.git && \
+    git clone https://github.com/magic-lantern-studio/mle-loaders.git && \
     git clone https://github.com/magic-lantern-studio/mle-studio.git && \
     git clone https://github.com/magic-lantern-studio/mle-titles.git && \
     ./mle-core-env/bin/scripts/stagemle.sh && \
