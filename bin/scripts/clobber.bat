@@ -18,7 +18,7 @@ IF "%MLE_ROOT%"=="" (
 REM Delete libraries.
 IF EXIST %MLE_ROOT%\lib64 (
     ECHO Clobbering 64-bit libraries
-    CD %MLE_ROOT%\lib64
+    CD /d %MLE_ROOT%\lib64
     DIR
     DEL inventor\*.lib
     DEL rehearsal\*.lib
@@ -31,7 +31,7 @@ IF EXIST %MLE_ROOT%\lib64 (
 REM Delete binaries.
 IF EXIST %MLE_ROOT%\bin64 (
     ECHO Clobber 64-bit binaries
-    CD %MLE_ROOT%\bin64
+    CD /d %MLE_ROOT%\bin64
     DIR
     DEL *.exe
     DEL rehearsal\*.dll
@@ -41,30 +41,29 @@ IF EXIST %MLE_ROOT%\bin64 (
 REM Delete header files.
 IF EXIST %MLE_ROOT%\include (
     ECHO Clobber header files
-    CD %MLE_ROOT%\include
+    CD /d %MLE_ROOT%\include
     DIR
     DEL math\*.h
     DEL mle\*.h
     DEL rehearsal\mle\mlPlatformData.h
     DEL runtime\mle\mlPlatformData.h
-    DEL
     ECHO(
 )
 
 REM Delete miscellaneous files.
 IF EXIST %MLE_ROOT%\include (
     ECHO Clobber Digital Workprints
-    CD %MLE_ROOT%\include\workprints
+    CD /d %MLE_ROOT%\include\workprints
     DIR
     DEL *.wpp
-    CD %MLE_ROOT%\include\Parts\actors\workprints
+    CD /d %MLE_ROOT%\include\Parts\actors\workprints
     DEL *.wpa *.wpd
-    CD %MLE_ROOT%\include\Parts\roles\workprints
+    CD /d %MLE_ROOT%\include\Parts\roles\workprints
     DEL *.wpd
-    CD %MLE_ROOT%\include\Parts\sets\workprints
+    CD /d %MLE_ROOT%\include\Parts\sets\workprints
     DEL *.wpf
     ECHO(
 )
 
 REM Clean up.
-CD %CURDIR%
+CD /d %CURDIR%
