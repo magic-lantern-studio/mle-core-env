@@ -284,9 +284,9 @@
     <Message Text="Property Workspace Source: $(PropertyWorkprintSrc)."/>
 
     <Copy SourceFiles="@(Headers)"
-          DestinationFolder="$(MLE_HOME)\include\mle"/>
+          DestinationFolder="$(MLE_ROOT)\include\mle"/>
     <Copy SourceFiles="@(Workprints)"
-          DestinationFolder="$(MLE_HOME)\include\workprints"/>
+          DestinationFolder="$(MLE_ROOT)\include\workprints"/>
 
   </Target>
 
@@ -320,9 +320,9 @@
     <Message Text="Property Workspace Source: $(PropertyWorkprintSrc)."/>
 
     <Copy SourceFiles="@(Headers)"
-          DestinationFolder="$(MLE_HOME)\include\mle"/>
+          DestinationFolder="$(MLE_ROOT)\include\mle"/>
     <Copy SourceFiles="@(Workprints)"
-          DestinationFolder="$(MLE_HOME)\include\workprints"/>
+          DestinationFolder="$(MLE_ROOT)\include\workprints"/>
 
   </Target>
 
