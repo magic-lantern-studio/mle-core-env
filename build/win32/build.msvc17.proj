@@ -439,18 +439,6 @@
 
   </Target>
 
-  <Target Name="BuildRehearsalSets32">
-    <Message Text="Building 32-bit version of Magic Lantern Rehearsal Player Sets."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="RehearsalSetConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Parts\sets\win32\build\msvc17\MleSets.sln"
-             Targets="$(Action)" Properties="Configuration=%(RehearsalSetConfiguration.Identity)"/>
-  </Target>
-
   <Target Name="BuildRehearsalSets64">
     <Message Text="Building 64-bit version of Magic Lantern Rehearsal Player Sets."/>
 
