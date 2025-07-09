@@ -12,7 +12,7 @@ IF "%MLE_ROOT%"=="" (
     ECHO MLE_ROOT is %MLE_ROOT%
     ECHO Libraries will be deleted from %MLE_ROOT%\lib64
     ECHO Binaraies will be deleted from %MLE_ROOT%\bin64
-    ECHO(
+    ECHO
 )
 
 REM Delete libraries.
@@ -25,7 +25,8 @@ IF EXIST %MLE_ROOT%\lib64 (
     DEL runtime\cdecl\*.lib
     DEL runtime\stdcall\*.lib
     DEL tools\*.lib
-    ECHO(
+    DEL *.tmpl
+    ECHO
 )
 
 REM Delete binaries.
@@ -35,7 +36,7 @@ IF EXIST %MLE_ROOT%\bin64 (
     DIR
     DEL *.exe
     DEL rehearsal\*.dll
-    ECHO(
+    ECHO
 )
 
 REM Delete header files.
@@ -45,9 +46,9 @@ IF EXIST %MLE_ROOT%\include (
     DIR
     DEL math\*.h
     DEL mle\*.h
-    DEL rehearsal\mle\mlPlatformData.h
-    DEL runtime\mle\mlPlatformData.h
-    ECHO(
+    DEL rehearsal\mle\*.h
+    DEL runtime\mle\*.h
+    ECHO
 )
 
 REM Delete miscellaneous files.
@@ -62,7 +63,7 @@ IF EXIST %MLE_ROOT%\include (
     DEL *.wpd
     CD /d %MLE_ROOT%\include\Parts\sets\workprints
     DEL *.wpf
-    ECHO(
+    ECHO
 )
 
 REM Clean up.
