@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# List the git branches in the Magic Lantern modules.
+#
 # This script needs to be executed from the directory where the git repos
 # have been cloned.
 #
