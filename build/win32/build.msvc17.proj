@@ -1,23 +1,17 @@
-<Project DefaultTargets="Build32" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build64" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <!-- Declare global build properties. -->
 
   <PropertyGroup>
     <!-- By default, build Debug configuration. -->
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <!-- By default, build Win32 platform. -->
-    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <!-- By default, build x64 platform. -->
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
     <!-- By default, use Build target. -->
     <Action Condition=" '$(Action)' == '' ">Build</Action>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-  </PropertyGroup>
-
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
   </PropertyGroup>
 
   <!-- Define build targets. -->
@@ -51,20 +45,7 @@
     <Solutions Include="$(MLE_HOME)\Core\math\win32\build\msvc17\mlmath.sln"/>
   </ItemGroup>
 
-  <!-- Build the 32-bit flavor of Magic Lantern. -->
-
   <!-- Targets for Magic Lantern Math Library. -->
-  <Target Name="BuildMath32">
-    <Message Text="Building 32-bit version of Magic Lantern Math Library."/>
-
-    <CreateItem
-      Include="Debug;Float Debug;Fixed Debug;Tools Float Debug;Release;Float Release;Fixed Release;Tools Float Release">
-      <Output TaskParameter="Include" ItemName="MathConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Core\math\win32\build\msvc17\mlmath.sln"
-             Targets="$(Action)" Properties="Configuration=%(MathConfiguration.Identity)"/>
-  </Target>
 
   <Target Name="BuildMath64">
     <Message Text="Building 64-bit version of Magic Lantern Math Library."/>
@@ -80,17 +61,6 @@
 
 
   <!-- Targets for Magic Lantern Util Library. -->
-  <Target Name="BuildUtil32">
-    <Message Text="Building 32-bit version of Magic Lantern Util Library."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="UtilConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Core\util\win32\build\msvc17\mleutil.sln"
-             Targets="$(Action)" Properties="Configuration=%(UtilConfiguration.Identity)"/>
-  </Target>
 
   <Target Name="BuildUtil64">
     <Message Text="Building 64-bit version of Magic Lantern Util Library."/>
@@ -105,17 +75,6 @@
   </Target>
 
   <!-- Targets for Magic Lantern Digital Workprint Library. -->
-  <Target Name="BuildDwp32">
-    <Message Text="Building 32-bit version of Magic Lantern Digital Workprint Libraries."/>
-
-    <CreateItem
-      Include="Debug;Release;DSO Debug;DSO Release">
-      <Output TaskParameter="Include" ItemName="DWPConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\DigitalWorkprint\lib\win32\build\msvc17\DwpAccess.sln"
-             Targets="$(Action)" Properties="Configuration=%(DWPConfiguration.Identity)"/>
-  </Target>
 
   <Target Name="BuildDwp64">
     <Message Text="Building 64-bit version of Magic Lantern Digital Workprint Libraries."/>
@@ -130,17 +89,6 @@
   </Target>
 
   <!-- Targets for Magic Lantern Digital Playprint Library. -->
-  <Target Name="BuildDpp32">
-    <Message Text="Building 32-bit version of Magic Lantern Digital Playprint Libraries."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="DPPConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\DigitalPlayprint\lib\win32\build\msvc17\DppAccess.sln"
-             Targets="$(Action)" Properties="Configuration=%(DPPConfiguration.Identity)"/>
-  </Target>
 
   <Target Name="BuildDpp64">
     <Message Text="Building 64-bit version of Magic Lantern Digital Playprint Libraries."/>
@@ -155,17 +103,6 @@
   </Target>
 
   <!-- Targets for Magic Lantern Digital Playprint Runtime Library. -->
-  <Target Name="BuildDppRuntime32">
-    <Message Text="Building 32-bit version of Magic Lantern Digital Playprint Runtime Libraries."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="DPPRuntimeConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\DigitalPlayprint\runtime\win32\build\msvc17\DppRuntime.sln"
-             Targets="$(Action)" Properties="Configuration=%(DPPRuntimeConfiguration.Identity)"/>
-  </Target>
 
   <Target Name="BuildDppRuntime64">
     <Message Text="Building 64-bit version of Magic Lantern Digital Playprint Runtime Libraries."/>
@@ -180,17 +117,6 @@
   </Target>
 
   <!-- Targets for Magic Lantern Digital Playprint Mastering Tools. -->
-  <Target Name="BuildDppMaster32">
-    <Message Text="Building 32-bit version of Magic Lantern Digital Playprint Mastering Tools."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="DPPMasterConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\DigitalPlayprint\master\win32\build\msvc17\DppMaster.sln"
-             Targets="$(Action)" Properties="Configuration=%(DPPMasterConfiguration.Identity)"/>
-  </Target>
 
   <Target Name="BuildDppMaster64">
     <Message Text="Building 64-bit version of Magic Lantern Digital Playprint Mastering Tools."/>
@@ -205,17 +131,6 @@
   </Target>
 
   <!-- Targets for Magic Lantern Runtime Library. -->
-  <Target Name="BuildRuntime32">
-    <Message Text="Building 32-bit version of Magic Lantern Runtime Library."/>
-
-    <CreateItem
-      Include="Debug;Release;FloatDebug;FloatRelease;CDECL FloatDebug;CDECL FloatRelease">
-      <Output TaskParameter="Include" ItemName="RuntimeConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Core\mlert\win32\build\msvc17\mlert.sln"
-             Targets="$(Action)" Properties="Configuration=%(RuntimeConfiguration.Identity)"/>
-  </Target>
 
   <Target Name="BuildRuntime64">
     <Message Text="Building 64-bit version of Magic Lantern Runtime Library."/>
@@ -230,17 +145,6 @@
   </Target>
 
   <!-- Targets for Magic Lantern Authoring Toolkit. -->
-  <Target Name="BuildATK32">
-    <Message Text="Building 32-bit version of Magic Lantern Authoring Toolkit."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="ATKConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\ATK\win32\build\msvc17\ATK.sln"
-             Targets="$(Action)" Properties="Configuration=%(ATKConfiguration.Identity)"/>
-  </Target>
 
   <Target Name="BuildATK64">
     <Message Text="Building 64-bit version of Magic Lantern Authoring Toolkit."/>
@@ -255,40 +159,6 @@
   </Target>
 
   <!-- Targets for Magic Lantern Properties Library. -->
-  <Target Name="BuildProperties32">
-    <Message Text="Building 32-bit version of Magic Lantern Properties Library."/>
-
-    <!-- Specify directory for property headers. -->
-    <CreateProperty Value="$(MLE_HOME)\Parts\props\common\include\mle">
-      <Output PropertyName="PropertyHeadersSrc" TaskParameter="Value"/>
-    </CreateProperty>
-
-    <!-- Specify directory for property workspaces. -->
-    <CreateProperty Value="$(MLE_HOME)\Parts\props\workprints">
-      <Output PropertyName="PropertyWorkprintSrc" TaskParameter="Value"/>
-    </CreateProperty>
-
-    <!-- Create list of property headers. -->
-    <CreateItem
-      Include="$(PropertyHeadersSrc)\*.h">
-      <Output TaskParameter="Include" ItemName="Headers" />
-    </CreateItem>
-
-    <!-- Create list of propery workprints. -->
-    <CreateItem
-      Include="$(PropertyWorkprintSrc)/*.wpp">
-      <Output TaskParameter="Include" ItemName="Workprints" />
-    </CreateItem>
-
-    <Message Text="Property Header Source: $(PropertyHeadersSrc)."/>
-    <Message Text="Property Workspace Source: $(PropertyWorkprintSrc)."/>
-
-    <Copy SourceFiles="@(Headers)"
-          DestinationFolder="$(MLE_ROOT)\include\mle"/>
-    <Copy SourceFiles="@(Workprints)"
-          DestinationFolder="$(MLE_ROOT)\include\workprints"/>
-
-  </Target>
 
   <!-- Targets for Magic Lantern Properties Library. -->
   <Target Name="BuildProperties64">
@@ -451,32 +321,6 @@
              Targets="$(Action)" Properties="Configuration=%(RehearsalSetConfiguration.Identity);Platform=x64"/>
   </Target>
 
-  <Target Name="BuildBrenderSets32">
-    <Message Text="Building 32-bit version of Magic Lantern BRender Sets."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="BrenderSetConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Parts\sets\brender\build\msvc17\MleSets.sln"
-             Targets="$(Action)" Properties="Configuration=%(BrenderSetConfiguration.Identity)"/>
-  </Target>
-
-  <Target Name="BuildRehearsalRoles32">
-    <Message Text="Building 32-bit version of Magic Lantern Rehearsal Player Roles."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="RehearsalRoleConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Parts\roles\inventor\build\msvc17\MleRoles.sln"
-             Targets="$(Action)" Properties="Configuration=%(RehearsalRoleConfiguration.Identity)"/>
-    <MSBuild Projects="$(MLE_HOME)\Parts\roles\win32\build\msvc17\MleRoles.sln"
-             Targets="$(Action)" Properties="Configuration=%(RehearsalRoleConfiguration.Identity)"/>
-  </Target>
-
   <Target Name="BuildRehearsalRoles64">
     <Message Text="Building 64-bit version of Magic Lantern Rehearsal Player Roles."/>
 
@@ -491,30 +335,6 @@
              Targets="$(Action)" Properties="Configuration=%(RehearsalRoleConfiguration.Identity);Platform=x64"/>
   </Target>
 
-  <Target Name="BuildBrenderRoles32">
-    <Message Text="Building 32-bit version of Magic Lantern BRender Roles."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="BrenderRoleConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Parts\roles\brender\build\msvc17\MleRoles.sln"
-             Targets="$(Action)" Properties="Configuration=%(BrenderRoleConfiguration.Identity)"/>
-  </Target>
-
-  <Target Name="BuildRehearsalMediaRefs32">
-    <Message Text="Building 32-bit version of Magic Lantern Rehearsal Player Media References."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="RehearsalMediarefConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Parts\mediaref\rehearsal\build\msvc17\MleMediaRefs.sln"
-             Targets="$(Action)" Properties="Configuration=%(RehearsalMediarefConfiguration.Identity)"/>
-  </Target>
-
   <Target Name="BuildRehearsalMediaRefs64">
     <Message Text="Building 64-bit version of Magic Lantern Rehearsal Player Media References."/>
 
@@ -525,31 +345,6 @@
 
     <MSBuild Projects="$(MLE_HOME)\Parts\mediaref\rehearsal\build\msvc17\MleMediaRefs.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalMediarefConfiguration.Identity);Platform=x64"/>
-  </Target>
-
-
-  <Target Name="BuildBrenderMediaRefs32">
-    <Message Text="Building 32-bit version of Magic Lantern BRender Media References."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="BrenderMediarefConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Parts\mediaref\brender\build\msvc17\MleMediaRefs.sln"
-             Targets="$(Action)" Properties="Configuration=%(BrenderMediarefConfiguration.Identity)"/>
-  </Target>
-
-  <Target Name="BuildRehearsalActors32">
-    <Message Text="Building 32-bit version of Magic Lantern Rehearsal Player Actors."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="RehearsalActorConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Parts\actors\rehearsal\build\msvc17\MleActors.sln"
-             Targets="$(Action)" Properties="Configuration=%(RehearsalActorConfiguration.Identity)"/>
   </Target>
 
   <Target Name="BuildRehearsalActors64">
@@ -564,30 +359,6 @@
              Targets="$(Action)" Properties="Configuration=%(RehearsalActorConfiguration.Identity);Platform=x64"/>
   </Target>
 
-  <Target Name="BuildBrenderActors32">
-    <Message Text="Building 32-bit version of Magic Lantern BRender Actors."/>
-
-    <CreateItem
-      Include="Float Debug;Float Release;CDECL Float Debug;CDECL Float Release">
-      <Output TaskParameter="Include" ItemName="BrenderActorConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Parts\actors\brender\build\msvc17\MleActors.sln"
-             Targets="$(Action)" Properties="Configuration=%(BrenderActorConfiguration.Identity)"/>
-  </Target>
-
-  <Target Name="BuildRehearsalStage32">
-    <Message Text="Building 32-bit version of Magic Lantern Rehearsal Player Stages."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="RehearsalStageConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17\MleStages.sln"
-             Targets="$(Action)" Properties="Configuration=%(RehearsalStageConfiguration.Identity)"/>
-  </Target>
-
   <Target Name="BuildRehearsalStage64">
     <Message Text="Building 64-bit version of Magic Lantern Rehearsal Player Stages."/>
 
@@ -598,32 +369,6 @@
 
     <MSBuild Projects="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17\MleStages.sln"
              Targets="$(Action)" Properties="Configuration=%(RehearsalStageConfiguration.Identity);Platform=x64"/>
-  </Target>
-
-  <Target Name="BuildBrenderStage32">
-    <Message Text="Building 32-bit version of Magic Lantern BRender Stages."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="BrenderStageConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Parts\stages\brender\build\msvc17\MleStages.sln"
-             Targets="$(Action)" Properties="Configuration=%(BrenderStageConfiguration.Identity)"/>
-  </Target>
-
-  <Target Name="BuildRehearsalPlayer32">
-    <Message Text="Building 32-bit version of Magic Lantern Rehearsal Player."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="RehearsalPlayerConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Players\rehearsal\build\msvc17\MlePlayers.sln"
-             Targets="$(Action)" Properties="Configuration=%(RehearsalPlayerConfiguration.Identity)"/>
-    <MSBuild Projects="$(MLE_HOME)\Players\win32\src\msvc17\RehearsalPlayer\RehearsalPlayer.sln"
-             Targets="$(Action)" Properties="Configuration=%(RehearsalPlayerConfiguration.Identity)"/>
   </Target>
 
   <Target Name="BuildRehearsalPlayer64">
@@ -638,30 +383,6 @@
              Targets="$(Action)" Properties="Configuration=%(RehearsalPlayerConfiguration.Identity);Platform=x64"/>
   </Target>
 
-  <Target Name="BuildBrenderPackages32">
-    <Message Text="Building 32-bit version of Magic Lantern BRender Packages."/>
-
-    <CreateItem
-      Include="Fixed Debug;Fixed Release;Float Debug;Float Release">
-      <Output TaskParameter="Include" ItemName="BrenderPackageConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Parts\packages\win32\build\msvc17\MlePackages.sln"
-             Targets="$(Action)" Properties="Configuration=%(BrenderPackageConfiguration.Identity)"/>
-  </Target>
-
-  <Target Name="BuildStudio32">
-    <Message Text="Building 32-bit version of Magic Lantern Studio."/>
-
-    <CreateItem
-      Include="Debug;Release">
-      <Output TaskParameter="Include" ItemName="StudioConfiguration" />
-    </CreateItem>
-
-    <MSBuild Projects="$(MLE_HOME)\Studio\DwpReader\win32\build\msvc17\JavaDwp.sln"
-             Targets="$(Action)" Properties="Configuration=%(StudioConfiguration.Identity)"/>
-  </Target>
-
   <Target Name="BuildStudio64">
     <Message Text="Building 64-bit version of Magic Lantern Studio."/>
 
@@ -674,43 +395,22 @@
              Targets="$(Action)" Properties="Configuration=%(StudioConfiguration.Identity);Platform=x64"/>
   </Target>
 
-  <!-- Build 32-bit version of Rehearsal Player SDK -->
-  <Target Name="BuildRehearsal32"
-      DependsOnTargets="BuildProperties32;_processStage32;_processRoles32;BuildRehearsalMediaRefs32;BuildRehearsalSets32;BuildRehearsalRoles32;BuildRehearsalActors32;BuildATK32;BuildRehearsalStage32;BuildRehearsalPlayer32">
-    <Message Text="Building 32-bit version of Magic Lantern Rehearsal Player SDK."/>
-  </Target>
-
   <!-- Build 64-bit version of Rehearsal Player SDK -->
+
   <Target Name="BuildRehearsal64"
       DependsOnTargets="BuildProperties64;_processStage64;_processRoles64;BuildRehearsalMediaRefs64;BuildRehearsalSets64;BuildRehearsalRoles64;BuildRehearsalActors64;BuildATK64;BuildRehearsalStage64;BuildRehearsalPlayer64">
     <Message Text="Building 64-bit version of Magic Lantern Rehearsal Player SDK."/>
   </Target>
 
-  <!-- Build 32-bit version of BRender SDK -->
-  <Target Name="BuildBrender32"
-      DependsOnTargets="BuildBrenderMediaRefs32;BuildBrenderSets32;BuildBrenderRoles32;BuildBrenderActors32;BuildBrenderStage32;BuildBrenderPackages32">
-    <Message Text="Building 32-bit version of Magic Lantern BRender SDK."/>
-  </Target>
-
-  <!-- Build 32-bit version of Magic Lantern Runtime SDK. -->
-  <Target Name="BuildSDK32"
-          DependsOnTargets="BuildUtil32;BuildMath32;BuildDwp32;BuildDpp32;BuildDppRuntime32;BuildDppMaster32;BuildRuntime32">
-    <Message Text="Building 32-bit version of Magic Lantern SDK."/>
-  </Target>
-
-  <!-- Build 32-bit version of Magic Lantern. -->
-  <Target Name="Build32"
-          DependsOnTargets="BuildSDK32;BuildRehearsal32;BuildBrender32;BuildStudio32">
-    <Message Text="Building 32-bit version of Magic Lantern."/>
-  </Target>
-
   <!-- Build 64-bit version of Magic Lantern Runtime SDK. -->
+
   <Target Name="BuildSDK64"
           DependsOnTargets="BuildUtil64;BuildMath64;BuildDwp64;BuildDpp64;BuildDppRuntime64;BuildDppMaster64;BuildRuntime64">
     <Message Text="Building 64-bit version of Magic Lantern SDK."/>
   </Target>
 
   <!-- Build the 64-bit flavor of Magic Lantern. -->
+
   <Target Name="Build64"
           DependsOnTargets="BuildSDK64;BuildRehearsal64;BuildStudio64">
     <Message Text="Building 64-bit version of Magic Lantern."/>
