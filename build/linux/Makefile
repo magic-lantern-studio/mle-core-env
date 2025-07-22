@@ -746,7 +746,7 @@ $(MLE_HOME)/Core/mlert/linux/rehearsal/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target libmlert_rehearsal configure *****"
 	@echo ""
-	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/Core/mlert/linux/rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 $(MLE_HOME)/Core/mlert/linux/runtime/Makefile:
 	@echo ""
