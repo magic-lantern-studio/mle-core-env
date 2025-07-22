@@ -1675,7 +1675,7 @@ $(MLE_HOME)/Loaders/build/rehearsal/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target libmlloaders_rehearsal configure *****"
 	@echo ""
-	cd $(MLE_HOME)/Loaders/build/rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/Loaders/build/rehearsal; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 $(MLE_HOME)/Loaders/build/runtime/Makefile:
 	@echo ""
