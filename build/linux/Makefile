@@ -4,7 +4,7 @@
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2020-2024 Wizzer Works
+# Copyright (c) 2020-2025 Wizzer Works
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -294,7 +294,7 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/gentables/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target gentables configure *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gentables; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 gentables_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/gentables/Makefile
 
@@ -334,7 +334,7 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target gengroup configure *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 gengroup_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/gengroup/Makefile
 
@@ -374,7 +374,7 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/genscene/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target genscene configure *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genscene; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 genscene_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/genscene/Makefile
 
@@ -414,7 +414,7 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target genmedia configure *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 genmedia_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/genmedia/Makefile
 
@@ -454,7 +454,7 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target genmakefile configure *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 genmakefile_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/genmakefile/Makefile
 
@@ -494,7 +494,7 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target genppscript configure *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 genppscript_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/genppscript/Makefile
 
@@ -534,7 +534,7 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target gendpp configure *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes --enable-python-integration;
 
 gendpp_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/gendpp/Makefile
 
@@ -574,7 +574,7 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target dumpgroup configure *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 dumpgroup_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/dumpgroup/Makefile
 
@@ -614,7 +614,7 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target dumpscene configure *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 dumpscene_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/dumpscene/Makefile
 
@@ -654,7 +654,7 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target dumpmedia configure *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 dumpmedia_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/dumpmedia/Makefile
 
@@ -694,7 +694,7 @@ $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target dumpdpp configure *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 dumpdpp_stage: $(MLE_HOME)/DigitalPlayprint/master/linux/dumpdpp/Makefile
 
