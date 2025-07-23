@@ -130,7 +130,7 @@ $(MLE_HOME)/DigitalWorkprint/lib/linux/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target libDWP configure *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 libDWP_stage: $(MLE_HOME)/DigitalWorkprint/lib/linux/Makefile
 
