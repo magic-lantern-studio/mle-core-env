@@ -1,0 +1,14 @@
+<Configuration>
+    <VGpu>Default</VGpu>
+    <Networking>Enable</Networking>
+    <MappedFolders>
+        <MappedFolder>
+            <HostFolder>C:\Users\marks\Projects\WindowsSandbox</HostFolder>
+            <ReadOnly>false</ReadOnly>
+        </MappedFolder>
+    </MappedFolders>
+    <LogonCommand>
+        <Command>powershell -Command "Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -Command Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy -Name VerifiedAndReputablePolicyState -Value 0; CiTool.exe -r' -Verb RunAs"</Command>
+    </LogonCommand>
+    <MemoryInMB>16384</MemoryInMB>
+</Configuration>
