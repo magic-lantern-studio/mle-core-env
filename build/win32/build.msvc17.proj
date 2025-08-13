@@ -194,6 +194,14 @@
     <Copy SourceFiles="@(Workprints)"
           DestinationFolder="$(MLE_ROOT)\include\workprints"/>
 
+    <CreateItem
+      Include="Debug;Release">
+      <Output TaskParameter="Include" ItemName="PropsConfiguration" />
+    </CreateItem>
+
+    <MSBuild Projects="$(MLE_HOME)\Parts\props\win32\build\msvc17\props_wix_package\props_wix_package.sln"
+             Targets="$(Action)" Properties="Configuration=%(PropsConfiguration.Identity);Platform=x64"/>
+
   </Target>
 
   <!-- Targets for Magic Lantern Rehearsal Player. -->
