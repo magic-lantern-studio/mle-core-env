@@ -1552,7 +1552,7 @@ $(MLE_HOME)/Players/rehearsal/build/linux/Makefile:
 	@echo ""
 	@echo "***** Running Makefile target players configure *****"
 	@echo ""
-	cd $(MLE_HOME)/Players/rehearsal/build/linux; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/Players/rehearsal/build/linux; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
 
 players_stage: $(MLE_HOME)/Players/rehearsal/build/linux/Makefile
 
