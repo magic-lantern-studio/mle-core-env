@@ -406,7 +406,7 @@
   <!-- Build 64-bit version of Rehearsal Player SDK -->
 
   <Target Name="BuildRehearsal64"
-      DependsOnTargets="BuildProperties64;_processStage64;_processRoles64;BuildRehearsalMediaRefs64;BuildRehearsalSets64;BuildRehearsalRoles64;BuildRehearsalActors64;BuildATK64;BuildRehearsalStage64;BuildRehearsalPlayer64">
+      DependsOnTargets="BuildSDK64;BuildProperties64;_processStage64;_processRoles64;BuildRehearsalMediaRefs64;BuildRehearsalSets64;BuildRehearsalRoles64;BuildRehearsalActors64;BuildATK64;BuildRehearsalStage64;BuildRehearsalPlayer64">
     <Message Text="Building 64-bit version of Magic Lantern Rehearsal Player SDK."/>
   </Target>
 
