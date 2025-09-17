@@ -235,6 +235,18 @@
       <Output TaskParameter="Include" ItemName="InventorStageFiles" />
     </CreateItem>
 
+    <CreateItem
+      Include="$(MLE_HOME)\Parts\stages\inventor\src\antirot.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\ivstage.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\MultiSearchAction.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\Source.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\SpotMarker.cxx;
+               $(MLE_HOME)\Parts\stages\inventor\src\Target.cxx;
+               $(MLE_HOME)\Parts\stages\rehearsal\src\MleIvStage.cxx;
+               $(MLE_HOME)\Parts\stages\rehearsal\src\StdAfx.cpp">
+      <Output TaskParameter="Include" ItemName="InventorRuntimeStageFiles" />
+    </CreateItem>
+
     <Makedir Directories="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17\x64\Release\rehearsal"/>
     <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17"
           Command='cl.exe /c /I "." /I "..\..\..\inventor\include" /I "..\..\include" /I "$(MLE_HOME)\Parts\roles\common\include" /I "$(MLE_HOME)\Parts\roles\inventor\include" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_HOME)\ATK\common\include" /I "$(MLE_HOME)\ATK\win32\include" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\rehearsal" /I "C:\Coin3D\include" /Zi /nologo /W3 /WX- /diagnostics:column /O2 /Ob1 /D MLE_REHEARSAL /D MLE_DIGITAL_WORKPRINT /D MLE_IVSTAGE_DLL /D MLE_NOT_UTIL_DLL /D MLE_NOT_MATH_DLL /D MLE_RUNTIME_DLL /D MLE_DWP_DLL /D MLE_2DROLE_DLL /D MLE_3DROLE_DLL /D MLE_2DSET_DLL /D MLE_3DSET_DLL /D MLE_PROPERTY_DLL /D ML_MATH_DEBUG=0 /D ML_FIXED_POINT=0 /D COIN_DLL /D SOWIN_DLL /D NDEBUG /D _WINDOWS /D _USRDLL /D MLE_IVSTAGE_EXPORTS /D MLE_MAKE_DLL /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fp"x64\Release\rehearsal/MleIvStage.pch" /Fo"x64\Release\rehearsal/" /Fd"x64\Release\rehearsal/vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt %(InventorStageFiles.Identity)'/>
@@ -244,6 +256,16 @@
 
     <Copy SourceFiles="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17\x64\Release\rehearsal\MleIvStage.lib"
           DestinationFolder="$(MLE_ROOT)\lib64\rehearsal"/>
+
+    <Makedir Directories="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17\x64\Release\runtime"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17"
+          Command='cl.exe /c /I "." /I "..\..\..\inventor\include" /I "..\..\include" /I "$(MLE_HOME)\Parts\roles\common\include" /I "$(MLE_HOME)\Parts\roles\inventor\include" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\runtime" /I "C:\Coin3D\include" /Zi /nologo /W3 /WX- /diagnostics:column /O2 /Ob1 /D MLE_DIGITAL_PLAYPRINT /D MLE_IVSTAGE_DLL /D MLE_NOT_UTIL_DLL /D MLE_NOT_MATH_DLL /D MLE_NOT_RUNTIME_DLL /D MLE_2DROLE_DLL /D MLE_3DROLE_DLL /D MLE_2DSET_DLL /D MLE_3DSET_DLL /D MLE_PROPERTY_DLL /D ML_MATH_DEBUG=0 /D ML_FIXED_POINT=0 /D COIN_DLL /D SOWIN_DLL /D NDEBUG /D _WINDOWS /D _USRDLL /D MLE_IVSTAGE_EXPORTS /D MLE_MAKE_DLL /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fp"x64\Release\runtime/MleIvStage.pch" /Fo"x64\Release\runtime/" /Fd"x64\Release\runtime/vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt %(InventorRuntimeStageFiles.Identity)'/>
+
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17\x64\Release\runtime"
+          Command='lib.exe /out:MleIvStage.lib /def *.obj C:\Coin3D\lib\Coin4.lib'/>
+
+    <Copy SourceFiles="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17\x64\Release\runtime\MleIvStage.lib"
+          DestinationFolder="$(MLE_ROOT)\lib64\runtime\cdecl"/>
 
     <Makedir Directories="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17\x64\Debug\rehearsal"/>
     <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17"
@@ -255,11 +277,30 @@
     <Copy SourceFiles="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17\x64\Debug\rehearsal\MleIvStaged.lib"
           DestinationFolder="$(MLE_ROOT)\lib64\rehearsal"/>
 
+    <Makedir Directories="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17\x64\Debug\runtime"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17"
+          Command='cl.exe /c /I "." /I "..\..\..\inventor\include" /I "..\..\include" /I "$(MLE_HOME)\Parts\roles\common\include" /I "$(MLE_HOME)\Parts\roles\inventor\include" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_ROOT)\include" /I "$(MLE_ROOT)\include\runtime" /I "C:\Coin3D\include" /Zi /nologo /W3 /WX- /diagnostics:column /Od /D MLE_DEBUG /D MLE_DIGITAL_PLAYPRINT /D MLE_IVSTAGE_DLL /D MLE_NOT_UTIL_DLL /D MLE_NOT_MATH_DLL /D MLE_NOT_RUNTIME_DLL /D MLE_2DROLE_DLL /D MLE_3DROLE_DLL /D MLE_2DSET_DLL /D MLE_3DSET_DLL /D MLE_PROPERTY_DLL /D ML_MATH_DEBUG=1 /D ML_FIXED_POINT=0 /D COIN_DLL /D SOWIN_DLL /D _DEBUG /D _WINDOWS /D _USRDLL /D MLE_IVSTAGE_EXPORTS /D MLE_MAKE_DLL /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fp"x64\Debug\runtime/MleIvStage.pch" /Fo"x64\Debug\runtime/" /Fd"x64\Debug\runtime/vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt %(InventorRuntimeStageFiles.Identity)'/>
+
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17\x64\Debug\runtime"
+          Command='lib.exe /out:MleIvStaged.lib /def *.obj C:\Coin3D\lib\Coin4d.lib'/>
+
+    <Copy SourceFiles="$(MLE_HOME)\Parts\stages\rehearsal\build\msvc17\x64\Debug\runtime\MleIvStaged.lib"
+          DestinationFolder="$(MLE_ROOT)\lib64\runtime\cdecl"/>
+
   </Target>
 
   <Target Name="_processRoles64"
           Condition="'$(Action)'!='Clean'">
     <Message Text="Building 64-bit version of Magic Lantern Inventor Roles."/>
+
+    <CreateItem
+      Include="Debug;Release">
+      <Output TaskParameter="Include" ItemName="InventorConfiguration" />
+    </CreateItem>
+
+    <!-- Compile Inventor Role object files.
+         This is done so that we can build a .lib file without building the
+         full DLL due to circular dependencies. -->
 
     <CreateItem
       Include="..\..\Mle2dRole\Mle2dRole.cpp;
@@ -278,6 +319,16 @@
     <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\Release\Mle2dRole\Mle2dRole.lib"
           DestinationFolder="$(MLE_ROOT)\lib64\rehearsal"/>
 
+    <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\ReleaseRuntime\Mle2dRole"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc17"
+          Command='cl.exe /c /I "..\..\..\common\include" /I "..\..\..\inventor" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_HOME)\Parts\stages\inventor\include" /I "$(MLE_HOME)\Parts\props\common\include" /I "$(MLE_HOME)\Parts\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "C:\Coin3D\include" /Zi /nologo /W3 /WX- /diagnostics:column /O2 /Ob1 /D MLE_DIGITAL_PLAYPRINT /D MLE_NOT_UTIL_DLL /D MLE_NOT_MATH_DLL /D MLE_NOT_RUNTIME_DLL /D MLE_2DROLE_DLL /D MLE_2DSET_DLL /D MLE_MAKE_DLL /D COIN_DLL /D NDEBUG /D _WINDOWS /D _USRDLL /D MLE_2DROLE_EXPORTS /D ML_MATH_DEBUG=0 /D ML_FIXED_POINT=0 /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fp"x64\ReleaseRuntime\Mle2dRole\Mle2dRole.pch" /Fo"x64\ReleaseRuntime\Mle2dRole/" /Fd"x64\ReleaseRuntime\Mle2dRole/vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt %(Inventor2dRoleFiles.Identity)'/>
+
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\ReleaseRuntime\Mle2dRole"
+          Command='lib.exe /out:Mle2dRole.lib /def *.obj C:\Coin3D\lib\Coin4.lib'/>
+
+    <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\ReleaseRuntime\Mle2dRole\Mle2dRole.lib"
+          DestinationFolder="$(MLE_ROOT)\lib64\runtime\cdecl"/>
+
     <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\Debug\Mle2dRole"/>
     <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc17"
           Command='cl.exe /c /I "..\..\..\common\include" /I "..\..\..\inventor" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_HOME)\Parts\stages\inventor\include" /I "$(MLE_HOME)\Parts\props\common\include" /I "$(MLE_HOME)\Parts\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "C:\Coin3D\include" /Zi /nologo /W3 /WX- /diagnostics:column /Od /D MLE_DEBUG /D MLE_REHEARSAL /D MLE_DIGITAL_WORKPRINT /D MLE_NOT_UTIL_DLL /D MLE_NOT_MATH_DLL /D MLE_RUNTIME_DLL /D MLE_DWP_DLL /D MLE_2DROLE_DLL /D MLE_2DSET_DLL /D MLE_MAKE_DLL /D COIN_DLL /D _DEBUG /D _WINDOWS /D _USRDLL /D MLE_2DROLE_EXPORTS /D ML_MATH_DEBUG=1 /D ML_FIXED_POINT=0 /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fp"x64\Debug\Mle2dRole\Mle2dRole.pch" /Fo"x64\Debug\Mle2dRole/" /Fd"x64\Debug\Mle2dRole/vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt %(Inventor2dRoleFiles.Identity)'/>
@@ -287,6 +338,16 @@
 
     <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\Debug\Mle2dRole\Mle2dRoled.lib"
           DestinationFolder="$(MLE_ROOT)\lib64\rehearsal"/>
+
+    <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\DebugRuntime\Mle2dRole"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc17"
+          Command='cl.exe /c /I "..\..\..\common\include" /I "..\..\..\inventor" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_HOME)\Parts\stages\inventor\include" /I "$(MLE_HOME)\Parts\props\common\include" /I "$(MLE_HOME)\Parts\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "C:\Coin3D\include" /Zi /nologo /W3 /WX- /diagnostics:column /Od /D MLE_DEBUG /D MLE_DIGITAL_PLAYPRINT /D MLE_NOT_UTIL_DLL /D MLE_NOT_MATH_DLL /D MLE_NOT_RUNTIME_DLL /D MLE_2DROLE_DLL /D MLE_2DSET_DLL /D MLE_MAKE_DLL /D COIN_DLL /D _DEBUG /D _WINDOWS /D _USRDLL /D MLE_2DROLE_EXPORTS /D ML_MATH_DEBUG=1 /D ML_FIXED_POINT=0 /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fp"x64\DebugRuntime\Mle2dRole\Mle2dRole.pch" /Fo"x64\DebugRuntime\Mle2dRole/" /Fd"x64\DebugRuntime\Mle2dRole/vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt %(Inventor2dRoleFiles.Identity)'/>
+
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\DebugRuntime\Mle2dRole"
+          Command='lib.exe /out:Mle2dRoled.lib /def *.obj C:\Coin3D\lib\Coin4d.lib'/>
+
+    <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\DebugRuntime\Mle2dRole\Mle2dRoled.lib"
+          DestinationFolder="$(MLE_ROOT)\lib64\runtime\cdecl"/>
 
     <CreateItem
       Include="..\..\Mle3dRole\Mle3dRole.cpp;
@@ -305,6 +366,16 @@
     <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\Release\Mle3dRole\Mle3dRole.lib"
           DestinationFolder="$(MLE_ROOT)\lib64\rehearsal"/>
 
+    <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\ReleaseRuntime\Mle3dRole"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc17"
+          Command='cl.exe /c /I "..\..\..\common\include" /I "..\..\..\inventor\include" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_HOME)\Parts\stages\inventor\include" /I "$(MLE_HOME)\Parts\props\common\include" /I "$(MLE_HOME)\Parts\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "C:\Coin3D\include" /Zi /nologo /W3 /WX- /diagnostics:column /O2 /Ob1 /D MLE_DIGITAL_PLAYPRINT /D MLE_NOT_UTIL_DLL /D MLE_NOT_MATH_DLL /D MLE_NOT_RUNTIME_DLL /D MLE_3DTRANSFORMCARRIER_DLL /D MLE_PROPERTY_DLL /D MLE_3DROLE_DLL /D MLE_MAKE_DLL /D COIN_DLL /D NDEBUG /D _WINDOWS /D _USRDLL /D MLE_3DROLE_EXPORTS /D ML_MATH_DEBUG=0 /D ML_FIXED_POINT=0 /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fp"x64\ReleaseRuntime\Mle3dRole\Mle3dRole.pch" /Fo"x64\ReleaseRuntime\Mle3dRole/" /Fd"x64\ReleaseRuntime\Mle3drole/vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt %(Inventor3dRoleFiles.Identity)'/>
+
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\ReleaseRuntime\Mle3dRole"
+          Command='lib.exe /out:Mle3dRole.lib /def *.obj C:\Coin3D\lib\Coin4.lib'/>
+
+    <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\ReleaseRuntime\Mle3dRole\Mle3dRole.lib"
+          DestinationFolder="$(MLE_ROOT)\lib64\runtime\cdecl"/>
+
     <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\Debug\Mle3dRole"/>
     <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc17"
           Command='cl.exe /c /I "..\..\..\common\include" /I "..\..\..\inventor\include" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_HOME)\Parts\stages\inventor\include" /I "$(MLE_HOME)\Parts\props\common\include" /I "$(MLE_HOME)\Parts\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "C:\Coin3D\include" /Zi /nologo /W3 /WX- /diagnostics:column /Od /D MLE_DEBUG /D MLE_REHEARSAL /D MLE_DIGITAL_WORKPRINT /D MLE_NOT_UTIL_DLL /D MLE_NOT_MATH_DLL /D MLE_RUNTIME_DLL /D MLE_PROPERTY_DLL /D MLE_3DTRANSFORMCARRIER_DLL /D MLE_DWP_DLL /D MLE_3DROLE_DLL /D MLE_MAKE_DLL /D COIN_DLL /D _DEBUG /D _WINDOWS /D _USRDLL /D MLE_3DROLE_EXPORTS /D ML_MATH_DEBUG=1 /D ML_FIXED_POINT=0 /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fp"x64\Debug\Mle3dRole\Mle3dRole.pch" /Fo"x64\Debug\Mle3dRole/" /Fd"x64\Debug\Mle3dRole/vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt %(Inventor3dRoleFiles.Identity)'/>
@@ -314,6 +385,16 @@
 
     <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\Debug\Mle3dRole\Mle3dRoled.lib"
           DestinationFolder="$(MLE_ROOT)\lib64\rehearsal"/>
+
+    <Makedir Directories="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\DebugRuntime\Mle3dRole"/>
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc17"
+          Command='cl.exe /c /I "..\..\..\common\include" /I "..\..\..\inventor\include" /I "$(MLE_HOME)\Parts\sets\inventor" /I "$(MLE_HOME)\Parts\stages\inventor\include" /I "$(MLE_HOME)\Parts\props\common\include" /I "$(MLE_HOME)\Parts\mediaref\inventor" /I "$(MLE_ROOT)\include" /I "C:\Coin3D\include" /Zi /nologo /W3 /WX- /diagnostics:column /Od /D MLE_DEBUG /D MLE_DIGITAL_PLAYPRINT /D MLE_NOT_UTIL_DLL /D MLE_NOT_MATH_DLL /D MLE_NOT_RUNTIME_DLL /D MLE_PROPERTY_DLL /D MLE_3DTRANSFORMCARRIER_DLL /D MLE_DWP_DLL /D MLE_3DROLE_DLL /D MLE_MAKE_DLL /D COIN_DLL /D _DEBUG /D _WINDOWS /D _USRDLL /D MLE_3DROLE_EXPORTS /D ML_MATH_DEBUG=1 /D ML_FIXED_POINT=0 /D _VC80_UPGRADE=0x0600 /D _WINDLL /D _MBCS /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++17 /Fp"x64\DebugRuntime\Mle3dRole\Mle3dRole.pch" /Fo"x64\DebugRuntime\Mle3dRole/" /Fd"x64\DebugRuntime\Mle3dRole/vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt %(Inventor3dRoleFiles.Identity)'/>
+
+    <Exec WorkingDirectory="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\DebugRuntime\Mle3dRole"
+          Command='lib.exe /out:Mle3dRoled.lib /def *.obj C:\Coin3D\lib\Coin4d.lib'/>
+
+    <Copy SourceFiles="$(MLE_HOME)\Parts\roles\win32\build\msvc17\x64\DebugRuntime\Mle3dRole\Mle3dRoled.lib"
+          DestinationFolder="$(MLE_ROOT)\lib64\runtime\cdecl"/>
 
   </Target>
 
