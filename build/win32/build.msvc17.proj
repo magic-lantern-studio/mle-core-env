@@ -238,10 +238,6 @@
     <CreateItem
       Include="$(MLE_HOME)\Parts\stages\inventor\src\antirot.cxx;
                $(MLE_HOME)\Parts\stages\inventor\src\ivstage.cxx;
-               $(MLE_HOME)\Parts\stages\inventor\src\MultiSearchAction.cxx;
-               $(MLE_HOME)\Parts\stages\inventor\src\Source.cxx;
-               $(MLE_HOME)\Parts\stages\inventor\src\SpotMarker.cxx;
-               $(MLE_HOME)\Parts\stages\inventor\src\Target.cxx;
                $(MLE_HOME)\Parts\stages\rehearsal\src\MleIvStage.cxx;
                $(MLE_HOME)\Parts\stages\rehearsal\src\StdAfx.cpp">
       <Output TaskParameter="Include" ItemName="InventorRuntimeStageFiles" />
