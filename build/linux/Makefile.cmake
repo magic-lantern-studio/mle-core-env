@@ -128,46 +128,91 @@ libmlutil_clean: libmlutil_clean_release libmlutil_clean_debug
 libmlutil_clobber: libmlutil_clobber_release libmlutil_clobber_debug
 libmlutil_install: libmlutil_install_release libmlutil_install_debug
 libmlutil_uninstall: libmlutil_uninstall_release libmlutil_uninstall_debug
-	
+
 # Targets for Magic Lantern math library.
 
-$(MLE_HOME)/Core/math/linux/libmlmath/Makefile:
+$(MLE_HOME)/Core/math/linux/libmlmath_release/Makefile:
 	@echo ""
-	@echo "***** Running Makefile target libmlmath configure *****"
+	@echo "***** Running Makefile target libmlmath cmake - Release *****"
 	@echo ""
-	cd $(MLE_HOME)/Core/math/linux/libmlmath; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure;
+	cd $(MLE_HOME)/Core/math/linux; cmake -Hlibmlmath -Blibmlmath_release -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/MagicLantern -DCMAKE_PREFIX_PATH="/opt/MagicLantern";
 
-libmlmath_stage: $(MLE_HOME)/Core/math/linux/libmlmath/Makefile
+libmlmath_stage_release: check_env $(MLE_HOME)/Core/math/linux/libmlmath_release/Makefile
 
-libmlmath: check_env libmlmath_stage libmlutil_install
+libmlmath_release: check_env libmlmath_stage_release libmlutil_install_release
 	@echo ""
-	@echo "***** Running Makefile target libmlmath *****"
+	@echo "***** Running Makefile target libmlmath_release *****"
 	@echo ""
-	cd $(MLE_HOME)/Core/math/linux/libmlmath; MLE_ROOT=$(MLE_ROOT) make;
+	cd $(MLE_HOME)/Core/math/linux/libmlmath_release; make;
 
-libmlmath_clean: check_env libmlmath_stage
+libmlmath_clean_release: check_env libmlmath_stage_release
 	@echo ""
-	@echo "***** Running Makefile target libmlmath_clean *****"
+	@echo "***** Running Makefile target libmlmath_clean_release *****"
 	@echo ""
-	cd $(MLE_HOME)/Core/math/linux/libmlmath; make clean;
+	cd $(MLE_HOME)/Core/math/linux/libmlmath_release; make clean;
 
-libmlmath_clobber: check_env libmlmath_stage libmlmath_clean
+libmlmath_clobber_release: check_env libmlmath_stage_release libmlmath_clean_release
 	@echo ""
-	@echo "***** Running Makefile target libmlmath_clobber *****"
+	@echo "***** Running Makefile target libmlmath_clobber_release *****"
 	@echo ""
-	cd $(MLE_HOME)/Core/math/linux/libmlmath; make maintainer-clean;
+	cd $(MLE_HOME)/Core/math/linux; rm -rf libmlmath_release;
 
-libmlmath_install: libmlmath
+libmlmath_install_release: libmlmath_release
 	@echo ""
-	@echo "***** Running Makefile target libmlmath_install *****"
+	@echo "***** Running Makefile target libmlmath_install_release *****"
 	@echo ""
-	cd $(MLE_HOME)/Core/math/linux/libmlmath; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/Core/math/linux/libmlmath_release; make install;
 
-libmlmath_uninstall: check_env libmlmath_stage
+libmlmath_uninstall_release: check_env libmlmath_stage_release
 	@echo ""
-	@echo "***** Running Makefile target libmlmath_uninstall *****"
+	@echo "***** Running Makefile target libmlmath_uninstall_release *****"
 	@echo ""
-	cd $(MLE_HOME)/Core/math/linux/libmlmath; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/Core/math/linux/libmlmath_release; make uninstall;
+
+$(MLE_HOME)/Core/math/linux/libmlmath_debug/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target libmlmath cmake - Debug *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/linux; cmake -Hlibmlmath -Blibmlmath_debug -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/opt/MagicLantern -DCMAKE_PREFIX_PATH="/opt/MagicLantern";
+
+libmlmath_stage_debug: check_env $(MLE_HOME)/Core/math/linux/libmlmath_debug/Makefile
+
+libmlmath_debug: check_env libmlmath_stage_debug libmlutil_install_debug
+	@echo ""
+	@echo "***** Running Makefile target libmlmath_debug *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/linux/libmlmath_debug; make;
+
+libmlmath_clean_debug: check_env libmlmath_stage_debug
+	@echo ""
+	@echo "***** Running Makefile target libmlmath_clean_debug *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/linux/libmlmath_debug; make clean;
+
+libmlmath_clobber_debug: check_env libmlmath_stage_debug libmlmath_clean_debug
+	@echo ""
+	@echo "***** Running Makefile target libmlmath_clobber_debug *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/linux; rm -rf libmlmath_debug;
+
+libmlmath_install_debug: libmlmath_debug
+	@echo ""
+	@echo "***** Running Makefile target libmlmath_install_debug *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/linux/libmlmath_debug; make install;
+
+libmlmath_uninstall_debug: check_env libmlmath_stage_debug
+	@echo ""
+	@echo "***** Running Makefile target libmlmath_uninstall_debug *****"
+	@echo ""
+	cd $(MLE_HOME)/Core/math/linux/libmlmath_debug; make uninstall;
+
+libmlmath_stage: libmlmath_stage_release libmlmath_stage_debug
+libmlmath: libmlmath_release libmlmath_debug
+libmlmath_clean: libmlmath_clean_release libmlmath_clean_debug
+libmlmath_clobber: libmlmath_clobber_release libmlmath_clobber_debug
+libmlmath_install: libmlmath_install_release libmlmath_install_debug
+libmlmath_uninstall: libmlmath_uninstall_release libmlmath_uninstall_debug
 
 # Targets for Magic Lantern DigitalWorkprint library.
 
