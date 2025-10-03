@@ -216,43 +216,88 @@ libmlmath_uninstall: libmlmath_uninstall_release libmlmath_uninstall_debug
 
 # Targets for Magic Lantern DigitalWorkprint library.
 
-$(MLE_HOME)/DigitalWorkprint/lib/linux/Makefile:
+$(MLE_HOME)/DigitalWorkprint/lib/dwp_release/Makefile:
 	@echo ""
-	@echo "***** Running Makefile target libDWP configure *****"
+	@echo "***** Running Makefile target libDWP cmake - Release *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; libtoolize; aclocal; automake --add-missing --ignore-deps; autoconf; ./configure --with-log4cxx=yes;
+	cd $(MLE_HOME)/DigitalWorkprint/lib; cmake -Hlinux -Bdwp_release -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/MagicLantern -DCMAKE_PREFIX_PATH="/opt/MagicLantern";
 
-libDWP_stage: $(MLE_HOME)/DigitalWorkprint/lib/linux/Makefile
+libDWP_stage_release: $(MLE_HOME)/DigitalWorkprint/lib/dwp_release/Makefile
 
-libDWP: check_env libDWP_stage libmlutil_install libmlmath_install
+libDWP_release: check_env libDWP_stage_release libmlutil_install_release libmlmath_install_release
 	@echo ""
-	@echo "***** Running Makefile target libDWP *****"
+	@echo "***** Running Makefile target libDWP_release *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; MLE_ROOT=$(MLE_ROOT) make;
+	cd $(MLE_HOME)/DigitalWorkprint/lib/dwp_release; make;
 
-libDWP_clean: check_env libDWP_stage
+libDWP_clean_release: check_env libDWP_stage_release
 	@echo ""
-	@echo "***** Running Makefile target libDWP_clean *****"
+	@echo "***** Running Makefile target libDWP_clean_release *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; make clean;
+	cd $(MLE_HOME)/DigitalWorkprint/lib/dwp_release; make clean;
 
-libDWP_clobber: check_env libDWP_stage libDWP_clean
+libDWP_clobber_release: check_env libDWP_stage_release libDWP_clean_release
 	@echo ""
-	@echo "***** Running Makefile target libDWP_clobber *****"
+	@echo "***** Running Makefile target libDWP_clobber_release *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; make maintainer-clean;
+	cd $(MLE_HOME)/DigitalWorkprint/lib; rm -rf dwp_release;
 
-libDWP_install: libDWP
+libDWP_install_release: libDWP_release
 	@echo ""
-	@echo "***** Running Makefile target libDWP_install *****"
+	@echo "***** Running Makefile target libDWP_install_release *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; MLE_ROOT=$(MLE_ROOT) make install;
+	cd $(MLE_HOME)/DigitalWorkprint/lib/dwp_release; make install;
 
-libDWP_uninstall: check_env libDWP_stage
+libDWP_uninstall_release: check_env libDWP_stage_release
 	@echo ""
-	@echo "***** Running Makefile target libDWP_uninstall *****"
+	@echo "***** Running Makefile target libDWP_uninstall_release *****"
 	@echo ""
-	cd $(MLE_HOME)/DigitalWorkprint/lib/linux; MLE_ROOT=$(MLE_ROOT) make uninstall;
+	cd $(MLE_HOME)/DigitalWorkprint/lib/dwp_release; make uninstall;
+
+$(MLE_HOME)/DigitalWorkprint/lib/dwp_debug/Makefile:
+	@echo ""
+	@echo "***** Running Makefile target libDWP cmake - Debug *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalWorkprint/lib; cmake -Hlinux -Bdwp_debug -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/opt/MagicLantern -DCMAKE_PREFIX_PATH="/opt/MagicLantern";
+
+libDWP_stage_debug: $(MLE_HOME)/DigitalWorkprint/lib/dwp_debug/Makefile
+
+libDWP_debug: check_env libDWP_stage_debug libmlutil_install_debug libmlmath_install_debug
+	@echo ""
+	@echo "***** Running Makefile target libDWP_debug *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalWorkprint/lib/dwp_debug; make;
+
+libDWP_clean_debug: check_env libDWP_stage_debug
+	@echo ""
+	@echo "***** Running Makefile target libDWP_clean_debug *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalWorkprint/lib/dwp_debug; make clean;
+
+libDWP_clobber_debug: check_env libDWP_stage_debug libDWP_clean_debug
+	@echo ""
+	@echo "***** Running Makefile target libDWP_clobber_debug *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalWorkprint/lib; rm -rf dwp_debug;
+
+libDWP_install_debug: libDWP_debug
+	@echo ""
+	@echo "***** Running Makefile target libDWP_install_debug *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalWorkprint/lib/dwp_debug; make install;
+
+libDWP_uninstall_debug: check_env libDWP_stage_debug
+	@echo ""
+	@echo "***** Running Makefile target libDWP_uninstall_debug *****"
+	@echo ""
+	cd $(MLE_HOME)/DigitalWorkprint/lib/dwp_debug; make uninstall;
+
+libDWP_stage: libDWP_stage_release libDWP_stage_debug
+libDWP: libDWP_release libDWP_debug
+libDWP_clean: libDWP_clean_release libDWP_clean_debug
+libDWP_clobber: libDWP_clobber_release libDWP_clobber_debug
+libDWP_install: libDWP_install_release libDWP_install_debug
+libDWP_uninstall: libDWP_uninstall_release libDWP_uninstall_debug
 
 # Targets for Magic Lantern DigitalPlayprint library.
 
