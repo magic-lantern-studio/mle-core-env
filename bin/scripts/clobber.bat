@@ -36,6 +36,7 @@ IF EXIST %MLE_ROOT%\bin64 (
     DIR
     DEL *.exe
     DEL rehearsal\*.dll
+    DEL runtime\cdecl\*.dll
     ECHO
 )
 
