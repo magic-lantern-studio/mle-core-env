@@ -52,7 +52,7 @@ echo " ***** Processing mle-players *****"
 cd ../mle-players
 git branch -a
 
-echo " ***** Processing mle-core-env *****"
+echo " ***** Processing mle-titles *****"
 cd ../mle-titles
 git branch -a
 
